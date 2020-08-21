@@ -1,7 +1,7 @@
 # Magnus Screen Magnifier
 
 |  CP Information |            |
-|-----------------|--------------|
+|----------------|--------------|
 | Package | Magnus 1.0.2 |
 | Script Name | [magnus-cp-init-script.sh](magnus-cp-init-script.sh) |
 | CP Mount Path | /custom/magnus |
