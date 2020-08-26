@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="yakyak_amd64_1.5.9.tar.bz2"
+version="1.5.9"
+size="350M"
+name="yakyak"
+minfw="11.03.110"
