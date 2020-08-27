@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="zoom_amd64_5.2.446620.0816.tar.bz2"
+version="5.2.446620.0816"
+size="200M"
+name="zoom"
+minfw="11.03.100"
