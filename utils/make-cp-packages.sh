@@ -1,4 +1,5 @@
 #!/bin/bash
+shopt -s extglob
 # uncomment set and trap to trace execution
 set -x
 #trap read debug
@@ -58,6 +59,7 @@ for category in $CATEGORIES; do
           cp *.inf "$cpt/target"
           cp *.sh "$cpt/target"
           cp *.md "$cpt/target"
+          cp !(*.xml|*.inf|*.sh|*.md|$cpt) "$cpt/target"
           cp $COMMONREADME "$cpt"
           cp $COMMONDISCLAIMER "$cpt"
           cd $cpt
