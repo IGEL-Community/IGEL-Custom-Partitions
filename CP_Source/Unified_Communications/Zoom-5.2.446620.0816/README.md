@@ -1,7 +1,7 @@
 # Zoom
 
 |  CP Information |            |
-|---------------------|------------|
+|--------------------|------------|
 | Package | Zoom 5.2.446620.0816 <br /> [Download Zoom](https://zoom.us/download?os=linux)|
 | Script Name | [zoom-cp-init-script.sh](zoom-cp-init-script.sh) |
 | CP Mount Path | /custom/zoom |
