@@ -50,10 +50,6 @@ In summary, the sample deployment is configured as follows:
 
 * No printer drivers are installed on Multi-session OS machines. Only the Citrix Universal printer driver is used. Fallback to native printing and the automatic installation of printer drivers are disabled.
 
-**Client printers policy settings**
-
-https://docs.citrix.com/en-us/xenapp-and-xendesktop/7-15-ltsr/policies/reference/ica-policy-settings/printing-policy-settings/client-printers-policy-settings.html
-
 **Auto-create client printers**
 
 This setting specifies the client printers that are auto-created. This setting overrides default client printer auto-creation settings.
