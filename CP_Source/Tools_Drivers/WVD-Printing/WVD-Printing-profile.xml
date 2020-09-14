@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>11409</profile_id>
+        <profilename>WVD Printing</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.03.580.01</version>
+        </firmware>
+        <description>WVD Printing Workaround</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /bin/igel_wvd_print.sh
+#!/bin/bash
+mkdir /userhome/media/print
+chown user:users /userhome/media/print
+inotifywait -r -m  /userhome/media/print -e close_write |
+        while read a b file; do
+        &amp;lb&amp;lb \$b == *CLOSE_WRITE* &amp;rb&amp;rb &amp;amp&amp;amp lpr /userhome/media/print/"\$file" &amp;amp&amp;amp sleep 9 &amp;amp&amp;amp rm /userhome/media/print/"\$file"
+        done
+EOF
+
+chmod 755 /bin/igel_wvd_print.sh
+/bin/igel_wvd_print.sh &amp;amp
+</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings/>
+    </profile>
+</profiles>
