@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>12561</profile_id>
+        <profilename>ConnectWise ScreenConnect</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.03.110.01</version>
+        </firmware>
+        <description>ConnectWise Control ScreenConnect</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="custom_partition.enabled">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="custom_partition.size">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">200M</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings>
+            <instance classprefix="custom_partition.source%" serialnumber="25d0fa31:174a2d40a2c:-8000127.0.1.1">
+                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/screenconnect-cp-init-script.sh stop</ivalue>
+                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/screenconnect-cp-init-script.sh init</ivalue>
+                <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[Server]:8443/ums_filetransfer/screenconnect_20.1.29489.7513.inf</ivalue>
+                <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[UserName]</ivalue>
+            </instance>
+        </instancesettings>
+    </profile>
+</profiles>

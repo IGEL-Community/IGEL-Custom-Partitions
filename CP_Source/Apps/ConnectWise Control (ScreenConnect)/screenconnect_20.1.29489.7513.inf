@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="screenconnect_20.1.29489.7513.tar.bz2"
+version="20.1.29489.7513"
+size="200M"
+name="screenconnect"
+minfw="11.03.100"
