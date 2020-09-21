@@ -28,7 +28,8 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 [Install]
 WantedBy=multi-user.target
   ```
-**After Install**: To access ScreenConnect installation, open browser and connect to: <br /><br />
+**After Install**: A reboot is required before using. <br />
+**After Reboot**: To access ScreenConnect installation, open browser and connect to: <br /><br />
 
 ```{Access ScreenConnect installation}
 http://localhost:8040/Host
