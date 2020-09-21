@@ -32,12 +32,8 @@ init)
   echo "${CP}/opt/screenconnect/App_Runtime/lib" > /etc/ld.so.conf.d/screenconnect.conf
   ldconfig
 
-  systemctl daemon-reload
-  systemctl enable screenconnect.service
-  systemctl start screenconnect.service
 ;;
 stop)
-  sytemctl stop screenconnect.service
   # unlink linked files
   find ${CP} | while read LINE
   do
