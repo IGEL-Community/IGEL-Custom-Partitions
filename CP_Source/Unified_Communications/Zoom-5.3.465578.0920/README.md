@@ -11,4 +11,4 @@
 | Path to Executable | /custom/zoom/usr/bin/zoom |
 | Path to Icon | /custom/zoom/usr/share/pixmaps/Zoom.png |
 | Missing Libraries | [libxcb-xtest0](https://packages.ubuntu.com/bionic/amd64/libxcb-xtest0) |
-| Packaging Notes | Need to move the mime folder: <br /><br />mv /custom/zoom/usr/share/applications /custom/zoom/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/zoom/config/bin/[zoom_cp_apparmor_reload](zoom_cp_apparmor_reload) <br /> /custom/zoom/lib/systemd/system/[igel-zoom-cp-apparmor-reload.service](igel-zoom-cp-apparmor-reload.service) <br /><br />mv /custom/zoom/usr/share/applications /custom/zoom/usr/share/applications.mime |
+| Packaging Notes | Need to move the mime folder: <br /><br />mv /custom/zoom/usr/share/applications /custom/zoom/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/zoom/config/bin/[zoom_cp_apparmor_reload](zoom_cp_apparmor_reload) <br /> /custom/zoom/lib/systemd/system/[igel-zoom-cp-apparmor-reload.service](igel-zoom-cp-apparmor-reload.service) |
