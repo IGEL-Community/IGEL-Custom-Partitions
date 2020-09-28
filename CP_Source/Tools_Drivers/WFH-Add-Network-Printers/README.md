@@ -3,7 +3,7 @@
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded script.            |
 |--------------------|------------|
-| Package | wfh-add-network-printers 1.01 |
+| Package | wfh-add-network-printers 1.02 |
 | Script Name | /bin/igel_create_network_printers.sh |
 | IGEL OS Version (min) | 11.3.110 |
 | Notes | Sample proof of concept to dynamically add network printers found after reboot to be “wifiprinter\<number\>” <br /><br /> Limited error checking – Just to show the art of the possible… <br /><br /> Profile (requires a reboot once profile is applied) that will find all network printers (/usr/lib/cups/backend/snmp) and configure them with CUPS IPP driver.<br /><br /> See -- https://www.cups.org/doc/admin.html#MODELS |
@@ -20,6 +20,12 @@ Command to add above printer:
 
 ```{command}
 lpadmin -p wifiprinter1 -E -v ipp://BRWB068E696FC10/BINARY_P1 -m everywhere && lpoptions -d wifiprinter1
+  ```
+
+or (v2)
+
+```{command}
+lpadmin -p wifiprinter1 -E -v ipp://BRWB068E696FC10/ipp/print -m everywhere && lpoptions -d wifiprinter1
   ```
 
 ***
