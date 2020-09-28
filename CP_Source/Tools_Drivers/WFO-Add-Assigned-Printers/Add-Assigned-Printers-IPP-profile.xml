@@ -54,8 +54,8 @@ exit 0
 EOF
 
 cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /tmp/igel_assigned_printers.csv
-ITC0800270F8F74,lab1427_3d_printer,BRWB068E696FC10/BINARY_P1,default
-ITC0800270F8F75,lab1428_3d_printer,BRWB068E696FC10/BINARY_P1,default
+ITC0800270F8F74,lab1427_3d_printer,BRWB068E696FC10/ipp/print,default
+ITC0800270F8F75,lab1428_3d_printer,BRWB068E696FC10/ipp/print,default
 EOF
 
 chmod 755 /bin/igel_create_assigned_printers.sh
