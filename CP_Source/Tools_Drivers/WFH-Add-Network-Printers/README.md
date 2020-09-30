@@ -18,16 +18,36 @@ network lpd://BRWB068E696FC10/BINARY_P1 "Brother MFC-L2750DW series" "Brother MF
 
 Command to add above printer:
 
-```{command}
+```{lpadmin}
 lpadmin -p wifiprinter1 -E -v ipp://BRWB068E696FC10/BINARY_P1 -m everywhere && lpoptions -d wifiprinter1
   ```
 
 or (v2)
 
-```{command}
+```{lpadmin v2}
 lpadmin -p wifiprinter1 -E -v ipp://BRWB068E696FC10/ipp/print -m everywhere && lpoptions -d wifiprinter1
   ```
 
+***
+**Debugging CUPS IPP**  
+
+The following command, ipptool, can be used to query printer attributes.
+
+```{ipptool}
+ipptool -tv ipp://BRWB068E696FC10/ipp/print get-printer-attributes.test | head -10
+  ```
+Output from ipptool:  
+
+```{ipptool output}
+"/usr/share/cups/ipptool/get-printer-attributes.test":
+    Get-Printer-Attributes:
+        attributes-charset (charset) = utf-8
+        attributes-natural-language (naturalLanguage) = en
+        printer-uri (uri) = ipp://BRWB068E696FC10:631/ipp/print
+    Get printer attributes using Get-Printer-Attributes                  [PASS]
+        RECEIVED: 8650 bytes in response
+        status-code = successful-ok (successful-ok)
+  ```
 ***
 Printing with CUPS and IPP (Internet Printing Protocol) allows for finding and printing to networked and USB printers without using vendor specific software.
 
