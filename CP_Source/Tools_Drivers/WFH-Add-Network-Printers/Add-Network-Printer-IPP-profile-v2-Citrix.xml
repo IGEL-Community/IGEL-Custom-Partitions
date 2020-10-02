@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>16604</profile_id>
+        <profilename>Add Network Printers (IPP) -V2 Citrix</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.03.110.01</version>
+        </firmware>
+        <description>Add network printers - CUPS - Internet Printing Protocol</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="userinterface.rccustom.custom_cmd_net_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /bin/igel_create_network_printers.sh
+#!/bin/bash
+#set -x
+#trap read debug
+
+ACTION="create_network_printers_\${1}"
+
+COUNT=1
+
+# output to systemlog with ID amd tag
+LOGGER="logger -it \${ACTION}"
+
+echo "Starting" | \$LOGGER
+
+case "\$1" in
+init)
+  # create network printers from /usr/lib/cups/backend/snmp
+  /usr/lib/cups/backend/snmp | while read LINE
+    do
+      URI=ipp://\`echo "\${LINE}" | awk --field-separator " " '{print \$2}' | sed -e 's|^.*//||' -e 's|&amp;lb:/&amp;rb.*||'\`/ipp/print
+      lpadmin -p wifiprinter\${COUNT} -E -v \$URI -m everywhere
+      if &amp;lb \${COUNT} -eq 1 &amp;rb; then
+        lpoptions -d wifiprinter\${COUNT}
+        sed -i "/ClientPrinterQueue/ a ClientPrinterList=wifiprinter\${COUNT}" /userhome/.ICAClient/wfclient.ini
+      else
+        sed -i "/ClientPrinterQueue/ s/$/:wifiprinter\${COUNT}:" /userhome/.ICAClient/wfclient.ini
+      fi
+      COUNT=\$COUNT+1
+    done
+
+;;
+stop)
+	# nothing to do
+	echo "stop"
+;;
+esac
+
+echo "Finished" | \$LOGGER
+
+exit 0
+EOF
+
+chmod 755 /bin/igel_create_network_printers.sh
+/bin/igel_create_network_printers.sh init
+</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings/>
+    </profile>
+</profiles>

@@ -3,10 +3,13 @@
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded script.            |
 |--------------------|------------|
-| Package | wfh-add-network-printers 1.02 |
+| Package | wfh-add-network-printers 1.03 |
 | Script Name | /bin/igel_create_network_printers.sh |
 | IGEL OS Version (min) | 11.3.110 |
 | Notes | Sample proof of concept to dynamically add network printers found after reboot to be “wifiprinter\<number\>” <br /><br /> Limited error checking – Just to show the art of the possible… <br /><br /> Profile (requires a reboot once profile is applied) that will find all network printers (/usr/lib/cups/backend/snmp) and configure them with CUPS IPP driver.<br /><br /> See -- https://www.cups.org/doc/admin.html#MODELS |
+| [Add-Network-Printer-IPP-profile.xml](Add-Network-Printer-IPP-profile.xml) | Version 1 uses the full path from snmp |
+| [Add-Network-Printer-IPP-profile-v2.xml](Add-Network-Printer-IPP-profile-v2.xml) | Version 2 uses just the printer name / ip address and appends ipp/print |
+| [Add-Network-Printer-IPP-profile-v2-Citrix.xml](Add-Network-Printer-IPP-profile-v2-Citrix.xml) | Version 2 Citrix adds to Version 2 (above) the printers to Citrix wfclient.ini (ClientPrinterList) as noted [here](https://docs.citrix.com/en-us/citrix-workspace-app-for-linux/configure-xenapp.html). |
 
 Here is output from /usr/lib/cups/backend/snmp for my network printer (Brother MFC-L2750DW)
 
@@ -63,6 +66,8 @@ https://www.cups.org/blog/2018-06-06-demystifying-cups-development.html
 https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/printing.html
 
 https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/printing/printing-configuration-example.html
+
+https://docs.citrix.com/en-us/citrix-workspace-app-for-linux/configure-xenapp.html
 
 Use of the Citrix Universal printer driver ensures that all printers connected to a client can also be used from a virtual desktop or application session without integrating a new printer driver in the data center.
 
