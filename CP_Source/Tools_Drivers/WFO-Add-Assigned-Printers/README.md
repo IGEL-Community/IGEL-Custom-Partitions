@@ -3,12 +3,13 @@
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded script.            |
 |--------------------|------------|
-| Package | wfo-add-assigned-printers 1.01 |
+| Package | wfo-add-assigned-printers 1.02 |
 | Script Name | /bin/igel_create_assigned_printers.sh |
 | Assigned Printers | /tmp/igel_assigned_printers.csv <br /><br /> **Note:** This file is created from the embedded script.|
 | Format of Assigned Printers CSV | hostname,print-spooler-name,IPP-Name,default <br /> hostname,print-spooler-name,IPP-Name,notdefault |
 | IGEL OS Version (min) | 11.3.110 |
 | Notes | Sample proof of concept to add assigned printers from embedded script created /tmp/igel_assigned_printers.csv file. <br /><br /> Limited error checking – Just to show the art of the possible… <br /><br /> Profile (requires a reboot once profile is applied) that will assign defined printers and configure them with CUPS IPP driver.<br /><br /> See -- https://www.cups.org/doc/admin.html#MODELS |
+| [Add-Assigned-Printers-IPP-profile-v2-Citrix.xml](Add-Assigned-Printers-IPP-profile-v2-Citrix.xml) | Version 2 Citrix adds the printers to Citrix wfclient.ini (ClientPrinterList) as noted [here](https://docs.citrix.com/en-us/citrix-workspace-app-for-linux/configure-xenapp.html). |
 
 Profile needs to be updated with a mapping of hosts to printers. /usr/lib/cups/backend/snmp should be used to collect the IPP URI.
 
@@ -41,6 +42,8 @@ https://www.cups.org/blog/2018-06-06-demystifying-cups-development.html
 https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/printing.html
 
 https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/printing/printing-configuration-example.html
+
+https://docs.citrix.com/en-us/citrix-workspace-app-for-linux/configure-xenapp.html
 
 Use of the Citrix Universal printer driver ensures that all printers connected to a client can also be used from a virtual desktop or application session without integrating a new printer driver in the data center.
 

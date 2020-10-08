@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>10891</profile_id>
+        <profilename>Add Assigned Printers (IPP) V2 Citrix</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.04.100.01</version>
+        </firmware>
+        <description>Citrix Add assigned printers - CUPS - Internet Printing Protocol</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="userinterface.rccustom.custom_cmd_net_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /bin/igel_create_assigned_printers.sh
+#!/bin/bash
+#set -x
+#trap read debug
+
+ACTION="create_assigned_printers_\${1}"
+
+COUNT=1
+WFCLIENT="/userhome/.ICAClient/wfclient.ini"
+
+# output to systemlog with ID amd tag
+LOGGER="logger -it \${ACTION}"
+
+echo "Starting" | \$LOGGER
+
+case "\$1" in
+init)
+  # attach assigned printers to computer
+  cat /tmp/igel_assigned_printers.csv | while read LINE
+    do
+      if &amp;lb \`hostname\` = \`echo \${LINE} | awk --field-separator "," '{print \$1}'\` &amp;rb; then
+        PNAME=\`echo \$LINE} | awk --field-separator "," '{print \$2}'\`
+        PIPP=\`echo \${LINE} | awk --field-separator "," '{print \$3}'\`
+        lpadmin -p \${PNAME} -E -v ipp://\${PIPP} -m everywhere
+        if &amp;lb \`echo \${LINE} | awk --field-separator "," '{print \$4}'\` = default &amp;rb; then
+          lpoptions -d \${PNAME}
+        fi
+        CPL_EXIST=\`grep ClientPrinterList \${WFCLIENT}\`
+        if &amp;lb&amp;lb \${CPL_EXIST} == *"ClientPrinterList"* &amp;rb&amp;rb; then
+          sed -i "/ClientPrinterList/ s/$/:\${PNAME}/" \${WFCLIENT}
+        else
+          sed -i "/ClientPrinterQueue/ a ClientPrinterList=\${PNAME}" \${WFCLIENT}
+        fi
+      fi
+    done
+;;
+stop)
+	# nothing to do
+	echo "stop"
+;;
+esac
+
+echo "Finished" | \$LOGGER
+
+exit 0
+EOF
+
+cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /tmp/igel_assigned_printers.csv
+ITC0800270F8F74,lab1427_3d_printer,BRWB068E696FC10/ipp/print,default
+ITC0800270F8F74,lab1427_2d_printer,BRWB068E696FC10/ipp/print,notdefault
+ITC0800270F8F75,lab1428_3d_printer,BRWB068E696FC10/ipp/print,default
+EOF
+
+chmod 755 /bin/igel_create_assigned_printers.sh
+/bin/igel_create_assigned_printers.sh init
+</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings/>
+    </profile>
+</profiles>

@@ -38,7 +38,7 @@ init)
         lpoptions -d wifiprinter\${COUNT}
         sed -i "/ClientPrinterQueue/ a ClientPrinterList=wifiprinter\${COUNT}" /userhome/.ICAClient/wfclient.ini
       else
-        sed -i "/ClientPrinterQueue/ s/$/:wifiprinter\${COUNT}:" /userhome/.ICAClient/wfclient.ini
+        sed -i "/ClientPrinterList/ s/$/:wifiprinter\${COUNT}/" /userhome/.ICAClient/wfclient.ini
       fi
       COUNT=\$COUNT+1
     done
