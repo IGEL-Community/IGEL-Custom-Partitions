@@ -1,0 +1,15 @@
+# Enable wifi on Rock PI X (https://wiki.radxa.com/RockpiX)
+
+|  CP Information |            |
+|--------------------|------------|
+| Package | rockpix 1.01 |
+| Script Name | [rockpix-cp-init-script.sh](rockpix-cp-init-script.sh) |
+| CP Mount Path | /custom/rockpix |
+| CP Size | 10M |
+| IGEL OS Version (min) | 11.4.100 |
+| Metadata File <br /> rockpix.inf | [INFO] <br /> [PART] <br /> file="rockpix_igel.tar.bz2" <br /> version="1.01" <br /> size="10M" <br /> minfw="11.04.100" |
+| Path to Executable | N/A |
+| Path to Icon | N/A |
+| Missing Libraries | N/A |
+| Packaging Notes | This CP activates the iNet Wireless Daemon (IWD) in place of wpa_supplicant.  IWD is new in IGEL OS 11.04.100, but it is not yet the default.  A few notes about the profile and how to configure network connections: <br /> <br /> 1. Under Custom Commands / Base, we reconfigure Network Manager to use IWD as its backend.  We also reconfigure IWD to use its internal dhcp client; to do this, we needed to disable the dhclient AppArmor restrictions. <br /> 2. Under Custom Commands / Network, copy the known wireless connections in /wfs/iwd to the /var/lib/iwd directory, which is where IWD stores its network configs by default.  (do this because this is the only way we could make network configurations persist… within the context of IGEL OS 11.04.100.) <br /> 3. Under Custom Commands / Desktop, setup a systemd service (called igel-iwd-netconfig-archiver.service) to monitor and save active network configurations to the /wfs/iwd directory.  The systemd service copies the active network config every 30 seconds.  You might notice that network configs in /var/lib/iwd “disappear” when you disconnect from the active network, so the service restores the network config (from /wfs/iwd) so it can be used whenever you reconnect to the network. <br /> 4. Created a Custom Application to launch the IWD client (/usr/bin/iwctl) because our Wireless Manager does not pass credentials to IWD.  This application needs to be running to respond to password prompts.  The IWD client can be launched from the Desktop Context menu or by pressing Ctrl-Alt-w. <br /> <br /> There is a bug in 11.04.100:  Session launchers for Custom Applications (created under System / Firmware Customization) are not created when there is no network connection.  When you apply IWD profile to a device, you will not be able to launch iwctl using Custom Application (because there are no Custom Applications due to the bug).  To respond to the password prompting by our Wireless Manager, you need to open a terminal session and enter iwctl. <br /> <br /> To use IWD: <br /> <br /> 1.	Assign the attached profile to a device and let the settings take effect. <br /> 2.	Reboot the device <br /> 3.	Open a terminal session and enter /usr/bin/iwctl to launch the IWD client <br /> 4.	Right-click the IGEL Wireless Manager and connect to your network; enter your password in the IWD Client console (station wlan0 connect \<SSID\>)<br /> 5.	Close the terminal session |
+| wifi drivers firmware | [AP6255 BT WIFI Firmware](https://dl.radxa.com/rockpix/drivers/firmware/AP6255_BT_WIFI_Firmware.zip)

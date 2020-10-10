@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>7694</profile_id>
+        <profilename>Rock PI X Wireless (IWD)</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.04.100.01</version>
+        </firmware>
+        <description>Rock PI X WIFI Replacement for wpa_supplicant on IGEL OS</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="network.interfaces.wirelesslan.device0.active">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="custom_partition.enabled">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_net_init">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cp /wfs/iwd/* /var/lib/iwd/
+systemctl restart iwd.service</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_0">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">ln -s /etc/apparmor.d/sbin.dhclient /etc/apparmor.d/disable/
+apparmor_parser -R /etc/apparmor.d/disable/sbin.dhclient
+
+systemctl disable wpa_supplicant.service
+
+cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /etc/NetworkManager/conf.d/wifi_backend.conf
+&amp;lbdevice&amp;rb
+wifi.backend=iwd
+EOF
+
+sed -i '/enable_network_config=False/ a enable_network_config=True' /etc/iwd/main.conf
+
+systemctl start iwd.service
+</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">&amp;lb ! -d /wfs/iwd &amp;rb &amp;amp&amp;amp mkdir /wfs/iwd
+
+cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /bin/igel_iwd_netconfig_archiver
+#!/bin/bash
+
+# Periodically copy IWD config files to/from /wfs/iwd
+while : ; do
+   ACTIVE_NET=\`iwctl station wlan0 show | grep "Connected network" | cut -c 33- | sed -e 's/^&amp;lb&amp;lb:blank:&amp;rb&amp;rb*//;s/&amp;lb&amp;lb:blank:&amp;rb&amp;rb*\$//'\`
+   if &amp;lb "\$ACTIVE_NET" = "\$ACTIVE_NET_LAST" &amp;rb ; then
+      for I in \`find /var/lib/iwd/ -maxdepth 1 -iname \$ACTIVE_NET.*\` ; do
+         cp -a \${I} /wfs/iwd/
+      done
+   else
+      &amp;lb ! -z "\$ACTIVE_NET_LAST" &amp;rb &amp;amp&amp;amp cp -a /wfs/iwd/\$ACTIVE_NET_LAST.* /var/lib/iwd/
+   fi
+   ACTIVE_NET_LAST="\$ACTIVE_NET"
+   sleep 15
+done
+EOF
+
+chmod 755 /bin/igel_iwd_netconfig_archiver
+
+cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /lib/systemd/system/igel-iwd-netconfig-archiver.service
+# Service to save IWD config files
+
+&amp;lbUnit&amp;rb
+Description="IWD Network Config Archiver"
+
+&amp;lbService&amp;rb
+Type=oneshot
+Restart=on-failure
+RestartSec=5s
+ExecStart="/bin/igel_iwd_netconfig_archiver"
+KillMode=none
+EOF
+
+systemctl daemon-reload
+systemctl enable igel-iwd-netconfig-archiver.service
+systemctl start igel-iwd-netconfig-archiver.service
+</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="custom_partition.size">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">10M</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="network.applet.wireless.enable_connection_editor">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings>
+            <instance classprefix="sessions.custom_application%" serialnumber="-6acff30d:17417226952:-7ff4127.0.1.1">
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/usr/bin/xfce4-terminal -T "IWD Client" --geometry=80x10-0+0 -x iwctl</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">IWD Client</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false">w</ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">Ctrl|Alt</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            </instance>
+            <instance classprefix="custom_partition.source%" serialnumber="-6acff30d:17417226952:-7ff3127.0.1.1">
+                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/rockpix-cp-init-script.sh stop</ivalue>
+                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/rockpix-cp-init-script.sh init</ivalue>
+                <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMS-Server]:8443/ums_filetransfer/rockpix.inf</ivalue>
+                <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
+            </instance>
+        </instancesettings>
+    </profile>
+</profiles>
