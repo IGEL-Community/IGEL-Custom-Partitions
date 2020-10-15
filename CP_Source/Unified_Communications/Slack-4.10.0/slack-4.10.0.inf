@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="slack_amd64_4.10.0.tar.bz2"
+version="4.10.0"
+size="250M"
+name="slack"
+minfw="11.03.110"
