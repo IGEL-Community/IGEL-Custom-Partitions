@@ -4,7 +4,7 @@
 |--------------------|------------|
 | Package | adjust-display-dpi-scale 1.01 |
 | IGEL OS Version (min) | 11.3.110 |
-| Notes | Profile to adjust the display DPI scale without root rights and without giving the user the rights to configure the full display. <br /><br /> Profiles created for German and English. <br /><br /> ***Note:*** This can be used synchronize the DPI scale in Vmware Horizon. |
+| Notes | Profile to adjust the display DPI scale without root rights and without giving the user the rights to configure the full display. <br /><br /> Profiles created for German and English. <br /><br /> ***Note:*** This can be used synchronize the DPI scale in VMware Horizon. |
 
 ```{german version}
 german version:
