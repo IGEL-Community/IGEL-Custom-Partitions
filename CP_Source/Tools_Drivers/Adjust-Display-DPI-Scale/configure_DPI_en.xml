@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>22948</profile_id>
+        <profilename>Configure DPI</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.04.100.01</version>
+        </firmware>
+        <description></description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">setparam x.xserver0.auto_dpi off &amp;amp&amp;amp setparam x.xserver0.dpi $(zenity --scale --min-value=30 --max-value=300 --step=5 --text="Please choose the DPI Scale" --value=90) &amp;amp&amp;amp /usr/bin/wmrefresh</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings/>
+    </profile>
+</profiles>
