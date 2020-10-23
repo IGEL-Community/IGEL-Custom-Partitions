@@ -61,7 +61,7 @@ IGEL custom partitions are delivered as a zip archive. The archive has the follo
 | 1. | Copy the contents of the folder target into the ums_filetransfer folder on the UMS Server|
 | 2. |Check the accessibility of the data using Internet browser: <br /> https://<ums_server>:8443/ums_filetransfer/cpname.inf |
 | 3. |Import the profile (profiles.zip) into the UMS via: <br /> "System->Import->Import Profiles" <br /> The imported profile should now appear in UMS under Profiles.|
-| 4. |Edit the profile and adopt the settings according to your environment via: <br /> System->Firmware Customization->Custom Partition->Download <br /> a. https://<ums_server>:8443/ums_filetransfer/<cpname>.inf <br /> b. Username: \<ums-username> <br /> c. Password: \<ums-password>
+| 4. |Edit the profile and adopt the settings according to your environment via: <br /> System->Firmware Customization->Custom Partition->Download <br /> a. https://\<ums_server>:8443/ums_filetransfer/\<cpname>.inf <br /> b. Username: \<ums-username> <br /> c. Password: \<ums-password>
 |5. |Assign the profile and files to IGEL device(s).|
 |6. |In some cases it is required to restart the TC after deployment of the CP.|
 
