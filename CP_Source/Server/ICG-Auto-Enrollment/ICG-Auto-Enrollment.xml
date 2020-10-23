@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile>
+    <profile_id>1915</profile_id>
+    <profilename>ICG Auto Enrollment-TEMPLATE</profilename>
+    <firmware>
+        <model>IGEL OS 11</model>
+        <version>11.01.100.01</version>
+    </firmware>
+    <description>ICG-Config Utility - Auto Enrollment</description>
+    <overwritesessions>false</overwritesessions>
+    <is_master_profile>false</is_master_profile>
+    <is_igel_os>true</is_igel_os>
+    <settings>
+        <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">rm /wfs/icgcert.crt
+icg-config -s &amp;ltfqdn&amp;gt -p 8443 -o &amp;ltpassword&amp;gt -t &amp;ltstructure tag&amp;gt -f &amp;ltwhole fingerprint&amp;gt | $LOGGER</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+    </settings>
+    <instancesettings/>
+</profile>
