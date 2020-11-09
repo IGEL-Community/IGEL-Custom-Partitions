@@ -16,7 +16,7 @@
 |  Customization | /wfs/user/.zoom/.zoomus.conf |
 |----------------|------------------------------|
 | German Language | language=de |
-| Frensh Language | language=fr |
+| French Language | language=fr |
 
 [Supported Zoom Languages](https://support.zoom.us/hc/en-us/articles/209982306-Change-your-language-on-Zoom)
 
