@@ -13,10 +13,18 @@
 | Missing Libraries | [libgnome-keyring.so.0](https://packages.ubuntu.com/bionic/libgnome-keyring0) |
 | Packaging Notes | Need to move the mime folder: <br /><br />mv /custom/teams/usr/share/applications /custom/teams/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/teams/config/bin/[teams_cp_apparmor_reload](teams_cp_apparmor_reload) <br /> /custom/teams/lib/systemd/system/[igel-teams-cp-apparmor-reload.service](igel-teams-cp-apparmor-reload.service) |
 
-**NOTE:**
+**NOTES:**
 
 To use Teams over a proxy server append the following to Path to Executable:
 
 ```{use proxy server}
 --proxy-server=http://proxy-host:proxy-port
   ```
+
+| Customization | /wfs/user/.config/Microsoft/Microsoft Teams/desktop-config.json |
+|---------------|----------------------- |
+| English US | {currentWebLanguage":"en-us"} |
+| German | {currentWebLanguage":"de-de"} |
+
+Sample for setting German language (reboot required after CP deployed)
+![desktop-config.json language German](teams-desktop-config-json-lang-german.png)
