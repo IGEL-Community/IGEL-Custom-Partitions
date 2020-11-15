@@ -1,0 +1,18 @@
+#! /bin/bash
+
+ACTION="custompart-rdm_apparmor"
+
+# Add apparmor profile to trust Remote Desktop Manager in Firefox
+logger -it "$ACTION" "Adding Remote Desktop Manager to firefox apparmor profile"
+echo "$( get custom_partition.mountpoint )/rdm/usr/lib/devolutions/RemoteDesktopManager.Free/RemoteDesktopManager.Free Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/rdm
+echo '#include <abstractions/ubuntu-browsers.d/rdm>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
+
+# reload apparmor only if it is enabled
+if [ "$( get system.security.apparmor )" = "true" ] ; then
+  logger -it "$ACTION" "Reloading apparmor profiles"
+  systemctl reload apparmor.service
+else
+  logger -it "$ACTION" "Apparmor profiles disabled by setup"
+fi
+
+exit 0

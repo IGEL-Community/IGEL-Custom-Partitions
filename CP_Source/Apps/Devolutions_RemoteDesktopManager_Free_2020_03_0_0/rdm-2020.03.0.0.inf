@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="rdm_amd64_2020.03.0.0.tar.bz2"
+version="2020.03.0.0"
+size="250M"
+name="rdm"
+minfw="11.04.130"
