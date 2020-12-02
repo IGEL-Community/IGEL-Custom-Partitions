@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="otpclient_amd64_2.3.0.tar.bz2"
+version="2.3.0"
+size="10M"
+name="otpclient"
+minfw="11.03.110"
