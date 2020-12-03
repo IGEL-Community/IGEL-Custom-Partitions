@@ -1,4 +1,6 @@
 #! /bin/bash
+set -x
+trap read debug
 
 ACTION="custompart-otpclient_${1}"
 
@@ -8,11 +10,12 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/otpclient"
 
-# wfs for persistent login and history
-WFS="/wfs/user/.config/otpclient.cfg"
+# wfs for persistent database
+WFS_DB_DIR="/wfs/user/otpclient"
 
 # otpclient config
 OTPCLIENT="/userhome/.config/otpclient.cfg"
+OTPCLIENT_DB_DIR="/userhome/otpclient"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -34,13 +37,27 @@ init)
     fi
   done
 
-  # Setup link to config file
-  if [ ! -d $(dirname ${WFS}) ]; then
-    mkdir $(dirname ${WFS})
+  # Create otpclient.cfg
+  cat << EOF >> ${OTPCLIENT}
+[config]
+column_id=0
+sort_order=0
+window_width=500
+window_height=300
+db_path=/userhome/otpclient/NewDatabase.enc
+EOF
+
+  chown user:users ${OTPCLIENT}
+
+  # Create otpclient DB folder if it does not exist
+  if [ ! -d ${WFS_DB_DIR} ]; then
+    mkdir ${WFS_DB_DIR}
   fi
-  touch ${WFS}
-  chown user:users ${WFS}
-  runuser -l user -c "ln -sv ${WFS} ${OTPCLIENT}" | $LOGGER
+  if [ -d ${OTPCLIENT_DB_DIR} ]; then
+    rm -rf ${OTPCLIENT_DB_DIR}
+  fi
+  chown -R user:users ${WFS_DB_DIR}
+  runuser -l user -c "ln -sv ${WFS_DB_DIR} ${OTPCLIENT_DB_DIR}" | $LOGGER
 
   # Add apparmor profile to trust otpclient in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
