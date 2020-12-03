@@ -1,6 +1,6 @@
 #! /bin/bash
-set -x
-trap read debug
+#set -x
+#trap read debug
 
 ACTION="custompart-otpclient_${1}"
 
