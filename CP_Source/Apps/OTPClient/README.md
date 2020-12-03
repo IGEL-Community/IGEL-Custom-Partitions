@@ -13,7 +13,7 @@
 | Add respository | sudo add-apt-repository ppa:dawidd0811/otpclient <br /> sudo apt-get update |
 | Download package and missing libraries | apt-get download otpclient <br /> apt-get download libcotp12 <br /> apt-get download libzbar0 <br /> apt-get download libzip4 <br /> apt-get download libbaseencode1 |
 | Packaging Notes | Create folder: **otpclient** <br /> <br /> dpkg -x <package/lib> otpclient <br /><br /> Need to move the mime folder: <br /><br />mv /custom/otpclient/usr/share/applications /custom/otpclient/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/otpclient/config/bin/[otpclient_cp_apparmor_reload](otpclient_cp_apparmor_reload) <br /> /custom/otpclient/lib/systemd/system/[igel-otpclient-cp-apparmor-reload.service](igel-otpclient-cp-apparmor-reload.service) |
-| Package automation | [build_otpclient-cp.sh](build_otpclient-cp.sh) <br /><br /> This script will attempt to automate the downloads and build of otpclient.tar.bz2 |
+| Package automation | [build-otpclient-cp.sh](build-otpclient-cp.sh) <br /><br /> This script will attempt to automate the downloads and build of otpclient.tar.bz2 |
 
 -----
 ## Outstanding Issues
