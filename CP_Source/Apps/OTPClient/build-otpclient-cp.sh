@@ -4,7 +4,7 @@
 
 # Creating an IGELOS CP for otpclient
 ## Development machine (Ubuntu 18.04)
-sudo add-apt-repository ppa:dawidd0811/otpclient
+sudo add-apt-repository ppa:dawidd0811/otpclient -y
 sudo apt-get update
 
 mkdir build_tar
