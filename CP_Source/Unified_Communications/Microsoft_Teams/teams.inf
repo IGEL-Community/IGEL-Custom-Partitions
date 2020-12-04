@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="teams.tar.bz2"
+version="1.3.00.25560"
+size="300M"
+name="teams"
+minfw="11.03.110"
