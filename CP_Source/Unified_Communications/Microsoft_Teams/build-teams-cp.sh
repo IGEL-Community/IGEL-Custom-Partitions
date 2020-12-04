@@ -36,6 +36,7 @@ cd custom
 tar cvjf teams.tar.bz2 teams teams-cp-init-script.sh
 mv teams.tar.bz2 ../..
 mv target/teams.inf ../..
+mv igel/*.xml ../..
 
 cd ../..
 rm -rf build_tar
