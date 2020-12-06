@@ -5,6 +5,7 @@
 # Creating an IGELOS CP for Google Chrome
 ## Development machine (Ubuntu 18.04)
 sudo apt install curl -y
+sudo apt install unzip -y
 sudo curl https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 sudo apt-get update
