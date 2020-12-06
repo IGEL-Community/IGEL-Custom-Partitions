@@ -1,0 +1,78 @@
+#! /bin/bash
+#set -x
+#trap read debug
+
+ACTION="custompart-chrome_${1}"
+
+# mount point path
+MP=$(get custom_partition.mountpoint)
+
+# custom partition path
+CP="${MP}/chrome"
+
+# Google user directories
+GOOGLE_USER_CONFIG="/userhome/.config/google-chrome"
+GOOGLE_USER_CONFIG_WFS="/wfs/user/.config/google-chrome"
+
+# output to systemlog with ID amd tag
+LOGGER="logger -it ${ACTION}"
+
+echo "Starting" | $LOGGER
+
+case "$1" in
+init)
+  # Linking files and folders on proper path
+  find ${CP} | while read LINE
+  do
+    DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
+    if [ ! -z "${DEST}" -a ! -e "${DEST}" ]; then
+      # Remove the last slash, if it is a dir
+      [ -d $LINE ] && DEST=$(echo "${DEST}" | sed -e "s/\/$//g") | $LOGGER
+      if [ ! -z "${DEST}" ]; then
+        ln -sv "${LINE}" "${DEST}" | $LOGGER
+      fi
+    fi
+  done
+
+  # fix permissions
+  chmod 4755 "$CP/opt/google/chrome/chrome-sandbox"
+
+# Linking /userhome/.config/google-chrome to /wfs/user/.config/google-chrome for some basic persistency
+  mkdir -p "${GOOGLE_USER_CONFIG_WFS}"
+  chown -R user:users "${GOOGLE_USER_CONFIG_WFS}"
+
+  runuser -l user -c "ln -sv ${GOOGLE_USER_CONFIG_WFS} ${GOOGLE_USER_CONFIG}" | $LOGGER
+
+  # Add apparmor profile to trust Teams in Firefox to make SSO possible
+  # We do this by a systemd service to run the reconfiguration
+  # surely after apparmor.service!!!
+  systemctl --no-block start igel-chrome-cp-apparmor-reload.service
+
+  # after CP installation run wm_postsetup to activate chrome.desktop mimetypes for SSO
+  if [ -d /run/user/777 ]; then
+    wm_postsetup
+    # delay the CP ready notification
+    sleep 3
+  fi
+
+  # add /opt/chrome to ld_library
+  echo "${CP}/opt/google/chrome" > /etc/ld.so.conf.d/chrome.conf
+  echo "${CP}/opt/google/swiftshader" >> /etc/ld.so.conf.d/chrome.conf
+  ldconfig
+;;
+stop)
+  # unlink linked files
+  find ${CP} | while read LINE
+  do
+    DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
+    unlink $DEST | $LOGGER
+  done
+
+  # remove zoom.conf because it is not needed anymore
+  rm /etc/ld.so.conf.d/chrome.conf
+;;
+esac
+
+echo "Finished" | $LOGGER
+
+exit 0
