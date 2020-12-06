@@ -4,6 +4,7 @@
 
 # Creating an IGELOS CP for Zoom
 ## Development machine (Ubuntu 18.04)
+sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar
