@@ -9,9 +9,9 @@ sudo apt install unzip -y
 mkdir build_tar
 cd build_tar
 
-# Obtain link to latest package and copy into same folder as this script
+# Obtain link to latest package and savel into Downloads
 # https://remotedesktopmanager.com/home/thankyou/rdmlinuxfreebin
-if ! compgen -G "../RemoteDesktopManager*.deb" > /dev/null; then
+if ! compgen -G "~/Downloads/RemoteDesktopManager*.deb" > /dev/null; then
   echo "***********"
   echo "Download latest package and re-run this script "
   echo "https://remotedesktopmanager.com/home/thankyou/rdmlinuxfreebin"
@@ -21,7 +21,7 @@ fi
 
 mkdir -p custom/rdm
 
-dpkg -x RemoteDesktopManager*.deb custom/rdm
+dpkg -x ~/Downloads/RemoteDesktopManager*.deb custom/rdm
 
 mv custom/rdm/usr/share/applications/ custom/rdm/usr/share/applications.mime
 
