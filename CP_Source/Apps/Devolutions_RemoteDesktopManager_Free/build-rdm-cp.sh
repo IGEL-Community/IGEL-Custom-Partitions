@@ -9,9 +9,15 @@ sudo apt install unzip -y
 mkdir build_tar
 cd build_tar
 
-# Obtain link to latest package and update the wget below
+# Obtain link to latest package and copy into same folder as this script
 # https://remotedesktopmanager.com/home/thankyou/rdmlinuxfreebin
-wget https://cdn.devolutions.net/download/Linux/RDM/2020.3.1.0/RemoteDesktopManager.Free_2020.3.1.0_amd64.deb
+if ! compgen -G "../RemoteDesktopManager*.deb" > /dev/null; then
+  echo "***********"
+  echo "Download latest package and re-run this script "
+  echo "https://remotedesktopmanager.com/home/thankyou/rdmlinuxfreebin"
+  echo "***********"
+  exit 1
+fi
 
 mkdir -p custom/rdm
 
