@@ -1,7 +1,7 @@
 # Zoom
 
 |  CP Information |            |
-|--------------------|------------|
+|-----------------|------------|
 | Package | Zoom - Current Version |
 | Script Name | [zoom-cp-init-script.sh](zoom-cp-init-script.sh) |
 | CP Mount Path | /custom/zoom |
