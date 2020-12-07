@@ -1,4 +1,6 @@
 #! /bin/bash
+#set -x
+#tread read debug
 
 ACTION="custompart-rdm_${1}"
 

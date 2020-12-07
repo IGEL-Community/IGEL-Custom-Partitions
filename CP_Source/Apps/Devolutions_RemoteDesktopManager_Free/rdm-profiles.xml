@@ -2,7 +2,7 @@
 <profiles>
     <profile>
         <profile_id>5682</profile_id>
-        <profilename>Remote Desktop Manager Free 2020.03.0.0 CP</profilename>
+        <profilename>Remote Desktop Manager Free CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
             <version>11.04.130.01</version>
@@ -28,7 +28,7 @@
                 <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/rdm-cp-init-script.sh stop</ivalue>
                 <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/rdm-cp-init-script.sh init</ivalue>
                 <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMS_Server]:8443/ums_filetransfer/rdm-2020.03.0.0.inf</ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMS_Server]:8443/ums_filetransfer/rdm.inf</ivalue>
                 <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
             </instance>
             <instance classprefix="sessions.custom_application%" serialnumber="-15716ed1:171bbf0e520:-7fff127.0.1.1">
