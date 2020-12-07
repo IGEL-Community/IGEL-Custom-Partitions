@@ -11,7 +11,7 @@ cd build_tar
 
 # Obtain link to latest package and savel into Downloads
 # https://remotedesktopmanager.com/home/thankyou/rdmlinuxfreebin
-if ! compgen -G "~/Downloads/RemoteDesktopManager*.deb" > /dev/null; then
+if ! compgen -G "$HOME/Downloads/RemoteDesktopManager*.deb" > /dev/null; then
   echo "***********"
   echo "Download latest package and re-run this script "
   echo "https://remotedesktopmanager.com/home/thankyou/rdmlinuxfreebin"
@@ -21,7 +21,7 @@ fi
 
 mkdir -p custom/rdm
 
-dpkg -x ~/Downloads/RemoteDesktopManager*.deb custom/rdm
+dpkg -x $HOME/Downloads/RemoteDesktopManager*.deb custom/rdm
 
 mv custom/rdm/usr/share/applications/ custom/rdm/usr/share/applications.mime
 
