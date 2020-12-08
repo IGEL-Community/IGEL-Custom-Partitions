@@ -2,7 +2,7 @@
 
 |  CP Information |            |
 |-----------------|------------|
-| Package | Google Chrome - Current Version |
+| Package | Google Chrome - Current Stable Version |
 | Script Name | [chrome-cp-init-script.sh](chrome-cp-init-script.sh) |
 | CP Mount Path | /custom/chrome |
 | CP Size | 400M |
