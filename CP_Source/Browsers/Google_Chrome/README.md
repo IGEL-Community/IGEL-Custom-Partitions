@@ -1,7 +1,7 @@
 # Google Chrome
 
 |  CP Information |            |
-|--------------------|------------|
+|-----------------|------------|
 | Package | Google Chrome - Current Version |
 | Script Name | [chrome-cp-init-script.sh](chrome-cp-init-script.sh) |
 | CP Mount Path | /custom/chrome |
