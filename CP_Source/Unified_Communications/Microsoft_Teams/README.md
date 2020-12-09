@@ -23,6 +23,10 @@ To use Teams over a proxy server append the following to Path to Executable:
 --proxy-server=http://proxy-host:proxy-port
   ```
 
+If you want that a user has to log in into Teams after reboot place the following code in Desptop Final
+rm -rf /wfs/user/.config/Microsoft
+rm -rf /userhome/.config/Microsoft
+
 | Customization | /wfs/user/.config/Microsoft/Microsoft Teams/desktop-config.json |
 |---------------|----------------------- |
 | English US | {currentWebLanguage":"en-us"} |
