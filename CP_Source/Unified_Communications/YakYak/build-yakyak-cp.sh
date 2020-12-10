@@ -30,7 +30,7 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip YakYak.zip -d custom
 mkdir -p custom/yakyak/config/bin
 mkdir -p custom/yakyak/lib/systemd/system
-mv custom/target/yakyak custom/yakyak/config/bin
+mv custom/target/yakyak_cp_apparmor_reload custom/yakyak/config/bin
 mv custom/target/igel-yakyak-cp-apparmor-reload.service custom/yakyak/lib/systemd/system/
 mv custom/target/yakyak-cp-init-script.sh custom
 
