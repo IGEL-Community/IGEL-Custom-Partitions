@@ -15,11 +15,6 @@
 | Packaging Notes | Create folder: **zoom** <br /><br /> dpkg -x <package/lib> custom/zoom <br /><br /> Need to move the mime folder: <br /><br />mv /custom/zoom/usr/share/applications /custom/zoom/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/zoom/config/bin/[zoom_cp_apparmor_reload](zoom_cp_apparmor_reload) <br /> /custom/zoom/lib/systemd/system/[igel-zoom-cp-apparmor-reload.service](igel-zoom-cp-apparmor-reload.service) |
 | Package automation | [build-zoom-cp.sh](build-zoom-cp.sh) <br /><br /> Tested with 5.4.54779.1115 |
 
-If don't want to cache credetials over reboots place the following script into Desktop Final
-
-rm -rf /wfs/user/.zoom
-rm -rf /userhome/.zoom
-
 |  Customization | /wfs/user/.zoom/.zoomus.conf |
 |----------------|------------------------------|
 | German Language | language=de |
