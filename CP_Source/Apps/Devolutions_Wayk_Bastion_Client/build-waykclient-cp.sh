@@ -30,7 +30,7 @@ mv custom/waykclient/usr/share/applications/ custom/waykclient/usr/share/applica
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Devolutions_Wayk_Bastion_Client.zip
 
-unzip Devolutions_RemoteDesktopManager_Free.zip -d custom
+unzip Devolutions_Wayk_Bastion_Client.zip -d custom
 mkdir -p custom/waykclient/config/bin
 mkdir -p custom/waykclient/lib/systemd/system
 mv custom/target/waykclient_cp_apparmor_reload custom/waykclient/config/bin
