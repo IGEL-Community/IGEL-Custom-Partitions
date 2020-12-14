@@ -46,3 +46,4 @@ mv igel/*.xml ../..
 
 cd ../..
 rm -rf build_tar
+rm libappindicator3-1*.deb
