@@ -6,6 +6,9 @@
 ## Development machine (Ubuntu 18.04)
 sudo apt install unzip -y
 apt-get download libappindicator3-1
+apt-get download libindicator3-7
+apt-get download libdbusmenu-gtk3-4
+apt-get download libdbusmenu-glib4
 
 # Obtain link to latest package and savel into Downloads
 # https://wayk.devolutions.net/home/thankyou/waykclientlinuxbin
@@ -25,6 +28,9 @@ mkdir -p custom/waykclient
 dpkg -x $HOME/Downloads/wayk-client*.deb custom/waykclient
 rm -rf custom/waykclient/etc
 dpkg -x ../libappindicator3-1*.deb custom/waykclient
+dpkg -x ../libindicator3-7*.deb custom/waykclient
+dpkg -x ../libdbusmenu-gtk3-4*.deb custom/waykclient
+dpkg -x ../libdbusmenu-glib4*.deb custom/waykclient
 
 mv custom/waykclient/usr/share/applications/ custom/waykclient/usr/share/applications.mime
 
@@ -47,3 +53,6 @@ mv igel/*.xml ../..
 cd ../..
 rm -rf build_tar
 rm libappindicator3-1*.deb
+rm libindicator3-7*.deb
+rm libdbusmenu-gtk3-4*.deb
+rm libdbusmenu-glib4*.deb
