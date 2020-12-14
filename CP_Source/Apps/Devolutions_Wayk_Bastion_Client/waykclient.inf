@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="waykclient.tar.bz2"
+version="2020.03.2.0"
+size="50M"
+name="waykclient"
+minfw="11.04.130"
