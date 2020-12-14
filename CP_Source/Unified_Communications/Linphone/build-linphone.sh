@@ -96,13 +96,12 @@ minfw="11.03.110"
 EOF
 
 
-
-mkdir -p $APPIMAGEFULLVERSION/igel
 mkdir -p $APPIMAGEFULLVERSION/target
 
-cp *.xml $APPIMAGEFULLVERSION/igel
+mv igel $APPIMAGEFULLVERSION/
 cp *.inf *.tar.bz2 $APPIMAGEFULLVERSION/target
-cp *.txt  $APPIMAGEFULLVERSION/
+cp disclaimer.txt $APPIMAGEFULLVERSION/
+cp target/readme.txt $APPIMAGEFULLVERSION/
 
 # cp *.inf *.tar.bz2 $BASEDIR
 # cp *.xml $BASEDIR
