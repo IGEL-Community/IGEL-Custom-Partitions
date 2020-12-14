@@ -102,7 +102,7 @@ mkdir -p $APPIMAGEFULLVERSION/target
 
 cp *.xml $APPIMAGEFULLVERSION/igel
 cp *.inf *.tar.bz2 $APPIMAGEFULLVERSION/target
-cp readme.txt disclaimer.txt  $APPIMAGEFULLVERSION/
+cp *.txt  $APPIMAGEFULLVERSION/
 
 # cp *.inf *.tar.bz2 $BASEDIR
 # cp *.xml $BASEDIR
