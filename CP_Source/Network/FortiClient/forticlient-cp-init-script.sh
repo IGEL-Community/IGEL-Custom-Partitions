@@ -70,6 +70,12 @@ init)
     sleep 3
   fi
 
+  # add /opt/forticlient to ld_library
+  echo "${CP}/opt/forticlient/gui/FortiClient-linux-x64" > /etc/ld.so.conf.d/forticlient.conf
+  echo "${CP}/opt/forticlient/gui/FortiClient-linux-x64/swiftshader" >> /etc/ld.so.conf.d/forticlient.conf
+  echo "${CP}/opt/forticlient" >> /etc/ld.so.conf.d/forticlient.conf
+  ldconfig
+
 ;;
 stop)
   # unlink linked files
@@ -79,6 +85,8 @@ stop)
     unlink $DEST | $LOGGER
   done
 
+  # remove forticlient.conf because it is not needed anymore
+  rm /etc/ld.so.conf.d/forticlient.conf
 ;;
 esac
 
