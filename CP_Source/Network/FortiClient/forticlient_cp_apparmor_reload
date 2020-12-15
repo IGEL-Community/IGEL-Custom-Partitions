@@ -1,0 +1,18 @@
+#! /bin/bash
+
+ACTION="custompart-forticlient_apparmor"
+
+# Add apparmor profile to trust FortiClient in Firefox
+logger -it "$ACTION" "Adding FortiClient to firefox apparmor profile"
+echo "$( get custom_partition.mountpoint )/opt/forticlient/gui/FortiClient-linux-x64/FortiClient Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/forticlient
+echo '#include <abstractions/ubuntu-browsers.d/forticlient>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
+
+# reload apparmor only if it is enabled
+if [ "$( get system.security.apparmor )" = "true" ] ; then
+  logger -it "$ACTION" "Reloading apparmor profiles"
+  systemctl reload apparmor.service
+else
+  logger -it "$ACTION" "Apparmor profiles disabled by setup"
+fi
+
+exit 0
