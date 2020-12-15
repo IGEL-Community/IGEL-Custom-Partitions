@@ -20,8 +20,8 @@ apt-get download libappindicator1
 mkdir -p custom/forticlient
 
 dpkg -x forticlient* custom/forticlient
-dpkg -x libindicator7* /custom/forticlient
-dpkg -x libappindicator1* /custom/forticlient
+dpkg -x libindicator7* custom/forticlient
+dpkg -x libappindicator1* custom/forticlient
 
 mv custom/forticlient/usr/share/applications/ custom/forticlient/usr/share/applications.mime
 
