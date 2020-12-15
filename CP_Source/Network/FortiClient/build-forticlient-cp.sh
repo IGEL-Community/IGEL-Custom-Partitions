@@ -25,7 +25,7 @@ dpkg -x libappindicator1* custom/forticlient
 
 mv custom/forticlient/usr/share/applications/ custom/forticlient/usr/share/applications.mime
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/FortiClient.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/FortiClient.zip
 
 unzip FortiClient.zip -d custom
 mkdir -p custom/forticlient/config/bin
