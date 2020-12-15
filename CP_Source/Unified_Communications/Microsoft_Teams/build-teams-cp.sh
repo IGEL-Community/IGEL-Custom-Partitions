@@ -22,6 +22,7 @@ dpkg -x teams_* custom/teams
 dpkg -x libg* custom/teams
 
 mv custom/teams/usr/share/applications/ custom/teams/usr/share/applications.mime
+mkdir -p custom/teams/userhome/.config/Microsoft
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Microsoft_Teams.zip
 

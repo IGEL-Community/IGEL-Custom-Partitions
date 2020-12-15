@@ -10,9 +10,6 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/teams"
 
-# wfs for persistent login and history
-WFS="/wfs/user/.config/Microsoft/Microsoft Teams"
-
 # Teams directory
 TEAMS="/userhome/.config/Microsoft"
 
@@ -36,21 +33,8 @@ init)
     fi
   done
 
-  # Check if old files in /wfs need to be removed
-  if [ -d "${WFS}" ]; then
-    if [ -L "${TEAMS}/Microsoft Teams" ]; then
-      unlink "${TEAMS}/Microsoft Teams"
-    fi
-    rm -rf "${WFS}"
-  fi
-
-# Linking /userhome/.config/Microsoft/Micrsoft Teams to /wfs/user/.config/Microsoft/Micrsoft Teams for some basic persistency
-  mkdir -p "${WFS}"
-  chown -R user:users "${WFS}"
-  mkdir -p "${TEAMS}"
-  chown -R user:users "${TEAMS}"
-
-  ln -sv "${WFS}" "${TEAMS}/Microsoft Teams" | $LOGGER
+# basic persistency
+  chown -R user:users "${CP}${TEAMS}"
 
   # Add apparmor profile to trust Teams in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
@@ -65,9 +49,9 @@ init)
   fi
 
   # add /opt/teams to ld_library
-  echo "${CP}/usr/share/teams" > /etc/ld.so.conf.d/teams.conf
-  echo "${CP}/usr/share/swiftshader" >> /etc/ld.so.conf.d/teams.conf
-  ldconfig
+  #echo "${CP}/usr/share/teams" > /etc/ld.so.conf.d/teams.conf
+  #echo "${CP}/usr/share/swiftshader" >> /etc/ld.so.conf.d/teams.conf
+  #ldconfig
 ;;
 stop)
   # unlink linked files
@@ -78,7 +62,7 @@ stop)
   done
 
   # remove zoom.conf because it is not needed anymore
-  rm /etc/ld.so.conf.d/teams.conf
+  #rm /etc/ld.so.conf.d/teams.conf
 ;;
 esac
 
