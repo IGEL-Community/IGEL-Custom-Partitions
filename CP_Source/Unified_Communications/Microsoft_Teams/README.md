@@ -5,9 +5,9 @@
 | Package | Microsoft Teams - Current Version |
 | Script Name | [teams-cp-init-script.sh](teams-cp-init-script.sh) |
 | CP Mount Path | /custom/teams |
-| CP Size | 300M |
+| CP Size | 500M |
 | IGEL OS Version (min) | 11.3.110 |
-| Metadata File <br /> teams.inf | [INFO] <br /> [PART] <br /> file="teams.tar.bz2" <br /> version="1.3.00.30857" <br /> size="300M" <br /> name="teams" <br /> minfw="11.03.110" |
+| Metadata File <br /> teams.inf | [INFO] <br /> [PART] <br /> file="teams.tar.bz2" <br /> version="1.3.00.30857" <br /> size="500M" <br /> name="teams" <br /> minfw="11.03.110" |
 | Path to Executable | /custom/teams/usr/bin/teams [--proxy-server=http://proxy-host:proxy-port]|
 | Path to Icon | /custom/teams/usr/share/pixmaps/teams.png |
 | Missing Libraries | [libgnome-keyring.so.0](https://packages.ubuntu.com/bionic/libgnome-keyring0) |

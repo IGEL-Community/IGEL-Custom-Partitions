@@ -23,7 +23,7 @@ rm -rf /userhome/.config/Microsoft
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">300M</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">500M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
         </settings>
