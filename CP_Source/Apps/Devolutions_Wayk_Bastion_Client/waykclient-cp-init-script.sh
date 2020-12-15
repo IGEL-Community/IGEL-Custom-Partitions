@@ -14,7 +14,7 @@ CP="${MP}/waykclient"
 WFS="/wfs/user/.config/Wayk"
 
 # .waykclient directory
-RDM="/userhome/.config/Wayk"
+WAYK="/userhome/.config/Wayk"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -36,20 +36,23 @@ init)
     fi
   done
 
-  # Linking most important files in /userhome/.waykclient to /wfs/user/.waykclient for some basic persistency
+  # Linking most important files in /userhome/.config/Wayk to /wfs/user/.config/Wayk for some basic persistency
+  if [ -d ${WAYK} ]; then
+     rm -rf ${WAYK}
+  fi
   if [ ! -d ${WFS} ]; then
      mkdir -p ${WFS}
   fi
   chown -R user:users ${WFS}
 
-  runuser -l user -c "ln -sv ${WFS} ${RDM}" | $LOGGER
+  runuser -l user -c "ln -sv ${WFS} ${WAYK}" | $LOGGER
 
-  # Add apparmor profile to trust RDM in Firefox to make SSO possible
+  # Add apparmor profile to trust WAYK in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
   systemctl --no-block start igel-waykclient-cp-apparmor-reload.service
 
-  # after CP installation run wm_postsetup to activate RDM.desktop mimetypes for SSO
+  # after CP installation run wm_postsetup to activate WAYK.desktop mimetypes for SSO
   if [ -d /run/user/777 ]; then
     wm_postsetup
     # delay the CP ready notification
