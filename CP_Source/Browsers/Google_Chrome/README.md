@@ -5,9 +5,9 @@
 | Package | Google Chrome - Current Stable Version |
 | Script Name | [chrome-cp-init-script.sh](chrome-cp-init-script.sh) |
 | CP Mount Path | /custom/chrome |
-| CP Size | 400M |
+| CP Size | 600M |
 | IGEL OS Version (min) | 11.4.200 |
-| Metadata File <br /> chrome.inf | [INFO] <br /> [PART] <br /> file="chrome.tar.bz2" <br /> version="87.0.4280.88" <br /> size="400M" <br /> name="chrome" <br /> minfw="11.03.110" |
+| Metadata File <br /> chrome.inf | [INFO] <br /> [PART] <br /> file="chrome.tar.bz2" <br /> version="87.0.4280.88" <br /> size="600M" <br /> name="chrome" <br /> minfw="11.03.110" |
 | Path to Executable | /custom/chrome/usr/bin/google-chrome-stable |
 | Path to Icon | /custom/chrome/opt/google/chrome/product_logo_256.png |
 | Missing Libraries | None |

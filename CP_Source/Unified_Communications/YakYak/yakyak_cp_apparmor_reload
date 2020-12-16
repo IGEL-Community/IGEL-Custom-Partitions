@@ -1,0 +1,18 @@
+#! /bin/bash
+
+ACTION="custompart-yakyak_apparmor"
+
+# Add apparmor profile to trust YakYak in Firefox
+logger -it "$ACTION" "Adding YakYak to firefox apparmor profile"
+echo "$( get custom_partition.mountpoint )/yakyak/usr/lib/yakyak/yakyak Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/yakyak
+echo '#include <abstractions/ubuntu-browsers.d/yakyak>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
+
+# reload apparmor only if it is enabled
+if [ "$( get system.security.apparmor )" = "true" ] ; then
+  logger -it "$ACTION" "Reloading apparmor profiles"
+  systemctl reload apparmor.service
+else
+  logger -it "$ACTION" "Apparmor profiles disabled by setup"
+fi
+
+exit 0

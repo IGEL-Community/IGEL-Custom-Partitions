@@ -1,17 +1,20 @@
 #! /bin/bash
 #set -x
-#trap read debug
+#tread read debug
 
-ACTION="custompart-chrome_${1}"
+ACTION="custompart-waykclient_${1}"
 
 # mount point path
 MP=$(get custom_partition.mountpoint)
 
 # custom partition path
-CP="${MP}/chrome"
+CP="${MP}/waykclient"
 
-# Google user directories
-GOOGLE_USER_CONFIG="/userhome/.config/google-chrome"
+# wfs for persistent login and history
+WFS="/wfs/user/.config/Wayk"
+
+# .waykclient directory
+WAYK="/userhome/.config/Wayk"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -33,28 +36,29 @@ init)
     fi
   done
 
-  # fix permissions
-  chmod 4755 "$CP/opt/google/chrome/chrome-sandbox"
+  # Linking most important files in /userhome/.config/Wayk to /wfs/user/.config/Wayk for some basic persistency
+  if [ -d ${WAYK} ]; then
+     rm -rf ${WAYK}
+  fi
+  if [ ! -d ${WFS} ]; then
+     mkdir -p ${WFS}
+  fi
+  chown -R user:users ${WFS}
 
-  # basic persistency
-  chown -R user:users "${CP}${GOOGLE_USER_CONFIG}"
+  runuser -l user -c "ln -sv ${WFS} ${WAYK}" | $LOGGER
 
-  # Add apparmor profile to trust Teams in Firefox to make SSO possible
+  # Add apparmor profile to trust WAYK in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
-  systemctl --no-block start igel-chrome-cp-apparmor-reload.service
+  systemctl --no-block start igel-waykclient-cp-apparmor-reload.service
 
-  # after CP installation run wm_postsetup to activate chrome.desktop mimetypes for SSO
+  # after CP installation run wm_postsetup to activate WAYK.desktop mimetypes for SSO
   if [ -d /run/user/777 ]; then
     wm_postsetup
     # delay the CP ready notification
     sleep 3
   fi
 
-  # add /opt/chrome to ld_library
-  #echo "${CP}/opt/google/chrome" > /etc/ld.so.conf.d/chrome.conf
-  #echo "${CP}/opt/google/swiftshader" >> /etc/ld.so.conf.d/chrome.conf
-  #ldconfig
 ;;
 stop)
   # unlink linked files
@@ -64,8 +68,6 @@ stop)
     unlink $DEST | $LOGGER
   done
 
-  # remove zoom.conf because it is not needed anymore
-  #rm /etc/ld.so.conf.d/chrome.conf
 ;;
 esac
 

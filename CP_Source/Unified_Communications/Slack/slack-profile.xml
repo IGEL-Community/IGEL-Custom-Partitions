@@ -2,12 +2,12 @@
 <profiles>
     <profile>
         <profile_id>10688</profile_id>
-        <profilename>Chrome CP</profilename>
+        <profilename>Slack CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.04.200.01</version>
+            <version>11.03.110.01</version>
         </firmware>
-        <description>Chrome</description>
+        <description>Slack</description>
         <overwritesessions>false</overwritesessions>
         <is_master_profile>false</is_master_profile>
         <is_igel_os>true</is_igel_os>
@@ -17,18 +17,18 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">600M</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">250M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
         </settings>
         <instancesettings>
             <instance classprefix="custom_partition.source%" serialnumber="31cea061:1730aeba537:-7fff127.0.1.1">
                 <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
-                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/chrome.inf</ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMS-SERVER]:8443/ums_filetransfer/slack.inf</ivalue>
                 <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/chrome-cp-init-script.sh init</ivalue>
-                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/chrome-cp-init-script.sh stop</ivalue>
-                <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/slack-cp-init-script.sh init</ivalue>
+                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/slack-cp-init-script.sh stop</ivalue>
+                <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false">[UMS-SERVER-PASSWORD]</ivalue>
                 <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             </instance>
             <instance classprefix="sessions.custom_application%" serialnumber="31cea061:1730aeba537:-7ffe127.0.1.1">
@@ -45,14 +45,14 @@
                 <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
                 <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
                 <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
-                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Chrome</ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Slack</ivalue>
                 <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/chrome/opt/google/chrome/product_logo_256.png</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/slack/usr/share/pixmaps/slack.png</ivalue>
                 <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
                 <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/chrome/usr/bin/google-chrome-stable</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/slack/usr/bin/slack</ivalue>
                 <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
                 <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>

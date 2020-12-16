@@ -1,0 +1,13 @@
+[Unit]
+Description=YakYak custom partition apparmor reload
+After=sysinit.target
+After=apparmor.service
+Before=igel-sessions-config.target
+AssertPathIsReadWrite=/sys/kernel/security/apparmor/.load
+ConditionSecurity=apparmor
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/config/bin/teams_cp_apparmor_reload

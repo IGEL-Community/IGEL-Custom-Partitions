@@ -20,6 +20,7 @@ mkdir -p custom/chrome
 dpkg -x google* custom/chrome
 
 mv custom/chrome/usr/share/applications/ custom/chrome/usr/share/applications.mime
+mkdir -p custom/chrome/userhome/.config/google-chrome
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Browsers/Google_Chrome.zip
 
