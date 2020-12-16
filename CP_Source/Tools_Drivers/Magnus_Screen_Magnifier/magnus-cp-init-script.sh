@@ -15,15 +15,7 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
-	# Initial permissions
-	chown -R 0:0 "${CP}" | $LOGGER
-	chmod 755 "${MP}" | $LOGGER
-	#
-	# NOTE: Copy used instead of symbolic links since links do not work as well as copying .desktop files.
-	cp "$CP/usr/share/applications/magnus.desktop" /usr/share/applications/ 2>/dev/null
-	cp "$CP/usr/share/applications/magnus.desktop" /usr/share/applications.mime/ 2>/dev/null
-
-        # Linking files and folders on proper path
+  # Linking files and folders on proper path
 	find ${CP} | while read LINE
         do
                 DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
@@ -36,10 +28,6 @@ init)
                 fi
         done
 
-;;
-reset)
-		killall -9 magnus
-		sleep 2
 ;;
 stop)
   killall -9 magnus
