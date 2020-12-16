@@ -12,7 +12,6 @@ CP="${MP}/chrome"
 
 # Google user directories
 GOOGLE_USER_CONFIG="/userhome/.config/google-chrome"
-GOOGLE_USER_CONFIG_WFS="/wfs/user/.config/google-chrome"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -37,11 +36,8 @@ init)
   # fix permissions
   chmod 4755 "$CP/opt/google/chrome/chrome-sandbox"
 
-# Linking /userhome/.config/google-chrome to /wfs/user/.config/google-chrome for some basic persistency
-  mkdir -p "${GOOGLE_USER_CONFIG_WFS}"
-  chown -R user:users "${GOOGLE_USER_CONFIG_WFS}"
-
-  runuser -l user -c "ln -sv ${GOOGLE_USER_CONFIG_WFS} ${GOOGLE_USER_CONFIG}" | $LOGGER
+  # basic persistency
+  chown -R user:users "${CP}${GOOGLE_USER_CONFIG}"
 
   # Add apparmor profile to trust Teams in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
@@ -56,9 +52,9 @@ init)
   fi
 
   # add /opt/chrome to ld_library
-  echo "${CP}/opt/google/chrome" > /etc/ld.so.conf.d/chrome.conf
-  echo "${CP}/opt/google/swiftshader" >> /etc/ld.so.conf.d/chrome.conf
-  ldconfig
+  #echo "${CP}/opt/google/chrome" > /etc/ld.so.conf.d/chrome.conf
+  #echo "${CP}/opt/google/swiftshader" >> /etc/ld.so.conf.d/chrome.conf
+  #ldconfig
 ;;
 stop)
   # unlink linked files
@@ -69,7 +65,7 @@ stop)
   done
 
   # remove zoom.conf because it is not needed anymore
-  rm /etc/ld.so.conf.d/chrome.conf
+  #rm /etc/ld.so.conf.d/chrome.conf
 ;;
 esac
 
