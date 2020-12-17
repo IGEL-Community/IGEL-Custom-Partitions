@@ -12,6 +12,5 @@
 | Path to Icon | /custom/linphone/linphone.svg|
 | Missing Libraries | none |
 | Download package and missing library | none |
-| Packaging Notes | none
+| Packaging Notes | The CP Linphone is build from an AppImage. There will run Linux without installation,  because everthing they need is build into the package. AppImages are like .ISO files and not changable.<br /> So why does this script extract the AppImage into a CP?<br /> This AppImage checks for a newer version and than offers the user to download this update as an AppImage. To disable this one line in a file has to be changed (usr/share/linphone/linphonerc-factory, see build script).|
 |Package automation | [build-linphone.sh](build-linphone.sh) <br /><br /> Tested with FW11.03.500, FW11.04.240 |
-
