@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="asr.tar.bz2"
+version="1.01"
+size="10M"
+name="asr"
+minfw="11.03.110"
