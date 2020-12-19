@@ -5,7 +5,7 @@
         <profilename>Auto Screen Rotation CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.03.110.01</version>
+            <version>11.04.200.01</version>
         </firmware>
         <description>Auto Screen Rotation</description>
         <overwritesessions>false</overwritesessions>

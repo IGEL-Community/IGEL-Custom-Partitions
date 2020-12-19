@@ -19,6 +19,8 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Auto_Screen_Rotation.zip -d custom
 mv custom/target/igel_asr.sh custom/asr/usr/bin/igel_asr.sh
 mv custom/target/asr-cp-init-script.sh custom
+sed -i '/Description=/aAfter=network-online.target' custom/asr/lib/systemd/system/iio-sensor-proxy.service
+sed -i '/# Lockdown/i[Install]\nWantedBy=multi-user.target\n' custom/asr/lib/systemd/system/iio-sensor-proxy.service
 
 cd custom
 

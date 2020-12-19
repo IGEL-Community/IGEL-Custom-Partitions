@@ -32,14 +32,14 @@ init)
     fi
   done
 
-  systemctl --system daemon-reload
-  systemctl enable iio-sensor-proxy.service
-  systemctl start iio-sensor-proxy.service
+  #systemctl --system daemon-reload
+  systemctl --no-block enable iio-sensor-proxy.service
+  systemctl --no-block start iio-sensor-proxy.service
 
 ;;
 stop)
-  systemctl stop iio-sensor-proxy.service
-  systemctl disable iio-sensor-proxy.service
+  systemctl --no-block stop iio-sensor-proxy.service
+  systemctl --no-block disable iio-sensor-proxy.service
   # unlink linked files
   find ${CP} | while read LINE
   do
