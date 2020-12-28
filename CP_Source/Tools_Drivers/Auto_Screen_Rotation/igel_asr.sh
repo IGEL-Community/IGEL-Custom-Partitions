@@ -12,16 +12,16 @@ while inotifywait -e modify ${LOGFILE}; do
   ORIENTATION=$(tail -n 1 ${LOGFILE} | grep 'orientation' | grep -oE '[^ ]+$')
 
   case ${ORIENTATION} in
-    normal )
+    normal\) )
       xrandr -o normal
       ;;
-    left-up )
+    left-up\) )
       xrandr -o left
       ;;
-    right-up )
+    right-up\) )
       xrandr -o right
       ;;
-    bottom-up )
+    bottom-up\) )
       xrandr -o inverted
       ;;
   esac
