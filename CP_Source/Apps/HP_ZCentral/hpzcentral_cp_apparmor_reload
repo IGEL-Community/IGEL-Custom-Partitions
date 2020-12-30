@@ -1,0 +1,18 @@
+#! /bin/bash
+
+ACTION="custompart-hpzcentral_apparmor"
+
+# Add apparmor profile to trust HP ZCentral in Firefox
+logger -it "$ACTION" "Adding HP ZCentral to firefox apparmor profile"
+echo "$( get custom_partition.mountpoint )/hpzcentral/opt/hpremote/rgreceiver.sh Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/hpzcentral
+echo '#include <abstractions/ubuntu-browsers.d/hpzcentral>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
+
+# reload apparmor only if it is enabled
+if [ "$( get system.security.apparmor )" = "true" ] ; then
+  logger -it "$ACTION" "Reloading apparmor profiles"
+  systemctl reload apparmor.service
+else
+  logger -it "$ACTION" "Apparmor profiles disabled by setup"
+fi
+
+exit 0

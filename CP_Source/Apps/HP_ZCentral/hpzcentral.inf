@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="hpzcentral.tar.bz2"
+version="2020.1.0"
+size="500M"
+name="hpzcentral"
+minfw="11.04.200"
