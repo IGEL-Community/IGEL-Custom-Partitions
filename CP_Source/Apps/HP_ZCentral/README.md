@@ -5,9 +5,9 @@
 | Package | HP ZCentral Remote Boost - Current Version |
 | Script Name | [hpzcentral-cp-init-script.sh](hpzcentral-cp-init-script.sh) |
 | CP Mount Path | /custom/hpzcentral |
-| CP Size | 500M |
+| CP Size | 100M |
 | IGEL OS Version (min) | 11.4.200 |
-| Metadata File <br /> hpzcentral.inf | [INFO] <br /> [PART] <br /> file="hpzcentral.tar.bz2" <br /> version="1.3.00.30857" <br /> size="500M" <br /> name="hpzcentral" <br /> minfw="11.04.200" |
+| Metadata File <br /> hpzcentral.inf | [INFO] <br /> [PART] <br /> file="hpzcentral.tar.bz2" <br /> version="1.3.00.30857" <br /> size="100M" <br /> name="hpzcentral" <br /> minfw="11.04.200" |
 | Path to Executable | /custom/hpzcentral/usr/bin/hpzcentral |
 | Path to Icon | /custom/hpzcentral/usr/share/pixmaps/hpzcentral.png |
 | Missing Libraries | TBD |
