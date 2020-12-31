@@ -7,6 +7,8 @@
 sudo apt install unzip -y
 
 # Obtain latest package and save into Downloads
+# Download Latest Frame App for Linux (Debian)
+# https://portal.nutanix.com/page/downloads?product=xiframe
 if ! compgen -G "$HOME/Downloads/Frame-*.deb" > /dev/null; then
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "

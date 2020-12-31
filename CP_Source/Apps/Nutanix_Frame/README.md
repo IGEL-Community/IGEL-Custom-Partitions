@@ -11,7 +11,7 @@
 | Path to Executable | /custom/frame/usr/bin/frame |
 | Path to Icon | /custom/frame/usr/share/pixmaps/frame.png |
 | Missing Libraries | None |
-| Download package | Obtain from client |
+| Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
 | Packaging Notes | Create folder: **frame** <br /><br /> dpkg -x <package/lib> custom/frame <br /><br /> Need to move the mime folder: <br /><br />mv /custom/frame/usr/share/applications /custom/frame/usr/share/applications.mime |
 | Package automation | [build-frame-cp.sh](build-frame-cp.sh) |
 
