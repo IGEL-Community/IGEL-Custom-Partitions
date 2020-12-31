@@ -17,6 +17,9 @@ fi
 mkdir build_tar
 cd build_tar
 
+apt-get download libxcb-composite0
+apt-get download libxcb-damage0
+
 mkdir -p custom/hpzcentral
 
 mkdir tmp
@@ -25,6 +28,8 @@ tar xvf $HOME/Downloads/ZCentral_RB_*.tar.gz
 cd ..
 
 dpkg -x tmp/ubuntu/receiver/rgreceiver_*.deb custom/hpzcentral
+dpkg -x libxcb-composite0*.deb custom/hpzcentral
+dpkg -x libxcb-damage0*.deb custom/hpzcentral
 
 mv custom/hpzcentral/usr/share/applications/ custom/hpzcentral/usr/share/applications.mime
 
