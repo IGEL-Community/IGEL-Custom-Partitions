@@ -57,7 +57,7 @@ Copy Anonymous access provider name for later reference
 ![Create new API key](images/Frame_07.png)
 ![Create new API key cont](images/Frame_08.png)
 
-**Copy Client ID** and **Clinet secret** for later reference
+**Copy Client ID** and **Client secret** for later reference
 
 -----
 
