@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="signal.tar.bz2"
+version="1.39.4"
+size="500M"
+name="signal"
+minfw="11.04.200"
