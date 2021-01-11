@@ -2,7 +2,7 @@
 
 |  CP Information |            |
 |--------------------|------------|
-| Package | HP ZCentral Remote Boost - Current Version |
+| Package | [HP ZCentral Remote Boost](https://www8.hp.com/us/en/workstations/zcentral.html) - Current Version <br /><br /> A complete hardware and software solution to power a remote workforce |
 | Script Name | [hpzcentral-cp-init-script.sh](hpzcentral-cp-init-script.sh) |
 | CP Mount Path | /custom/hpzcentral |
 | CP Size | 100M |
