@@ -30,6 +30,7 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Nutanix_Frame.zip -d custom
 mkdir -p custom/frame/usr/share/pixmaps
 mv custom/target/Frame.png custom/frame/usr/share/pixmaps
+mv custom/target/frame-launcher.sh custom/frame
 mv custom/target/frame-cp-init-script.sh custom
 
 cd custom
