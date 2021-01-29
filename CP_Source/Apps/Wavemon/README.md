@@ -1,4 +1,4 @@
-# Wavemon (Draft build / testing)
+# Wavemon
 
 |  CP Information |            |
 |--------------------|------------|
