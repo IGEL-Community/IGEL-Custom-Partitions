@@ -8,9 +8,9 @@
 | CP Size | 10M |
 | IGEL OS Version (min) | 11.4.240 |
 | Metadata File <br /> wavemon.inf | [INFO] <br /> [PART] <br /> file="wavemon.tar.bz2" <br /> version="0.8.1" <br /> size="10M" <br /> name="wavemon" <br /> minfw="11.04.240" |
-| Path to Executable | xterm -e '/usr/bin/wavemon' |
+| Path to Executable | /usr/bin/xfce4-terminal -T "wavemon" --geometry=80x30-0+0 -x /usr/bin/wavemon |
 | Path to Icon | applications-other |
 | Missing Libraries | None |
 | Download package and missing library | apt-get download wavemon |
 | Packaging Notes | Create folder: **wavemon** <br /><br /> dpkg -x <package/lib> custom/wavemon |
-| Package automation | [build-wavemon-cp.sh](build-wavemon-cp.sh) <br /><br /> Tested with 0.8.1 |
+| Package automation | [build-wavemon-cp.sh](build-wavemon-cp.sh) <br /><br /> Tested with 0.8.0 |
