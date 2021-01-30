@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="orca.tar.bz2"
+version="3.28.0"
+size="20M"
+name="orca"
+minfw="11.04.240"
