@@ -30,7 +30,7 @@ dpkg -x python3-pyatspi_* custom/orca
 dpkg -x python3-speechd_* custom/orca
 dpkg -x speech-dispatcher_* custom/orca
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Orca.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Orca.zip
 
 unzip Orca.zip -d custom
 mv custom/target/orca-cp-init-script.sh custom
