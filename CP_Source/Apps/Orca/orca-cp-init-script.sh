@@ -37,6 +37,7 @@ init)
   py3compile /usr/lib/python3/dist-packages/orca | $LOGGER
   py3compile /usr/lib/python3/dist-packages/speechd | $LOGGER
   py3compile /usr/lib/python3/dist-packages/speechd_config | $LOGGER
+  /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas
 
 ;;
 stop)

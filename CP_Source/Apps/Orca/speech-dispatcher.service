@@ -1,0 +1,11 @@
+[Unit]
+Description=Speech-Dispatcher
+After=network-online.target
+Documentation=https://github.com/brailcom/speechd
+
+[Service]
+ExecStart=/usr/bin/speech-dispatcher -d
+ExecStop=/bin/kill -s QUIT $MAINPID
+
+[Install]
+WantedBy=multi-user.target

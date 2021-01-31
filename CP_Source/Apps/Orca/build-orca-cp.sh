@@ -67,11 +67,12 @@ dpkg -x libsndfile1_* custom/orca
 dpkg -x libspeechd2_* custom/orca
 dpkg -x speech-dispatcher-audio-plugins_* custom/orca
 
-
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Orca.zip
 
 unzip Orca.zip -d custom
 mv custom/target/orca-cp-init-script.sh custom
+mkdir -p custom/orca/etc/systemd/system
+mv custom/target/speech-dispatcher.service custom/orca/etc/systemd/system
 
 cd custom
 
