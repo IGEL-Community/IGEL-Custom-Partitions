@@ -30,7 +30,13 @@ init)
     fi
   done
 
-  py3compile -p orca -V 3.3-
+  py3compile /usr/lib/python3/dist-packages/pyatspi | $LOGGER
+  py3compile /usr/lib/python3/dist-packages/cairo | $LOGGER
+  py3compile /usr/lib/python3/dist-packages/louis | $LOGGER
+  py3compile /usr/lib/python3/dist-packages/louis | $LOGGER
+  py3compile /usr/lib/python3/dist-packages/orca | $LOGGER
+  py3compile /usr/lib/python3/dist-packages/speechd | $LOGGER
+  py3compile /usr/lib/python3/dist-packages/speechd_config | $LOGGER
 
 ;;
 stop)
