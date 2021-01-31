@@ -4,7 +4,7 @@ After=network-online.target
 Documentation=https://github.com/brailcom/speechd
 
 [Service]
-ExecStart=/usr/bin/speech-dispatcher -d
+ExecStart=/usr/bin/speech-dispatcher -d -t 300000
 ExecStop=/bin/kill -s QUIT $MAINPID
 
 [Install]
