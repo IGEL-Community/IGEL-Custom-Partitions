@@ -37,6 +37,13 @@ apt-get download libsndfile1
 apt-get download libspeechd2
 apt-get download speech-dispatcher-audio-plugins
 
+apt-get download espeak
+apt-get download libespeak1
+apt-get download espeak-data
+apt-get download libportaudio2
+apt-get download libsonic0
+
+
 mkdir -p custom/orca
 
 dpkg -x orca_* custom/orca
@@ -66,6 +73,12 @@ dpkg -x libpulse0_* custom/orca
 dpkg -x libsndfile1_* custom/orca
 dpkg -x libspeechd2_* custom/orca
 dpkg -x speech-dispatcher-audio-plugins_* custom/orca
+
+dpkg -x espeak_* custom/orca
+dpkg -x espeak-data_* custom/orca
+dpkg -x libespeak1_* custom/orca
+dpkg -x libportaudio2_* custom/orca
+dpkg -x libsonic0_* custom/orca
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Orca.zip
 
