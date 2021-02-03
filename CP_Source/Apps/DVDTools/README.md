@@ -13,3 +13,9 @@
 | Download package and missing libraries | apt-get download wodim <br /> apt-get download dvd+rw-tools <br /> apt-get download genisoimage <br /> apt-get download growisofs |
 | Packaging Notes | Create folder: **dvdtools** <br /><br /> dpkg -x <package/lib> custom/dvdtools |
 | Package automation | [build-dvdtools-cp.sh](build-dvdtools-cp.sh) |
+
+**Determine device name (typical name: /dev/sr0)**
+
+```{lshw -C disk}
+lshw -C disk
+   ```
