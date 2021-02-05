@@ -33,9 +33,12 @@ init)
     fi
   done
 
-# basic persistency
+  # basic persistency
   chown -R user:users "${CP}${TEAMS}"
-
+  
+  # add MIME type to /usr/share/applications/mimeapps.list
+  echo "x-scheme-handler/msteams=teams.desktop" >> /usr/share/applications/mimeapps.list
+  
   # Add apparmor profile to trust Teams in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
