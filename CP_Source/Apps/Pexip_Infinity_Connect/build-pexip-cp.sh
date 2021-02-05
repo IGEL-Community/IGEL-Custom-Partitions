@@ -22,7 +22,7 @@ cd build_tar
 
 mkdir -p custom/pexip
 
-dpkg -x "$HOME/Downloads/pexip*.deb" custom/pexip
+dpkg -x $HOME/Downloads/pexip*.deb custom/pexip
 
 mv custom/pexip/usr/share/applications/ custom/pexip/usr/share/applications.mime
 mkdir -p custom/pexip/userhome/.config/pexip-infinity-connect
