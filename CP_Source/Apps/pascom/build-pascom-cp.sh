@@ -35,7 +35,7 @@ mv custom/target/pascom-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf pascom.tar.bz2 pascom pascom-cp-init-script.sh
+tar cvjf pascom.tar.bz2 pascom_Client pascom-cp-init-script.sh
 mv pascom.tar.bz2 ../..
 mv target/pascom.inf ../..
 mv igel/*.xml ../..
