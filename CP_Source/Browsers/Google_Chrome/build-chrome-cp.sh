@@ -7,17 +7,21 @@
 sudo apt install curl -y
 sudo apt install unzip -y
 sudo curl https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo sh -c 'echo "deb [arch=amd64] http://packages.cloud.google.com/apt endpoint-verification main" >> /etc/apt/sources.list.d/google.list'
 sudo apt-get update
 
 mkdir build_tar
 cd build_tar
 
 apt-get download google-chrome-stable
+apt-get download endpoint-verification
 
 mkdir -p custom/chrome
 
 dpkg -x google* custom/chrome
+dpkg -x endpoint* custom/chrome
 
 mv custom/chrome/usr/share/applications/ custom/chrome/usr/share/applications.mime
 mkdir -p custom/chrome/userhome/.config/google-chrome
