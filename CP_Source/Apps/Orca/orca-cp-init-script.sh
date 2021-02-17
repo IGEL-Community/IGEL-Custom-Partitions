@@ -30,14 +30,16 @@ init)
     fi
   done
 
-  py3compile /usr/lib/python3/dist-packages/pyatspi | $LOGGER
   py3compile /usr/lib/python3/dist-packages/cairo | $LOGGER
   py3compile /usr/lib/python3/dist-packages/louis | $LOGGER
-  py3compile /usr/lib/python3/dist-packages/louis | $LOGGER
   py3compile /usr/lib/python3/dist-packages/orca | $LOGGER
+  py3compile /usr/lib/python3/dist-packages/pyatspi | $LOGGER
   py3compile /usr/lib/python3/dist-packages/speechd | $LOGGER
   py3compile /usr/lib/python3/dist-packages/speechd_config | $LOGGER
+  py3compile /usr/lib/python3/dist-packages/xdg | $LOGGER
   /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas
+  chmod -R 777 /usr/lib/python3.6/__pycache__
+  chown -R user:users "${CP}"
 
 ;;
 stop)
