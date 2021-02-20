@@ -2,7 +2,7 @@
 
 |  CP Information |            |
 |--------------------|------------|
-| Package | [LibreOffice](https://www.libreoffice.org) - Current Version |
+| Package | [LibreOffice](https://www.libreoffice.org) - Current Version <br /><br /> [Installing LibreOffice on Linux](https://wiki.documentfoundation.org/Documentation/Install/Linux) <br /><br /> [LibreOffice Help](https://help.libreoffice.org)|
 | Script Name | [libreoffice-cp-init-script.sh](libreoffice-cp-init-script.sh) |
 | CP Mount Path | /custom/libreoffice |
 | CP Size | 900M |

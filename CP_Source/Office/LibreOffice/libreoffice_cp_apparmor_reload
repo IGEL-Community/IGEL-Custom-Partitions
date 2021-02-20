@@ -2,11 +2,9 @@
 
 ACTION="custompart-libreoffice_apparmor"
 
-/opt/libreoffice7.0/program/soffice
-
 # Add apparmor profile to trust libreoffice in Firefox
-logger -it "$ACTION" "Adding Microsoft Teams to firefox apparmor profile"
-echo "$( get custom_partition.mountpoint )/custom/libreoffice/opt/libreoffice7.0/program/soffice Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/libreoffice
+logger -it "$ACTION" "Adding LibreOffice to firefox apparmor profile"
+echo "$( get custom_partition.mountpoint )/custom/libreoffice/opt/libreoffice7.0/program/soffice.bin Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/libreoffice
 echo '#include <abstractions/ubuntu-browsers.d/libreoffice>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
 
 # reload apparmor only if it is enabled
