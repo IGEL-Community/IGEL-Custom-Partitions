@@ -41,7 +41,7 @@ init)
   # Add apparmor profile to trust Teams in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
-  systemctl --no-block start igel-libreoffice-cp-apparmor-reload.service
+  #systemctl --no-block start igel-libreoffice-cp-apparmor-reload.service
 
   # after CP installation run wm_postsetup to activate libreoffice.desktop mimetypes for SSO
   if [ -d /run/user/777 ]; then
