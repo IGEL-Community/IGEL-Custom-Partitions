@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="conky.tar.bz2"
+version="1.10.8"
+size="20M"
+name="conky"
+minfw="11.04.240"
