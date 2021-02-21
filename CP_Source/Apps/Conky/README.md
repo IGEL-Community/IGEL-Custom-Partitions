@@ -1,4 +1,4 @@
-# Conky (DRAFT Testing of Package)
+# Conky
 
 |  CP Information |            |
 |--------------------|------------|
@@ -13,3 +13,5 @@
 | Download package and missing libraries | apt-get download conky <br /> apt-get download conky-std <br /> apt-get download libgif7 <br /> apt-get download libid3tag0 <br /> apt-get download libimlib2 <br /> apt-get download liblua5.1-0 |
 | Packaging Notes | Create folder: **conky** <br /><br /> dpkg -x <package/lib> custom/conky |
 | Package automation | [build-conky-cp.sh](build-conky-cp.sh) <br /><br /> Tested with 1.10.8 |
+
+![Screenshot Conky](screenshot_conky.png)
