@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/etc/keyfactor/agent &amp;amp</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cd /etc/keyfactor &amp;amp&amp;amp ./agent &amp;amp</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
