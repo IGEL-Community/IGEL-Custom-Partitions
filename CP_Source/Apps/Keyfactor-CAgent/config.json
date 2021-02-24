@@ -1,0 +1,22 @@
+{
+	"AgentId": "",
+	"AgentName": "KF_AGENT_NAME",
+	"Hostname": "KF_HOSTNAME",
+	"Password": "KF_PASSWORD",
+	"Username": "KF_USERNAME",
+	"VirtualDirectory": "proxy",
+	"TrustStore": "/userhome/keyfactor/certs/trust.store",
+	"AgentCert": "/userhome/keyfactor/certs/Linux-server.cer",
+	"AgentKey": "/home/keyfactor/certs/Linux-key.pem",
+	"AgentKeyPassword": "KF_AGENTKEYPASSWORD",
+	"CSRKeyType": "ECC",
+	"CSRKeySize": 256,
+	"CSRSubject": "CN=1",
+	"EnrollOnStartup": true,
+	"UseSsl": true,
+	"Serialize": false,
+	"SerialFile": "serial.json",
+	"LogFile": "agent.log",
+	"httpRetries": 5,
+	"retryInterval": 10
+}
