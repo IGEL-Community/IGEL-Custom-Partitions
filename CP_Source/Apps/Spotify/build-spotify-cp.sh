@@ -59,7 +59,7 @@ done
 
 mkdir -p custom/spotify/userhome/.config/spotify
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Spotify.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Spotify.zip
 
 unzip Spotify.zip -d custom
 mv custom/target/spotify-cp-init-script.sh custom
