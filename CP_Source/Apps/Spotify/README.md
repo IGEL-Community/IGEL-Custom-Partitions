@@ -14,3 +14,5 @@
 | Download package and missing library | See build script for details |
 | Packaging Notes | Create folder: **spotify** <br /><br /> dpkg -x <package/lib> custom/spotify |
 | Package automation | [build-spotify-cp.sh](build-spotify-cp.sh) <br /><br /> Tested with 1.1.42.622 |
+
+![Spotify](Spotify.png)
