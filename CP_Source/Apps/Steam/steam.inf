@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="steam.tar.bz2"
+version="1.0.0.68"
+size="3000M"
+name="steam"
+minfw="11.04.240"
