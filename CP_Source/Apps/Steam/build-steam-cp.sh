@@ -93,7 +93,7 @@ cp -R $HOME/.local/share/Steam custom/steam/userhome/.local/share
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Steam.zip
 
-unzip steam.zip -d custom
+unzip Steam.zip -d custom
 mv custom/target/steam-cp-init-script.sh custom
 
 cd custom
