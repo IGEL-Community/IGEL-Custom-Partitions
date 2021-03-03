@@ -2,7 +2,7 @@
 
 |  CP Information |            |
 |--------------------|------------|
-| Package | [Conky](https://github.com/brndnmtthws/conky) - Current Version <br /><br /> Conky is a free, light-weight system monitor for X, that displays any kind of information on your desktop. |
+| Package | [Conky](https://github.com/brndnmtthws/conky/wiki) - Current Version <br /><br /> Conky is a free, light-weight system monitor for X, that displays any kind of information on your desktop. <br /><br /> [Conky Variables](http://conky.sourceforge.net/variables.html)|
 | Script Name | [conky-cp-init-script.sh](conky-cp-init-script.sh) |
 | CP Mount Path | /custom/conky |
 | CP Size | 20M |
