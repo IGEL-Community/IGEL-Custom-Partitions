@@ -5,15 +5,15 @@
 | Package | Zoom - Current Version |
 | Script Name | [zoom-cp-init-script.sh](zoom-cp-init-script.sh) |
 | CP Mount Path | /custom/zoom |
-| CP Size | 200M |
-| IGEL OS Version (min) | 11.3.110 |
-| Metadata File <br /> zoom.inf | [INFO] <br /> [PART] <br /> file="zoom.tar.bz2" <br /> version="5.4.54779.1115" <br /> size="200M" <br /> minfw="11.03.110" |
+| CP Size | 300M |
+| IGEL OS Version (min) | 11.4.240 |
+| Metadata File <br /> zoom.inf | [INFO] <br /> [PART] <br /> file="zoom.tar.bz2" <br /> version="5.5.4" <br /> size="300M" <br /> minfw="11.04.240" |
 | Path to Executable | /custom/zoom/usr/bin/zoom |
 | Path to Icon | /custom/zoom/usr/share/pixmaps/Zoom.png |
 | Missing Libraries | [libxcb-xtest0](https://packages.ubuntu.com/bionic/amd64/libxcb-xtest0) |
 | Download package and missing library | wget https://zoom.us/client/latest/zoom_amd64.deb <br /> apt-get download libxcb-xtest0 |
 | Packaging Notes | Create folder: **zoom** <br /><br /> dpkg -x <package/lib> custom/zoom <br /><br /> Need to move the mime folder: <br /><br />mv /custom/zoom/usr/share/applications /custom/zoom/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/zoom/config/bin/[zoom_cp_apparmor_reload](zoom_cp_apparmor_reload) <br /> /custom/zoom/lib/systemd/system/[igel-zoom-cp-apparmor-reload.service](igel-zoom-cp-apparmor-reload.service) |
-| Package automation | [build-zoom-cp.sh](build-zoom-cp.sh) <br /><br /> Tested with 5.4.54779.1115 |
+| Package automation | [build-zoom-cp.sh](build-zoom-cp.sh) <br /><br /> Tested with 5.5.4 (March 3, 2021)|
 
 |  Customization | /wfs/user/.zoom/.zoomus.conf |
 |----------------|------------------------------|

@@ -79,9 +79,6 @@ init)
     sleep 3
   fi
 
-  # add /opt/zoom to ld_library
-  #echo "${CP}/opt/zoom" > /etc/ld.so.conf.d/zoom.conf
-  #ldconfig
 ;;
 stop)
   # unlink linked files
@@ -91,8 +88,6 @@ stop)
     unlink $DEST | $LOGGER
   done
 
-  # remove zoom.conf because it is not needed anymore
-  #rm /etc/ld.so.conf.d/zoom.conf
 ;;
 esac
 
