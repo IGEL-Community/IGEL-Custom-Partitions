@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile>
+    <profile_id>601872</profile_id>
+    <profilename>Suppress Notfications</profilename>
+    <firmware>
+        <model>IGEL OS 11</model>
+        <version>11.04.240.01</version>
+    </firmware>
+    <description></description>
+    <overwritesessions>false</overwritesessions>
+    <is_master_profile>false</is_master_profile>
+    <is_igel_os>true</is_igel_os>
+    <settings>
+        <pclass name="userinterface.rccustom.custom_cmd_final">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">#xfconf-query -c xfce4-notifyd -p /do-not-disturb -n -t int -s 0
+mv /usr/lib/systemd/user/igel-xfce4-notifyd.service /usr/lib/systemd/user/igel-xfce4-notifyd.disabled
+mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.disabled</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+    </settings>
+    <instancesettings/>
+</profile>
