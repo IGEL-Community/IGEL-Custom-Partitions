@@ -34,7 +34,8 @@ mkdir -p custom/icedtea/lib/systemd/system
 mv custom/target/icedtea_cp_apparmor_reload custom/icedtea/config/bin
 mv custom/target/igel-icedtea-cp-apparmor-reload.service custom/icedtea/lib/systemd/system/
 mv custom/target/icedtea-cp-init-script.sh custom
-mv custom/target/javaws-wrapper.desktop
+mkdir -p custom/icedtea/usr/share/applications.mime
+mv custom/target/javaws-wrapper.desktop custom/icedtea/usr/share/applications.mime
 
 cd custom
 
