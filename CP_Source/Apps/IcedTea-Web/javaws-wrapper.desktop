@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Test
+Comment=Java Web Start (Wrapper)
+Exec=/services/zulu_jre8/jre/bin/javaws
+Icon=sun-javaws.png
+Terminal=false
+Type=Application
+NoDisplay=true
+Categories=Java;Applications;
+MimeType=application/x-java-jnlp-file;
