@@ -31,6 +31,7 @@ unzip Conky.zip -d custom
 mv custom/target/conky-cp-init-script.sh custom
 mv custom/conky/etc/conky/conky.conf custom/conky/etc/conky/conky_orig.conf
 mv custom/target/conky.conf custom/conky/etc/conky
+mv custom/target/conky_simple.conf custom/conky/etc/conky
 
 cd custom
 
