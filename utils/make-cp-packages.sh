@@ -32,8 +32,8 @@ for category in $CATEGORIES; do
           zip_needed=true;
         fi
 
-        #  if the common readme and disclaimer files are newer than the zip file, re-create the zip
-        if [ "$COMMONREADME" -nt $zip_file ]  || [ "$COMMONDISCLAIMER" -nt $zip_file ]; then
+        #  if the common readme and disclaimer files are in the list of changed files, re-create the zip
+        if [[ "$CHANGEDFILES" == *"$COMMONREADME"* ]] || [[ "$CHANGEDFILES" == *"$COMMONDISCLAIMER"]]; then
             echo "at 2"
             zip_needed=true;
         fi
