@@ -2,6 +2,6 @@
 [PART]
 file="cpsnx.tar.bz2"
 version="1.0.0"
-size="20M"
+size="40M"
 name="cpsnx"
 minfw="11.04.240"
