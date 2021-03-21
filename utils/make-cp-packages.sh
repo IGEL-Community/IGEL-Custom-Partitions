@@ -7,6 +7,7 @@ set -x
 # Files that have changed in most recent commit
 git diff --name-only HEAD HEAD~1
 CHANGEDFILES=`git diff --name-only HEAD HEAD~1`
+CHANGEDFILESB=`git diff --name-only HEAD HEAD~1|grep -v ".zip"`
 
 BASEDIR=`pwd`
 SRCLOC="$BASEDIR/CP_Source"
@@ -21,22 +22,26 @@ for category in $CATEGORIES; do
     #  look at every folder under the category
     for cp in *; do
 
+      echo "in the loop with cp = $cp"
       if [ -d $cp ]; then
         zip_needed=false
         zip_file="$ZIPLOCATION/$category/$cp.zip";
 
         if [ ! -f  $zip_file ]; then
+          echo "at 1"
           zip_needed=true;
         fi
 
         #  if the common readme and disclaimer files are newer than the zip file, re-create the zip
         if [ "$COMMONREADME" -nt $zip_file ]  || [ "$COMMONDISCLAIMER" -nt $zip_file ]; then
+            echo "at 2"
             zip_needed=true;
         fi
 
         echo "category/cp  = $category/$cp"
         #  check the list of changed files in this commit to see if this Custom Partition has changed
         if [[ "$CHANGEDFILES" == *"$category/$cp"* ]] ; then
+            echo "at 3"
             zip_needed=true;
         fi
 
