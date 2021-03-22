@@ -33,10 +33,15 @@ for category in $CATEGORIES; do
         fi
 
         #  if the common readme and disclaimer files are in the list of changed files, re-create the zip
-        if [[ "$CHANGEDFILES" == *"$COMMONREADME"* ] || [ "$CHANGEDFILES" == *"$COMMONDISCLAIMER"*]] ; then
+        if [[ "$CHANGEDFILES" == *"$COMMONREADME"* ]]; then
             echo "at 2"
             zip_needed=true;
         fi
+        if [[ "$CHANGEDFILES" == *"$COMMONDISCLAIMER"* ]]; then
+            echo "at 3"
+            zip_needed=true;
+        fi
+
 
         echo "category/cp  = $category/$cp"
         #  check the list of changed files in this commit to see if this Custom Partition has changed
