@@ -25,22 +25,24 @@ for category in $CATEGORIES; do
       echo "in the loop with cp = $cp"
       if [ -d $cp ]; then
         zip_needed=false
-        zip_reason=""
+        #zip_reason=""
         zip_file="$ZIPLOCATION/$category/$cp.zip";
-
+        #  Take out the zip file out of changed files so we don't recreate
+        CHANGEDFILES=${CHANGEDFILES//$zip_file/}
+        
         if [ ! -f  $zip_file ]; then
           zip_needed=true;
-          zip_reason="$zip_reason There was no current zip file."
+          #zip_reason="$zip_reason There was no current zip file."
         fi
 
         #  if the common readme and disclaimer files are in the list of changed files, re-create the zip
         if [[ "$CHANGEDFILES" == *"$COMMONREADME"* ]]; then
             zip_needed=true;
-            zip_reason="$zip_reason COMMONREADME is new."
+            #zip_reason="$zip_reason COMMONREADME is new."
         fi
         if [[ "$CHANGEDFILES" == *"$COMMONDISCLAIMER"* ]]; then
             zip_needed=true;
-            zip_reason="$zip_reason COMMONDISCLAIMER is new."
+            #zip_reason="$zip_reason COMMONDISCLAIMER is new."
         fi
 
 
@@ -48,14 +50,14 @@ for category in $CATEGORIES; do
         #  check the list of changed files in this commit to see if this Custom Partition has changed
         if [[ "$CHANGEDFILES" == *"$category/$cp"* ]] ; then
             zip_needed=true;
-            zip_reason="$zip_reason A file in $category/$cp has changed."
+            #zip_reason="$zip_reason A file in $category/$cp has changed."
         fi
 
 
         #  create the structure needed, then zip the file to the correct location
         if $zip_needed; then
           echo "Zip needed for cp: $cp"
-          echo "Because $zip_reason"
+          #echo "Because $zip_reason"
           cd $cp
           foldername=`grep -i "cp=" *.sh`
           foldername=${foldername/*\//}
