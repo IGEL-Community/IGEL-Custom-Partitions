@@ -33,7 +33,7 @@ for category in $CATEGORIES; do
         fi
 
         #  if the common readme and disclaimer files are in the list of changed files, re-create the zip
-        if [[ "$CHANGEDFILES" == *"$COMMONREADME"* ]] || [[ "$CHANGEDFILES" == *"$COMMONDISCLAIMER"]]; then
+        if [[ "$CHANGEDFILES" == *"$COMMONREADME"* ] || [ "$CHANGEDFILES" == *"$COMMONDISCLAIMER"*]]; then
             echo "at 2"
             zip_needed=true;
         fi
