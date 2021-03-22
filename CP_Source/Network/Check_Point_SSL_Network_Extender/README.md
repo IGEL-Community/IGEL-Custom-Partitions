@@ -1,6 +1,6 @@
 # Check Point SSL Network Extender (SNX)
 
-|  CP Information |            |
+|  CP Information |            |  
 |--------------------|------------|
 | Package | [Check Point SSL Network Extender (SNX)](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk65210&partition=Basic&product=SSL) - Current Version <br /><br /> SSL Network Extender is a secure connectivity framework for remote access to a corporate network. SSL Network Extender uses a thin VPN client installed on the user's remote computer that connects to an SSL-enabled web server. The web server and the client are in the same VPN. <br /><br /> [How to install SSL Network Extender (SNX) client on Linux machine](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk114267) <br /><br /> [How to establish Client-to-Site VPN from a Linux machine to a locally managed SMB appliance](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk116576)  |
 | Script Name | [cpsnx-cp-init-script.sh](cpsnx-cp-init-script.sh) |
