@@ -27,9 +27,9 @@ for category in $CATEGORIES; do
         zip_needed=false
         #zip_reason=""
         zip_file="$ZIPLOCATION/$category/$cp.zip";
-        #  Take out the zip file out of changed files so we don't recreate
-        CHANGEDFILES=${CHANGEDFILES//$zip_file/}
-        
+        #  Take out the zip file out of changed files so we don't recreate it needlessly
+        CHANGEDFILES=${CHANGEDFILES//CP_Packages\/$category\/$cp.zip/}
+
         if [ ! -f  $zip_file ]; then
           zip_needed=true;
           #zip_reason="$zip_reason There was no current zip file."
