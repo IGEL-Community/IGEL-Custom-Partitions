@@ -19,6 +19,18 @@ dpkg -x libxcb* custom/zoom
 
 mv custom/zoom/usr/share/applications/ custom/zoom/usr/share/applications.mime
 
+############################################
+# START: comment out for non-persistency!!!!
+############################################
+
+mkdir -p custom/zoom/userhome/.zoom
+mkdir -p custom/zoom/userhome/.config
+touch custom/zoom/userhome/.config/zoomus.config
+
+##########################################
+# END: comment out for non-persistency!!!!
+##########################################
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Zoom.zip
 
 unzip Zoom.zip -d custom

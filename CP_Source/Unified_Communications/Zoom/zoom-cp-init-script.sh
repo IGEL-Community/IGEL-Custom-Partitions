@@ -10,11 +10,8 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/zoom"
 
-# wfs for persistent login and history
-WFS="/wfs/user/.zoom"
-
-# .zoom directory
-ZOOM="/userhome/.zoom"
+# config directory
+USER_CONFIG="/userhome"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -23,6 +20,23 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  # check for old folders / links and remove
+  if [ -d /wfs/user/.zoom ]; then
+    rm -rf /wfs/user/.zoom
+  fi
+  if [ -L /userhome/.zoom ]; then
+    unlink /userhome/.zoom
+  fi
+  if [ -d /userhome/.zoom ]; then
+    rm -rf /userhome/.zoom
+  fi
+  if [ -L /userhome/.config/zoomus.conf ]; then
+    unlink /userhome/.config/zoomus.conf
+  fi
+  if [ -f /userhome/.config/zoomus.conf ]; then
+    rm -f /userhome/.config/zoomus.conf
+  fi
+
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do
@@ -36,43 +50,17 @@ init)
     fi
   done
 
-  # Check if old files in /wfs need to be removed
-  if [ $(find "${WFS}/data" -name "*@xmpp.zoom.us*" | wc -l) != 0 ]; then
-    # unlink /userhome/.zoom/data
-    if [ -L "${ZOOM}/data" ]; then
-      unlink "${ZOOM}/data"
-    fi
-
-    # cleanup /wfs/user/.zoom/data
-    find  ${WFS}/data -mindepth 1 -maxdepth 1 -not -name *zoomus.db -and -not -name *zoommeeting.db -and -not -name *VirtualBkgnd_Default -and -not -name *VirtualBkgnd_Custom  | while read LINE
-    do
-      rm -rf ${LINE}
-    done
+  # basic persistency
+  if [ -d "${CP}${USER_CONFIG}" ]; then
+    chown -R user:users "${CP}${USER_CONFIG}"
   fi
 
-  # Linking most important files in /userhome/.zoom to /wfs/user/.zoom for some basic persistency
-  mkdir -p ${WFS}/data
-  mkdir -p ${ZOOM}/data
-  mkdir -p ${ZOOM}/data/VirtualBkgnd_Custom
-  mkdir -p ${ZOOM}/data/VirtualBkgnd_Default
-  touch ${WFS}/data/zoomus.db
-  touch ${WFS}/data/zoommeeting.db
-  touch ${WFS}/zoomus.conf
-  chown -R user:users ${WFS}
-  chown -R user:users ${ZOOM}
-
-  runuser -l user -c "ln -sv ${WFS}/data/zoomus.db ${ZOOM}/data/zoomus.db" | $LOGGER
-  runuser -l user -c "ln -sv ${WFS}/data/zoommeeting.db ${ZOOM}/data/zoommeeting.db" | $LOGGER
-  runuser -l user -c "ln -sv ${WFS}/data/VirtualBkgnd_Custom ${ZOOM}/data/" | $LOGGER
-  runuser -l user -c "ln -sv ${WFS}/data/VirtualBkgnd_Default ${ZOOM}/data/" | $LOGGER
-  runuser -l user -c "ln -sv ${WFS}/zoomus.conf /userhome/.config/zoomus.conf" | $LOGGER
-
-  # Add apparmor profile to trust Zoom in Firefox to make SSO possible
+  # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
   systemctl --no-block start igel-zoom-cp-apparmor-reload.service
 
-  # after CP installation run wm_postsetup to activate Zoom.desktop mimetypes for SSO
+  # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
     wm_postsetup
     # delay the CP ready notification

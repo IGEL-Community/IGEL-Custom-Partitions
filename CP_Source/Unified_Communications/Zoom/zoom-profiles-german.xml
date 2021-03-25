@@ -5,7 +5,7 @@
         <profilename>Zoom CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.03.110.01</version>
+            <version>11.04.240.01</version>
         </firmware>
         <description></description>
         <overwritesessions>false</overwritesessions>
@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt EOF &amp;gt /wfs/user/.zoom/zoomus.conf
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt EOF &amp;gt /userhome/.config/zoomus.conf
 &amp;lbGeneral&amp;rb
 language=de
 EOF
@@ -25,7 +25,7 @@ EOF
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">300M</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">400M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
         </settings>

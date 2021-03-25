@@ -2,7 +2,7 @@
 
 ACTION="custompart-zoom_apparmor"
 
-# Add apparmor profile to trust Zoom in Firefox
+# Add apparmor profile to trust in Firefox
 logger -it "$ACTION" "Adding Zoom to firefox apparmor profile"
 echo "$( get custom_partition.mountpoint )/zoom/opt/zoom/ZoomLauncher Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/zoom
 echo '#include <abstractions/ubuntu-browsers.d/zoom>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
