@@ -14,3 +14,13 @@
 | Download package and missing library | See build script for details |
 | Packaging Notes | See build script for details |
 | Package automation | [build-icedtea-cp.sh](build-icedtea-cp.sh) <br /><br /> Tested with 1.8.4 |
+
+**NOTE: Starting the UMS Console via Java Web Start on IGEL OS**
+
+To start the IGEL UMS Console via Java Web Start:
+
+In a web browser, open the address
+
+```
+https://[UMS-Server]:8443/start_rm.html
+  ```
