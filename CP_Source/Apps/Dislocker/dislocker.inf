@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="dislocker.tar.bz2"
+version="0.7.1"
+size="50M"
+name="dislocker"
+minfw="11.04.240"
