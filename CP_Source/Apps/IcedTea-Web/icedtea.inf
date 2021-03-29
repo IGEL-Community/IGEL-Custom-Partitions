@@ -2,6 +2,6 @@
 [PART]
 file="icedtea.tar.bz2"
 version="1.8.4"
-size="100M"
+size="300M"
 name="icedtea"
 minfw="11.04.240"

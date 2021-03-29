@@ -26,6 +26,17 @@ unzip $HOME/Downloads/zulu-icedtea-web*.zip
 
 cp -R icedtea-web-image/* custom/icedtea/services/zulu_jre8/jre
 
+############################################
+# START: comment out for non-persistency!!!!
+############################################
+
+mkdir -p custom/icedtea/userhome/.config/icedtea-web
+mkdir -p custom/icedtea/userhome/.cache/icedtea-web
+
+##########################################
+# END: comment out for non-persistency!!!!
+##########################################
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/IcedTea-Web.zip
 
 unzip IcedTea-Web.zip -d custom

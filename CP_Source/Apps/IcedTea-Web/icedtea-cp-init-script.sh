@@ -10,6 +10,9 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/icedtea"
 
+# config directory
+USER_CONFIG="/userhome"
+
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
 
@@ -31,6 +34,11 @@ init)
       fi
     fi
   done
+
+  # basic persistency
+  if [ -d "${CP}${USER_CONFIG}" ]; then
+    chown -R user:users "${CP}${USER_CONFIG}"
+  fi
 
   # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
