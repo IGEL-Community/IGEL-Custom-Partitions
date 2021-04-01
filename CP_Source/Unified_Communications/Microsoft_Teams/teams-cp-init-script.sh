@@ -35,10 +35,10 @@ init)
 
   # basic persistency
   chown -R user:users "${CP}${TEAMS}"
-  
+
   # add MIME type to /usr/share/applications/mimeapps.list
   echo "x-scheme-handler/msteams=teams.desktop" >> /usr/share/applications/mimeapps.list
-  
+
   # Add apparmor profile to trust Teams in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
@@ -51,10 +51,6 @@ init)
     sleep 3
   fi
 
-  # add /opt/teams to ld_library
-  #echo "${CP}/usr/share/teams" > /etc/ld.so.conf.d/teams.conf
-  #echo "${CP}/usr/share/swiftshader" >> /etc/ld.so.conf.d/teams.conf
-  #ldconfig
 ;;
 stop)
   # unlink linked files
@@ -64,8 +60,6 @@ stop)
     unlink $DEST | $LOGGER
   done
 
-  # remove zoom.conf because it is not needed anymore
-  #rm /etc/ld.so.conf.d/teams.conf
 ;;
 esac
 
