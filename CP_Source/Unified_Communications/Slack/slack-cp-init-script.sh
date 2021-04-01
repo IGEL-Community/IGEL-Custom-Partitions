@@ -8,11 +8,8 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/slack"
 
-# wfs for persistent login and history
-WFS="/wfs/user/.config/Slack"
-
-# Slack directory
-PRO_DIR="/userhome/.config/Slack"
+# persistent login and history
+USER_CONFIG="/userhome"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -21,7 +18,16 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
-  chmod -R go+rx "${CP}"
+  # check for old folders / links and remove
+  if [ -d /wfs/user/.config/Slack ]; then
+    rm -rf /wfs/user/.config/Slack
+  fi
+  if [ -L /userhome/.config/Slack ]; then
+    unlink /userhome/.config/Slack
+  fi
+  if [ -d /userhome/.config/Slack ]; then
+    rm -rf /userhome/.config/Slack
+  fi
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do
@@ -35,19 +41,10 @@ init)
     fi
   done
 
-  # Check if old files in /wfs need to be removed
-  if [ -d "${WFS}" ]; then
-    if [ -L "${PRO_DIR}" ]; then
-      unlink "${PRO_DIR}"
-    fi
-    rm -rf "${WFS}"
+  # basic persistency
+  if [ -d "${CP}${USER_CONFIG}" ]; then
+    chown -R user:users "${CP}${USER_CONFIG}"
   fi
-
-  # Linking profile directory from /userhome to /wfs/user
-  mkdir -p "${WFS}"
-  chown -R user:users "${WFS}"
-
-  ln -sv "${WFS}" "${PRO_DIR}" | $LOGGER
 
   # Add apparmor profile to trust Slack in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
@@ -61,10 +58,6 @@ init)
     sleep 3
   fi
 
-  # add /usr/lib/slack to ld_library
-  echo "${CP}/usr/lib/slack" > /etc/ld.so.conf.d/slack.conf
-  echo "${CP}/usr/lib/slack/swiftshader" >> /etc/ld.so.conf.d/slack.conf
-  ldconfig
 ;;
 stop)
   # unlink linked files
@@ -74,8 +67,6 @@ stop)
     unlink $DEST | $LOGGER
   done
 
-  # remove zoom.conf because it is not needed anymore
-  rm /etc/ld.so.conf.d/slack.conf
 ;;
 esac
 

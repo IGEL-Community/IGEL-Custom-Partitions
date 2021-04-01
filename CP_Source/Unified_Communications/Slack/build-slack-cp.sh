@@ -25,6 +25,17 @@ dpkg -x $HOME/Downloads/slack-desktop-*.deb custom/slack
 
 mv custom/slack/usr/share/applications/ custom/slack/usr/share/applications.mime
 
+############################################
+# START: comment out for non-persistency!!!!
+############################################
+
+mkdir -p custom/slack/userhome/.config/Slack
+
+##########################################
+# END: comment out for non-persistency!!!!
+##########################################
+
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Slack.zip
 
 unzip Slack.zip -d custom
