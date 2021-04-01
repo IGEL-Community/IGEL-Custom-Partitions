@@ -1,7 +1,7 @@
 # Slack (1 April Updated)
 
 |  CP Information |            |
-|-----------------|------------|
+|-----------------|-------_-----|
 | Package | Slack - Current Version |
 | Script Name | [slack-cp-init-script.sh](slack-cp-init-script.sh) |
 | CP Mount Path | /custom/slack |
