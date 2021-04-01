@@ -18,6 +18,7 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  chmod -R go+rx "${CP}"
   # check for old folders / links and remove
   if [ -d /wfs/user/.config/Slack ]; then
     rm -rf /wfs/user/.config/Slack
