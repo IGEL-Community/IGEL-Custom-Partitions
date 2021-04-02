@@ -1,7 +1,7 @@
 # Signal (2 April Updated)
 
 |  CP Information |            |
-|--------------------|------------|
+|-----------------|------------|
 | Package | [Signal](https://www.signal.org) - Current Version |
 | Script Name | [signal-cp-init-script.sh](signal-cp-init-script.sh) |
 | CP Mount Path | /custom/signal |
