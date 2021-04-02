@@ -1,7 +1,7 @@
 # Slack (1 April Updated)
 
 |  CP Information |            |
-|-----------------|-------_-----|
+|-----------------|------------|
 | Package | Slack - Current Version |
 | Script Name | [slack-cp-init-script.sh](slack-cp-init-script.sh) |
 | CP Mount Path | /custom/slack |
@@ -13,4 +13,4 @@
 | Missing Libraries | None |
 | Download package | Manually download .deb (64-Bit) ([LINK](https://slack.com/downloads/linux)) latest package and place into ~/Downloads folder |
 | Packaging notes | Create folder: **slack** <br /><br /> dpkg -x <package/lib> custom/slack <br /><br /> Need to move the mime folder: <br /><br />mv /custom/slack/usr/share/applications /custom/slack/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/slack/config/bin/[slack_cp_apparmor_reload](slack_cp_apparmor_reload) <br /> /custom/slack/lib/systemd/system/[igel-slack-cp-apparmor-reload.service](igel-slack-cp-apparmor-reload.service) |
-| Package automation | [build-slack-cp.sh](build-slack-cp.sh) <br /><br /> Tested with 4.14.0  |
+| Package automation | [build-slack-cp.sh](build-slack-cp.sh) <br /><br /> 4.14.0 is having sign in issues from firefox and we are looking into the issue.  |
