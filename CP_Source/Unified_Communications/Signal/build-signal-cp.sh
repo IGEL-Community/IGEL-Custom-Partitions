@@ -24,7 +24,16 @@ dpkg -x libappindicator1* custom/signal
 dpkg -x libindicator7* custom/signal
 
 mv custom/signal/usr/share/applications/ custom/signal/usr/share/applications.mime
+
+############################################
+# START: comment out for non-persistency!!!!
+############################################
+
 mkdir -p custom/signal/userhome/.config/Signal
+
+##########################################
+# END: comment out for non-persistency!!!!
+##########################################
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Signal.zip
 

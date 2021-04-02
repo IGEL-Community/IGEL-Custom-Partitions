@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/signal"
 
 # Teams directory
-SIGNAL="/userhome/.config/Signal"
+SIGNAL="/userhome"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -20,6 +20,14 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  # check for old folders / links and remove
+  if [ -L /userhome/.config/Signal ]; then
+    unlink /userhome/.config/Signal
+  fi
+  if [ -d /userhome/.config/Signal ]; then
+    rm -f /userhome/.config/Signal
+  fi
+
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do
@@ -33,8 +41,10 @@ init)
     fi
   done
 
-# basic persistency
-  chown -R user:users "${CP}${SIGNAL}"
+  # basic persistency
+  if [ -d "${CP}${USER_CONFIG}" ]; then
+    chown -R user:users "${CP}${USER_CONFIG}"
+  fi
 
   # Add apparmor profile to trust Teams in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
