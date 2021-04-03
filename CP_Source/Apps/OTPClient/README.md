@@ -1,7 +1,7 @@
 # OTPClient (3 April Updated)
 
 |  CP Information |            |
-|--------------------|------------|
+|-----------------|------------|
 | Package | [OTPClient](https://github.com/paolostivanin/OTPClient/wiki/How-to-use-OTPClient)  <br /><br /> OTPClient is a highly secure and easy to use GTK+ 2FA tool that supports both time-based one-time Passwords (TOTP) and HMAC-based one-time passwords (HOTP). Other features include: <br /><br /> - Custom digits (between 4 and 10 inclusive) <br /> - Custom period for codes to be valid (between 10 and 120 seconds inclusive) <br /> - Supports SHA1, SHA256 and SHA512 algorithms <br /> - Supports steam codes <br /> - Import encrypted Authenticator Plus backup <br /> - Import and export encrypted and/or plain andOTP backup <br /> - Encrypted local database is encrypted using AES256-GCM |
 | Script Name | [otpclient-cp-init-script.sh](otpclient-cp-init-script.sh) |
 | CP Mount Path | /custom/otpclient |
