@@ -18,6 +18,8 @@
 
 ### 1 - Error trying to take screenshot
 
+**/etc/dbus-1/session.d/org.gnome.Shell.Screenshot.conf** is not in IGEL OS systems.
+
 ![Error-Take-Screenshot](Error-Take-screenshot.png)
 ![GDBus.ErrorScreenshot](GDBus.ErrorScreenshot.png)
 
