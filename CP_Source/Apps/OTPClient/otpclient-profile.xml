@@ -2,10 +2,10 @@
 <profiles>
     <profile>
         <profile_id>5682</profile_id>
-        <profilename>OTPClient 2.3.0 CP</profilename>
+        <profilename>OTPClient CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.03.110.01</version>
+            <version>11.04.240.01</version>
         </firmware>
         <description>two-factor authentication</description>
         <overwritesessions>false</overwritesessions>
@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">10M</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">20M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
         </settings>
@@ -42,7 +42,7 @@
                 <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
-                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/otpclient/usr/share/icons/hicolor/256x256/apps/com.github.paolostivanin.OTPClient.png</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/otpclient/usr/share/icons/hicolor/scalable/apps/com.github.paolostivanin.OTPClient.svg</ivalue>
                 <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">OTPClient</ivalue>
                 <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>

@@ -2,7 +2,7 @@
 
 ACTION="custompart-otpclient_apparmor"
 
-# Add apparmor profile to trust Zoom in Firefox
+# Add apparmor profile to trust in Firefox
 logger -it "$ACTION" "Adding Zoom to firefox apparmor profile"
 echo "$( get custom_partition.mountpoint )/otpclient/usr/bin/otpclient Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/otpclient
 echo '#include <abstractions/ubuntu-browsers.d/otpclient>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox

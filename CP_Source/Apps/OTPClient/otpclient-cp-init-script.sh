@@ -10,10 +10,11 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/otpclient"
 
-# wfs for persistent database
-WFS_DB_DIR="/wfs/user/otpclient"
+# config directory
+USER_CONFIG="/userhome"
 
-# otpclient config
+# OLD items to remove
+WFS_DB_DIR="/wfs/user/otpclient"
 OTPCLIENT="/userhome/.config/otpclient.cfg"
 OTPCLIENT_DB_DIR="/userhome/otpclient"
 
@@ -24,6 +25,17 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  # check for old folders / links and remove
+  if [ -d "${WFS_DB_DIR}" ]; then
+    rm -rf "${WFS_DB_DIR}"
+  fi
+  if [ -d "${OTPCLIENT_DB_DIR}" ]; then
+    rm -rf "${OTPCLIENT_DB_DIR}"
+  fi
+  if [ -f "${OTPCLIENT}" ]; then
+    rm -f "${OTPCLIENT}"
+  fi
+
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do
@@ -37,41 +49,23 @@ init)
     fi
   done
 
-  # Create otpclient.cfg
-  cat << EOF >> ${OTPCLIENT}
-[config]
-column_id=0
-sort_order=0
-window_width=500
-window_height=300
-db_path=/userhome/otpclient/NewDatabase.enc
-EOF
-
-  chown user:users ${OTPCLIENT}
-
-  # Create otpclient DB folder if it does not exist
-  if [ ! -d ${WFS_DB_DIR} ]; then
-    mkdir ${WFS_DB_DIR}
+  # basic persistency
+  if [ -d "${CP}${USER_CONFIG}" ]; then
+    chown -R user:users "${CP}${USER_CONFIG}"
   fi
-  if [ -d ${OTPCLIENT_DB_DIR} ]; then
-    rm -rf ${OTPCLIENT_DB_DIR}
-  fi
-  chown -R user:users ${WFS_DB_DIR}
-  runuser -l user -c "ln -sv ${WFS_DB_DIR} ${OTPCLIENT_DB_DIR}" | $LOGGER
 
-  # Add apparmor profile to trust otpclient in Firefox to make SSO possible
+  # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
   systemctl --no-block start igel-otpclient-cp-apparmor-reload.service
 
-  # after CP installation run wm_postsetup to activate otpclient.desktop mimetypes for SSO
+  # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
     wm_postsetup
     # delay the CP ready notification
     sleep 3
   fi
 
-  # NOTE: No libraries to add to ld_library
 ;;
 stop)
   # unlink linked files
@@ -81,7 +75,6 @@ stop)
     unlink $DEST | $LOGGER
   done
 
-  # NOTE: No libraries to remove
 ;;
 esac
 
