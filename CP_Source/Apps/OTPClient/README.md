@@ -23,6 +23,35 @@
 ![Error-Take-Screenshot](Error-Take-screenshot.png)
 ![GDBus.ErrorScreenshot](GDBus.ErrorScreenshot.png)
 
+To remove menu item "Take screenshot", edit the following file to remove the following code:
+
+```
+OTPClient/src/ui/shortcuts.ui (currently lines 65,79):
+<child>
+  <object class="GtkModelButton" id="screenshot_model_btn_id">
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
+    <property name="receives_default">True</property>
+    <property name="action_name">add_menu.screenshot</property>
+    <property name="text" translatable="yes">Take screenshot</property>
+    <accelerator key="t" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+  </object>
+  <packing>
+    <property name="expand">False</property>
+    <property name="fill">True</property>
+    <property name="position">1</property>
+  </packing>
+</child>
+  ```
+Then rebuild package:
+
+```
+cd OTPClient/build
+make clean
+make
+sudo make install
+  ```  
+
 ### 2 - Saving configuration and database files after reboot
 
 The [build-otpclient-cp.sh](build-otpclient-cp.sh) creates the OTPClient configuration file /userhome/.config/otpclient.cfg with the following contents:
