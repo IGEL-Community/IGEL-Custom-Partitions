@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="parole.tar.bz2"
+version="4.16.0"
+size="20M"
+name="parole"
+minfw="11.04.240"
