@@ -25,7 +25,7 @@ do
 done
 
 mv custom/vlc/usr/share/applications/ custom/vlc/usr/share/applications.mime
-mkdir -p custom/vlc/userhome/.config/share/vlc
+mkdir -p custom/vlc/userhome/.config/vlc
 mkdir -p custom/vlc/userhome/.local/share/vlc
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/VLC.zip
