@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="epson.tar.bz2"
+version="3.65.0"
+size="100M"
+name="epson"
+minfw="11.04.240"
