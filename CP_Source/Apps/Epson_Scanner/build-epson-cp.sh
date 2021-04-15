@@ -7,7 +7,6 @@
 # Obtain link to latest package and save into Downloads
 # https://slack.com/downloads/linux
 # http://support.epson.net/linux/en/imagescanv3.php
-imagescan-bundle-ubuntu-18.04-*x64.deb.tar.gz
 if ! compgen -G "$HOME/Downloads/imagescan-bundle-ubuntu-18.04-*x64.deb.tar.gz" > /dev/null; then
   echo "***********"
   echo "Download latest Ubuntu 18.04 64bit .deb package and re-run this script "
