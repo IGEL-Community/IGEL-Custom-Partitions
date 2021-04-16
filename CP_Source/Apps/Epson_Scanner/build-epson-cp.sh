@@ -5,7 +5,6 @@
 # Creating an IGELOS CP for Epson
 ## Development machine (Ubuntu 18.04)
 # Obtain link to latest package and save into Downloads
-# https://slack.com/downloads/linux
 # http://support.epson.net/linux/en/imagescanv3.php
 if ! compgen -G "$HOME/Downloads/imagescan-bundle-ubuntu-18.04-*x64.deb.tar.gz" > /dev/null; then
   echo "***********"
