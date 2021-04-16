@@ -1,7 +1,7 @@
 # Epson Scanner (16 April Update)
 
 |  CP Information |            |
-|-----------------|-------------|
+|-----------------|------------|
 | Package | [Epson Scanner](http://support.epson.net/linux/en/imagescanv3.php)
 | Script Name | [epson-cp-init-script.sh](epson-cp-init-script.sh) |
 | CP Mount Path | /custom/epson |
