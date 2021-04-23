@@ -8,7 +8,7 @@
 | CP Size |500M |
 | IGEL OS Version (min) | 11.04.240 |
 | Metadata File <br /> jdkfx.inf | [INFO] <br /> [PART] <br /> file="jdkfx.tar.bz2" <br /> version="11.45.27" <br /> size="500M" <br /> name="jdkfx" <br /> minfw="11.04.240" |
-| Path to Executable | /custom/jdkfx/usr/lib/jvm/zulu-fx-8-amd64/bin/java |
+| Path to Executable | /custom/jdkfx/usr/lib/jvm/zulu-fx-11-amd64/bin/java <br /><br/> /custom/jdkfx/usr/lib/jvm/zulu-fx-8-amd64/bin/java |
 | Path to Icon | N/A |
 | Missing Libraries | None |
 | Download package and missing library | See build script for details |
