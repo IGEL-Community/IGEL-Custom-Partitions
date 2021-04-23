@@ -1,7 +1,7 @@
 # Azul Zulu JDK FX
 
 |  CP Information |            |
-|-----------------|------------|
+|-----------------|-------------|
 | Package | Azule Zulu JDK FX - [Current Version](https://www.azul.com/downloads/zulu-community/?os=ubuntu&package=jdk-fx) <br /><br /> An open source implementation of Java JDK FX. |
 | Script Name | [jdkfx-cp-init-script.sh](jdkfx-cp-init-script.sh) |
 | CP Mount Path | /custom/jdkfx |
