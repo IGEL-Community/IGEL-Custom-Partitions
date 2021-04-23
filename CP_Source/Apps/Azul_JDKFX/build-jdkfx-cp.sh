@@ -16,25 +16,14 @@ if ! compgen -G "$HOME/Downloads/zulu*fx*-linux_amd64.deb" > /dev/null; then
   exit 1
 fi
 
-MISSING_LIBS="java-common"
-
 sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar
 
-for lib in $MISSING_LIBS; do
-  apt-get download $lib
-done
-
 mkdir -p custom/jdkfx
 
 dpkg -x $HOME/Downloads/zulu*fx*-linux_amd64.deb custom/jdkfx
-
-find . -type f -name "*.deb" | while read LINE
-do
-  dpkg -x "${LINE}" custom/jdkfx
-done
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Azul_JDKFX.zip
 
@@ -44,7 +33,6 @@ mkdir -p custom/jdkfx/lib/systemd/system
 mv custom/target/jdkfx_cp_apparmor_reload custom/jdkfx/config/bin
 mv custom/target/igel-jdkfx-cp-apparmor-reload.service custom/jdkfx/lib/systemd/system/
 mv custom/target/jdkfx-cp-init-script.sh custom
-mkdir -p custom/jdkfx/usr/share/applications.mime
 
 cd custom
 
