@@ -29,7 +29,7 @@ done
 
 mkdir -p custom/jdkfx
 
-dpkg -x $HOME/Downloads/zulu*fx*-linux_amd64.deb custom/jkdfx
+dpkg -x $HOME/Downloads/zulu*fx*-linux_amd64.deb custom/jdkfx
 
 find . -type f -name "*.deb" | while read LINE
 do
@@ -45,7 +45,6 @@ mv custom/target/jdkfx_cp_apparmor_reload custom/jdkfx/config/bin
 mv custom/target/igel-jdkfx-cp-apparmor-reload.service custom/jdkfx/lib/systemd/system/
 mv custom/target/jdkfx-cp-init-script.sh custom
 mkdir -p custom/jdkfx/usr/share/applications.mime
-mv custom/target/javaws-wrapper.desktop custom/jdkfx/usr/share/applications.mime
 
 cd custom
 
