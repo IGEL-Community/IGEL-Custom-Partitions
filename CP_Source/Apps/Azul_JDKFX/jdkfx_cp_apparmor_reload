@@ -1,0 +1,18 @@
+#! /bin/bash
+
+ACTION="custompart-jdkfx_apparmor"
+
+# Add apparmor profile to trust Remote Desktop Manager in Firefox
+logger -it "$ACTION" "Adding jdkfx-Web to firefox apparmor profile"
+echo "$( get custom_partition.mountpoint )/jdkfx/usr/lib/jvm/zulu-fx-8-amd64/jre/bin/java Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/jdkfx
+echo '#include <abstractions/ubuntu-browsers.d/jdkfx>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
+
+# reload apparmor only if it is enabled
+if [ "$( get system.security.apparmor )" = "true" ] ; then
+  logger -it "$ACTION" "Reloading apparmor profiles"
+  systemctl reload apparmor.service
+else
+  logger -it "$ACTION" "Apparmor profiles disabled by setup"
+fi
+
+exit 0
