@@ -4,7 +4,7 @@
 
 # Creating an IGELOS CP for remmina
 ## Development machine (Ubuntu 18.04)
-MISSING_LIBS="i965-va-driver libavahi-ui-gtk3-0 libavcodec57 libavutil55 libcacard0 libcrystalhd3 libfreerdp-client2-2 libfreerdp2-2 libgsm1 libopenjp2-7 libphodav-2.0-0 libphodav-2.0-common libshine3 libsnappy1v5 libsoxr0 libspice-client-glib-2.0-8 libspice-client-gtk-3.0-5 libssh-4 libswresample2 libusbredirhost1 libusbredirparser1 libva-drm2 libva-x11-2 libva2 libvdpau1 libvncclient1 libwinpr2-2 libx264-152 libx265-146 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc spice-client-glib-usb-acl-helper va-driver-all vdpau-driver-all"
+MISSING_LIBS="i965-va-driver libavahi-ui-gtk3-0 libavcodec57 libavutil55 libcacard0 libcrystalhd3 libfreerdp-client2-2 libfreerdp2-2 libgsm1 libopenjp2-7 libphodav-2.0-0 libphodav-2.0-common libshine3 libsnappy1v5 libsoxr0 libspice-client-glib-2.0-8 libspice-client-gtk-3.0-5 libssh-4 libswresample2 libusbredirhost1 libusbredirparser1 libva-drm2 libva-x11-2 libva2 libvdpau1 libvncclient1 libwinpr2-2 libx264-152 libx265-146 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc spice-client-glib-usb-acl-helper va-driver-all vdpau-driver-all libappindicator3-1"
 
 sudo apt-add-repository ppa:remmina-ppa-team/remmina-next -y
 sudo apt update -y
