@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="remmina.tar.bz2"
+version="1.4.11"
+size="200M"
+name="remmina"
+minfw="11.04.240"
