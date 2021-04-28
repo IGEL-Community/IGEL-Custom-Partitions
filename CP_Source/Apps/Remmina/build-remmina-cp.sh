@@ -29,7 +29,7 @@ mv custom/remmina/usr/share/applications/ custom/remmina/usr/share/applications.
 mkdir -p custom/remmina/userhome/.config/remmina
 mkdir -p custom/remmina/userhome/.local/share/remmina
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/ApPS/Remmina.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Remmina.zip
 
 unzip Remmina.zip -d custom
 mkdir -p custom/remmina/config/bin
