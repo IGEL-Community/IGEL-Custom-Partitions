@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/edge"
 
 # user directories
-EDGE_USER_CONFIG="/userhome/.config/microsoft-edge-dev"
+EDGE_USER_CONFIG="/userhome/.config/microsoft-edge-beta"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -34,7 +34,7 @@ init)
   done
 
   # fix permissions
-  chmod 4755 "$CP/opt/microsoft/msedge-dev/msedge-sandbox"
+  chmod 4755 "$CP/opt/microsoft/msedge-beta/msedge-sandbox"
 
   # basic persistency
   chown -R user:users "${CP}${EDGE_USER_CONFIG}"

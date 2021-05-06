@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="edge.tar.bz2"
-version="90.0.810.1"
+version="91.0.864.15"
 size="600M"
 name="edge"
 minfw="11.04.240"

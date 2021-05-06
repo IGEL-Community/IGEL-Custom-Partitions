@@ -17,7 +17,8 @@ mkdir build_tar
 cd build_tar
 
 #apt-cache search microsoft-edge
-apt-get download microsoft-edge-dev
+#apt-get download microsoft-edge-dev
+apt-get download microsoft-edge-beta
 apt-get download libatomic1
 
 mkdir -p custom/edge
@@ -26,7 +27,8 @@ dpkg -x microsoft*.deb custom/edge
 dpkg -x libatomic1*.deb custom/edge
 
 mv custom/edge/usr/share/applications/ custom/edge/usr/share/applications.mime
-mkdir -p custom/edge/userhome/.config/microsoft-edge-dev
+#mkdir -p custom/edge/userhome/.config/microsoft-edge-dev
+mkdir -p custom/edge/userhome/.config/microsoft-edge-beta
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Browsers/Microsoft_Edge.zip
 

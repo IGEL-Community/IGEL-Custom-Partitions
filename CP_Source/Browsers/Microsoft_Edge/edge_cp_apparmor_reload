@@ -4,7 +4,7 @@ ACTION="custompart-edge_apparmor"
 
 # Add apparmor profile to trust in Firefox
 logger -it "$ACTION" "Adding Edge to firefox apparmor profile"
-echo "$( get custom_partition.mountpoint )/edge/opt/microsoft/msedge-dev/microsoft-edge-dev Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/edge
+echo "$( get custom_partition.mountpoint )/edge/opt/microsoft/msedge-beta/microsoft-edge-beta Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/edge
 echo '#include <abstractions/ubuntu-browsers.d/edge>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
 
 # reload apparmor only if it is enabled
