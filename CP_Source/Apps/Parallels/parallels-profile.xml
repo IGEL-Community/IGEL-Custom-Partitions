@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>10688</profile_id>
+        <profilename>Parallels Client CP</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.04.240.01</version>
+        </firmware>
+        <description>Parallels Client</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="custom_partition.enabled">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="custom_partition.size">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">100M</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings>
+            <instance classprefix="custom_partition.source%" serialnumber="31cea061:1730aeba537:-7fff127.0.1.1">
+                <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/parallels.inf</ivalue>
+                <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/parallels-cp-init-script.sh init</ivalue>
+                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/parallels-cp-init-script.sh stop</ivalue>
+                <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            </instance>
+            <instance classprefix="sessions.custom_application%" serialnumber="31cea061:1730aeba537:-7ffe127.0.1.1">
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Parallels Client</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/parallels/usr/share/pixmaps/2X.png</ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/parallels/opt/2X/Client/bin/2XClient</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            </instance>
+        </instancesettings>
+    </profile>
+</profiles>
