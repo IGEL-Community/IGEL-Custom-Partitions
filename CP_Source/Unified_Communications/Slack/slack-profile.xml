@@ -5,7 +5,7 @@
         <profilename>Slack CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.03.110.01</version>
+            <version>11.04.240.01</version>
         </firmware>
         <description>Slack</description>
         <overwritesessions>false</overwritesessions>
@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">300M</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">600M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
         </settings>
