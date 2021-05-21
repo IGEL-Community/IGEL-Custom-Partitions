@@ -52,7 +52,7 @@ Output from ipptool:
         status-code = successful-ok (successful-ok)
   ```
 ***
-Printing with CUPS and IPP (Internet Printing Protocol) allows for finding and printing to networked and USB printers without using vendor specific software.
+Printing with CUPS and IPP (Internet Printing Protocol) allows for finding and printing to networked printers without using vendor specific software.
 
 https://www.pwg.org/ipp/everywhere.html
 
