@@ -56,4 +56,6 @@ esac
 
 echo "Finished" | $LOGGER
 
+systemctl restart igel-usbaccess.service
+
 exit 0
