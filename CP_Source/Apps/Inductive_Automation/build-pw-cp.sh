@@ -35,7 +35,7 @@ mkdir -p custom/perspectiveworkstation/userhome/.ignition
 # END: comment out for non-persistency!!!!
 ##########################################
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Inductive_Automation.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Inductive_Automation.zip
 
 unzip Inductive_Automation.zip -d custom
 mv custom/target/pw-cp-init-script.sh custom
