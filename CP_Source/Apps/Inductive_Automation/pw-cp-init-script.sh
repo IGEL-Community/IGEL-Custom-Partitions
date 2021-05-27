@@ -27,11 +27,12 @@ init)
     rm -rf ${USER_CONFIG}
   fi
 
-  chmod a+rwx ${CP}/perspectiveworkstation.desktop
+  chmod -R 777 ${CP}
 
   # basic persistency
   if [ -d "${CP}${USER_CONFIG}" ]; then
     chown -R user:users "${CP}${USER_CONFIG}"
+    ln -s ${CP}${USER_CONFIG} ${USER_CONFIG}
   fi
 
 ;;
