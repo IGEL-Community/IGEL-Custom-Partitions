@@ -42,7 +42,7 @@ mv custom/target/pw-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf pw.tar.bz2 pw pw-cp-init-script.sh
+tar cvjf pw.tar.bz2 perspectiveworkstation pw-cp-init-script.sh
 mv pw.tar.bz2 ../..
 mv target/pw.inf ../..
 mv igel/*.xml ../..
