@@ -12,3 +12,10 @@
 | Path to Icon | /custom/vmrc/usr/share/icons/hicolor/48x48/apps/vmware-vmrc.png |
 | Packing Notes | See build script for details |
 | Package automation | [build-vmrc-cp.sh](build-vmrc-cp.sh) <br /><br /> Tested with 12.0.0 |
+
+**VMware Remote Console -- Install screenshots**
+
+![VMRC Install 01](images/vmrc-img01.png)
+![VMRC Install 02](images/vmrc-img02.png)
+![VMRC Install 03](images/vmrc-img03.png)
+![VMRC Install 04](images/vmrc-img04.png)
