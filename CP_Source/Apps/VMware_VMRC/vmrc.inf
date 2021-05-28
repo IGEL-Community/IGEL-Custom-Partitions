@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="vmrc.tar.bz2"
+version="12.0.0"
+size="300M"
+name="vmrc"
+minfw="11.04.240"
