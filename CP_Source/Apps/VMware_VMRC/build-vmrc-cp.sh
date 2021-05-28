@@ -39,6 +39,7 @@ cd build_tar
 sudo find /usr/bin -type l -mmin -5 -print0 | xargs -0 tar cf vmrc.tar
 sudo find /usr/bin -type f -mmin -5 -print0 | xargs -0 tar rf vmrc.tar
 sudo find /usr/share/icons/hicolor -type f ! -name "*.cache" -mmin -5 -print0 | xargs -0 tar rf vmrc.tar
+sudo find /usr/lib/python3 -type f -mmin -5 -print0 | xargs -0 tar rf vmrc.tar
 
 TAR_FILES="/usr/lib/vmware /usr/share/applications/vmware-vmrc.desktop /usr/share/appdata/vmware-vmrc.appdata.xml /etc/init.d/vmware-USBArbitrator /etc/vmware"
 sudo tar rf vmrc.tar ${TAR_FILES}
