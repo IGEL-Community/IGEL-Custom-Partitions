@@ -1,7 +1,7 @@
 # VMware Remote Console (VMRC) (DRAFT Package for Testing)
 
 |  CP Information |            |
-|--------------------|------------|
+|-----------------|------------|
 | Package | [VMware Remote Console - vmrc](https://docs.vmware.com/en/VMware-Remote-Console/index.html) <br /><br /> VMware Remote Console provides client device connection and console access to virtual machines on a remote host. |
 | Script Name | [vmrc-cp-init-script.sh](vmrc-cp-init-script.sh) |
 | CP Mount Path | /custom/vmrc |
