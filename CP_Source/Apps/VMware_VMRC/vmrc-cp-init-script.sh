@@ -17,9 +17,18 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
-  #chmod a+x ${CP}/VMware-Remote-Console-12.0.0-17287072.x86_64.bundle
-  #${CP}/VMware-Remote-Console-12.0.0-17287072.x86_64.bundle --eulas-agreed --required --console | $LOGGER
-  #cp /usr/share/applications/vmware-vmrc.desktop /usr/share/applications.mime/vmware-vmrc.desktop
+# Linking files and folders on proper path
+find ${CP} | while read LINE
+do
+  DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
+  if [ ! -z "${DEST}" -a ! -e "${DEST}" ]; then
+    # Remove the last slash, if it is a dir
+    [ -d $LINE ] && DEST=$(echo "${DEST}" | sed -e "s/\/$//g") | $LOGGER
+    if [ ! -z "${DEST}" ]; then
+      ln -sv "${LINE}" "${DEST}" | $LOGGER
+    fi
+  fi
+done
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
@@ -30,8 +39,12 @@ init)
 
 ;;
 stop)
-  # nothing to unlink
-  echo "Nothing to unlink" | $LOGGER
+# unlink linked files
+find ${CP} | while read LINE
+do
+  DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
+  unlink $DEST | $LOGGER
+done
 
 ;;
 esac

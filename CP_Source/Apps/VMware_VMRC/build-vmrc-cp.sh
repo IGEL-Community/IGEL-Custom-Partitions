@@ -26,9 +26,9 @@ for lib in $MISSING_LIBS; do
   apt-get download $lib
 done
 
-mkdir -p custom/vmrc
+mkdir -p custom/vmrc/tmp
 
-cp $HOME/Downloads/VMware-Remote-Console*.x86_64.bundle custom/vmrc
+cp $HOME/Downloads/VMware-Remote-Console*.x86_64.bundle custom/vmrc/tmp
 
 find . -name "*.deb" | while read LINE
 do
