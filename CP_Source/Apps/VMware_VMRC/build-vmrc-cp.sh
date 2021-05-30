@@ -38,6 +38,10 @@ done
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/VMware_VMRC.zip
 
 unzip VMware_VMRC.zip -d custom
+mkdir -p custom/vmrc/config/bin
+mkdir -p custom/vmrc/lib/systemd/system
+mv custom/target/vmrc_cp_apparmor_reload custom/vmrc/config/bin
+mv custom/target/igel-vmrc-cp-apparmor-reload.service custom/vmrc/lib/systemd/system/
 mv custom/target/vmrc-cp-init-script.sh custom
 
 cd custom
