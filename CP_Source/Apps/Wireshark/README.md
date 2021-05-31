@@ -1,4 +1,4 @@
-# Wireshark (25 May)
+# Wireshark (31 May)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -8,6 +8,6 @@
 | CP Size | 300M |
 | IGEL OS Version (min) | 11.4.240 |
 | Metadata File <br /> wireshark.inf | [INFO] <br /> [PART] <br /> file="wireshark.tar.bz2" <br /> version="2.6.10" <br /> size="300M" <br /> minfw="11.04.240" |
-| Path to Executable (open terminal window and run as root)| /custom/wireshark/usr/bin/wireshark |
+| Path to Executable | /custom/wireshark/usr/bin/wireshark |
 | Packaging Notes | Details can be found in the build script [build-wireshark-cp.sh](build-wireshark-cp.sh) |
 | Package automation | [build-wireshark-cp.sh](build-wireshark-cp.sh) <br /><br /> This script will build latest version based on Ubuntu 18.04 |

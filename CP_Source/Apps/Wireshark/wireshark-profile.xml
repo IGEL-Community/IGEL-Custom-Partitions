@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profiles>
     <profile>
-        <profile_id>10688</profile_id>
+        <profile_id>83310</profile_id>
         <profilename>Wireshark CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
@@ -22,7 +22,7 @@
             </pclass>
         </settings>
         <instancesettings>
-            <instance classprefix="custom_partition.source%" serialnumber="31cea061:1730aeba537:-7fff127.0.1.1">
+            <instance classprefix="custom_partition.source%" serialnumber="-3bdf224a:179a52b71e2:-7ff6127.0.1.1">
                 <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
                 <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/wireshark.inf</ivalue>
                 <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
@@ -30,6 +30,35 @@
                 <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/wireshark-cp-init-script.sh stop</ivalue>
                 <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            </instance>
+            <instance classprefix="sessions.custom_application%" serialnumber="15b384e4:179b92ebe92:-7ffe127.0.1.1">
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostartnotify" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">pkexec -u root env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /usr/bin/wireshark</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/wireshark/usr/share/icons/hicolor/256x256/apps/wireshark.png</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Wireshark</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
             </instance>
         </instancesettings>
     </profile>
