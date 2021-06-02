@@ -17,7 +17,7 @@
 
 [Access vSphere Virtual Machines with VMware Remote Console](https://docs.vmware.com/en/VMware-Remote-Console/12.0/com.vmware.vmrc.vsphere.doc/GUID-703AA27D-1AF3-4067-BE5E-99C3D0032F38.html)
 
-The profile link does the following items are root:
+The profile link does the following items as root:
 
 ```
 /custom/vmrc/tmp/VMware-Remote-Console-12.0.0-17287072.x86_64.bundle --eulas-agreed --required --console
