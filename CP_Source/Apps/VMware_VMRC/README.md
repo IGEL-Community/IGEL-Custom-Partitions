@@ -12,3 +12,15 @@
 | Path to Icon | /usr/share/icons/hicolor/48x48/apps/vmware-vmrc.png |
 | Packing Notes | See build script for details |
 | Package automation | [build-vmrc-cp.sh](build-vmrc-cp.sh) <br /><br /> Tested with 12.0.0 |
+
+**Note**
+
+[Access vSphere Virtual Machines with VMware Remote Console](https://docs.vmware.com/en/VMware-Remote-Console/12.0/com.vmware.vmrc.vsphere.doc/GUID-703AA27D-1AF3-4067-BE5E-99C3D0032F38.html)
+
+The profile link does the following items are root:
+
+```
+/custom/vmrc/tmp/VMware-Remote-Console-12.0.0-17287072.x86_64.bundle --eulas-agreed --required --console
+cp /usr/share/applications/vmware-vmrc.desktop /usr/share/applications.mime/vmware-vmrc.desktop
+/custom/vmrc-cp-init-script.sh init
+  ```
