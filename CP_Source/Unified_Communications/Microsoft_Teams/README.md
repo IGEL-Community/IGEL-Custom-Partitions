@@ -1,7 +1,7 @@
 # Microsoft Teams (29 March Updated)
 
 |  CP Information |            |
-|--------------------|------------|
+|-----------------|------------|
 | Package | Microsoft Teams - Current Version |
 | Script Name | [teams-cp-init-script.sh](teams-cp-init-script.sh) |
 | CP Mount Path | /custom/teams |
