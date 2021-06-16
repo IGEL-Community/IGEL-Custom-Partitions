@@ -13,4 +13,4 @@
 | Missing Libraries | None |
 | Download package and missing library | apt-get download microsoft-edge-beta <br /> apt-get download libatomic1 |
 | Packaging Notes | Create folder: **edge** <br /><br /> dpkg -x <package/lib> custom/edge <br /><br /> Need to move the mime folder: <br /><br />mv /custom/edge/usr/share/applications /custom/edge/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/edge/config/bin/[edge_cp_apparmor_reload](edge_cp_apparmor_reload) <br /> /custom/edge/lib/systemd/system/[igel-edge-cp-apparmor-reload.service](igel-edge-cp-apparmor-reload.service) |
-| Package automation | [build-edge-cp.sh](build-edge-cp.sh) <br /><br /> Tested with 91.0.864.15
+| Package automation | [build-edge-cp.sh](build-edge-cp.sh) <br /><br /> Tested with 92.0.902.15
