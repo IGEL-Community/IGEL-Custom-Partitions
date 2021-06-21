@@ -13,7 +13,7 @@
 | Missing Libraries | [libgnome-keyring.so.0](https://packages.ubuntu.com/bionic/libgnome-keyring0) |
 | Download package and missing library | apt-get download teams <br /> apt-get download libgnome-keyring0 |
 | Packaging Notes | Create folder: **teams** <br /><br /> dpkg -x <package/lib> custom/teams <br /><br /> Need to move the mime folder: <br /><br />mv /custom/teams/usr/share/applications /custom/teams/usr/share/applications.mime <br /><br />The init script needs additional files to configure AppArmor: <br /><br /> /custom/teams/config/bin/[teams_cp_apparmor_reload](teams_cp_apparmor_reload) <br /> /custom/teams/lib/systemd/system/[igel-teams-cp-apparmor-reload.service](igel-teams-cp-apparmor-reload.service) |
-| Package automation | [build-teams-cp.sh](build-teams-cp.sh) <br /><br /> Tested with 1.3.00.25560, 1.3.00.30857, 1.4.00.7556, 1.4.00.13653 |
+| Package automation | [build-teams-cp.sh](build-teams-cp.sh) <br /><br /> Tested with 1.3.00.25560, 1.3.00.30857, 1.4.00.7556, 1.4.00.13653 <br /><br />[Microsoft Teams Linux Versions](https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/) |
 
 **NOTES:**
 
