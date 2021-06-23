@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="appspace.tar.bz2"
+version="2.29.2"
+size="300M"
+name="appspace"
+minfw="11.04.240"
