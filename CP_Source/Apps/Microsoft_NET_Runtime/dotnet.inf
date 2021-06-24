@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="dotnet.tar.bz2"
+version="5.0"
+size="200M"
+name="dotnet"
+minfw="11.04.240"
