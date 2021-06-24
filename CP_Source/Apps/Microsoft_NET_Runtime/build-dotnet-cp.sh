@@ -7,6 +7,7 @@
 sudo apt install unzip -y
 wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
+rm -f packages-microsoft-prod.deb
 sudo apt-get update
 
 MISSING_LIBS="aspnetcore-runtime-5.0 dotnet-host dotnet-hostfxr-5.0 dotnet-runtime-5.0 dotnet-runtime-deps-5.0"
