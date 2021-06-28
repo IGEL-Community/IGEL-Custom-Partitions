@@ -1,0 +1,51 @@
+#!/bin/sh
+
+ACTION="custompart-macbookwifi_${1}"
+
+# mount point path
+MP=$(get custom_partition.mountpoint)
+
+# custom partition path
+CP="${MP}/macbookwifi"
+
+# output to systemlog with ID amd tag
+LOGGER="logger -it ${ACTION}"
+
+echo "Starting" | $LOGGER
+
+case "$1" in
+init)
+
+        # Linking files and folders on proper path
+	find ${CP} | while read LINE
+        do
+                DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
+                if [ ! -z "${DEST}" -a ! -e "${DEST}" ]; then
+                        # Remove the last slash, if it is a dir
+                        [ -d $LINE ] && DEST=$(echo "${DEST}" | sed -e "s/\/$//g") | $LOGGER
+                        if [ ! -z "${DEST}" ]; then
+                                ln -sv "${LINE}" "${DEST}" | $LOGGER
+                        fi
+                fi
+        done
+
+	modprobe -r brcmfmac
+	modprobe brcmfmac
+;;
+reset)
+		sleep 2
+;;
+stop)
+	# unlink linked files
+	find ${CP} | while read LINE
+        do
+                DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
+		unlink $DEST | $LOGGER
+	done
+
+;;
+esac
+
+echo "Finished" | $LOGGER
+
+exit 0

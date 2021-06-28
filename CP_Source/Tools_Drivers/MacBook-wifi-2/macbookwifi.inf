@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="macbookwifi_igel.tar.bz2"
+version="1.03"
+size="10M"
+name="macbookwifi"
+minfw="11.05.133"
