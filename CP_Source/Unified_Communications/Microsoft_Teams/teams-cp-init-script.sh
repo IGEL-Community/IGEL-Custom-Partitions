@@ -52,7 +52,7 @@ init)
   fi
 
   # add to ld_library
-  echo "${CP}}/usr/local/lib/teams-0" > /etc/ld.so.conf.d/teams.conf
+  echo "${CP}}/usr/local/lib/teams" > /etc/ld.so.conf.d/teams.conf
   ldconfig
 
 ;;
@@ -65,7 +65,7 @@ stop)
   done
 
   # remove because it is not needed anymore
-  rm /etc/ld.so.conf.d/parole.conf
+  rm /etc/ld.so.conf.d/teams.conf
 
 ;;
 esac
