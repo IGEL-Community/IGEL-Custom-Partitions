@@ -51,8 +51,6 @@ init)
     sleep 3
   fi
 
-  # add to ld_library
-  echo "${CP}}/usr/local/lib/teams" > /etc/ld.so.conf.d/teams.conf
   ldconfig
 
 ;;
@@ -63,9 +61,6 @@ stop)
     DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
     unlink $DEST | $LOGGER
   done
-
-  # remove because it is not needed anymore
-  rm /etc/ld.so.conf.d/teams.conf
 
 ;;
 esac
