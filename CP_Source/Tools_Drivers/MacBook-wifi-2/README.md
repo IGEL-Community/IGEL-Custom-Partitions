@@ -1,7 +1,7 @@
 # Enable WI-FI on newer MacBook Pro (13 July)
 
 |  CP Information |            |
-|-----------------|------------|
+|------------------|------------|
 | Package | macbookwifi 1.04 <br /><br /> Some addtional notes on getting WI-FI working on MacBooks <br /><br /> (https://wiki.t2linux.org/guides/wifi/#is-my-model-supported) <br /><br /> (https://github.com/AdityaGarg8/mbp-16.1-wifi-firmware)|
 | Script Name | [macbookwifi-cp-init-script.sh](macbookwifi-cp-init-script.sh) |
 | CP Mount Path | /custom/macbookwifi |
