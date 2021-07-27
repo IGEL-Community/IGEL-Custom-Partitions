@@ -56,9 +56,9 @@ mv custom/target/alizams-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf vmrc.tar.bz2 vmrc vmrc-cp-init-script.sh
-mv vmrc.tar.bz2 ../..
-mv target/vmrc.inf ../..
+tar cvjf alizams.tar.bz2 alizams alizams-cp-init-script.sh
+mv alizams.tar.bz2 ../..
+mv target/alizams.inf ../..
 mv igel/*.xml ../..
 
 cd ../..
