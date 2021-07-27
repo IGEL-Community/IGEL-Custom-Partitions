@@ -52,7 +52,7 @@ cd ../..
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Aliza_MS_DICOM_Viewer.zip
 
 unzip Aliza_MS_DICOM_Viewer.zip -d custom
-mv custom/target/aliza-cp-init-script.sh custom
+mv custom/target/alizams-cp-init-script.sh custom
 
 cd custom
 
