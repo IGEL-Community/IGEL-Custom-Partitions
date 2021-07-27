@@ -17,6 +17,7 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+chmod -R go+rw "${CP}/usr/local/alizams/DICOM"
 # Linking files and folders on proper path
 find ${CP} | while read LINE
 do
