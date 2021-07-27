@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="alizams.tar.bz2"
+version="1.6.0"
+size="100M"
+name="alizams"
+minfw="11.04.240"
