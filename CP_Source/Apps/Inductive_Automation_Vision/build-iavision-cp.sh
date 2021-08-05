@@ -40,7 +40,7 @@ mv custom/target/iavision-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf iavision.tar.bz2 iavision iavision-cp-init-script.sh
+tar cvjf iavision.tar.bz2 visionclientlauncher iavision-cp-init-script.sh
 mv iavision.tar.bz2 ../..
 mv target/iavision.inf ../..
 mv igel/*.xml ../..
