@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="iavision.tar.bz2"
+version="1.1.5"
+size="200M"
+name="Vision"
+minfw="11.04.240"
