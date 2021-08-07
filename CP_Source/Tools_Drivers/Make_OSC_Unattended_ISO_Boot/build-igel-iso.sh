@@ -18,7 +18,6 @@ ISO_VER=`basename ~/Downloads/OSC_*.zip | cut -b 5-13`
 ISO_IMAGE_NAME="OSC_${ISO_VER}.unattended.iso"
 
 sudo apt install unzip -y
-sudo apt install xorriso -y
 
 mkdir build_tar
 cd build_tar
@@ -30,23 +29,34 @@ unzip $HOME/Downloads/OSC_*.zip
 mkdir osciso
 sudo mount -oloop OSC*/osc*.iso osciso
 
-mkdir newiso
-cp -a osciso/./ newiso
+sudo mkdir newiso
+sudo cp -a osciso/./ newiso
 
 sudo umount osciso
 rm -rf OSC_*
 
-sed -i -e "s/timeout=30/timeout=10/" newiso/boot/grub/igel.conf
-sed -i -e "s/default=0/default=1/" newiso/boot/grub/igel.conf
-sed -i -e "s/Verbose Installation + Recovery/Installation (Unattended)/" newiso/boot/grub/igel.conf
-sed -i -e "s/bzImage igel_syslog=verbose/bzImage quiet osc_unattended=true igel_syslog=quiet/" newiso/boot/grub/igel.conf
+sudo sed -i -e "s/timeout=30/timeout=10/" newiso/boot/grub/igel.conf
+sudo sed -i -e "s/default=0/default=1/" newiso/boot/grub/igel.conf
+sudo sed -i -e "s/Verbose Installation + Recovery/Installation (Unattended)/" newiso/boot/grub/igel.conf
+sudo sed -i -e "s/bzImage igel_syslog=verbose/bzImage quiet osc_unattended=true igel_syslog=quiet/" newiso/boot/grub/igel.conf
 
 cd newiso
 
-sudo xorriso -as mkisofs -isohybrid-mbr boot/isolinux/isohdpfx.bin \
+#W/O EFI
+#sudo genisoimage -r -U -V 'IGEL_OSC_TO' \
+  #-o ../../../${ISO_IMAGE_NAME} \
+  #-c boot/isolinux/boot.cat -b boot/isolinux/isolinux.bin \
+  #-no-emul-boot -boot-load-size 4 -boot-info-table \
+  #-no-emul-boot .
+#sudo isohybrid ../../../${ISO_IMAGE_NAME}
+
+#W EFI
+sudo genisoimage -r -U -V 'IGEL_OSC_TO' \
+  -o ../../../${ISO_IMAGE_NAME} \
   -c boot/isolinux/boot.cat -b boot/isolinux/isolinux.bin \
-  -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot \
-  -e igel_efi.img -no-emul-boot -isohybrid-gpt-basdat -o ../../../${ISO_IMAGE_NAME} .
+  -boot-load-size 4 -boot-info-table -no-emul-boot \
+  -eltorito-alt-boot -e igel_efi.img -no-emul-boot .
+sudo isohybrid --uefi ../../../${ISO_IMAGE_NAME}
 
 cd ../../..
 rm -rf build_tar
