@@ -18,6 +18,8 @@ ISO_VER=`basename ~/Downloads/OSC_*.zip | cut -b 5-13`
 ISO_IMAGE_NAME="OSC_${ISO_VER}.unattended.iso"
 
 sudo apt install unzip -y
+sudo apt install xorriso -y
+sudo apt install genisoimage -y
 
 mkdir build_tar
 cd build_tar
