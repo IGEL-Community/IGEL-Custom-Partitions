@@ -59,4 +59,4 @@ sudo genisoimage -r -U -V 'IGEL_OSC_TO' \
 sudo isohybrid --uefi ../../../${ISO_IMAGE_NAME}
 
 cd ../../..
-rm -rf build_tar
+sudo rm -rf build_tar
