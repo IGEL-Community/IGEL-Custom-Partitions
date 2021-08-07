@@ -1,6 +1,6 @@
 #!/bin/bash
-set -x
-trap read debug
+#set -x
+#trap read debug
 
 # Creating an silent install ISO image
 ## Development machine (Ubuntu 18.04)
