@@ -26,6 +26,10 @@ init)
   if [ -d ${USER_CONFIG} ]; then
     rm -rf ${USER_CONFIG}
   fi
+  if [ ! -d /userhome/.local/share ]; then
+    mkdir -p /userhome/.local/share
+    chown -R user:users /userhome/.local/share
+  fi
 
   # Linking files and folders on proper path
   find ${CP} | while read LINE
