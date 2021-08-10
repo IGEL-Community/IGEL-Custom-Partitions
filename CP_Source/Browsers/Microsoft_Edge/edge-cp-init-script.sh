@@ -14,7 +14,7 @@ CP="${MP}/edge"
 EDGE_USER_CONFIG="/userhome/.config/microsoft-edge-beta"
 
 #mimeapps
-EDGE_MIMEAPPS_DIR="/userhome/.local/share/applicaitons"
+EDGE_MIMEAPPS_DIR="/userhome/.local/share/applications"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
