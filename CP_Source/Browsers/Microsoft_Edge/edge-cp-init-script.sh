@@ -13,6 +13,9 @@ CP="${MP}/edge"
 # user directories
 EDGE_USER_CONFIG="/userhome/.config/microsoft-edge-beta"
 
+#mimeapps
+EDGE_MIMEAPPS_DIR="/userhome/.local/share/applicaitons"
+
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
 
@@ -20,6 +23,10 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  if [ ! -d "${EDGE_MIMEAPPS_DIR}" ]; then
+    mkdir -p "${EDGE_MIMEAPPS_DIR}"
+    chown -R user:users "${EDGE_MIMEAPPS_DIR}/.."
+  fi
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do
@@ -37,7 +44,7 @@ init)
   chmod 4755 "$CP/opt/microsoft/msedge-beta/msedge-sandbox"
 
   # basic persistency
-  chown -R user:users "${CP}${EDGE_USER_CONFIG}"
+  chown -R user:users "${CP}/userhome"
 
   # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration

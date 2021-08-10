@@ -29,6 +29,8 @@ dpkg -x libatomic1*.deb custom/edge
 mv custom/edge/usr/share/applications/ custom/edge/usr/share/applications.mime
 #mkdir -p custom/edge/userhome/.config/microsoft-edge-dev
 mkdir -p custom/edge/userhome/.config/microsoft-edge-beta
+mkdir -p custom/edge/userhome/.local/share/applications
+touch custom/edge/userhome/.local/share/applications/mimeapps.list
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Browsers/Microsoft_Edge.zip
 
