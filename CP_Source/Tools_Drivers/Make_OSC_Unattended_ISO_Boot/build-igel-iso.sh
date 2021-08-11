@@ -29,13 +29,13 @@ cd custom
 unzip $HOME/Downloads/OSC_*.zip
 
 mkdir osciso
-sudo mount -oloop OSC*/osc*.iso osciso
+sudo mount -oloop preparestick/osc*.iso osciso
 
 sudo mkdir newiso
 sudo cp -a osciso/./ newiso
 
 sudo umount osciso
-rm -rf OSC_*
+rm -rf preparestick
 
 sudo sed -i -e "s/timeout=30/timeout=10/" newiso/boot/grub/igel.conf
 sudo sed -i -e "s/default=0/default=1/" newiso/boot/grub/igel.conf
