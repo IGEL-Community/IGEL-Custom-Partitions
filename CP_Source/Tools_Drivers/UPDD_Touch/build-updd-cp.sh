@@ -30,10 +30,10 @@ sudo ./install
 cd ..
 
 #tar cvf ../after_install.tar /opt/updd /etc/systemd/system/updd.* /etc/xdg/autostart/updd_*
-tar cvf after_install.tar /opt/updd /etc/xdg/autostart/updd_*
+sudo tar cvf after_install.tar /opt/updd /etc/xdg/autostart/updd_*
 
 cd custom/updd
-tar xvf after_install.tar
+sudo tar xvf after_install.tar
 
 cd ../..
 
@@ -44,7 +44,7 @@ mv custom/target/updd-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf updd.tar.bz2 updd updd-cp-init-script.sh
+sudo tar cvjf updd.tar.bz2 updd updd-cp-init-script.sh
 mv updd.tar.bz2 ../..
 mv target/updd.inf ../..
 mv igel/*.xml ../..
