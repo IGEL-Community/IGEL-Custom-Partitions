@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="powershell.tar.bz2"
+version="7.1.3"
+size="300M"
+name="powershell"
+minfw="11.04.240"
