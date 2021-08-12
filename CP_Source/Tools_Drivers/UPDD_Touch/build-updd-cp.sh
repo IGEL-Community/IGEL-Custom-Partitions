@@ -7,9 +7,9 @@
 # Obtain latest package and save into Downloads
 # Download Latest App for Linux (Debian)
 # https://touch-base.com/oem/microchip/
-if ! compgen -G "$HOME/Downloads/linux_x86_gcc_*.tgz" > /dev/null; then
+if ! compgen -G "$HOME/Downloads/linux_x64_gcc_*.tgz" > /dev/null; then
   echo "***********"
-  echo "Obtain latest linux_x86_gcc_*.tgz package, save into $HOME/Downloads and re-run this script "
+  echo "Obtain latest linux_x64_gcc_*.tgz package, save into $HOME/Downloads and re-run this script "
   echo "https://touch-base.com/oem/microchip/"
   echo "***********"
   exit 1
@@ -25,7 +25,7 @@ mkdir -p custom/updd
 # http://support.touch-base.com/Documentation/50372/Installation
 mkdir installer
 cd installer
-tar xvzf $HOME/Downloads/linux_x86_gcc_*.tgz
+tar xvzf $HOME/Downloads/linux_x64_gcc_*.tgz
 sudo ./install
 cd ..
 
@@ -50,4 +50,4 @@ mv target/updd.inf ../..
 mv igel/*.xml ../..
 
 cd ../..
-rm -rf build_tar
+sudo rm -rf build_tar
