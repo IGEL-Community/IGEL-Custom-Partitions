@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="updd.tar.bz2"
+version="5_4-06_00_636"
+size="200M"
+name="updd"
+minfw="11.05.133"
