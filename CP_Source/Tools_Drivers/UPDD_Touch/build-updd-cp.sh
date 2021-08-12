@@ -33,7 +33,7 @@ cd ..
 sudo tar cvf after_install.tar /opt/updd /etc/xdg/autostart/updd_*
 
 cd custom/updd
-sudo tar xvf after_install.tar
+sudo tar xvf ../../after_install.tar
 
 cd ../..
 
