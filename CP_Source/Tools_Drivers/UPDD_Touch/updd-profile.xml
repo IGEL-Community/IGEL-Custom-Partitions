@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/opt/updd/upddsysv.sh &amp;amp</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">chmod a+rx /opt/updd/upddsysv.sh; /opt/updd/upddsysv.sh &amp;amp</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
