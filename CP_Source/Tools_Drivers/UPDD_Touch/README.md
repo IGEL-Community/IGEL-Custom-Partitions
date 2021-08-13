@@ -11,3 +11,5 @@
 | Metadata File <br /> updd.inf | [INFO] <br /> [PART] <br /> file="updd.tar.bz2" <br /> version="5_4-06_00_662" <br /> size="200M" <br /> name="updd" <br /> minfw="11.05.133" |
 | Packing Notes | See build script for details |
 | Package automation | [build-updd-cp.sh](build-updd-cp.sh) |
+
+**NOTE:** Reboot required after CP deployed.
