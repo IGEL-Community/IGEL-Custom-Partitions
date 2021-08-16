@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="zoom.tar.bz2"
-version="5.7.4"
+version="5.7.5"
 size="400M"
 name="zoom"
 minfw="11.04.240"
