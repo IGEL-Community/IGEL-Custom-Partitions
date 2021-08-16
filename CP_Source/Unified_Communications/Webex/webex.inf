@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="webex.tar.bz2"
-version="41.7.0.19440"
+version="41.8.0.19732"
 size="900M"
 name="webex"
 minfw="11.04.240"
