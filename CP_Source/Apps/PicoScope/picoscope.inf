@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="picoscope.tar.bz2"
+version="6.14.47.5899"
+size="400M"
+name="picoscope"
+minfw="11.05.133"
