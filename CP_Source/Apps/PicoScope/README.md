@@ -11,6 +11,18 @@
 | Path to Executable | /custom/picoscope/opt/picoscope/bin/picoscope |
 | Path to Icon | /custom/picoscope/opt/picoscope/share/picoscope.png |
 | Missing Libraries | See build script |
-| Download package and missing library | apt-get download microsoft-picoscope-beta <br /> apt-get download libatomic1 |
 | Packaging Notes | See build script |
-| Package automation | [build-picoscope-cp.sh](build-picoscope-cp.sh) <br /><br /> Tested with 6.14.47.5899 |
+| Package automation | [build-picoscope-cp.sh](build-picoscope-cp.sh) <br /><br /> Testing with 6.14.47.5899 |
+
+**NOTE:** This application uses Mono () and the build script needs to be debugged. Here is the error from /opt/picoscope/bin/picoscope.
+
+
+```
+exec /usr/bin/mono /opt/picoscope/lib/PicoScope.GTK.exe
+
+Unhandled Exception:
+System.TypeLoadException: Could not load type 'Pico.' from assembly 'PicoScope.GTK, Version=6.14.47.5899, Culture=neutral, PublicKeyToken=d07fd3de7c3ccbb2'.
+
+  ```
+
+[Mono](https://www.mono-project.com/) is an open source implementation of Microsoft’s .NET Framework. If someone else has some time to look into it and let me know what to do to get it working…
