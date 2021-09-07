@@ -40,6 +40,7 @@ do
 done
 
 mv custom/jitsi/usr/share/applications/ custom/jitsi/usr/share/applications.mime
+mkdir -p custom/jitsi/userhome/.jitsi
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Jitsi_Desktop.zip
 

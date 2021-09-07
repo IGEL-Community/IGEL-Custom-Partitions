@@ -10,6 +10,9 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/jitsi"
 
+# jitsi directory
+JITSI="/userhome/.jitsi"
+
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
 
@@ -29,6 +32,10 @@ init)
       fi
     fi
   done
+
+  # basic persistency
+  chown -R user:users "${CP}${JITSI}"
+
 
   # Add apparmor profile to trust Jitsi in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
