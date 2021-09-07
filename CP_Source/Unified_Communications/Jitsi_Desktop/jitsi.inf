@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="jitsi.tar.bz2"
+version="2.10.5550"
+size="300M"
+name="jitsi"
+minfw="11.05.133"
