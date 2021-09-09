@@ -19,12 +19,17 @@ sudo apt install unzip -y
 mkdir build_tar
 cd build_tar
 
+apt-get download libgnome-keyring0
+
 mkdir -p custom/pulse
 dpkg -x $HOME/Downloads/pulsesecure_*_amd64.deb custom/pulse
+dpkg -x libg* custom/pulse
 
 mv custom/pulse/usr/share/applications/ custom/pulse/usr/share/applications.mime
 setfacl -d -m g::r custom/pulse/var/lib/pulsesecure/pulse
 setfacl -d -m o::r custom/pulse/var/lib/pulsesecure/pulse
+#CEF install change path from /tmp to /custom
+sed -i -e "s|TMP_DIR=/tmp/cef.download|TMP_DIR=/custom/cef.download|" custom/pulse/opt/pulsesecure/bin/setup_cef.sh
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Pulse_VPN.zip
 
