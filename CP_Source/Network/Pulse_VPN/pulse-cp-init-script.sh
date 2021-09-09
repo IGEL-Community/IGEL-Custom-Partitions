@@ -10,6 +10,9 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/pulse"
 
+# pulsesecure directory
+PULSESECURE="/userhome/.pulsesecure"
+
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
 
@@ -29,6 +32,9 @@ do
     fi
   fi
 done
+
+  # basic persistency
+  chown -R user:users "${CP}${PULSESECURE}"
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then

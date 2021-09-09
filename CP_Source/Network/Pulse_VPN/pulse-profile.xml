@@ -17,8 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable /lib/systemd/system/pulsesecure.service;systemctl start pulsesecure
-</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable /lib/systemd/system/pulsesecure.service;systemctl start pulsesecure;/opt/pulsesecure/bin/setup_cef.sh install</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
