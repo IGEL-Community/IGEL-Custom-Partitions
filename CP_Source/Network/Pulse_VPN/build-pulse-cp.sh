@@ -31,7 +31,7 @@ setfacl -d -m o::r custom/pulse/var/lib/pulsesecure/pulse
 #CEF install change path from /tmp to /custom
 sed -i -e "s|TMP_DIR=/tmp/cef.download|TMP_DIR=/custom/cef.download|" custom/pulse/opt/pulsesecure/bin/setup_cef.sh
 sed -i -e "s|CEF_INSTALL_ROOT_DIR=/opt|CEF_INSTALL_ROOT_DIR=/custom/pulse/opt|" custom/pulse/opt/pulsesecure/bin/setup_cef.sh
-mkdir -p custom/teams/userhome/.pulsesecure
+mkdir -p custom/pulse/userhome/.pulsesecure
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Pulse_VPN.zip
 
