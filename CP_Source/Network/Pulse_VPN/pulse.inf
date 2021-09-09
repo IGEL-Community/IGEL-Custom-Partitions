@@ -2,6 +2,6 @@
 [PART]
 file="pulse.tar.bz2"
 version="9.1.R12"
-size="100M"
+size="2000M"
 name="pulse"
 minfw="11.05.133"

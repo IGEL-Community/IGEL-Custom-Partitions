@@ -20,9 +20,9 @@
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable /lib/systemd/system/pulsesecure.service;systemctl start pulsesecure
 </pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
-            </pclass>            
+            </pclass>
             <pclass name="custom_partition.size">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">100M</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">2000M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
         </settings>
