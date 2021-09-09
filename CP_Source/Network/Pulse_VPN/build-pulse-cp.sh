@@ -29,8 +29,19 @@ mv custom/pulse/usr/share/applications/ custom/pulse/usr/share/applications.mime
 setfacl -d -m g::r custom/pulse/var/lib/pulsesecure/pulse
 setfacl -d -m o::r custom/pulse/var/lib/pulsesecure/pulse
 #CEF install change path from /tmp to /custom
-sed -i -e "s|TMP_DIR=/tmp/cef.download|TMP_DIR=/custom/cef.download|" custom/pulse/opt/pulsesecure/bin/setup_cef.sh
-sed -i -e "s|CEF_INSTALL_ROOT_DIR=/opt|CEF_INSTALL_ROOT_DIR=/custom/pulse/opt|" custom/pulse/opt/pulsesecure/bin/setup_cef.sh
+SETUP_CEF=custom/pulse/opt/pulsesecure/bin/setup_cef.sh
+sed -i -e "s|TMP_DIR=/tmp/cef.download|TMP_DIR=/custom/cef.download|" $SETUP_CEF
+sed -i -e "s|CEF_INSTALL_ROOT_DIR=/opt|CEF_INSTALL_ROOT_DIR=/custom/pulse/opt|" $SETUP_CEF
+TMP_DIR=.
+CEF_INSTALL_ROOT_DIR=custom/pulse/opt
+CEF_INSTALL_DIR=${CEF_INSTALL_ROOT_DIR}/pulsesecure/lib/cefRuntime
+CEF_URL=`grep URL= $SETUP_CEF | grep linux | cut -d "=" -f 2`
+CEF_PACKAGE_NAME=`grep CEF_PACKAGE_NAME= $SETUP_CEF | cut -d "=" -f 2`
+wget -O cef64.tar.bz2 $CEF_URL
+tar xvf cef64.tar.bz2
+cp -r $CEF_PACKAGE_NAME/* $CEF_INSTALL_DIR/
+cp -r $CEF_INSTALL_DIR/Resources/* $CEF_INSTALL_DIR/Release/
+
 mkdir -p custom/pulse/userhome/.pulsesecure
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Pulse_VPN.zip
