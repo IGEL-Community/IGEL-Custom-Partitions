@@ -1,4 +1,4 @@
-# Cisco Webex (26 August)
+# Cisco Webex (7 August)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -7,7 +7,7 @@
 | CP Mount Path | /custom/webex |
 | CP Size | 900M |
 | IGEL OS Version (min) | 11.4.240 |
-| Metadata File <br /> webex.inf | [INFO] <br /> [PART] <br /> file="webex.tar.bz2" <br /> version="41.8.0.19868" <br /> size="900M" <br /> minfw="11.04.240" |
+| Metadata File <br /> webex.inf | [INFO] <br /> [PART] <br /> file="webex.tar.bz2" <br /> version="41.9.0.19961" <br /> size="900M" <br /> minfw="11.04.240" |
 | Path to Executable | /custom/webex/opt/Webex/bin/CiscoCollabHost |
 | Path to Icon | /opt/Webex/bin/sparklogosmall.png |
 | Packaging Notes | Details can be found in the build script [build-webex-cp.sh](build-webex-cp.sh) |
