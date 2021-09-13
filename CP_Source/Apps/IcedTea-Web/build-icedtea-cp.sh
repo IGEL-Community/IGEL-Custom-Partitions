@@ -7,10 +7,11 @@
 # Obtain latest package and save into Downloads
 # Download Latest App for Linux (Debian)
 # https://www.azul.com/downloads/icedtea-web-community/
+# https://www.azul.com/products/components/icedtea-web/
 if ! compgen -G "$HOME/Downloads/zulu-icedtea-web*.zip" > /dev/null; then
   echo "***********"
   echo "Obtain latest .zip package, save into $HOME/Downloads and re-run this script "
-  echo "https://www.azul.com/downloads/icedtea-web-community/"
+  echo "https://www.azul.com/products/components/icedtea-web/"
   echo "***********"
   exit 1
 fi

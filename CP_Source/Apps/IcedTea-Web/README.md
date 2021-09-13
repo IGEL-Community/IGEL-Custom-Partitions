@@ -2,7 +2,7 @@
 
 |  CP Information |            |
 |-----------------|------------|
-| Package | IcedTea-Web - [Current Version](https://www.azul.com/downloads/icedtea-web-community) <br /><br /> IcedTea-Web is an open source implementation of Java Web Start. <br /><br /> Steps to test [Open Notepad](https://docs.oracle.com/javase/tutorial/deployment/webstart/running.html#desktop) in Firefox |
+| Package | IcedTea-Web - [Current Version](https://www.azul.com/products/components/icedtea-web/) <br /><br /> IcedTea-Web is an open source implementation of Java Web Start. <br /><br /> Steps to test [Open Notepad](https://docs.oracle.com/javase/tutorial/deployment/webstart/running.html#desktop) in Firefox |
 | Script Name | [icedtea-cp-init-script.sh](icedtea-cp-init-script.sh) |
 | CP Mount Path | /custom/icedtea |
 | CP Size | 300M |
