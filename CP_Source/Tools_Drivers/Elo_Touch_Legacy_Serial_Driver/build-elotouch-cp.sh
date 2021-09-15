@@ -28,20 +28,22 @@ mkdir -p custom/elotouch/etc/opt/elo-ser
 tar xvf $HOME/Downloads/SW*_Elo_Linux_Serial_Driver*_x86_64.tar
 cp -r ./bin-serial/*  custom/elotouch/etc/opt/elo-ser
 cp custom/elotouch/etc/opt/elo-ser/loadEloSerial.sh custom/elotouch/etc/opt/elo-ser/loadEloSerial.sh.orig
-chmod -R 777 custom/elotouch/etc/opt/elo-ser
-chmod -R 444 custom/elotouch/etc/opt/elo-ser/*.txt
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Tools_Drivers/Elo_Touch_Legacy_Serial_Driver.zip
 
 unzip Elo_Touch_Legacy_Serial_Driver -d custom
 mv custom/target/elotouch-cp-init-script.sh custom
+mv custom/target/igel_start_elo_service.sh custom/elotouch/etc/opt/elo-ser
+
+chmod -R 777 custom/elotouch/etc/opt/elo-ser
+chmod -R 444 custom/elotouch/etc/opt/elo-ser/*.txt
 
 cd custom
 
-sudo tar cvjf elotouch.tar.bz2 elotouch elotouch-cp-init-script.sh
+tar cvjf elotouch.tar.bz2 elotouch elotouch-cp-init-script.sh
 mv elotouch.tar.bz2 ../..
 mv target/elotouch.inf ../..
 mv igel/*.xml ../..
 
 cd ../..
-sudo rm -rf build_tar
+rm -rf build_tar

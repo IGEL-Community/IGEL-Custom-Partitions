@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat /etc/opt/elo-ser/loadEloSerial.sh.orig | sed "s|ttyS0|${TTY}|" &amp;gt /etc/opt/elo-ser/loadEloSerial.sh;cp /etc/opt/elo-ser/eloser.service /etc/systemd/system/;systemctl enable eloser.service</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom/elotouch/etc/opt/elo-ser/igel_start_elo_service.sh</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
