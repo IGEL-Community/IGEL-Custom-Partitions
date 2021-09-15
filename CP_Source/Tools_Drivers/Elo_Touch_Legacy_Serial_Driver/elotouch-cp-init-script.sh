@@ -30,8 +30,8 @@ do
   fi
 done
 
-chmod -R 777 ${CP}
-chmod -R 444 ${CP}/*.txt
+chmod -R 777 ${CP}/etc/opt/elo-ser
+chmod -R 444 ${CP}/etc/opt/elo-ser/*.txt
 
 ;;
 stop)

@@ -27,6 +27,7 @@ mkdir -p custom/elotouch/etc/opt/elo-ser
 
 tar xvf $HOME/Downloads/SW*_Elo_Linux_Serial_Driver*_x86_64.tar
 cp -r ./bin-serial/*  custom/elotouch/etc/opt/elo-ser
+cp custom/elotouch/etc/opt/elo-ser/loadEloSerial.sh custom/elotouch/etc/opt/elo-ser/loadEloSerial.sh.orig
 chmod -R 777 custom/elotouch/etc/opt/elo-ser
 chmod -R 444 custom/elotouch/etc/opt/elo-ser/*.txt
 
