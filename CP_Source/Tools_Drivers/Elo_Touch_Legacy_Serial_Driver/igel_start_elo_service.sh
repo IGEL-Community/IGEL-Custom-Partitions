@@ -9,6 +9,7 @@
 #     <ivalue classname="custom_partition.parameter%.value" variableExpression="" variableSubstitutionActive="false">ttyS9</ivalue>
 #     <ivalue classname="custom_partition.parameter%.name" variableExpression="" variableSubstitutionActive="false">TTY</ivalue>
 # </instance>
+#
 
 cat /etc/opt/elo-ser/loadEloSerial.sh.orig | sed "s|ttyS0|$(customparam get TTY)|" > /etc/opt/elo-ser/loadEloSerial.sh
 cp /etc/opt/elo-ser/eloser.service /etc/systemd/system/

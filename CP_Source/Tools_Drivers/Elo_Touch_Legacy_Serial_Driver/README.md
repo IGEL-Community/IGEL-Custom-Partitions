@@ -14,6 +14,8 @@
 
 **NOTE:** Reboot required after CP deployed.
 
+Created script, igel_start_elo_service.sh, to modify loadEloSerial.sh as noted below.
+
 ```
 Check COM port number to make sure the COM port connection is correct:
 

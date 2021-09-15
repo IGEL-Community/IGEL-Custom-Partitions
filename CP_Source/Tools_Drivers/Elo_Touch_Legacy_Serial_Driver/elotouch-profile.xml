@@ -36,7 +36,7 @@
                 <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             </instance>
             <instance classprefix="custom_partition.parameter%" serialnumber="-255b77b0:17b0a250ec2:-7ff7127.0.1.1">
-                <ivalue classname="custom_partition.parameter%.value" variableExpression="" variableSubstitutionActive="false">ttyS9</ivalue>
+                <ivalue classname="custom_partition.parameter%.value" variableExpression="" variableSubstitutionActive="false">ttyS0</ivalue>
                 <ivalue classname="custom_partition.parameter%.name" variableExpression="" variableSubstitutionActive="false">TTY</ivalue>
             </instance>
         </instancesettings>
