@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="zoiper.tar.bz2"
+version="5.5.5"
+size="800M"
+name="zoiper"
+minfw="11.05.133"
