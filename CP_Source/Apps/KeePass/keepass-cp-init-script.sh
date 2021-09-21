@@ -38,6 +38,9 @@ init)
   chown -R user:users "${CP}${KEEPASS_CONFIG}"
   chown -R user:users "${CP}${KEEPASS_DB}"
 
+  #links
+  ln -sv /usr/bin/mono /usr/bin/cli
+
   # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
@@ -49,6 +52,8 @@ init)
     # delay the CP ready notification
     sleep 3
   fi
+
+  ldconfig
 
 ;;
 stop)
