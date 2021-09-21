@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="keepass.tar.bz2"
-version="2.45"
+version="2.3.1"
 size="100M"
 name="keepass"
 minfw="11.05.133"
