@@ -2,16 +2,16 @@
 #set -x
 #trap read debug
 
-ACTION="custompart-keepass_${1}"
+ACTION="custompart-keepassxc_${1}"
 
 # mount point path
 MP=$(get custom_partition.mountpoint)
 
 # custom partition path
-CP="${MP}/keepass"
+CP="${MP}/keepassxc"
 
 # userhome
-KEEPASS_CONFIG="/userhome/.config/KeePass"
+KEEPASS_CONFIG="/userhome/.config/keepassxc"
 KEEPASS_DB="/userhome/KeePassDB"
 
 # output to systemlog with ID amd tag
@@ -37,9 +37,6 @@ init)
   # basic persistency
   chown -R user:users "${CP}${KEEPASS_CONFIG}"
   chown -R user:users "${CP}${KEEPASS_DB}"
-
-  #links
-  ln -sv /usr/bin/mono /usr/bin/cli
 
   # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
