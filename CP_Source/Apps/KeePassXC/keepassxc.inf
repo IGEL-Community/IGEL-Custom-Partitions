@@ -1,6 +1,6 @@
 [INFO]
 [PART]
-file="keepass.tar.bz2"
+file="keepassxc.tar.bz2"
 version="2.3.1"
 size="100M"
 name="keepass"
