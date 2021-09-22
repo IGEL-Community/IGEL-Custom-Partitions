@@ -6,7 +6,7 @@
 ## Development machine (Ubuntu 18.04)
 
 #sudo add-apt-repository ppa:phoerious/keepassxc
-sudo sh -c 'echo "deb [arch=amd64] http://ppa.launchpad.net/phoerious/keepassxc/ubuntu main" > /etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-bionic.list'
+sudo sh -c 'echo "deb [arch=amd64] http://ppa.launchpad.net/phoerious/keepassxc/ubuntu bionic main" > /etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-bionic.list'
 sudo apt-get update
 MISSING_LIBS="keepassxc libdouble-conversion1 libqrencode3 libqt5concurrent5 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libqt5x11extras5 libquazip5-1 libxcb-xinerama0 libykpers-1-1 libyubikey0 libzxcvbn0 qt5-gtk-platformtheme qttranslations5-l10n"
 
