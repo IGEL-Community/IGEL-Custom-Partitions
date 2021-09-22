@@ -12,7 +12,7 @@ CP="${MP}/keepassxc"
 
 # userhome
 KEEPASS_CONFIG="/userhome/.config/keepassxc"
-KEEPASS_DB="/userhome/KeePassDB"
+KEEPASS_DB="/userhome/KeePassXCDB"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -37,11 +37,6 @@ init)
   # basic persistency
   chown -R user:users "${CP}${KEEPASS_CONFIG}"
   chown -R user:users "${CP}${KEEPASS_DB}"
-
-  # Add apparmor profile to trust in Firefox to make SSO possible
-  # We do this by a systemd service to run the reconfiguration
-  # surely after apparmor.service!!!
-  systemctl --no-block start igel-keepass-cp-apparmor-reload.service
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
