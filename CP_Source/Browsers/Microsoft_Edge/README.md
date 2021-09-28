@@ -1,4 +1,4 @@
-# Microsoft Edge (18 September - BETA Channel)
+# Microsoft Edge (28 September - BETA Channel)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -7,8 +7,6 @@
 | CP Mount Path | /custom/edge |
 | CP Size | 600M |
 | IGEL OS Version (min) | 11.4.240 |
-| Metadata File <br /> edge.inf | [INFO] <br /> [PART] <br /> file="edge.tar.bz2" <br /> version="94.0.992.23" <br /> size="600M" <br /> name="edge" <br /> minfw="11.04.240" |
-| Path to Executable | /custom/edge/usr/bin/microsoft-edge-beta |
-| Path to Icon | /custom/edge/opt/microsoft/msedge-beta/product_logo_256_beta.png |
+| Tested with version | 25 September 2021 (94.0.992.31) |
 | Packaging Notes | See build script for details |
-| Package automation | [build-edge-cp.sh](build-edge-cp.sh) <br /><br /> Tested with 94.0.992.23 |
+| Package automation | [build-edge-cp.sh](build-edge-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
