@@ -7,7 +7,7 @@
             <model>IGEL OS 11</model>
             <version>11.05.133.01</version>
         </firmware>
-        <description>Elo Touch Serial Driver</description>
+        <description>Elo Touch Serial Driver 3.6.0</description>
         <overwritesessions>false</overwritesessions>
         <is_master_profile>false</is_master_profile>
         <is_igel_os>true</is_igel_os>
@@ -28,7 +28,7 @@
         <instancesettings>
             <instance classprefix="custom_partition.source%" serialnumber="-255b77b0:17b0a250ec2:-7fef127.0.1.1">
                 <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
-                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/elotouch.inf</ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/elotouch-3.6.0.inf</ivalue>
                 <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/elotouch-cp-init-script.sh init</ivalue>
                 <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/elotouch-cp-init-script.sh stop</ivalue>

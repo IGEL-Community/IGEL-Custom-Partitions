@@ -40,10 +40,10 @@ chmod -R 444 custom/elotouch/etc/opt/elo-ser/*.txt
 
 cd custom
 
-tar cvjf elotouch.tar.bz2 elotouch elotouch-cp-init-script.sh
-mv elotouch.tar.bz2 ../..
-mv target/elotouch.inf ../..
-mv igel/*.xml ../..
+tar cvjf elotouch-3.5.0.tar.bz2 elotouch elotouch-cp-init-script.sh
+mv elotouch-3.5.0.tar.bz2 ../..
+mv target/elotouch-3.5.0.inf ../..
+mv igel/*-3.5.0.xml ../..
 
 cd ../..
 rm -rf build_tar
