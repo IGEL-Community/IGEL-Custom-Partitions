@@ -1,6 +1,6 @@
 # Elo Touch Legacy Serial Driver (5 October - Development)
 
-|  CP Information |            |
+|  CP Information  |            |
 |------------------|------------|
 | Package | [Elo Touch Legacy Serial Driver 3.6.0](https://www.elotouch.com/support/downloads#/category/346LYmeuAUEI4Qa0sSyiSa/os/5hkYjkrw08oU08oCwCeSKq/legacy/current) <br /><br /> Manual installer for serial driver with support for multiple monitors, multiple touchscreens, precalibration and video rotation. Release Date: 15-July-2021 |
 | Steps to setup 3.6.0 | [Steps to setup](https://assets.ctfassets.net/of6pv6scuh5x/35oXnLW78n3sGZHQvsED8x/172708f7c200ec2a17b5ce92f68ba60e/Elo-Linux-Serial-Driver-v3.6.0_Installation-Instructions.txt) |
