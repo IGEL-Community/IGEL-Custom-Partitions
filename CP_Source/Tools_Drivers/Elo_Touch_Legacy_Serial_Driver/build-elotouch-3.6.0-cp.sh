@@ -42,7 +42,7 @@ cd custom
 
 tar cvjf elotouch-3.6.0.tar.bz2 elotouch elotouch-cp-init-script.sh
 mv elotouch-3.6.0.tar.bz2 ../..
-mv target/elotouch3.6.0.inf ../..
+mv target/elotouch-3.6.0.inf ../..
 mv igel/*3.6.0.xml ../..
 
 cd ../..
