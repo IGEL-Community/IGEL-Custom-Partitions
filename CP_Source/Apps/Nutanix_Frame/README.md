@@ -1,4 +1,4 @@
-# Nutanix Frame
+# Nutanix Frame (14 October)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -6,13 +6,11 @@
 | Script Name | [frame-cp-init-script.sh](frame-cp-init-script.sh) |
 | CP Mount Path | /custom/frame |
 | CP Size | 250M |
-| IGEL OS Version (min) | 11.4.200 |
-| Metadata File <br /> frame.inf | [INFO] <br /> [PART] <br /> file="frame.tar.bz2" <br /> version="5.3.0" <br /> size="250M" <br /> name="frame" <br /> minfw="11.04.200" |
+| IGEL OS Version (min) | 11.5.133 |
 | Path to Executable | /custom/frame/usr/bin/frame |
 | Path to Icon | /custom/frame/usr/share/pixmaps/frame.png |
-| Missing Libraries | None |
 | Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
-| Packaging Notes | Create folder: **frame** <br /><br /> dpkg -x <package/lib> custom/frame <br /><br /> Need to move the mime folder: <br /><br />mv /custom/frame/usr/share/applications /custom/frame/usr/share/applications.mime |
+| Packaging Notes | See build script for details |
 | Package automation | [build-frame-cp.sh](build-frame-cp.sh) |
 
 -----
