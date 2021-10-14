@@ -6,7 +6,7 @@
 | Script Name | [frame-cp-init-script.sh](frame-cp-init-script.sh) |
 | CP Mount Path | /custom/frame |
 | CP Size | 250M |
-| IGEL OS Version (min) | 11.5.133 |
+| IGEL OS Version (min) | 11.05.133 |
 | Path to Executable | /custom/frame/usr/bin/frame |
 | Path to Icon | /custom/frame/usr/share/pixmaps/frame.png |
 | Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
