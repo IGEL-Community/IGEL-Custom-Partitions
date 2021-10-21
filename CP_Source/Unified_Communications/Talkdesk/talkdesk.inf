@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="talkdesk.tar.bz2"
+version="1.43.21"
+size="350M"
+name="talkdesk"
+minfw="11.05.133"

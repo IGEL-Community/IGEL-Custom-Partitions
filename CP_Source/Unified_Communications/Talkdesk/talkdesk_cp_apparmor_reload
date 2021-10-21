@@ -1,0 +1,18 @@
+#! /bin/bash
+
+ACTION="custompart-talkdesk_apparmor"
+
+# Add apparmor profile to trust talkdesk in Firefox
+logger -it "$ACTION" "Adding talkdesk to firefox apparmor profile"
+echo "$( get custom_partition.mountpoint )/talkdesk/opt/Callbar/callbar Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/talkdesk
+echo '#include <abstractions/ubuntu-browsers.d/talkdesk>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
+
+# reload apparmor only if it is enabled
+if [ "$( get system.security.apparmor )" = "true" ] ; then
+  logger -it "$ACTION" "Reloading apparmor profiles"
+  systemctl reload apparmor.service
+else
+  logger -it "$ACTION" "Apparmor profiles disabled by setup"
+fi
+
+exit 0
