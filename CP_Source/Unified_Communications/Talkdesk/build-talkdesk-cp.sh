@@ -4,7 +4,6 @@
 
 # Creating an IGELOS CP for Talkdesk Callbar
 ## Development machine (Ubuntu 18.04)
-sudo apt install unzip -y
 
 # Obtain link to latest package and save into Downloads
 # https://downloadcallbar.talkdesk.com/download.html?platform=linux
@@ -15,6 +14,8 @@ if ! compgen -G "$HOME/Downloads/Callbar_*_amd64.deb" > /dev/null; then
   echo "***********"
   exit 1
 fi
+
+sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar
