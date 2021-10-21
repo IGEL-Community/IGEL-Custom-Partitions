@@ -13,34 +13,35 @@
         <is_igel_os>true</is_igel_os>
         <settings>
             <pclass name="userinterface.rccustom.custom_cmd_net_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt EOF &amp;gt&amp;gt /bin/igel_create_network_printers.sh
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt 'EOF' &amp;gt&amp;gt /bin/igel_create_network_printers.sh
 #!/bin/bash
 #set -x
 #trap read debug
 
-ACTION="create_network_printers_\${1}"
+ACTION="create_network_printers_${1}"
 
 COUNT=1
 
 # output to systemlog with ID amd tag
-LOGGER="logger -it \${ACTION}"
+LOGGER="logger -it ${ACTION}"
 
-echo "Starting" | \$LOGGER
+echo "Starting" | $LOGGER
 
-case "\$1" in
+case "$1" in
 init)
   # create network printers from /usr/lib/cups/backend/snmp
   /usr/lib/cups/backend/snmp | while read LINE
     do
-      URI=ipp://\`echo "\${LINE}" | awk --field-separator " " '{print \$2}' | sed -e 's|^.*//||' -e 's|&amp;lb:/&amp;rb.*||'\`/ipp/print
-      lpadmin -p wifiprinter\${COUNT} -E -v \$URI -m everywhere
-      if &amp;lb \${COUNT} -eq 1 &amp;rb; then
-        lpoptions -d wifiprinter\${COUNT}
-        sed -i "/ClientPrinterQueue/ a ClientPrinterList=wifiprinter\${COUNT}" /userhome/.ICAClient/wfclient.ini
-      else
-        sed -i "/ClientPrinterList/ s/$/:wifiprinter\${COUNT}/" /userhome/.ICAClient/wfclient.ini
+      URI=ipp://`echo "${LINE}" | awk --field-separator " " '{print $2}' | sed -e 's|^.*//||' -e 's|&amp;lb:/&amp;rb.*||'`/ipp/print
+      lpadmin -p wifiprinter${COUNT} -E -v $URI -m everywhere
+      if &amp;lb ${COUNT} -eq 1 &amp;rb; then
+        if ! grep ClientPrinterList /userhome/.ICAClient/wfclient.ini; then
+            sed -i "/ClientPrinterQueue/ a ClientPrinterList=" /userhome/.ICAClient/wfclient.ini
+            lpoptions -d wifiprinter${COUNT}
+        fi
       fi
-      COUNT=\$COUNT+1
+      sed -i "/ClientPrinterList/ s/$/wifiprinter${COUNT}:/" /userhome/.ICAClient/wfclient.ini
+      COUNT=$COUNT+1
     done
 
 ;;
@@ -50,7 +51,7 @@ stop)
 ;;
 esac
 
-echo "Finished" | \$LOGGER
+echo "Finished" | $LOGGER
 
 exit 0
 EOF
