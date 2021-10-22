@@ -4,7 +4,9 @@
 ## Tutorial videos
 
 [Video: Build Microsoft Teams Custom Partition in 42 seconds](https://www.linkedin.com/posts/jedayres_igelos-somethingcool-microsoftteams-activity-6740750840077926400-YjSK)
+
 [Video: Add Zoom CP to UMS](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/utils/videos/210304-Zoom-CP-Add-to-UMS.mp4)
+
 [Video: Add Multiple CP to UMS](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/utils/videos/210129-IGEL-Multiple-CPs.mp4)
 
 ***
