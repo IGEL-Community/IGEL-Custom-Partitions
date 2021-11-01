@@ -1,4 +1,4 @@
-# Microsoft Edge (21 October - BETA Channel)
+# Microsoft Edge (1 November - BETA Channel)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -7,6 +7,6 @@
 | CP Mount Path | /custom/edge |
 | CP Size | 600M |
 | IGEL OS Version (min) | 11.4.240 |
-| Tested with version | 21 October 2021 (95.0.1020.30) |
+| Tested with version | 30 October 2021 (95.0.1020.40) |
 | Packaging Notes | See build script for details |
 | Package automation | [build-edge-cp.sh](build-edge-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
