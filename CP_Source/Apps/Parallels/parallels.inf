@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="parallels.tar.bz2"
-version="99.17.65039"
+version="99.18.1.65039"
 size="100M"
 name="parallels"
-minfw="11.04.240"
+minfw="11.05.133"
