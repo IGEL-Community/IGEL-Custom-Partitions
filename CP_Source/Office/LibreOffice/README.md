@@ -13,4 +13,4 @@
 
 **NOTE**
 
-For Help to open files in browser, you will need to enable browser (such as Firefox) and allow the browser to read files on the filesystem.
+For Help to open files in browser, you will need to enable browser (such as Firefox), allow the browser to read files on the filesystem, and disable **system.security.apparmor**.
