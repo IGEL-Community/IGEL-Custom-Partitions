@@ -38,7 +38,7 @@ init)
   chown -R user:users "${CP}${LIBREOFFICE}"
   chown -R user:users "${CP}${LIBREOFFICE_DOCS}"
 
-  # Add apparmor profile to trust Teams in Firefox to make SSO possible
+  # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
   #systemctl --no-block start igel-libreoffice-cp-apparmor-reload.service
