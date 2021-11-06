@@ -10,3 +10,7 @@
 | Path to Icon | /custom/libreoffice/usr/share/icons/hicolor/256x256/apps/libreoffice7.2-main.png |
 | Packaging Notes | See build script for details. |
 | Package automation | [build-libreoffice-cp.sh](build-libreoffice-cp.sh) <br /><br /> Tested with 7.2.2 |
+
+**NOTE**
+
+For Help to open files in browser, you will need to enable browser (such as Firefox) and allow the browser to read files on the filesystem.
