@@ -9,7 +9,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/slack"
 
 # persistent login and history
-USER_CONFIG="/userhome"
+USER_CONFIG="/userhome/.config/Slack"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -19,15 +19,11 @@ echo "Starting" | $LOGGER
 case "$1" in
 init)
   chmod -R go+rx "${CP}"
-  # check for old folders / links and remove
-  if [ -d /wfs/user/.config/Slack ]; then
-    rm -rf /wfs/user/.config/Slack
+  if [ -L ${USER_CONFIG} ]; then
+	  unlink ${USER_CONFIG}
   fi
-  if [ -L /userhome/.config/Slack ]; then
-    unlink /userhome/.config/Slack
-  fi
-  if [ -d /userhome/.config/Slack ]; then
-    rm -rf /userhome/.config/Slack
+  if [ -d ${USER_CONFIG} ]; then
+	  rm -rf ${USER_CONFIG}
   fi
   # Linking files and folders on proper path
   find ${CP} | while read LINE
@@ -42,7 +38,10 @@ init)
     fi
   done
 
-  # basic persistency
+  # fix permissions
+  chmod 4755 "$CP/usr/lib/slack/chrome-sandbox"
+
+	# basic persistency
   if [ -d "${CP}${USER_CONFIG}" ]; then
     chown -R user:users "${CP}${USER_CONFIG}"
   fi

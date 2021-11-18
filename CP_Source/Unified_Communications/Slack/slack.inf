@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="slack.tar.bz2"
-version="4.15.0"
+version="4.22.0"
 size="600M"
 name="slack"
-minfw="11.04.240"
+minfw="11.05.133"
