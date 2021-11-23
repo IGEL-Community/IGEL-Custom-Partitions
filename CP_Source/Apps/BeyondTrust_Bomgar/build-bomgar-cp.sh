@@ -22,7 +22,7 @@ mkdir build_tar
 cd build_tar
 
 mkdir -p custom/bomgar
-cp $HOME/Downloads/${BOMGARDESKTOP} custom/bombar
+cp $HOME/Downloads/${BOMGARDESKTOP} custom/bomgar
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/BeyondTrust_Bomgar.zip
 
