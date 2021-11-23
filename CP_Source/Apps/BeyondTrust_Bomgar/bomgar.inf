@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="bomgar.tar.bz2"
+version="2.7"
+size="250M"
+name="Bomgar"
+minfw="11.05.133"
