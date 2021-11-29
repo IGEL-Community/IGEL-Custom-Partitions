@@ -1,4 +1,4 @@
-# Cisco Webex (15 November)
+# Cisco Webex (29 November)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -7,6 +7,6 @@
 | CP Mount Path | /custom/webex |
 | CP Size | 900M |
 | IGEL OS Version (min) | 11.4.240 |
-| Tested with version | 15 November 2021 (41.11.0.20608)
+| Tested with version | 24 November 2021 (41.11.0.20717)
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-webex-cp.sh](build-webex-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
