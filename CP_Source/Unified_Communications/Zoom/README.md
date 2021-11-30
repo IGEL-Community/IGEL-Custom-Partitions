@@ -22,4 +22,4 @@
 [ISO 639-1 Language Codes](https://www.loc.gov/standards/iso639-2/php/code_list.php)
 
 Sample for setting German language (reboot required after CP deployed)
-![zoomus.confg language German](zoom-zoomus.conf-lang-german.png)
+![zoomus.confg language German](build/zoom-zoomus.conf-lang-german.png)
