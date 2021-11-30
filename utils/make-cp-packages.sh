@@ -75,7 +75,7 @@ for category in $CATEGORIES; do
           cp *.md "$cpt/target"
           #cp -R !(*.xml|*.inf|*.sh|*.md|$cpt) "$cpt/target"
           if [ ! -d  build ]; then
-            cp -R !(*.xml|*.inf|*.sh|*.md|$cpt) "$cpt/target"
+            cp -R !(*.xml|*.inf|*.sh|*.md|build|$cpt) "$cpt/target"
           fi
           if [ -d  build ]; then
             cp -R build "$cpt/target"
