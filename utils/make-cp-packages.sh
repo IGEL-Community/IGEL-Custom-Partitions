@@ -73,7 +73,13 @@ for category in $CATEGORIES; do
           cp *.inf "$cpt/target"
           cp *.sh "$cpt/target"
           cp *.md "$cpt/target"
-          cp -R !(*.xml|*.inf|*.sh|*.md|$cpt) "$cpt/target"
+          #cp -R !(*.xml|*.inf|*.sh|*.md|$cpt) "$cpt/target"
+          if [ ! -d  build ]; then
+            cp -R !(*.xml|*.inf|*.sh|*.md|$cpt) "$cpt/target"
+          fi
+          if [ -d  build ]; then
+            cp -R build "$cpt/target"
+          fi
           cp $COMMONREADME "$cpt"
           cp $COMMONDISCLAIMER "$cpt"
           cd $cpt
