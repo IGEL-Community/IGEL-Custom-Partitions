@@ -11,3 +11,9 @@
 | Path to Icon | /custom/teamviewer/usr/share/icons/hicolor/256x256/apps/TeamViewer.png |
 | Packaging Notes | Details can be found in the build script [build-teamviewer-cp.sh](build-teamviewer-cp.sh) |
 | Package automation | [build-teamviewer-cp.sh](build-teamviewer-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
+
+**NOTE:** A reboot is required before the TeamViewer service can start.
+
+```
+systemctl enable /custom/teamviewer/opt/teamviewer/tv_bin/script/teamviewerd.service; systemctl start teamviewerd.service
+   ```
