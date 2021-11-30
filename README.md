@@ -55,12 +55,13 @@ To seach for missing libraries to download:  https://packages.ubuntu.com/bionic/
 ### General
 IGEL custom partitions are delivered as a zip archive. The archive has the following content:
 
-| Folder | Description |
-|--------|-------------|
+| Folder / File | Description |
+|---------------|-------------|
 |igel | folder containing UMS profiles|
 |target | folder containing Custom Partition (inf and tar.bz2 files)|
 |disclaimer.txt | disclaimer note|
 |readme.txt | Short Installation guide|
+|build | files for build automation (updates in progress as of 30 December, 2021) |
 
 ***
 ### Steps to deploy the Custom Partition
@@ -118,6 +119,7 @@ Your IGEL Support/PreSales Team April 2012
 
 | Element Version | Date | Change Owner | Description |
 | ---- | ---- | ---- | ---- |
+| 0.3 | 30-December-2021 | Ron Neher | Adding build folder for automation |
 | 0.2 | 09-August-2020 | Ron Neher | Completed the GitHub automation to take CP files and create package.zip files |
 | 0.1 | 23-July-2020 | Ron Neher | Initial version |
 
@@ -138,4 +140,6 @@ readme.txt
 target/
    <package>.tar.bz2
    <package>.inf
+build   
+   files for build automation
   ```
