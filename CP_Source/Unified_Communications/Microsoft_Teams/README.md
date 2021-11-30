@@ -1,4 +1,4 @@
-# Microsoft Teams (9 October)
+# Microsoft Teams (29 November)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -7,17 +7,20 @@
 | CP Mount Path | /custom/teams |
 | CP Size | 500M |
 | IGEL OS Version (min) | 11.3.110 |
-| Path to Executable | /custom/teams/usr/bin/teams [--proxy-server=http://proxy-host:proxy-port]|
+| Path to Executable | /custom/teams/usr/bin/teams |
 | Path to Icon | /custom/teams/usr/share/pixmaps/teams.png |
 | Packaging Notes | See build script for details |
 | Package automation | [build-teams-cp.sh](build-teams-cp.sh) <br /><br />[Microsoft Teams Linux Versions](https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/) <br /><br /> Tested with 1.3.00.25560, 1.3.00.30857, 1.4.00.7556, 1.4.00.13653 1.4.00.26453 |
 
 **NOTES:**
 
-To use Teams over a proxy server append the following to Path to Executable:
+To use Teams over a proxy server, create a script with this content and use for the start of teams:
 
-```{use proxy server}
---proxy-server=http://proxy-host:proxy-port
+```
+#!/bin/bash
+export http_proxy=http://proxy-host:proxy-port
+export https_proxy=https://proxy-host:proxy-port
+teams --proxy-server=proxy-host:proxy-port
   ```
 
 | Customization | /wfs/user/.config/Microsoft/Microsoft Teams/desktop-config.json |
