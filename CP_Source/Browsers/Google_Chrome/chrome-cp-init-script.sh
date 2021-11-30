@@ -51,10 +51,6 @@ init)
     sleep 3
   fi
 
-  # add /opt/chrome to ld_library
-  #echo "${CP}/opt/google/chrome" > /etc/ld.so.conf.d/chrome.conf
-  #echo "${CP}/opt/google/swiftshader" >> /etc/ld.so.conf.d/chrome.conf
-  #ldconfig
 ;;
 stop)
   # unlink linked files
@@ -64,8 +60,6 @@ stop)
     unlink $DEST | $LOGGER
   done
 
-  # remove zoom.conf because it is not needed anymore
-  #rm /etc/ld.so.conf.d/chrome.conf
 ;;
 esac
 
