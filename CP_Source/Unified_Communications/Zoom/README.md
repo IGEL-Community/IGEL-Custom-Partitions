@@ -1,7 +1,7 @@
 # Zoom (30 November)
 
 |  CP Information  |             |
-|------------------|-------------|
+|-----------------|-------------|
 | Package | [Zoom - Current Version](https://support.zoom.us/hc/en-us/articles/205759689-New-Updates-for-Linux) |
 | Script Name | [zoom-cp-init-script.sh](zoom-cp-init-script.sh) |
 | CP Mount Path | /custom/zoom |
