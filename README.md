@@ -59,9 +59,9 @@ IGEL custom partitions are delivered as a zip archive. The archive has the follo
 |---------------|-------------|
 |igel | folder containing UMS profiles|
 |target | folder containing Custom Partition (inf and tar.bz2 files)|
+|target/build | files for build automation (updates in progress as of 30 December, 2021) |
 |disclaimer.txt | disclaimer note|
 |readme.txt | Short Installation guide|
-|build | files for build automation (updates in progress as of 30 December, 2021) |
 
 ***
 ### Steps to deploy the Custom Partition
@@ -140,6 +140,6 @@ readme.txt
 target/
    <package>.tar.bz2
    <package>.inf
-build   
+target/build
    files for build automation
   ```
