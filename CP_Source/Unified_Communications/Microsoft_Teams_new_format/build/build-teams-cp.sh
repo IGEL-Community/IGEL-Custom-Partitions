@@ -29,9 +29,9 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Microsoft_Teams_new_format.zip -d custom
 mkdir -p custom/teams/config/bin
 mkdir -p custom/teams/lib/systemd/system
-mv custom/target/teams_cp_apparmor_reload custom/teams/config/bin
-mv custom/target/igel-teams-cp-apparmor-reload.service custom/teams/lib/systemd/system/
-mv custom/target/teams-cp-init-script.sh custom
+mv custom/target/build/teams_cp_apparmor_reload custom/teams/config/bin
+mv custom/target/build/igel-teams-cp-apparmor-reload.service custom/teams/lib/systemd/system/
+mv custom/target/build/teams-cp-init-script.sh custom
 
 cd custom
 
