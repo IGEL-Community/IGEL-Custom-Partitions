@@ -48,9 +48,9 @@ mkdir -p custom/webex/userhome/.local/share/Webex
 # END: comment out for non-persistency!!!!
 ##########################################
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Webex_new.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Webex.zip
 
-unzip Webex_new.zip -d custom
+unzip Webex.zip -d custom
 mkdir -p custom/webex/config/bin
 mkdir -p custom/webex/lib/systemd/system
 mv custom/target/build/webex_cp_apparmor_reload custom/webex/config/bin
@@ -73,9 +73,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/webex.inf
 
 # new build process into zip file
 tar cvjf target/webex.tar.bz2 webex webex-cp-init-script.sh
-zip -g ../Webex_new.zip target/webex.tar.bz2 target/webex.inf
-zip -d ../Webex_new.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Webex_new.zip ../../Webex-${VERSION}_igel01.zip
+zip -g ../Webex.zip target/webex.tar.bz2 target/webex.inf
+zip -d ../Webex.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Webex.zip ../../Webex-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
