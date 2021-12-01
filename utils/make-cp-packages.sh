@@ -70,6 +70,7 @@ for category in $CATEGORIES; do
           mkdir "$cpt/igel"
           mkdir "$cpt/target"
           cp *.xml "$cpt/igel"
+          cp igel/*.xml "$cpt/igel"
           cp *.inf "$cpt/target"
           cp *.sh "$cpt/target"
           cp *.md "$cpt/target"

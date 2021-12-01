@@ -43,9 +43,9 @@ mv custom/target/build/zoom-cp-init-script.sh custom
 cd custom
 
 tar cvjf target/zoom.tar.bz2 zoom zoom-cp-init-script.sh
-zip -dr ../Zoom_new_build_testing.zip build igel target
-zip -gr ../Zoom_new_build_testing.zip target/zoom.tar.bz2 igel
-mv ../Zoom.zip ../..
+zip -dr ../Zoom_new_build_testing.zip target/build target/igel
+zip -gr ../Zoom_new_build_testing.zip target/zoom.tar.bz2
+mv ../Zoom_new_build_testing.zip ../..
 
 cd ../..
 rm -rf build_tar
