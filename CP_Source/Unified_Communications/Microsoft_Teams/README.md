@@ -1,16 +1,16 @@
-# Microsoft Teams (29 November)
+# Microsoft Teams (1 December) (new format)
 
 |  CP Information |            |
 |-----------------|------------|
 | Package | Microsoft Teams - Current Version |
-| Script Name | [teams-cp-init-script.sh](teams-cp-init-script.sh) |
+| Script Name | [teams-cp-init-script.sh](build/teams-cp-init-script.sh) |
 | CP Mount Path | /custom/teams |
 | CP Size | 500M |
 | IGEL OS Version (min) | 11.3.110 |
 | Path to Executable | /custom/teams/usr/bin/teams |
 | Path to Icon | /custom/teams/usr/share/pixmaps/teams.png |
 | Packaging Notes | See build script for details |
-| Package automation | [build-teams-cp.sh](build-teams-cp.sh) <br /><br />[Microsoft Teams Linux Versions](https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/) <br /><br /> Tested with 1.3.00.25560, 1.3.00.30857, 1.4.00.7556, 1.4.00.13653 1.4.00.26453 |
+| Package automation | [build-teams-cp.sh](build/build-teams-cp.sh) <br /><br />[Microsoft Teams Linux Versions](https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/) <br /><br /> Tested with 1.3.00.25560, 1.3.00.30857, 1.4.00.7556, 1.4.00.13653 1.4.00.26453 |
 
 **NOTES:**
 
@@ -29,9 +29,9 @@ teams --proxy-server=proxy-host:proxy-port
 | German | {currentWebLanguage":"de-de"} |
 
 Sample for setting German language (reboot required after CP deployed)
-![desktop-config.json language German](teams-desktop-config-json-lang-german.png)
+![desktop-config.json language German](build/teams-desktop-config-json-lang-german.png)
 
-**Automation Notes:** [build-teams-cp.sh](build-teams-cp.sh)
+**Automation Notes:** [build-teams-cp.sh](build/build-teams-cp.sh)
 
 Add respsitory:
 

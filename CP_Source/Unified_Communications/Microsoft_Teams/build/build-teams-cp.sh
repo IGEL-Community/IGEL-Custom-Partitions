@@ -29,16 +29,29 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Microsoft_Teams.zip -d custom
 mkdir -p custom/teams/config/bin
 mkdir -p custom/teams/lib/systemd/system
-mv custom/target/teams_cp_apparmor_reload custom/teams/config/bin
-mv custom/target/igel-teams-cp-apparmor-reload.service custom/teams/lib/systemd/system/
-mv custom/target/teams-cp-init-script.sh custom
+mv custom/target/build/teams_cp_apparmor_reload custom/teams/config/bin
+mv custom/target/build/igel-teams-cp-apparmor-reload.service custom/teams/lib/systemd/system/
+mv custom/target/build/teams-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf teams.tar.bz2 teams teams-cp-init-script.sh
-mv teams.tar.bz2 ../..
-mv target/teams.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x ../../teams_*
+tar xf control.tar.gz ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/teams.inf
+#echo "teams.inf file is:"
+#cat target/teams.inf
+
+# new build process into zip file
+tar cvjf target/teams.tar.bz2 teams teams-cp-init-script.sh
+zip -g ../Microsoft_Teams.zip target/teams.tar.bz2 target/teams.inf
+zip -d ../Microsoft_Teams.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Microsoft_Teams.zip ../../Microsoft_Teams-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
