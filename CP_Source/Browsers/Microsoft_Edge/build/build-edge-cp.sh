@@ -32,9 +32,9 @@ mkdir -p custom/edge/userhome/.config/microsoft-edge-beta
 mkdir -p custom/edge/userhome/.local/share/applications
 touch custom/edge/userhome/.local/share/applications/mimeapps.list
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Browsers/Microsoft_Edge_new_format.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Browsers/Microsoft_Edge.zip
 
-unzip Microsoft_Edge_new_format.zip -d custom
+unzip Microsoft_Edge.zip -d custom
 mkdir -p custom/edge/config/bin
 mkdir -p custom/edge/lib/systemd/system
 mv custom/target/build/edge_cp_apparmor_reload custom/edge/config/bin
@@ -57,9 +57,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/edge.inf
 
 # new build process into zip file
 tar cvjf target/edge.tar.bz2 edge edge-cp-init-script.sh
-zip -g ../Microsoft_Edge_new_format.zip target/edge.tar.bz2 target/edge.inf
-zip -d ../Microsoft_Edge_new_format.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Microsoft_Edge_new_format.zip ../../Microsoft_Edge_new_format-${VERSION}_igel01.zip
+zip -g ../Microsoft_Edge.zip target/edge.tar.bz2 target/edge.inf
+zip -d ../Microsoft_Edge.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Microsoft_Edge.zip ../../Microsoft_Edge-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
