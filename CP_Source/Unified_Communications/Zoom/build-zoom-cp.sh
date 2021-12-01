@@ -36,15 +36,16 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Zoom.zip -d custom
 mkdir -p custom/zoom/config/bin
 mkdir -p custom/zoom/lib/systemd/system
-mv custom/target/build/zoom_cp_apparmor_reload custom/zoom/config/bin
-mv custom/target/build/igel-zoom-cp-apparmor-reload.service custom/zoom/lib/systemd/system/
-mv custom/target/build/zoom-cp-init-script.sh custom
+mv custom/target/zoom_cp_apparmor_reload custom/zoom/config/bin
+mv custom/target/igel-zoom-cp-apparmor-reload.service custom/zoom/lib/systemd/system/
+mv custom/target/zoom-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf target/zoom.tar.bz2 zoom zoom-cp-init-script.sh
-zip -g ../Zoom.zip target/zoom.tar.bz2
-mv ../Zoom.zip ../..
+tar cvjf zoom.tar.bz2 zoom zoom-cp-init-script.sh
+mv zoom.tar.bz2 ../..
+mv target/zoom.inf ../..
+mv igel/*.xml ../..
 
 cd ../..
 rm -rf build_tar
