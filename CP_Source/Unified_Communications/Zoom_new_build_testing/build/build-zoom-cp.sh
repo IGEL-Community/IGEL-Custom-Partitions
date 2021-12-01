@@ -44,8 +44,8 @@ cd custom
 
 # new build process into zip file
 tar cvjf target/zoom.tar.bz2 zoom zoom-cp-init-script.sh
-zip -d ../Zoom_new_build_testing.zip target/build/* target/igel/*
-zip -gr ../Zoom_new_build_testing.zip target/zoom.tar.bz2
+zip -g ../Zoom_new_build_testing.zip target/zoom.tar.bz2
+zip -d ../Zoom_new_build_testing.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../Zoom_new_build_testing.zip ../..
 
 cd ../..
