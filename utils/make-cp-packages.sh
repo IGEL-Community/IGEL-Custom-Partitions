@@ -72,6 +72,7 @@ for category in $CATEGORIES; do
           cp *.xml "$cpt/igel"
           cp igel/*.xml "$cpt/igel"
           cp *.inf "$cpt/target"
+          cp target/*.inf "$cpt/target"
           cp *.sh "$cpt/target"
           cp *.md "$cpt/target"
           cp -R !(*.xml|*.inf|*.sh|*.md|$cpt) "$cpt/target"
