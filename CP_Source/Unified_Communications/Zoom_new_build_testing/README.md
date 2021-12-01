@@ -1,4 +1,4 @@
-# Zoom (1 December - New CP format testing - Don't use)
+# Zoom (1 December - New CP format testing)
 
 |  CP Information  |             |
 |-----------------|-------------|
