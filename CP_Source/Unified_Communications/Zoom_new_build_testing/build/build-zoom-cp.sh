@@ -42,11 +42,23 @@ mv custom/target/build/zoom-cp-init-script.sh custom
 
 cd custom
 
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x ../../zoom_amd64.deb
+tar xf control.tar.xz ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/zoom.inf
+#echo "zoom.inf file is:"
+#cat target/zoom.inf
+
 # new build process into zip file
 tar cvjf target/zoom.tar.bz2 zoom zoom-cp-init-script.sh
-zip -g ../Zoom_new_build_testing.zip target/zoom.tar.bz2
+zip -g ../Zoom_new_build_testing.zip target/zoom.tar.bz2 target/zoom.inf
 zip -d ../Zoom_new_build_testing.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Zoom_new_build_testing.zip ../..
+mv ../Zoom_new_build_testing.zip ../../Zoom-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
