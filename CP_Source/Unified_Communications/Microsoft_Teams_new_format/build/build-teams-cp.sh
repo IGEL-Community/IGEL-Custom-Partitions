@@ -39,7 +39,7 @@ cd custom
 mkdir getversion
 cd getversion
 ar -x ../../teams_*
-tar xf control.tar.xz ./control
+tar xf control.tar.gz ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
