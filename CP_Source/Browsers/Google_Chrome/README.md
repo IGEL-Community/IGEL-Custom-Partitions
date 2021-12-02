@@ -1,18 +1,18 @@
-# Google Chrome (30 November)
+# Google Chrome (2 December) (new format)
 
 |  CP Information |            |
 |-----------------|------------|
 | Package | Google Chrome - Current Stable Version |
-| Script Name | [chrome-cp-init-script.sh](chrome-cp-init-script.sh) |
+| Script Name | [chrome-cp-init-script.sh](build/chrome-cp-init-script.sh) |
 | CP Mount Path | /custom/chrome |
 | CP Size | 600M |
 | IGEL OS Version (min) | 11.05.133 |
 | Path to Executable | /custom/chrome/usr/bin/google-chrome-stable |
 | Path to Icon | /custom/chrome/opt/google/chrome/product_logo_256.png |
 | Packaging Notes | See build script for details. |
-| Package automation | [build-chrome-cp.sh](build-chrome-cp.sh) |
+| Package automation | [build-chrome-cp.sh](build/build-chrome-cp.sh) |
 
-**Automation Notes:** [build-chrome-cp.sh](build-chrome-cp.sh)
+**Automation Notes:** [build-chrome-cp.sh](build/build-chrome-cp.sh)
 
 Add respsitory:
 

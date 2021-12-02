@@ -31,16 +31,29 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Google_Chrome.zip -d custom
 mkdir -p custom/chrome/config/bin
 mkdir -p custom/chrome/lib/systemd/system
-mv custom/target/chrome_cp_apparmor_reload custom/chrome/config/bin
-mv custom/target/igel-chrome-cp-apparmor-reload.service custom/chrome/lib/systemd/system/
-mv custom/target/chrome-cp-init-script.sh custom
+mv custom/target/build/chrome_cp_apparmor_reload custom/chrome/config/bin
+mv custom/target/build/igel-chrome-cp-apparmor-reload.service custom/chrome/lib/systemd/system/
+mv custom/target/build/chrome-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf chrome.tar.bz2 chrome chrome-cp-init-script.sh
-mv chrome.tar.bz2 ../..
-mv target/chrome.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x ../../google*
+tar xf control.tar.xz ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/chrome.inf
+#echo "chrome.inf file is:"
+#cat target/chrome.inf
+
+# new build process into zip file
+tar cvjf target/chrome.tar.bz2 chrome chrome-cp-init-script.sh
+zip -g ../Google_Chrome.zip target/chrome.tar.bz2 target/chrome.inf
+zip -d ../Google_Chrome.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Google_Chrome.zip ../../Google_Chrome-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
