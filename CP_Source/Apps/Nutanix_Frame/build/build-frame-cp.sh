@@ -25,9 +25,9 @@ dpkg -x $HOME/Downloads/Frame-*.deb custom/frame
 
 mv custom/frame/usr/share/applications/ custom/frame/usr/share/applications.mime
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Nutanix_Frame_new.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Nutanix_Frame.zip
 
-unzip Nutanix_Frame_new.zip -d custom
+unzip Nutanix_Frame.zip -d custom
 mkdir -p custom/frame/usr/share/pixmaps
 mv custom/target/build/Frame.png custom/frame/usr/share/pixmaps
 mv custom/target/build/frame-launcher.sh custom/frame
@@ -49,9 +49,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/frame.inf
 
 # new build process into zip file
 tar cvjf target/frame.tar.bz2 frame frame-cp-init-script.sh
-zip -g ../Nutanix_Frame_new.zip target/frame.tar.bz2 target/frame.inf
-zip -d ../Nutanix_Frame_new.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Nutanix_Frame_new.zip ../../Nutanix_Frame-${VERSION}_igel01.zip
+zip -g ../Nutanix_Frame.zip target/frame.tar.bz2 target/frame.inf
+zip -d ../Nutanix_Frame.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Nutanix_Frame.zip ../../Nutanix_Frame-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
