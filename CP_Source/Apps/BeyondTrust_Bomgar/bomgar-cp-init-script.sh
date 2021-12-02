@@ -45,6 +45,7 @@ init)
       #cp -a $CP$BOMGARDESKTOP /usr/share/applications
 
       #Run bomgar installer as user
+      chmod 777 $CP$BOMGARDESKTOP
       su user -c "bash $CP$BOMGARDESKTOP"
 
       #Wait for Bomgar install to finish and get directory name as BOMGARINSTID
