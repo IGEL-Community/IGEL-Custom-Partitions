@@ -84,7 +84,8 @@ runFrame() {
     rm -Rf .Nutanix/Frame/cache/
 
     # Run Frame terminal
-    /custom/frame/usr/lib/frame/Frame --kiosk --force-gpu --url="$frame_url/#token=$token"
+    #/custom/frame/usr/lib/frame/Frame --kiosk --force-gpu --url="$frame_url/#token=$token"
+    /custom/frame/usr/bin/nutanix-frame/Frame --kiosk --force-gpu --url="$frame_url/#token=$token"
 }
 
 # Obtain anonymous token
