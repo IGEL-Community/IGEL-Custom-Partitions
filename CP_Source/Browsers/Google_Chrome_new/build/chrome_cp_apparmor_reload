@@ -1,0 +1,18 @@
+#! /bin/bash
+
+ACTION="custompart-chrome_apparmor"
+
+# Add apparmor profile to trust Chrome in Firefox
+logger -it "$ACTION" "Adding Chrome to firefox apparmor profile"
+echo "$( get custom_partition.mountpoint )/chrome/opt/google/chrome/google-chrome Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/chrome
+echo '#include <abstractions/ubuntu-browsers.d/chrome>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
+
+# reload apparmor only if it is enabled
+if [ "$( get system.security.apparmor )" = "true" ] ; then
+  logger -it "$ACTION" "Reloading apparmor profiles"
+  systemctl reload apparmor.service
+else
+  logger -it "$ACTION" "Apparmor profiles disabled by setup"
+fi
+
+exit 0
