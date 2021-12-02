@@ -1,7 +1,0 @@
-[INFO]
-[PART]
-file="frame.tar.bz2"
-version="6.5.0"
-size="250M"
-name="frame"
-minfw="11.05.133"
