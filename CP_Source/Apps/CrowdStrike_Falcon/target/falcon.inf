@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="falcon.tar.bz2"
+version="6.33.0"
+size="100M"
+name="falcon"
+minfw="11.05.133"
