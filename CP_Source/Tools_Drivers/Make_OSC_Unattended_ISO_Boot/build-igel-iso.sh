@@ -41,6 +41,7 @@ sudo sed -i -e "s/timeout=30/timeout=10/" newiso/boot/grub/igel.conf
 sudo sed -i -e "s/default=0/default=1/" newiso/boot/grub/igel.conf
 sudo sed -i -e "s/Verbose Installation + Recovery/Installation (Unattended)/" newiso/boot/grub/igel.conf
 sudo sed -i -e "s/bzImage igel_syslog=verbose/bzImage quiet osc_unattended=true igel_syslog=quiet/" newiso/boot/grub/igel.conf
+#sudo sed -i -e '/Failsafe Installation/i menuentry "Shutdown" { halt }' newiso/boot/grub/igel.conf
 
 cd newiso
 
