@@ -11,9 +11,11 @@
 | Packaging Notes | See build script for details |
 | Package automation | [build-falcon-cp.sh](build/build-falcon-cp.sh) |
 
-**NOTE:**
+**NOTES:**
 
-Copy your Customer ID Checksum (CID), displayed on Sensor Downloads and update the profile custom command to replace [CID]:
+- A reboot is required before the service can start.
+
+- Copy your Customer ID Checksum (CID), displayed on Sensor Downloads and update the profile custom command to replace [CID]:
 
 [falcon-profile.xml -- custom_cmd_x11_final](igel/falcon-profile.xml)
 
