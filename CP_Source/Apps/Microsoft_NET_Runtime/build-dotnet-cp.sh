@@ -2,7 +2,7 @@
 #set -x
 #trap read debug
 
-# Creating an IGELOS CP for Microsoft .NET 5.0 Runtime
+# Creating an IGELOS CP for Microsoft .NET 5.0 or 3.1 Runtime
 ## Development machine (Ubuntu 18.04)
 sudo apt install unzip -y
 wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -10,7 +10,12 @@ sudo dpkg -i packages-microsoft-prod.deb
 rm -f packages-microsoft-prod.deb
 sudo apt-get update
 
-MISSING_LIBS="aspnetcore-runtime-5.0 dotnet-host dotnet-hostfxr-5.0 dotnet-runtime-5.0 dotnet-runtime-deps-5.0"
+MISSING_LIBS_5_0="aspnetcore-runtime-5.0 dotnet-host dotnet-hostfxr-5.0 dotnet-runtime-5.0 dotnet-runtime-deps-5.0"
+MISSING_LIBS_3_1="aspnetcore-runtime-3.1 dotnet-host dotnet-hostfxr-3.1 dotnet-runtime-3.1 dotnet-runtime-deps-3.1"
+
+# default build is for 5.0
+MISSING_LIBS=$MISSING_LIBS_5_0
+#MISSING_LIBS=$MISSING_LIBS_3_1
 
 mkdir build_tar
 cd build_tar
