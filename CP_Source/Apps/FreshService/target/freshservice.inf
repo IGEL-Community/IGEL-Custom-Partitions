@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="freshservice.tar.bz2"
+version="3.0.0"
+size="50M"
+name="freshservice"
+minfw="11.05.133"
