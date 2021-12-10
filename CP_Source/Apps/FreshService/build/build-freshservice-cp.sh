@@ -27,6 +27,7 @@ cp $HOME/Downloads/FS-Linux-Agent.py .
 sudo python3 ./FS-Linux-Agent.py
 
 # copy files
+mkdir -p custom/freshservice/usr/local/sbin
 cp -R /usr/local/sbin/Freshdesk custom/freshservice/usr/local/sbin
 cp -R /usr/local/sbin/Freshservice custom/freshservice/usr/local/sbin
 # remove scan/log files
