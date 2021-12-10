@@ -23,7 +23,8 @@ cd build_tar
 mkdir -p custom/freshservice
 
 # install package onto Ubuntu system
-sudo python3 $HOME/Downloads/FS-Linux-Agent.py
+cp $HOME/Downloads/FS-Linux-Agent.py .
+sudo python3 ./FS-Linux-Agent.py
 
 # copy files
 cp -R /usr/local/sbin/Freshdesk custom/freshservice/usr/local/sbin
