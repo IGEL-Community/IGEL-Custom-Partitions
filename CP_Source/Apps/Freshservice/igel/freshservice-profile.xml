@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile>
+    <profile_id>31764</profile_id>
+    <profilename>Freshservice Agent CP</profilename>
+    <firmware>
+        <model>IGEL OS 11</model>
+        <version>11.05.133.01</version>
+    </firmware>
+    <description>Freshservice Agent with 3.1 .NET CP</description>
+    <overwritesessions>false</overwritesessions>
+    <is_master_profile>false</is_master_profile>
+    <is_igel_os>true</is_igel_os>
+    <settings>
+        <pclass name="custom_partition.enabled">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt 'EOF' &amp;gt&amp;gt /bin/igel_freshservice.sh
+#!/bin/bash
+
+while :; do
+/usr/share/dotnet/dotnet /usr/local/sbin/Freshservice/Discovery-Agent/bin/FSAgentService.dll &amp;amp&amp;gt /tmp/FSAgentService-stdout-and-stderr.log
+sleep 900
+done
+EOF
+
+chmod 755 /bin/igel_freshservice.sh
+/bin/igel_freshservice.sh &amp;amp
+         </pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="custom_partition.mountpoint">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="custom_partition.size">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">400M</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+    </settings>
+    <instancesettings>
+        <instance classprefix="custom_partition.source%" serialnumber="-4e093fd6:175d0e2bce3:-7ffc127.0.0.1">
+            <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
+            <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/freshservice.inf</ivalue>
+            <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/freshservice-cp-init-script.sh init</ivalue>
+            <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/freshservice-cp-init-script.sh stop</ivalue>
+            <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+        </instance>
+    </instancesettings>
+</profile>
