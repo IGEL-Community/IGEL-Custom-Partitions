@@ -1,13 +1,13 @@
-# FreshService Agent (11 December)
+# Freshservice Agent (11 December)
 
 |  CP Information |            |
 |--------------------|------------|
-| Package | [FreshService Agent](https://support.freshservice.com/support/solutions/articles/200393) - Current Version |
+| Package | [Freshservice Agent](https://support.freshservice.com/support/solutions/articles/200393) - Current Version |
 | Script Name | [freshservice-cp-init-script.sh](build/freshservice-cp-init-script.sh) |
 | CP Mount Path | /custom/freshservice |
 | CP Size | 400M |
 | IGEL OS Version (min) | 11.05.133 |
-| Download package | [Follow these steps to download installer and CID](https://www.crowdstrike.com/blog/tech-center/install-freshservice-sensor-for-linux/) |
+| Download package | [Follow these steps to download discovery agent and save to Downloads folder on Ubuntu 18.04 build VM](https://support.freshservice.com/support/solutions/articles/200393) |
 | Packaging Notes | See build script for details |
 | Package automation | [build-freshservice-cp.sh](build/build-freshservice-cp.sh) |
 

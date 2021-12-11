@@ -2,7 +2,7 @@
 #set -x
 #trap read debug
 
-# Creating an IGELOS CP for FreshService agent
+# Creating an IGELOS CP for Freshservice agent
 ## Development machine (Ubuntu 18.04)
 sudo apt install unzip -y
 
@@ -53,9 +53,9 @@ do
   dpkg -x "${LINE}" custom/freshservice
 done
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/FreshService.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Freshservice.zip
 
-unzip FreshService.zip -d custom
+unzip Freshservice.zip -d custom
 mv custom/target/build/freshservice-cp-init-script.sh custom
 
 cd custom
@@ -69,9 +69,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/freshservice.inf
 
 # new build process into zip file
 tar cvjf target/freshservice.tar.bz2 freshservice freshservice-cp-init-script.sh
-zip -g ../FreshService.zip target/freshservice.tar.bz2 target/freshservice.inf
-zip -d ../FreshService.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../FreshService.zip ../../FreshService-${VERSION}_igel01.zip
+zip -g ../Freshservice.zip target/freshservice.tar.bz2 target/freshservice.inf
+zip -d ../Freshservice.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Freshservice.zip ../../Freshservice-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar

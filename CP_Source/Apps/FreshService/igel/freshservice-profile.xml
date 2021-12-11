@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profile>
     <profile_id>31764</profile_id>
-    <profilename>FreshService Agent CP</profilename>
+    <profilename>Freshservice Agent CP</profilename>
     <firmware>
         <model>IGEL OS 11</model>
         <version>11.05.133.01</version>
     </firmware>
-    <description>FreshService Agent with 3.1 .NET CP</description>
+    <description>Freshservice Agent with 3.1 .NET CP</description>
     <overwritesessions>false</overwritesessions>
     <is_master_profile>false</is_master_profile>
     <is_igel_os>true</is_igel_os>
