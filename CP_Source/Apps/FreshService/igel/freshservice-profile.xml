@@ -35,7 +35,7 @@ chmod 755 /bin/igel_freshservice.sh
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
         <pclass name="custom_partition.size">
-            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">250M</pvalue>
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">400M</pvalue>
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
     </settings>
