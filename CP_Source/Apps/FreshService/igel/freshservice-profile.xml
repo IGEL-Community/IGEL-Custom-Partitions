@@ -20,7 +20,7 @@
 #!/bin/bash
 
 while :; do
-/usr/share/dotnet/dotnet /usr/local/sbin/Freshservice/Discovery-Agent/bin/FSAgentAutoUpdate.dll/FSAgentAutoUpdate.dll &amp;amp&amp;gt /tmp/FSAgentAutoupdateCron-stdout-and-stderr.log
+/usr/share/dotnet/dotnet /usr/local/sbin/Freshservice/Discovery-Agent/bin/FSAgentService.dll &amp;amp&amp;gt /tmp/FSAgentService-stdout-and-stderr.log
 sleep 900
 done
 EOF
