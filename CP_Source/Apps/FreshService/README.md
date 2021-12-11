@@ -1,4 +1,4 @@
-# FreshService Agent (9 December)
+# FreshService Agent (11 December)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -13,6 +13,6 @@
 
 **NOTES:**
 
-- [Microsoft .NET 3.1 CP](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/CP_Source/Apps/Microsoft_NET_Runtime) is required as well.
+- Microsoft .NET 3.1 is required as well and is included in this CP.
 
 - A reboot is required before the agent can start.

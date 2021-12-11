@@ -35,6 +35,24 @@ rm -f /custom/freshservice/usr/local/sbin/Freshservice/Discovery-Agent/bin/scand
 rm -f /custom/freshservice/usr/local/sbin/Freshservice/Discovery-Agent/bin/last-scan-data.txt
 rm -f /custom/freshservice/usr/local/sbin/Freshservice/Discovery-Agent/logs/fsagent.log
 
+# Microsoft .NET 3.1
+## Development machine (Ubuntu 18.04)
+wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm -f packages-microsoft-prod.deb
+sudo apt-get update
+
+MISSING_LIBS="aspnetcore-runtime-3.1 aspnetcore-targeting-pack-3.1 dotnet-apphost-pack-3.1 dotnet-host dotnet-hostfxr-3.1 dotnet-runtime-3.1 dotnet-runtime-deps-3.1 dotnet-sdk-3.1 dotnet-targeting-pack-3.1"
+
+for lib in $MISSING_LIBS; do
+  apt-get download $lib
+done
+
+find . -name "*.deb" | while read LINE
+do
+  dpkg -x "${LINE}" custom/freshservice
+done
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/FreshService.zip
 
 unzip FreshService.zip -d custom

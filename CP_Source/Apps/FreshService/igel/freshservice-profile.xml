@@ -17,17 +17,19 @@
         </pclass>
         <pclass name="userinterface.rccustom.custom_cmd_x11_final">
             <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt 'EOF' &amp;gt&amp;gt /bin/igel_freshservice.sh
-        #!/bin/bash
+#!/bin/bash
 
-        while :; do
-          /usr/share/dotnet/dotnet FSAgentAutoUpdate.dll &> /tmp/FSAgentAutoupdateCron-stdout-and-stderr.log
-          sleep 900
-        done
-        EOF
+while :; do
+/usr/share/dotnet/dotnet /usr/local/sbin/Freshservice/Discovery-Agent/bin/FSAgentAutoUpdate.dll/FSAgentAutoUpdate.dll &amp;amp&amp;gt /tmp/FSAgentAutoupdateCron-stdout-and-stderr.log
+sleep 900
+done
+EOF
 
-        chmod 755 /bin/igel_freshservice.sh
-        /bin/igel_freshservice.sh &amp;amp
-        </pvalue>
+chmod 755 /bin/igel_freshservice.sh
+/bin/igel_freshservice.sh &amp;amp
+         </pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
         <pclass name="custom_partition.mountpoint">
             <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom</pvalue>
             <variableSubstitutionActive>false</variableSubstitutionActive>
@@ -38,13 +40,6 @@
         </pclass>
     </settings>
     <instancesettings>
-        <instance classprefix="custom_partition.source%" serialnumber="-4e093fd6:175d0e2bce3:-7ffc127.0.0.1">
-            <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
-            <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/dotnet.inf</ivalue>
-            <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/dotnet-cp-init-script.sh init</ivalue>
-            <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/dotnet-cp-init-script.sh stop</ivalue>
-            <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-        </instance>
         <instance classprefix="custom_partition.source%" serialnumber="-4e093fd6:175d0e2bce3:-7ffc127.0.0.1">
             <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
             <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/freshservice.inf</ivalue>
