@@ -2,6 +2,6 @@
 [PART]
 file="edge.tar.bz2"
 version="96.0.1054.34"
-size="600M"
+size="800M"
 name="edge"
 minfw="11.05.133"
