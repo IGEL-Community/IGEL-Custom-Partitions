@@ -2,9 +2,9 @@
 #set -x
 #trap read debug
 
-# Creating an IGELOS CP for Microsoft Edge
+# Creating an IGELOS CP for Microsoft edge_stable
 ## Development machine (Ubuntu 18.04)
-# https://www.microsoftedgeinsider.com/en-us/download?platform=linux-deb
+#https://www.microsoft.com/en-us/edge
 sudo apt install curl -y
 sudo apt install unzip -y
 sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -22,26 +22,24 @@ cd build_tar
 apt-get download microsoft-edge-stable
 apt-get download libatomic1
 
-mkdir -p custom/edge
+mkdir -p custom/edge_stable
 
-dpkg -x microsoft*.deb custom/edge
-dpkg -x libatomic1*.deb custom/edge
+dpkg -x microsoft*.deb custom/edge_stable
+dpkg -x libatomic1*.deb custom/edge_stable
 
-mv custom/edge/usr/share/applications/ custom/edge/usr/share/applications.mime
-#mkdir -p custom/edge/userhome/.config/microsoft-edge-dev
-#mkdir -p custom/edge/userhome/.config/microsoft-edge-beta
-mkdir -p custom/edge/userhome/.config/microsoft-edge
-mkdir -p custom/edge/userhome/.local/share/applications
-touch custom/edge/userhome/.local/share/applications/mimeapps.list
+mv custom/edge_stable/usr/share/applications/ custom/edge_stable/usr/share/applications.mime
+mkdir -p custom/edge_stable/userhome/.config/microsoft-edge
+mkdir -p custom/edge_stable/userhome/.local/share/applications
+touch custom/edge_stable/userhome/.local/share/applications/mimeapps.list
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Browsers/Microsoft_Edge_stable.zip
 
 unzip Microsoft_Edge_stable.zip -d custom
-mkdir -p custom/edge/config/bin
-mkdir -p custom/edge/lib/systemd/system
-mv custom/target/build/edge_cp_apparmor_reload custom/edge/config/bin
-mv custom/target/build/igel-edge-cp-apparmor-reload.service custom/edge/lib/systemd/system/
-mv custom/target/build/edge-cp-init-script.sh custom
+mkdir -p custom/edge_stable/config/bin
+mkdir -p custom/edge_stable/lib/systemd/system
+mv custom/target/build/edge_stable_cp_apparmor_reload custom/edge_stable/config/bin
+mv custom/target/build/igel-edge_stable-cp-apparmor-reload.service custom/edge_stable/lib/systemd/system/
+mv custom/target/build/edge_stable-cp-init-script.sh custom
 
 cd custom
 
@@ -53,13 +51,13 @@ tar xf control.tar.xz ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
-sed -i "/^version=/c version=\"${VERSION}\"" target/edge.inf
-#echo "edge.inf file is:"
-#cat target/edge.inf
+sed -i "/^version=/c version=\"${VERSION}\"" target/edge_stable.inf
+#echo "edge_stable.inf file is:"
+#cat target/edge_stable.inf
 
 # new build process into zip file
-tar cvjf target/edge.tar.bz2 edge edge-cp-init-script.sh
-zip -g ../Microsoft_Edge_stable.zip target/edge.tar.bz2 target/edge.inf
+tar cvjf target/edge_stable.tar.bz2 edge_stable edge_stable-cp-init-script.sh
+zip -g ../Microsoft_Edge_stable.zip target/edge_stable.tar.bz2 target/edge_stable.inf
 zip -d ../Microsoft_Edge_stable.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../Microsoft_Edge_stable.zip ../../Microsoft_Edge_stable-${VERSION}_igel01.zip
 

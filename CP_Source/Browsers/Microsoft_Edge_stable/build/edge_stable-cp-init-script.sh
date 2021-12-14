@@ -2,13 +2,13 @@
 #set -x
 #trap read debug
 
-ACTION="custompart-edge_${1}"
+ACTION="custompart-edge_stable_${1}"
 
 # mount point path
 MP=$(get custom_partition.mountpoint)
 
 # custom partition path
-CP="${MP}/edge"
+CP="${MP}/edge_stable"
 
 # user directories
 EDGE_USER_CONFIG="/userhome/.config/microsoft-edge"
@@ -49,7 +49,7 @@ init)
   # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
-  systemctl --no-block start igel-edge-cp-apparmor-reload.service
+  systemctl --no-block start igel-edge_stable-cp-apparmor-reload.service
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then

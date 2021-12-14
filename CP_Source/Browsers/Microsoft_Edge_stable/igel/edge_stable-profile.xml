@@ -2,12 +2,12 @@
 <profiles>
     <profile>
         <profile_id>10688</profile_id>
-        <profilename>Microsoft Edge CP</profilename>
+        <profilename>Microsoft Edge Stable CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
             <version>11.05.133.01</version>
         </firmware>
-        <description>Microsoft Edge</description>
+        <description>Microsoft Edge Stable</description>
         <overwritesessions>false</overwritesessions>
         <is_master_profile>false</is_master_profile>
         <is_igel_os>true</is_igel_os>
@@ -24,10 +24,10 @@
         <instancesettings>
             <instance classprefix="custom_partition.source%" serialnumber="31cea061:1730aeba537:-7fff127.0.1.1">
                 <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
-                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/edge.inf</ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/edge_stable.inf</ivalue>
                 <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/edge-cp-init-script.sh init</ivalue>
-                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/edge-cp-init-script.sh stop</ivalue>
+                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/edge_stable-cp-init-script.sh init</ivalue>
+                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/edge_stable-cp-init-script.sh stop</ivalue>
                 <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             </instance>
@@ -47,12 +47,12 @@
                 <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
                 <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Microsoft Edge</ivalue>
                 <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/edge/opt/microsoft/msedge/product_logo_256_stable.png</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/edge_stable/opt/microsoft/msedge/product_logo_256.png</ivalue>
                 <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
                 <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/edge/usr/bin/microsoft-edge-stable</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/edge_stable/usr/bin/microsoft-edge-stable</ivalue>
                 <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
                 <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
