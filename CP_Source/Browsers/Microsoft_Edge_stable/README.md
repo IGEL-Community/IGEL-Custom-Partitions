@@ -1,4 +1,4 @@
-# Microsoft Edge Stable (14 December) (new format) (TESTING)
+# Microsoft Edge Stable (14 December)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -11,4 +11,4 @@
 | Packaging Notes | See build script for details |
 | Package automation | [build-edge_stable-cp.sh](build/build-edge_stable-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
 
-**NOTE:** Use [prior version](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/CP_Source/Browsers/Microsoft_Edge) until the testing is complete
+**NOTE:** [Beta build can be found here](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/CP_Source/Browsers/Microsoft_Edge)
