@@ -55,7 +55,7 @@ cd custom
 mkdir getversion
 cd getversion
 ar -x ../../thunar_*.deb
-tar xf control.tar.gz ./control
+tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
