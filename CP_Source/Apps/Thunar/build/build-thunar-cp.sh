@@ -44,7 +44,7 @@ mkdir -p custom/thunar/userhome/.config/Thunar
 # END: comment out for non-persistency!!!!
 ##########################################
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Thunar.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Thunar.zip
 
 unzip Thunar.zip -d custom
 mv custom/target/build/thunar-cp-init-script.sh custom
