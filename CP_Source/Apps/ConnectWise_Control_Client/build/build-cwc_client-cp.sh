@@ -35,7 +35,8 @@ cd custom
 mkdir getversion
 cd getversion
 ar -x $HOME/Downloads/ConnectWiseControl.ClientSetup.deb
-tar xf control.tar.* ./control
+#tar xf control.tar.* ./control
+tar xf control.tar.* control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
