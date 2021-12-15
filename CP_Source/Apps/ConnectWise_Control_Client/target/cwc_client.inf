@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="cwc_client.tar.bz2"
+version="21.13.5058.1"
+size="20M"
+name="cwc_client"
+minfw="11.05.133"
