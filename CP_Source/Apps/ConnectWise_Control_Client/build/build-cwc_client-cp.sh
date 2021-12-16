@@ -40,7 +40,7 @@ ar -x $HOME/Downloads/ConnectWiseControl.ClientSetup.deb
 tar xf control.tar.* control postinst
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
-clientLaunchParametersFilePath=cwc_client$(grep "^clientLaunchParametersFilePath" postinst | cut -d "'" -f 2)
+clientLaunchParametersFilePath=$(grep "^clientLaunchParametersFilePath" postinst | cut -d "'" -f 2)
 cp postinst ../"$clientLaunchParametersFilePath"_postinst
 #newClientLaunchParameters=$(grep "^newClientLaunchParameters" postinst | cut -d "'" -f 2)
 #clientLaunchParameters="$(addGeneratedSessionIdIfNecessary "$newClientLaunchParameters")"
