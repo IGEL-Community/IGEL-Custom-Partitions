@@ -59,7 +59,7 @@ case "$1" in
 init)
   clientLaunchParametersFilePath=${CP}/$(grep "^clientLaunchParametersFilePath" ${postinst} | cut -d "'" -f 2)
   if [ ! -e "${clientLaunchParametersFilePath}" ]; then
-    newClientLaunchParameters=$(grep "^newClientLaunchParameters" ${postinst} | cut -d "'" -f 2)
+    newClientLaunchParameters=$(grep "^newClientLaunchParameters" ${CP}/${postinst} | cut -d "'" -f 2)
     clientLaunchParameters="$(addGeneratedSessionIdIfNecessary "$newClientLaunchParameters")"
     clientLaunchParameters="$(mergeClientLaunchParameters "$clientLaunchParameters" 'e=Access')"
     echo "$clientLaunchParameters" > "$clientLaunchParametersFilePath"
