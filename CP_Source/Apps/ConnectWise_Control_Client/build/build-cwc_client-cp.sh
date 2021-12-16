@@ -2,44 +2,6 @@
 #set -x
 #trap read debug
 
-randHex() {
-	local numBytes="$1"; shift
-
-	{ cat /dev/urandom | LC_ALL=C tr -d -c '[:digit:]abcdef' | head "-c$(($numBytes * 2))"; } 2>/dev/null
-}
-
-addGeneratedSessionIdIfNecessary() {
-	local clientLaunchParameters="$1"; shift
-
-	if ! echo "$clientLaunchParameters" | grep s=; then
-		clientLaunchParameters="${clientLaunchParameters}&s=$(randHex 4)-$(randHex 2)-$(randHex 2)-$(randHex 2)-$(randHex 6)"
-	fi
-
-	echo "$clientLaunchParameters"
-}
-
-mergeClientLaunchParameters() {
-	local oldClientLaunchParameters="$1"; shift
-	local newClientLaunchParameters="$1"; shift
-
-	newClientLaunchParameters="$(echo "$newClientLaunchParameters" | sed 's/?//g')"
-
-	IFS='&'
-
-	for keyValuePair in $newClientLaunchParameters; do
-		key="$(echo "$keyValuePair" | grep -o '[^=]*=')"
-		oldClientLaunchParameters="$(echo "$oldClientLaunchParameters" | sed "s/${key}[^&]*//g")"
-	done
-
-	for keyValuePair in $newClientLaunchParameters; do
-		oldClientLaunchParameters="${oldClientLaunchParameters}&$keyValuePair"
-	done
-
-	unset IFS
-
-	echo "$oldClientLaunchParameters" | sed 's/\&\&*/\&/g' | sed 's/^\&//' | sed 's/?\&/?/'
-}
-
 # Creating an IGELOS CP for ConnectWise Control Client
 ## Development machine (Ubuntu 18.04)
 sudo apt install unzip -y
@@ -79,12 +41,13 @@ tar xf control.tar.* control postinst
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 clientLaunchParametersFilePath=cwc_client$(grep "^clientLaunchParametersFilePath" postinst | cut -d "'" -f 2)
-newClientLaunchParameters=$(grep "^newClientLaunchParameters" postinst | cut -d "'" -f 2)
-clientLaunchParameters="$(addGeneratedSessionIdIfNecessary "$newClientLaunchParameters")"
-clientLaunchParameters="$(mergeClientLaunchParameters "$clientLaunchParameters" 'e=Access')"
+cp postinst ../"$clientLaunchParametersFilePath"_postinst
+#newClientLaunchParameters=$(grep "^newClientLaunchParameters" postinst | cut -d "'" -f 2)
+#clientLaunchParameters="$(addGeneratedSessionIdIfNecessary "$newClientLaunchParameters")"
+#clientLaunchParameters="$(mergeClientLaunchParameters "$clientLaunchParameters" 'e=Access')"
 cd ..
-echo "$clientLaunchParameters" > "$clientLaunchParametersFilePath"
 sed -i "/^version=/c version=\"${VERSION}\"" target/cwc_client.inf
+sed -i "/^postinst=/c postinst=\""$clientLaunchParametersFilePath"_postinst\"" cwc_client-cp-init-script.sh
 #echo "cwc_client.inf file is:"
 #cat target/cwc_client.inf
 
