@@ -57,7 +57,7 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
-  clientLaunchParametersFilePath=${CP}/$(grep "^clientLaunchParametersFilePath" ${postinst} | cut -d "'" -f 2)
+  clientLaunchParametersFilePath=${CP}/$(grep "^clientLaunchParametersFilePath" ${CP}/${postinst} | cut -d "'" -f 2)
   if [ ! -e "${clientLaunchParametersFilePath}" ]; then
     newClientLaunchParameters=$(grep "^newClientLaunchParameters" ${CP}/${postinst} | cut -d "'" -f 2)
     clientLaunchParameters="$(addGeneratedSessionIdIfNecessary "$newClientLaunchParameters")"
