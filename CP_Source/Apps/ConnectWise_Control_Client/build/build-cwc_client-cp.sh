@@ -36,16 +36,12 @@ cd custom
 mkdir getversion
 cd getversion
 ar -x $HOME/Downloads/ConnectWiseControl.ClientSetup.deb
-#tar xf control.tar.* ./control
-tar xf control.tar.* control postinst
+tar xf control.tar.*
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 clientLaunchParametersFilePath=$(grep "^clientLaunchParametersFilePath" postinst | cut -d "'" -f 2)
 rm ../cwc_client"$clientLaunchParametersFilePath"
 cp postinst ../cwc_client"$clientLaunchParametersFilePath"_postinst
-#newClientLaunchParameters=$(grep "^newClientLaunchParameters" postinst | cut -d "'" -f 2)
-#clientLaunchParameters="$(addGeneratedSessionIdIfNecessary "$newClientLaunchParameters")"
-#clientLaunchParameters="$(mergeClientLaunchParameters "$clientLaunchParameters" 'e=Access')"
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/cwc_client.inf
 sed -i "/^postinst=/c postinst=\""$clientLaunchParametersFilePath"_postinst\"" cwc_client-cp-init-script.sh
