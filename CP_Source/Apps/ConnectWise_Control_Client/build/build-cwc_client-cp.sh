@@ -5,6 +5,7 @@
 # Creating an IGELOS CP for ConnectWise Control Client
 ## Development machine (Ubuntu 18.04)
 sudo apt install unzip -y
+sudo apt install zip -y
 
 # Obtain latest package and save into Downloads
 # Download App for Linux (Debian)
