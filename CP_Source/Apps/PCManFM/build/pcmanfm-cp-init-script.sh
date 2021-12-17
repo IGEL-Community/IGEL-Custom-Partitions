@@ -12,6 +12,7 @@ CP="${MP}/pcmanfm"
 
 # config directory
 USER_CONFIG="/userhome/.config/pcmanfm"
+USER_BOOKMARKS="/userhome/.gtk-bookmarks"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -25,6 +26,12 @@ init)
   fi
   if [ -d ${USER_CONFIG} ]; then
     rm -rf ${USER_CONFIG}
+  fi
+  if [ -L ${USER_BOOKMARKS} ]; then
+    unlink ${USER_BOOKMARKS}
+  fi
+  if [ -d ${USER_BOOKMARKS} ]; then
+    rm -rf ${USER_BOOKMARKS}
   fi
 
   # Linking files and folders on proper path
@@ -43,6 +50,9 @@ init)
   # basic persistency
   if [ -d "${CP}${USER_CONFIG}" ]; then
     chown -R user:users "${CP}${USER_CONFIG}"
+  fi
+  if [ -f "${CP}${USER_BOOKMARKS}" ]; then
+    chown user:users "${CP}${USER_BOOKMARKS}"
   fi
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO

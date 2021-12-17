@@ -39,6 +39,7 @@ echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 ############################################
 
 mkdir -p custom/pcmanfm/userhome/.config/pcmanfm
+touch custom/pcmanfm/userhome/.gtk-bookmarks
 
 ##########################################
 # END: comment out for non-persistency!!!!
