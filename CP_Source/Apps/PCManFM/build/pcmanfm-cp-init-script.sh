@@ -30,8 +30,8 @@ init)
   if [ -L ${USER_BOOKMARKS} ]; then
     unlink ${USER_BOOKMARKS}
   fi
-  if [ -d ${USER_BOOKMARKS} ]; then
-    rm -rf ${USER_BOOKMARKS}
+  if [ -f ${USER_BOOKMARKS} ]; then
+    rm -f ${USER_BOOKMARKS}
   fi
 
   # Linking files and folders on proper path
