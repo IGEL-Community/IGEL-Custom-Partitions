@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="pcmanfm.tar.bz2"
+version="1.2.05"
+size="100M"
+name="pcmanfm"
+minfw="11.05.133"
