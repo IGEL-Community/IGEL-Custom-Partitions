@@ -40,9 +40,9 @@ echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 mkdir -p custom/keepassxc/userhome/.config/keepassxc
 mkdir -p custom/keepassxc/userhome/KeePassXCDB
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/KeePassXC_new.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/KeePassXC.zip
 
-unzip KeePassXC_new.zip -d custom
+unzip KeePassXC.zip -d custom
 mv custom/target/build/keepassxc-cp-init-script.sh custom
 
 cd custom
@@ -61,9 +61,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/keepassxc.inf
 
 # new build process into zip file
 tar cvjf target/keepassxc.tar.bz2 keepassxc keepassxc-cp-init-script.sh
-zip -g ../KeePassXC_new.zip target/keepassxc.tar.bz2 target/keepassxc.inf
-zip -d ../KeePassXC_new.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../KeePassXC_new.zip ../../KeePassXC_new-${VERSION}_igel01.zip
+zip -g ../KeePassXC.zip target/keepassxc.tar.bz2 target/keepassxc.inf
+zip -d ../KeePassXC.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../KeePassXC.zip ../../KeePassXC-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
