@@ -4,7 +4,7 @@
 |-----------------|------------|
 | Package | [Signal](https://www.signal.org) - Current Version |
 | CP Mount Path | /custom/signal |
-| CP Size | 500M |
+| CP Size | 600M |
 | IGEL OS Version (min) | 11.05.133 |
 | Path to Executable | /custom/signal/opt/Signal/signal-desktop |
 | Path to Icon | /custom/signal/usr/share/icons/hicolor/256x256/apps/signal-desktop.png |
