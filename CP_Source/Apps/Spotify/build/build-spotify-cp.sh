@@ -49,9 +49,9 @@ mkdir -p custom/spotify/userhome/.config/spotify
 # END: comment out for non-persistency!!!!
 ##########################################
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Spotify_new.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Spotify.zip
 
-unzip Spotify_new.zip -d custom
+unzip Spotify.zip -d custom
 mv custom/target/build/spotify-cp-init-script.sh custom
 
 cd custom
@@ -70,9 +70,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/spotify.inf
 
 # new build process into zip file
 tar cvjf target/spotify.tar.bz2 spotify spotify-cp-init-script.sh
-zip -g ../Spotify_new.zip target/spotify.tar.bz2 target/spotify.inf
-zip -d ../Spotify_new.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Spotify_new.zip ../../Spotify_new-${VERSION}_igel01.zip
+zip -g ../Spotify.zip target/spotify.tar.bz2 target/spotify.inf
+zip -d ../Spotify.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Spotify.zip ../../Spotify-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
