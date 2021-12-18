@@ -9,7 +9,7 @@
 | Path to Executable | /custom/libreoffice/opt/libreoffice7.2/program/soffice |
 | Path to Icon | /custom/libreoffice/usr/share/icons/hicolor/256x256/apps/libreoffice7.2-main.png |
 | Packaging Notes | See build script for details. |
-| Package automation | [build-libreoffice-cp.sh](build-libreoffice-cp.sh) <br /><br /> Tested with 7.2.X |
+| Package automation | [build-libreoffice-cp.sh](build/build-libreoffice-cp.sh) <br /><br /> Tested with 7.2.X |
 
 **NOTES**
 
