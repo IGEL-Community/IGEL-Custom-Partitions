@@ -50,16 +50,29 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip LibreOffice.zip -d custom
 mkdir -p custom/libreoffice/config/bin
 mkdir -p custom/libreoffice/lib/systemd/system
-mv custom/target/libreoffice_cp_apparmor_reload custom/libreoffice/config/bin
-mv custom/target/igel-libreoffice-cp-apparmor-reload.service custom/libreoffice/lib/systemd/system/
-mv custom/target/libreoffice-cp-init-script.sh custom
+mv custom/target/build/libreoffice_cp_apparmor_reload custom/libreoffice/config/bin
+mv custom/target/build/igel-libreoffice-cp-apparmor-reload.service custom/libreoffice/lib/systemd/system/
+mv custom/target/build/libreoffice-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf libreoffice.tar.bz2 libreoffice libreoffice-cp-init-script.sh
-mv libreoffice.tar.bz2 ../..
-mv target/libreoffice.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x ../../LibreOffice_*/DEBS/libreoffice*-base_*.deb
+tar xf control.tar.*
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/libreoffice.inf
+#echo "libreoffice.inf file is:"
+#cat target/libreoffice.inf
+
+# new build process into zip file
+tar cvjf target/libreoffice.tar.bz2 libreoffice libreoffice-cp-init-script.sh
+zip -g ../LibreOffice.zip target/libreoffice.tar.bz2 target/libreoffice.inf
+zip -d ../LibreOffice.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../LibreOffice.zip ../../LibreOffice-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
