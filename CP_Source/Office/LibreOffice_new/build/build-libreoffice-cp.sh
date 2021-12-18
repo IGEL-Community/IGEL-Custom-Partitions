@@ -59,7 +59,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x "../../LibreOffice_*/DEBS/libreoffice*-base_*.deb"
+ar -x ../../LibreOffice_*/DEBS/libreoffice*-base_*.deb
 tar xf control.tar.*
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
@@ -70,7 +70,7 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/libreoffice.inf
 
 # new build process into zip file
 tar cvjf target/libreoffice.tar.bz2 libreoffice libreoffice-cp-init-script.sh
-zip -g ../.zip target/libreoffice.tar.bz2 target/libreoffice.inf
+zip -g ../LibreOffice_new.zip target/libreoffice.tar.bz2 target/libreoffice.inf
 zip -d ../LibreOffice_new.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../LibreOffice_new.zip ../../LibreOffice_new-${VERSION}_igel01.zip
 
