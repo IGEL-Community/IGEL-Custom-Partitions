@@ -10,7 +10,7 @@ sudo curl https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo
 sudo sh -c 'echo "deb [arch=amd64] http://repository.spotify.com stable non-free" > /etc/apt/sources.list.d/spotify.list'
 sudo apt-get update
 
-MISSING_LIBS="gconf-service gconf-service-backend gconf2-common i965-va-driver libaacs0 libavcodec57 libavformat57 libavutil55 libbdplus0 libbluray2 libchromaprint1 libcrystalhd3 libgconf-2-4 libgme0 libgsm1 libopenjp2-7 libopenmpt0 libshine3 libsnappy1v5 libsoxr0 libssh-gcrypt-4 libswresample2 libva-drm2 libva-x11-2 libva2 libvdpau1 libx264-152 libx265-146 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers spotify-client va-driver-all vdpau-driver-all"
+MISSING_LIBS="libatomic1 gconf-service gconf-service-backend gconf2-common i965-va-driver libaacs0 libavcodec57 libavformat57 libavutil55 libbdplus0 libbluray2 libchromaprint1 libcrystalhd3 libgconf-2-4 libgme0 libgsm1 libopenjp2-7 libopenmpt0 libshine3 libsnappy1v5 libsoxr0 libssh-gcrypt-4 libswresample2 libva-drm2 libva-x11-2 libva2 libvdpau1 libx264-152 libx265-146 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers spotify-client va-driver-all vdpau-driver-all"
 
 sudo apt install unzip -y
 
