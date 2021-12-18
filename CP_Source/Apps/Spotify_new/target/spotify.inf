@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="spotify.tar.bz2"
+version="1.1.42.622"
+size="800M"
+name="spotify"
+minfw="11.05.133"
