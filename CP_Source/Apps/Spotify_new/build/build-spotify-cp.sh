@@ -52,7 +52,7 @@ mkdir -p custom/spotify/userhome/.config/spotify
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Spotify_new.zip
 
 unzip Spotify_new.zip -d custom
-mv custom/target/spotify-cp-init-script.sh custom
+mv custom/target/build/spotify-cp-init-script.sh custom
 
 cd custom
 
