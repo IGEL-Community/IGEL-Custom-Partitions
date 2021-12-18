@@ -28,8 +28,6 @@ do
   dpkg -x "${LINE}" custom/spotify
 done
 
-mv custom/spotify/usr/share/applications/ custom/spotify/usr/share/applications.mime
-
 echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
 chmod a+x clean_cp_usr_lib.sh
