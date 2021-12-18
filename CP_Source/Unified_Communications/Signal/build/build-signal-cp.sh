@@ -49,9 +49,9 @@ mkdir -p custom/signal/userhome/.config/Signal
 # END: comment out for non-persistency!!!!
 ##########################################
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Signal_new.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Signal.zip
 
-unzip Signal_new.zip -d custom
+unzip Signal.zip -d custom
 mkdir -p custom/signal/config/bin
 mkdir -p custom/signal/lib/systemd/system
 mv custom/target/build/signal_cp_apparmor_reload custom/signal/config/bin
@@ -74,9 +74,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/signal.inf
 
 # new build process into zip file
 tar cvjf target/signal.tar.bz2 signal signal-cp-init-script.sh
-zip -g ../Signal_new.zip target/signal.tar.bz2 target/signal.inf
-zip -d ../Signal_new.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Signal_new.zip ../../Signal_new-${VERSION}_igel01.zip
+zip -g ../Signal.zip target/signal.tar.bz2 target/signal.inf
+zip -d ../Signal.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Signal.zip ../../Signal-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar

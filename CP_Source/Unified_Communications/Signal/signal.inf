@@ -1,7 +1,0 @@
-[INFO]
-[PART]
-file="signal.tar.bz2"
-version="1.40.1"
-size="500M"
-name="signal"
-minfw="11.04.240"
