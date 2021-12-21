@@ -36,6 +36,7 @@ chmod a+x clean_cp_usr_share.sh
 echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
 mkdir -p custom/speedcrunch/userhome/.speedcrunch
+mkdir -p custom/speedcrunch/userhome/.local/share/SpeedCrunch
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/SpeedCrunch.zip
 

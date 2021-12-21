@@ -12,6 +12,7 @@ CP="${MP}/speedcrunch"
 
 # userhome
 USER_CONFIG="/userhome/.config/SpeedCrunch"
+USER_SHARE="/userhome/.local/share/SpeedCrunch"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -25,6 +26,12 @@ init)
   fi
   if [ -d ${USER_CONFIG} ]; then
     rm -rf ${USER_CONFIG}
+  fi
+  if [ -L ${USER_SHARE} ]; then
+    unlink ${USER_SHARE}
+  fi
+  if [ -d ${USER_SHARE} ]; then
+    rm -rf ${USER_SHARE}
   fi
   # Linking files and folders on proper path
   find ${CP} | while read LINE
@@ -41,6 +48,7 @@ init)
 
   # basic persistency
   chown -R user:users "${CP}${USER_CONFIG}"
+  chown -R user:users "${CP}${USER_SHARE}"
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
