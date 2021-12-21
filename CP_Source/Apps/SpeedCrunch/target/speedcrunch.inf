@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="speedcrunch.tar.bz2"
+version="x.x.x"
+size="50M"
+name="speedcrunch"
+minfw="11.05.133"

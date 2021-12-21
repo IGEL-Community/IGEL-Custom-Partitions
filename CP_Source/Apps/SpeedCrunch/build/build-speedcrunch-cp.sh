@@ -2,7 +2,7 @@
 #set -x
 #trap read debug
 
-# Creating an IGELOS CP for SpeedCruch
+# Creating an IGELOS CP for SpeedCrunch
 ## Development machine (Ubuntu 18.04)
 
 MISSING_LIBS="libdouble-conversion1 libqt5core5a libqt5dbus5 libqt5gui5 libqt5help5 libqt5network5 libqt5sql5 libqt5sql5-sqlite libqt5svg5 libqt5widgets5 libxcb-xinerama0 qt5-gtk-platformtheme qttranslations5-l10n speedcrunch"
@@ -37,9 +37,9 @@ echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
 mkdir -p custom/speedcrunch/userhome/.speedcrunch
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/SpeedCruch.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/SpeedCrunch.zip
 
-unzip SpeedCruch.zip -d custom
+unzip SpeedCrunch.zip -d custom
 mv custom/target/build/speedcrunch-cp-init-script.sh custom
 
 cd custom
@@ -58,9 +58,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/speedcrunch.inf
 
 # new build process into zip file
 tar cvjf target/speedcrunch.tar.bz2 speedcrunch speedcrunch-cp-init-script.sh
-zip -g ../SpeedCruch.zip target/speedcrunch.tar.bz2 target/speedcrunch.inf
-zip -d ../SpeedCruch.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../SpeedCruch.zip ../../SpeedCruch-${VERSION}_igel01.zip
+zip -g ../SpeedCrunch.zip target/speedcrunch.tar.bz2 target/speedcrunch.inf
+zip -d ../SpeedCrunch.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../SpeedCrunch.zip ../../SpeedCrunch-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
