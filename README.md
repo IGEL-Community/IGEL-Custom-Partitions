@@ -9,6 +9,8 @@
 
 [Video: Add Multiple CP to UMS](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/utils/videos/210129-IGEL-Multiple-CPs.mp4)
 
+[Video: IGEL Demo on Dynabook](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/utils/videos/211220-IGEL-Demo-on-Dynabook.mp4)
+
 ***
 ## Summary of steps to create custom partitions
 
