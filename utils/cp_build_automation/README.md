@@ -76,3 +76,68 @@ fi
 cp ${LOG_NAME} ${MASTER_FOLDER_LOGS}
 cp ${LOG_NAME_STDERR} ${MASTER_FOLDER_LOGS}
    ```
+
+Sample output from a build run:
+
+```
+$ time ./build-cps.sh | tee -a /tmp/build_log.txt
+************************************
+*** BUILDING Custom Partitions...***
+************************************
+-rwxrwxr-x 1 igelums igelums 2331 Dec 22 14:27 build-edge_stable-cp.sh
+-rwxrwxr-x 1 igelums igelums 1834 Dec 22 14:27 build-teams-cp.sh
+-rwxrwxr-x 1 igelums igelums 2333 Dec 22 14:27 build-webex-cp.sh
+-rwxrwxr-x 1 igelums igelums 1949 Dec 22 14:27 build-zoom-cp.sh
+*************************************
+*** RUNNNING ./build-edge_stable-cp.sh...
+*************************************
+
+real	0m55.812s
+user	0m49.541s
+sys	0m2.758s
+*************************************
+*** BUILT Microsoft_Edge_stable-96.0.1054.62-1_igel01.zip ***
+***********************
+*** SAME Version *** Microsoft_Edge_stable-96.0.1054.62-1_igel01.zip
+***********************
+*************************************
+*** RUNNNING ./build-zoom-cp.sh...
+*************************************
+
+real	0m30.322s
+user	0m26.782s
+sys	0m1.334s
+*************************************
+*** BUILT Zoom-5.9.0.1273_igel01.zip ***
+***********************
+*** SAME Version *** Zoom-5.9.0.1273_igel01.zip
+***********************
+*************************************
+*** RUNNNING ./build-teams-cp.sh...
+*************************************
+
+real	0m44.224s
+user	0m39.502s
+sys	0m2.641s
+*************************************
+*** BUILT Microsoft_Teams-1.4.00.26453_igel01.zip ***
+***********************
+*** NEW Version ***>> Microsoft_Teams-1.4.00.26453_igel01.zip
+***********************
+*************************************
+*** RUNNNING ./build-webex-cp.sh...
+*************************************
+
+real	1m58.784s
+user	1m49.566s
+sys	0m5.645s
+*************************************
+*** BUILT Webex-41.12.0.20899_igel01.zip ***
+***********************
+*** SAME Version *** Webex-41.12.0.20899_igel01.zip
+***********************
+
+real	4m10.435s
+user	3m45.442s
+sys	0m12.501s
+   ```
