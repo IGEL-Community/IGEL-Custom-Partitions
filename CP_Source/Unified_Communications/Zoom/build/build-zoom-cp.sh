@@ -36,16 +36,29 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Zoom.zip -d custom
 mkdir -p custom/zoom/config/bin
 mkdir -p custom/zoom/lib/systemd/system
-mv custom/target/zoom_cp_apparmor_reload custom/zoom/config/bin
-mv custom/target/igel-zoom-cp-apparmor-reload.service custom/zoom/lib/systemd/system/
-mv custom/target/zoom-cp-init-script.sh custom
+mv custom/target/build/zoom_cp_apparmor_reload custom/zoom/config/bin
+mv custom/target/build/igel-zoom-cp-apparmor-reload.service custom/zoom/lib/systemd/system/
+mv custom/target/build/zoom-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf zoom.tar.bz2 zoom zoom-cp-init-script.sh
-mv zoom.tar.bz2 ../..
-mv target/zoom.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x ../../zoom_amd64.deb
+tar xf control.tar.xz ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/zoom.inf
+#echo "zoom.inf file is:"
+#cat target/zoom.inf
+
+# new build process into zip file
+tar cvjf target/zoom.tar.bz2 zoom zoom-cp-init-script.sh
+zip -g ../Zoom.zip target/zoom.tar.bz2 target/zoom.inf
+zip -d ../Zoom.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Zoom.zip ../../Zoom-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
