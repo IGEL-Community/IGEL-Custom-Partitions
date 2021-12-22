@@ -26,7 +26,7 @@ wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/mas
 #Microsoft Teams
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Microsoft_Teams/build/build-teams-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 #Zoom
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Zoom_new_build_testing/build/build-zoom-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Zoom/build/build-zoom-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 #Webex -- also need to get the Webex deb file
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Webex/build/build-webex-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
