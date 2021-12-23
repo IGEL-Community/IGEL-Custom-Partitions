@@ -39,6 +39,7 @@ echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 ############################################
 
 mkdir -p custom/pcmanfm/userhome/.config/pcmanfm
+mkdir -p custom/pcmanfm/userhome/.local/share/Trash
 touch custom/pcmanfm/userhome/.gtk-bookmarks
 
 ##########################################
