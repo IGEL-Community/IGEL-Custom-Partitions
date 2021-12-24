@@ -54,6 +54,9 @@ init)
     fi
   done
 
+  # comment out to NOT allow opening of terminal window
+  ln -s /usr/bin/xfce4-terminal /usr/bin/x-terminal-emulator
+  
   # basic persistency
   if [ -d "${CP}${USER_CONFIG}" ]; then
     chown -R user:users "${CP}${USER_CONFIG}"
