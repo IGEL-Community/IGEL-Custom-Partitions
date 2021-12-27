@@ -5,14 +5,18 @@
 #
 # Sample workflow to build multiple CPs on Ubuntu 18.04 VM
 #
+# time ./build-cps.sh 2>&1 | tee -a /tmp/build_log.txt
 
 BASE_FOLDER="auto-build-cps"
 MASTER_FOLDER="/media/sf_IGEL-Images/igel-packages/${BASE_FOLDER}"
 MASTER_FOLDER_ZIP="${MASTER_FOLDER}/zip_files"
 MASTER_FOLDER_LOGS="${MASTER_FOLDER}/zip_files_logs"
 
+# prep BASE_FOLDER
 if [ ! -d $HOME/Downloads/${BASE_FOLDER} ]; then
   mkdir -p $HOME/Downloads/${BASE_FOLDER}
+else
+  rm -rf $HOME/Downloads/${BASE_FOLDER}/*
 fi
 cd $HOME/Downloads/${BASE_FOLDER}
 
