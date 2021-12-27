@@ -1,4 +1,4 @@
-# Zoom (1 December - New CP format testing)
+# Zoom (27 December)
 
 |  CP Information  |             |
 |-----------------|-------------|
@@ -10,7 +10,7 @@
 | Path to Executable | /custom/zoom/usr/bin/zoom |
 | Path to Icon | /custom/zoom/usr/share/pixmaps/Zoom.png |
 | Packaging Notes | See build script for details |
-| Package automation | [build-zoom-cp.sh](build/build-zoom-cp.sh) <br /><br /> Tested with 5.8.6 (November 28, 2021)|
+| Package automation | [build-zoom-cp.sh](build/build-zoom-cp.sh) |
 
 |  Customization | /wfs/user/.zoom/.zoomus.conf |
 |----------------|------------------------------|
