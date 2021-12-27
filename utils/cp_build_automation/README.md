@@ -26,6 +26,9 @@ wget to download builders:
 
   ```
 # wget build scripts
+echo "************************************" | tee -a $LOG_NAME
+echo "*** DOWNLOADING Build Scripts...***" | tee -a $LOG_NAME
+echo "************************************" | tee -a $LOG_NAME
 
 #Microsoft Edge Stable
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_stable/build/build-edge_stable-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
@@ -82,7 +85,7 @@ cp ${LOG_NAME_STDERR} ${MASTER_FOLDER_LOGS}
 Sample output from a build run:
 
 ```
-$ time ./build-cps.sh | tee -a /tmp/build_log.txt
+$ time ./build-cps.sh 2>&1 | tee -a /tmp/build_log.txt
 ************************************
 *** BUILDING Custom Partitions...***
 ************************************

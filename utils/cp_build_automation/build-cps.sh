@@ -20,6 +20,9 @@ LOG_NAME="${BASE_FOLDER}_log_$(date +%Y%m%d%H%M).txt"
 LOG_NAME_STDERR="${BASE_FOLDER}_stderr_$(date +%Y%m%d%H%M).txt"
 
 # wget build scripts
+echo "************************************" | tee -a $LOG_NAME
+echo "*** DOWNLOADING Build Scripts...***" | tee -a $LOG_NAME
+echo "************************************" | tee -a $LOG_NAME
 
 #Microsoft Edge Stable
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_stable/build/build-edge_stable-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
@@ -32,6 +35,8 @@ wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/mas
 #Webex -- also need to get the Webex deb file
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Webex/build/build-webex-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
+  echo ""
+  echo "***********"
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
   echo "https://www.webex.com/downloads.html"
@@ -41,6 +46,7 @@ fi
 
 chmod a+x *.sh
 
+echo "" | tee -a $LOG_NAME
 echo "************************************" | tee -a $LOG_NAME
 echo "*** BUILDING Custom Partitions...***" | tee -a $LOG_NAME
 echo "************************************" | tee -a $LOG_NAME
@@ -49,11 +55,13 @@ sudo ls -l build*.sh
 
 find . -type f -name "build-*.sh" | while read LINE
 do
+  echo "" | tee -a $LOG_NAME
   echo "*************************************"
   echo "*** RUNNNING ${LINE}..."
   echo "*************************************"
   time ./${LINE} 2>>$LOG_NAME_STDERR >> $LOG_NAME
   CP_VER="$(ls *.zip)"
+  echo "" | tee -a $LOG_NAME
   echo "*************************************"
   echo "*** BUILT ${CP_VER} ***" | tee -a $LOG_NAME
   echo "***********************" | tee -a $LOG_NAME
