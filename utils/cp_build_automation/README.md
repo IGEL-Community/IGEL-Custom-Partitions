@@ -17,7 +17,7 @@ MASTER_FOLDER_LOGS="${MASTER_FOLDER}/zip_files_logs"
 if [ ! -d $HOME/Downloads/${BASE_FOLDER} ]; then
   mkdir -p $HOME/Downloads/${BASE_FOLDER}
 else
-  rm -rf "$HOME/Downloads/${BASE_FOLDER}/*"
+  rm -rf $HOME/Downloads/${BASE_FOLDER}/*
 fi
 cd $HOME/Downloads/${BASE_FOLDER}
 
