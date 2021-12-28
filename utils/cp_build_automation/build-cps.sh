@@ -32,6 +32,8 @@ echo "************************************" | tee -a $LOG_NAME
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_stable/build/build-edge_stable-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 #Microsoft Edge Beta
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_beta/build/build-edge-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+#Chrome
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Google_Chrome/build/build-chrome-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 #Microsoft Teams
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Microsoft_Teams/build/build-teams-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 #Zoom
