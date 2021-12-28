@@ -28,16 +28,6 @@ echo "************************************" | tee -a $LOG_NAME
 echo "*** DOWNLOADING Build Scripts...***" | tee -a $LOG_NAME
 echo "************************************" | tee -a $LOG_NAME
 
-#Microsoft Edge Stable
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_stable/build/build-edge_stable-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
-#Microsoft Edge Beta
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_beta/build/build-edge-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
-#Chrome
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Google_Chrome/build/build-chrome-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
-#Microsoft Teams
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Microsoft_Teams/build/build-teams-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
-#Zoom
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Zoom/build/build-zoom-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 #Webex -- also need to get the Webex deb file
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Webex/build/build-webex-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
@@ -45,7 +35,7 @@ if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
   echo "***********"
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
-  echo "https://www.webex.com/downloads.html"
+  echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
   echo "***********"
   exit 1
 fi
@@ -57,6 +47,16 @@ if ! compgen -G "$HOME/Downloads/Frame-*.deb" > /dev/null; then
   echo "https://portal.nutanix.com/page/downloads?product=xiframe"
   exit 1
 fi
+#Microsoft Edge Stable
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_stable/build/build-edge_stable-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+#Microsoft Edge Beta
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_beta/build/build-edge-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+#Chrome
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Google_Chrome/build/build-chrome-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+#Microsoft Teams
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Microsoft_Teams/build/build-teams-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+#Zoom
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Zoom/build/build-zoom-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 
 chmod a+x *.sh
 
