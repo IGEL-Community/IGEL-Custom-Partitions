@@ -1,4 +1,4 @@
-# CP Build Automation (22 December)
+# CP Build Automation (28 December)
 
 The following script can be used to automate the build of multiple Custom Partitions
 
@@ -50,17 +50,27 @@ if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
   echo "***********"
   exit 1
 fi
+#Nutanix Frame
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Apps/Nutanix_Frame/build/build-frame-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+if ! compgen -G "$HOME/Downloads/Frame-*.deb" > /dev/null; then
+  echo "***********"
+  echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
+  echo "https://portal.nutanix.com/page/downloads?product=xiframe"
+  exit 1
+fi
    ```
 
 Loop to build each Custom Partition and copy up to Master CP Server **if** it is a new version.
 ```
 find . -type f -name "build-*.sh" | while read LINE
 do
+  echo "" | tee -a $LOG_NAME
   echo "*************************************"
   echo "*** RUNNNING ${LINE}..."
   echo "*************************************"
   time ./${LINE} 2>>$LOG_NAME_STDERR >> $LOG_NAME
   CP_VER="$(ls *.zip)"
+  echo "" | tee -a $LOG_NAME
   echo "*************************************"
   echo "*** BUILT ${CP_VER} ***" | tee -a $LOG_NAME
   echo "***********************" | tee -a $LOG_NAME
