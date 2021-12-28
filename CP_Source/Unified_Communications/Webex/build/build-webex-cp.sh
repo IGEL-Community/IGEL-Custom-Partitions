@@ -8,13 +8,13 @@
 # Download Latest App for Linux (Debian)
 #https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
 #https://www.webex.com/downloads.html
-#if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
-  #echo "***********"
-  #echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
-  #echo "https://www.webex.com/downloads.html"
-  #echo "***********"
-  #exit 1
-#fi
+if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
+  echo "***********"
+  echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
+  echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
+  echo "***********"
+  exit 1
+fi
 
 MISSING_LIBS="libxcb-xinerama0"
 
@@ -23,7 +23,7 @@ sudo apt install unzip -y
 mkdir build_tar
 cd build_tar
 
-wget https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
+#wget https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
 
 for lib in $MISSING_LIBS; do
   apt-get download $lib
@@ -31,7 +31,8 @@ done
 
 mkdir -p custom/webex
 
-dpkg -x Webex*.deb custom/webex
+dpkg -x $HOME/Downloads/Webex*.deb custom/webex
+#dpkg -x Webex*.deb custom/webex
 
 find . -type f -name "*.deb" | while read LINE
 do
