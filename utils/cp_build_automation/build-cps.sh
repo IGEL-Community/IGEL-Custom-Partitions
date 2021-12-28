@@ -49,6 +49,14 @@ if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
   echo "***********"
   exit 1
 fi
+#Nutanix Frame
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Apps/Nutanix_Frame/build/build-frame-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+if ! compgen -G "$HOME/Downloads/Frame-*.deb" > /dev/null; then
+  echo "***********"
+  echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
+  echo "https://portal.nutanix.com/page/downloads?product=xiframe"
+  exit 1
+fi
 
 chmod a+x *.sh
 
