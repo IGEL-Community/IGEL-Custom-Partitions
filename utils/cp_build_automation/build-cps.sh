@@ -39,18 +39,22 @@ if ! compgen -G "$HOME/Downloads/Frame-*.deb" > /dev/null; then
     sleep 5
   done
   sleep 10
-
 fi
 #Webex -- also need to get the Webex deb file
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Webex/build/build-webex-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
-#if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
-  #echo ""
-  #echo "***********"
-  #echo "***********"
-  #echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
+if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
+  echo ""
+  echo "***********"
+  echo "***********"
+  echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
   #echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
-  #echo "***********"
+  echo "https://www.webex.com/downloads.html"
+  echo "***********"
   #exit 1
+  while ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; do
+    sleep 5
+  done
+  sleep 10
 #fi
 #Microsoft Edge Stable
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_stable/build/build-edge_stable-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
