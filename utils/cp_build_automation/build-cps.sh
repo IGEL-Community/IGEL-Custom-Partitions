@@ -28,25 +28,30 @@ echo "************************************" | tee -a $LOG_NAME
 echo "*** DOWNLOADING Build Scripts...***" | tee -a $LOG_NAME
 echo "************************************" | tee -a $LOG_NAME
 
-#Webex -- also need to get the Webex deb file
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Webex/build/build-webex-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
-if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
-  echo ""
-  echo "***********"
-  echo "***********"
-  echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
-  echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
-  echo "***********"
-  exit 1
-fi
 #Nutanix Frame
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Apps/Nutanix_Frame/build/build-frame-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 if ! compgen -G "$HOME/Downloads/Frame-*.deb" > /dev/null; then
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
   echo "https://portal.nutanix.com/page/downloads?product=xiframe"
-  exit 1
+  #exit 1
+  while ! compgen -G "$HOME/Downloads/Frame-*.deb" > /dev/null; do
+    sleep 5
+  done
+  sleep 10
+
 fi
+#Webex -- also need to get the Webex deb file
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Unified_Communications/Webex/build/build-webex-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
+#if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
+  #echo ""
+  #echo "***********"
+  #echo "***********"
+  #echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
+  #echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
+  #echo "***********"
+  #exit 1
+#fi
 #Microsoft Edge Stable
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_stable/build/build-edge_stable-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 #Microsoft Edge Beta
