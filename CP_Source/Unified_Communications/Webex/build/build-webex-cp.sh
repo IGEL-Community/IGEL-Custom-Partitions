@@ -66,7 +66,8 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x $HOME/Downloads/Webex*.deb
+#ar -x $HOME/Downloads/Webex*.deb
+ar -x ../../Webex*.deb
 tar xf control.tar.gz ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
