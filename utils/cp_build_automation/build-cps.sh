@@ -55,7 +55,7 @@ if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
     sleep 5
   done
   sleep 10
-#fi
+fi
 #Microsoft Edge Stable
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/CP_Source/Browsers/Microsoft_Edge_stable/build/build-edge_stable-cp.sh 2>>$LOG_NAME_STDERR >> $LOG_NAME
 #Microsoft Edge Beta
