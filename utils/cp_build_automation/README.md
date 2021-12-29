@@ -1,5 +1,7 @@
 # CP Build Automation (28 December)
 
+[Video: CP Build Automation Workflow](https://github.com/IGEL-Community/IGEL-Custom-Partitions/blob/master/utils/videos/211229-IGEL-CP-Build-Automation.mp4?raw=true)
+
 The following script can be used to automate the build of multiple Custom Partitions
 
 [build-cps.sh](build-cps.sh)

@@ -5,13 +5,13 @@
 
 [Video: Build Microsoft Teams Custom Partition in 42 seconds](https://www.linkedin.com/posts/jedayres_igelos-somethingcool-microsoftteams-activity-6740750840077926400-YjSK)
 
-[Video: Add Zoom CP to UMS](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/utils/videos/210304-Zoom-CP-Add-to-UMS.mp4)
+[Video: Add Zoom CP to UMS](https://github.com/IGEL-Community/IGEL-Custom-Partitions/blob/master/utils/videos/210304-Zoom-CP-Add-to-UMS.mp4?raw=true)
 
-[Video: Add Multiple CP to UMS](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/utils/videos/210129-IGEL-Multiple-CPs.mp4)
+[Video: Add Multiple CP to UMS](https://github.com/IGEL-Community/IGEL-Custom-Partitions/blob/master/utils/videos/210129-IGEL-Multiple-CPs.mp4?raw=true)
 
-[Video: CP Build Automation Workflow](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/utils/videos/211229-IGEL-CP-Build-Automation.mp4)
+[Video: CP Build Automation Workflow](https://github.com/IGEL-Community/IGEL-Custom-Partitions/blob/master/utils/videos/211229-IGEL-CP-Build-Automation.mp4?raw=true)
 
-[Video: IGEL Demo on Dynabook](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/utils/videos/211220-IGEL-Demo-on-Dynabook.mp4)
+[Video: IGEL Demo on Dynabook](https://github.com/IGEL-Community/IGEL-Custom-Partitions/blob/master/utils/videos/211220-IGEL-Demo-on-Dynabook.mp4?raw=true)
 
 ***
 ## Summary of steps to create custom partitions
@@ -123,7 +123,8 @@ Your IGEL Support/PreSales Team April 2012
 
 | Element Version | Date | Change Owner | Description |
 | ---- | ---- | ---- | ---- |
-| 0.3 | 30-December-2021 | Ron Neher | Adding build folder for automation |
+| 0.4 | 29-December-2021 | Ron Neher | Updated CP build automation workflow |
+| 0.3 | 30-November-2021 | Ron Neher | Adding build folder for automation |
 | 0.2 | 09-August-2020 | Ron Neher | Completed the GitHub automation to take CP files and create package.zip files |
 | 0.1 | 23-July-2020 | Ron Neher | Initial version |
 
