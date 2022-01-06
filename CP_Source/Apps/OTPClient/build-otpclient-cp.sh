@@ -47,7 +47,7 @@ do
   fi
 done
 #missing file
-tar vrf tmp_otpclient.tar /usr/lib/x86_64-linux-gnu/libbaseencode.so.1.0.10
+tar vrf tmp_otpclient.tar /usr/lib/x86_64-linux-gnu/libbaseencode.so.1.0.*
 tar vrf tmp_otpclient.tar /usr/bin/otpclient
 
 apt-get download libzbar0
