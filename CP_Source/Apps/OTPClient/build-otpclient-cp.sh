@@ -40,12 +40,19 @@ make
 sudo make install
 cd ../..
 
-find . -name install_manifest.txt -exec cat {} \; | while read LINE
-do
-  if [ -e "${LINE}" ]; then
-    tar vrf tmp_otpclient.tar "${LINE}"
-  fi
+#find . -name install_manifest.txt -exec cat {} \; | while read LINE
+#do
+  #if [ -e "${LINE}" ]; then
+    #tar vrf tmp_otpclient.tar "${LINE}"
+  #fi
+#done
+
+for build_component in $(find . -name install_manifest.txt); do
+  while IFS= read -r line || [ "$line" ]; do
+    tar vrf tmp_otpclient.tar -r "$line"
+  done < $build_component
 done
+
 #missing file
 tar vrf tmp_otpclient.tar /usr/lib/x86_64-linux-gnu/libbaseencode.so.1.0.*
 tar vrf tmp_otpclient.tar /usr/bin/otpclient
