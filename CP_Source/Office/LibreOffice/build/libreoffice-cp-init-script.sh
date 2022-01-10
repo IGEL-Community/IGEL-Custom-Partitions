@@ -50,6 +50,10 @@ init)
   chown -R user:users "${CP}${LIBREOFFICE}"
   chown -R user:users "${CP}${LIBREOFFICE_DOCS}"
 
+# /usr/local/bin/libreoffice
+  LO_PROG=$(basename /usr/local/bin/libreoffice*)
+  ln -s /usr/local/bin/${LO_PROG} /usr/sbin/${LO_PROG}
+
   # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
