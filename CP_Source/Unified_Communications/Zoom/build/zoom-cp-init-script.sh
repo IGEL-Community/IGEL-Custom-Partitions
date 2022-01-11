@@ -37,6 +37,8 @@ init)
     rm -f /userhome/.config/zoomus.conf
   fi
 
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

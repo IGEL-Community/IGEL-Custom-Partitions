@@ -27,6 +27,8 @@ init)
     mkdir -p "${EDGE_MIMEAPPS_DIR}"
     chown -R user:users "${EDGE_MIMEAPPS_DIR}/.."
   fi
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

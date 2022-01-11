@@ -22,6 +22,8 @@ case "$1" in
 init)
   rm /usr/share/applications/javaws-wrapper.desktop
   rm /usr/share/applications.mime/javaws-wrapper.desktop
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

@@ -33,6 +33,8 @@ init)
   if [ -d ${KEEPASS_DB} ]; then
     rm -rf ${KEEPASS_DB}
   fi
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

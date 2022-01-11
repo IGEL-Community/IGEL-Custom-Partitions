@@ -29,6 +29,8 @@ init)
   if [ -d ${USER_CONFIG} ]; then
     rm -rf ${USER_CONFIG}
   fi
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

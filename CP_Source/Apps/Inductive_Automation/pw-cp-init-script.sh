@@ -27,6 +27,8 @@ init)
     rm -rf ${USER_CONFIG}
   fi
 
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   chmod -R 777 ${CP}
 
   # basic persistency

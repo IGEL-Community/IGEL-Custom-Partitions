@@ -33,6 +33,8 @@ init)
   if [ -d ${USER_SHARE} ]; then
     rm -rf ${USER_SHARE}
   fi
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

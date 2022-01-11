@@ -33,6 +33,8 @@ init)
     #fi
   #done
 
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
 # basic persistency
   ln -sv "${CP}${PASCOM}" "${PASCOM}"
   chown -R user:users "${CP}${PASCOM}"

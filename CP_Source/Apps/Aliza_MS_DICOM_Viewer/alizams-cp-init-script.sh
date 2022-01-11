@@ -18,6 +18,8 @@ echo "Starting" | $LOGGER
 case "$1" in
 init)
 chmod -R go+rx "${CP}/usr/local/alizams/DICOM"
+# Initial permissions
+chown -R root:root "${CP}" | $LOGGER
 # Linking files and folders on proper path
 find ${CP} | while read LINE
 do

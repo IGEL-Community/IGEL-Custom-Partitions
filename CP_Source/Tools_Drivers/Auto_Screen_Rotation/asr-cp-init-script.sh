@@ -19,6 +19,8 @@ case "$1" in
 init)
   chmod 755 ${CP}/usr/bin/igel_asr.sh
   chown root:root ${CP}/usr/bin/igel_asr.sh
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

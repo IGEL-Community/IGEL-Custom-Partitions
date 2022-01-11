@@ -26,7 +26,9 @@ init)
   if [ -d ${USER_CONFIG} ]; then
 	  rm -rf ${USER_CONFIG}
   fi
-        # Linking files and folders on proper path
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
+  # Linking files and folders on proper path
 	find ${CP} | while read LINE
 	do
     DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")

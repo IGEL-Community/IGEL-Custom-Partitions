@@ -24,6 +24,8 @@ init)
   if [ -e $TUXCHECKSCRIPT ]; then
     chmod 755 $TUXCHECKSCRIPT
   fi
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

@@ -15,6 +15,8 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

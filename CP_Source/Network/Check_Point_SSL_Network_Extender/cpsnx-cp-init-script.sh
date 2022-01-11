@@ -23,6 +23,8 @@ init)
   chown root:root ${CP}/etc/snx
   chmod 700 ${CP}/etc/snx
 
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do

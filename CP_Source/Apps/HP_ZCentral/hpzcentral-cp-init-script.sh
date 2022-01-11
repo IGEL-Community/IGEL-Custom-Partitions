@@ -27,6 +27,8 @@ init)
   mkdir -p -m 777 /var/opt/hpremote/rgreceiver/sockets
   chmod 777 /etc/opt/hpremote/registration
   chmod 777 /var/opt/hpremote/rgreceiver/sockets
+  # Initial permissions
+  chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
   do
