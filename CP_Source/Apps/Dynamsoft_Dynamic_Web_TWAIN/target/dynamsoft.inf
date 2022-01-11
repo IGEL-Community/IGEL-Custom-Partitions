@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="dynamsoft.tar.bz2"
+version="17.1.0"
+size="50M"
+name="dynamsoft"
+minfw="11.05.133"
