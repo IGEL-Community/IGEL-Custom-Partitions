@@ -26,4 +26,4 @@ chmod a+x /custom/dynamsoft/usr/bin/igel_dynamsoft_autostart.sh
 
 https://www.dynamsoft.com/web-twain/docs/indepth/faqs/distribution/why-is-the-browser-prompting-me-to-install-dynamsoft-service-repeatedly.html
 
-On your Linux client machine, visit https://127.0.0.1:18626 and https://127.0.0.1:18623 separately in Chrome and FireFox, manually add both certificates to the exception lists.
+On IGEL client machine, visit https://127.0.0.1:18626 and https://127.0.0.1:18623 separately in browser (FireFox), manually add both certificates to the exception lists.
