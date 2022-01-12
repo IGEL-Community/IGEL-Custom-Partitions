@@ -34,7 +34,6 @@ ln -s ${CP_PATH}/opt/dynamsoft/DynamsoftService/server.der ${CP_PATH}/usr/bin/se
 ln -s ${CP_PATH}/opt/dynamsoft/DynamsoftService/DynamsoftServiceMgr ${CP_PATH}/usr/bin/DynamsoftServiceMgr
 ln -s ${CP_PATH}/opt/dynamsoft/DynamsoftService/DynamsoftCertCheckMgr ${CP_PATH}/usr/bin/DynamsoftCertCheckMgr
 
-# Create otpclient.cfg -- move this into init script for non-persistency
 cat << 'EOF' >> ${CP_PATH}/usr/bin/igel_dynamsoft_autostart.sh
 #!/bin/bash
 
