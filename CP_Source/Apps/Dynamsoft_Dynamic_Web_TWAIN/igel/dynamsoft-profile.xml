@@ -16,7 +16,7 @@
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
         <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">chmod a+x /custom/dynamsoft/usr/bin/igel_dynamsoft_autostart.sh; /custom/dynamsoft/usr/bin/igel_dynamsoft_autostart.sh &amp;amp</pvalue>
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">sleep 8; chmod a+x /custom/dynamsoft/usr/bin/igel_dynamsoft_autostart.sh; /custom/dynamsoft/usr/bin/igel_dynamsoft_autostart.sh &amp;amp</pvalue>
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
         <pclass name="custom_partition.mountpoint">
