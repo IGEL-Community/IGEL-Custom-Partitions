@@ -28,18 +28,20 @@ init)
   fi
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
+  chmod a+x "${CP}/webcamoid.sh"
+  chmod a+x "${CP}/bin/webcamoid"
   # Linking files and folders on proper path
-  find ${CP} | while read LINE
-  do
-    DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
-    if [ ! -z "${DEST}" -a ! -e "${DEST}" ]; then
-      # Remove the last slash, if it is a dir
-      [ -d $LINE ] && DEST=$(echo "${DEST}" | sed -e "s/\/$//g") | $LOGGER
-      if [ ! -z "${DEST}" ]; then
-        ln -sv "${LINE}" "${DEST}" | $LOGGER
-      fi
-    fi
-  done
+  #find ${CP} | while read LINE
+  #do
+    #DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
+    #if [ ! -z "${DEST}" -a ! -e "${DEST}" ]; then
+      ## Remove the last slash, if it is a dir
+      #[ -d $LINE ] && DEST=$(echo "${DEST}" | sed -e "s/\/$//g") | $LOGGER
+      #if [ ! -z "${DEST}" ]; then
+        #ln -sv "${LINE}" "${DEST}" | $LOGGER
+      #fi
+    #fi
+  #done
 
   # basic persistency
   if [ -d "${CP}${USER_CONFIG}" ]; then
