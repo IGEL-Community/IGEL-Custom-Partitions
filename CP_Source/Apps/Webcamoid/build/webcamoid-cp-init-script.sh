@@ -30,6 +30,7 @@ init)
   chown -R root:root "${CP}" | $LOGGER
   chmod a+x "${CP}/webcamoid.sh"
   chmod a+x "${CP}/bin/webcamoid"
+  ln -sv "${CP}${USER_CONFIG}" "${USER_CONFIG}"
   # Linking files and folders on proper path
   #find ${CP} | while read LINE
   #do
