@@ -17,7 +17,7 @@
 [userinterface.rccustom.custom_cmd_x11_final](igel/dynamsoft-profile.xml)
 
 ```
-chmod a+x /custom/dynamsoft/usr/bin/igel_dynamsoft_autostart.sh
+sleep 8; chmod a+x /custom/dynamsoft/usr/bin/igel_dynamsoft_autostart.sh
 /custom/dynamsoft/usr/bin/igel_dynamsoft_autostart.sh &
    ```
 
