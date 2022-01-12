@@ -9,3 +9,7 @@
 | IGEL OS Version (min) | 11.05.133 |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-webcamoid-cp.sh](build/build-webcamoid-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
+
+**NOTE:**
+
+This package does not work -- Segment Fault -- when starting up.
