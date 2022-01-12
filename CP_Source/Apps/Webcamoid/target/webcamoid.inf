@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="webcamoid.tar.bz2"
+version="x.x.x"
+size="500M"
+name="webcamoid"
+minfw="11.05.133"
