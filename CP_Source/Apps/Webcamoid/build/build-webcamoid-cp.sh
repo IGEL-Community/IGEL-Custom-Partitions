@@ -26,8 +26,8 @@ mkdir -p custom/webcamoid
 
 #mv custom/webcamoid/usr/share/applications/ custom/webcamoid/usr/share/applications.mime
 
-wget https://github.com/webcamoid/webcamoid/releases/download/8.1.0/webcamoid-portable-8.1.0-x86_64.tar.xz
-tar xvf webcamoid-portable-8.1.0-x86_64.tar.xz --directory custom
+wget https://github.com/webcamoid/webcamoid/releases/download/8.7.1/webcamoid-portable-8.7.1-x86_64.tar.xz
+tar xvf webcamoid-portable-8.7.1-x86_64.tar.xz --directory custom
 
 #echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
 #wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
@@ -61,7 +61,7 @@ cd custom
 #ar -x ../../webcamoid_*.deb
 #tar xf control.tar.* ./control
 #VERSION=$(grep Version control | cut -d " " -f 2)
-VERSION=8.1.0
+VERSION=8.7.1
 #echo "Version is: " ${VERSION}
 #cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/webcamoid.inf
