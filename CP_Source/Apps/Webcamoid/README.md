@@ -1,7 +1,7 @@
 # Webcamoid (12 January)
 
 |  CP Information |            |
-|-----------------|------------|
+|----------------|-----------|
 | Package | [Webcomoid](https://github.com/webcamoid/webcamoid) |
 | Script Name | [webcamoid-cp-init-script.sh](build/webcamoid-cp-init-script.sh) |
 | CP Mount Path | /custom/webcamoid |
