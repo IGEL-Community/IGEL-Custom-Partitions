@@ -2,7 +2,7 @@
 
 |  CP Information |            |
 |-----------------|------------|
-| Package | [Webcomoid](https://packages.ubuntu.com/bionic/video/webcamoid) |
+| Package | [Webcomoid](https://github.com/webcamoid/webcamoid) |
 | Script Name | [webcamoid-cp-init-script.sh](build/webcamoid-cp-init-script.sh) |
 | CP Mount Path | /custom/webcamoid |
 | CP Size | 150M |
