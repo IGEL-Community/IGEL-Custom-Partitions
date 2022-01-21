@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="teamviewer.tar.bz2"
-version="15.24.5"
+version="X.X.X"
 size="400M"
 name="teamviewer"
 minfw="11.05.133"

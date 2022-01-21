@@ -7,8 +7,8 @@
 # Obtain latest package and save into Downloads
 # Download Latest App for Linux (Debian)
 # https://www.teamviewer.com/en-us/download/linux/
-# teamviewer_15.24.5_amd64.deb
-if ! compgen -G "$HOME/Downloads/teamviewer_*_amd64.deb" > /dev/null; then
+# teamviewer*_amd64.deb
+if ! compgen -G "$HOME/Downloads/teamviewer*_amd64.deb" > /dev/null; then
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
   echo "https://www.teamviewer.com/en-us/download/linux/"
@@ -29,7 +29,7 @@ done
 
 mkdir -p custom/teamviewer
 
-dpkg -x $HOME/Downloads/teamviewer_*_amd64.deb custom/teamviewer
+dpkg -x $HOME/Downloads/teamviewer*_amd64.deb custom/teamviewer
 
 find . -type f -name "*.deb" | while read LINE
 do
@@ -46,10 +46,23 @@ mv custom/target/teamviewer-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf teamviewer.tar.bz2 teamviewer teamviewer-cp-init-script.sh
-mv teamviewer.tar.bz2 ../..
-mv target/teamviewer.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x $HOME/Downloads/teamviewer*_amd64.deb
+tar xf control.tar.* ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/teamviewer.inf
+#echo "teamviewer.inf file is:"
+#cat target/teamviewer.inf
+
+# new build process into zip file
+tar cvjf target/teamviewer.tar.bz2 teamviewer teamviewer-cp-init-script.sh
+zip -g ../TeamViewer.zip target/teamviewer.tar.bz2 target/teamviewer.inf
+zip -d ../TeamViewer.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../TeamViewer.zip ../../TeamViewer-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar

@@ -1,8 +1,8 @@
-# TeamViewer (29 November)
+# TeamViewer (20 January)
 
 |  CP Information |            |
 |-----------------|------------|
-| Package | [TeamViewer](https://www.teamviewer.com/en-us/download/linux/) <br /><br /> - Establish incoming and outgoing connections between devices <br /> - Real-time remote access and support |
+| Package | [TeamViewer](https://www.teamviewer.com/en-us/download/linux/) <br /><br /> - Establish incoming and outgoing connections between devices <br /> - Real-time remote access and support <br /><br /> The builder is able to build either: <br /><br /> - TeamViewer for Linux <br /> - TeamViewer Host|
 | Script Name | [teamviewer-cp-init-script.sh](teamviewer-cp-init-script.sh) |
 | CP Mount Path | /custom/teamviewer |
 | CP Size | 400M |
