@@ -42,7 +42,7 @@ mkdir -p custom/teamviewer/userhome/.config/teamviewer
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/TeamViewer.zip
 
 unzip TeamViewer.zip -d custom
-mv custom/target/teamviewer-cp-init-script.sh custom
+mv custom/target/build/teamviewer-cp-init-script.sh custom
 
 cd custom
 
