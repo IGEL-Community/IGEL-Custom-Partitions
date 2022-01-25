@@ -25,7 +25,7 @@ mv custom/zoom/usr/share/applications/ custom/zoom/usr/share/applications.mime
 
 mkdir -p custom/zoom/userhome/.zoom
 mkdir -p custom/zoom/userhome/.config
-touch custom/zoom/userhome/.config/zoomus.config
+touch custom/zoom/userhome/.config/zoomus.conf
 
 ##########################################
 # END: comment out for non-persistency!!!!
