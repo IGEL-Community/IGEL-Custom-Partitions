@@ -1,4 +1,4 @@
-# Tanium Client (26 January) (Debug testing - not functional)
+# Tanium Client (26 January) (Debug testing)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -22,5 +22,5 @@
 
 #### TANIUM_VERSION (set via build CP process)
 #### TANIUM_SERVERNAME (see your configuration tanium‑init.dat)
-#### TANIUM_SERVERPORT (default is 17474)
+#### TANIUM_SERVERPORT (default is 17472)
 #### TANIUM_LOGVERBOSITYLEVEL (default is 1)
