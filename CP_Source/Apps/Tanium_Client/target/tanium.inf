@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="tanium.tar.bz2"
+version="X.X.X"
+size="100M"
+name="tanium"
+minfw="11.05.133"

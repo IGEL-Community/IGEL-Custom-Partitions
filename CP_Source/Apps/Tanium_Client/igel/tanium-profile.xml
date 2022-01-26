@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile>
+    <profile_id>31764</profile_id>
+    <profilename>Tanium Client CP</profilename>
+    <firmware>
+        <model>IGEL OS 11</model>
+        <version>11.05.133.01</version>
+    </firmware>
+    <description>Tanium Client CP</description>
+    <overwritesessions>false</overwritesessions>
+    <is_master_profile>false</is_master_profile>
+    <is_igel_os>true</is_igel_os>
+    <settings>
+        <pclass name="custom_partition.enabled">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom/bin/igel_start_tanium.sh</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="custom_partition.mountpoint">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="custom_partition.size">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">100M</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+    </settings>
+    <instancesettings>
+        <instance classprefix="custom_partition.source%" serialnumber="-4e093fd6:175d0e2bce3:-7ffc127.0.0.1">
+            <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
+            <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/tanium.inf</ivalue>
+            <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/tanium-cp-init-script.sh init</ivalue>
+            <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/tanium-cp-init-script.sh stop</ivalue>
+            <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+        </instance>
+        <instance classprefix="custom_partition.parameter%" serialnumber="1ca6d0e3:17e92c369ac:-7fff127.0.1.1">
+            <ivalue classname="custom_partition.parameter%.name" variableExpression="" variableSubstitutionActive="false">TANIUM_VERSION</ivalue>
+            <ivalue classname="custom_partition.parameter%.value" variableExpression="" variableSubstitutionActive="false">TVERNUM</ivalue>
+        </instance>
+        <instance classprefix="custom_partition.parameter%" serialnumber="1ca6d0e3:17e92c369ac:-7ffe127.0.1.1">
+            <ivalue classname="custom_partition.parameter%.name" variableExpression="" variableSubstitutionActive="false">TANIUM_SERVERNAME</ivalue>
+            <ivalue classname="custom_partition.parameter%.value" variableExpression="" variableSubstitutionActive="false">TSRVNAME</ivalue>
+        </instance>
+        <instance classprefix="custom_partition.parameter%" serialnumber="1ca6d0e3:17e92c369ac:-7ffd127.0.1.1">
+            <ivalue classname="custom_partition.parameter%.name" variableExpression="" variableSubstitutionActive="false">TANIUM_SERVERPORT</ivalue>
+            <ivalue classname="custom_partition.parameter%.value" variableExpression="" variableSubstitutionActive="false">17472</ivalue>
+        </instance>
+        <instance classprefix="custom_partition.parameter%" serialnumber="1ca6d0e3:17e92c369ac:-7ffc127.0.1.1">
+            <ivalue classname="custom_partition.parameter%.name" variableExpression="" variableSubstitutionActive="false">TANIUM_LOGVERBOSITYLEVEL</ivalue>
+            <ivalue classname="custom_partition.parameter%.value" variableExpression="" variableSubstitutionActive="false">1</ivalue>
+        </instance>
+    </instancesettings>
+</profile>
