@@ -43,7 +43,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x $HOME/Downloads/falcon-sensor_*_amd64.deb
+ar -x $HOME/Downloads/taniumclient_*-ubuntu18_amd64.deb
 tar xf control.tar.* ./control
 #VERSION=$(grep Version control | cut -d " " -f 2)
 VERSION=$(grep Version control | cut -d " " -f 2 | cut -d "-" -f 1)
