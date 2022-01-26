@@ -51,7 +51,7 @@ VERSION=$(grep Version control | cut -d " " -f 2 | cut -d "-" -f 1)
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/tanium.inf
 ####****  ADD SED for XML Profile ****####
-sed -i "/TVERNUM=/c \"${VERSION}\"" igel/tanium-profile.xml
+sed -i "s/TVERNUM/${VERSION}/" igel/tanium-profile.xml
 #echo "tanium.inf file is:"
 #cat target/tanium.inf
 
