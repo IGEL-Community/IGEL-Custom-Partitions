@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/openfortigui"
 
 # config directory
-USER_CONFIG="/userhome/.openfortigui"
+USER_CONFIG="/.openfortigui"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -44,7 +44,7 @@ init)
 
   # basic persistency
   if [ -d "${CP}${USER_CONFIG}" ]; then
-    chown -R user:users "${CP}${USER_CONFIG}"
+    chown -R root:root "${CP}${USER_CONFIG}"
   fi
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO

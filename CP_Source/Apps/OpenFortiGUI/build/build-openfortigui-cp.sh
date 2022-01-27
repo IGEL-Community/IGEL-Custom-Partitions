@@ -46,8 +46,8 @@ echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 ############################################
 # START: comment out for non-persistency!!!!
 ############################################
-
-mkdir -p custom/openfortigui/userhome/.openfortigui
+#run as root
+mkdir -p custom/openfortigui/.openfortigui
 
 ##########################################
 # END: comment out for non-persistency!!!!
