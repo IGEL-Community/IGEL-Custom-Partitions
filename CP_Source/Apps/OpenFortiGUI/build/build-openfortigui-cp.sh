@@ -5,7 +5,7 @@
 # Creating an IGELOS CP for OpenFortiGUI
 ## Development machine (Ubuntu 18.04)
 #https://hadler.me/linux/openfortigui/
-if ! compgen -G "$HOME/Downloads/openforti_*.deb" > /dev/null; then
+if ! compgen -G "$HOME/Downloads/openfortigui_*.deb" > /dev/null; then
   echo "***********"
   echo "Obtain latest Ubuntu 18.04 .deb package, save into $HOME/Downloads and re-run this script "
   echo "https://hadler.me/linux/openfortigui"
