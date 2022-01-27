@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/openfortigui"
 
 # config directory
-USER_CONFIG="/.openfortigui"
+USER_CONFIG="/root/.openfortigui"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
