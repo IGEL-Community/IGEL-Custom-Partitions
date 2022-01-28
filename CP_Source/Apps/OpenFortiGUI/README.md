@@ -1,4 +1,4 @@
-# OpenFortiGUI (27 January) (Debug Testing)
+# OpenFortiGUI (27 January)
 
 |  CP Information |            |
 |-----------------|------------|
