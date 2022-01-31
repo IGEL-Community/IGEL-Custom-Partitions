@@ -11,7 +11,7 @@
 if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
-  #echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
+  echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
   echo "https://www.webex.com/downloads.html"
   echo "***********"
   exit 1
