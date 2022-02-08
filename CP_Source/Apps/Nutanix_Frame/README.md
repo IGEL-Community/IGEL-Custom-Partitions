@@ -1,14 +1,12 @@
-# Nutanix Frame (2 December) (new format)
+# Nutanix Frame (8 February) (Updated based on feedback)
 
 |  CP Information |            |
 |--------------------|------------|
 | Package | Nutanix Frame - Current Version |
 | Script Name | [frame-cp-init-script.sh](build/frame-cp-init-script.sh) |
 | CP Mount Path | /custom/frame |
-| CP Size | 250M |
+| CP Size | 500M |
 | IGEL OS Version (min) | 11.05.133 |
-| Path to Executable | /custom/frame/usr/bin/frame |
-| Path to Icon | /custom/frame/usr/share/pixmaps/frame.png |
 | Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
 | Packaging Notes | See build script for details |
 | Package automation | [build-frame-cp.sh](build/build-frame-cp.sh) |
