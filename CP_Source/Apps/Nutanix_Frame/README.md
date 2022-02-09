@@ -1,4 +1,4 @@
-# Nutanix Frame (8 February) (Updated based on feedback)
+# Nutanix Frame (9 February) (Updated based on feedback)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -12,7 +12,7 @@
 | Package automation | [build-frame-cp.sh](build/build-frame-cp.sh) |
 
 -----
-# Configure Frame Account for IGEL
+# Advanced Profile Setup - Configure Frame Account for IGEL
 
 ## Enable "Secure Anonymous" sessions
 
