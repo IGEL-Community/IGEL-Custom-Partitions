@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile>
+    <profile_id>78769</profile_id>
+    <profilename>ICG Registration CustomApp V01</profilename>
+    <firmware>
+        <model>IGEL OS 11</model>
+        <version>11.04.240.01</version>
+    </firmware>
+    <description>Custom Command to register with ICG without user input.</description>
+    <overwritesessions>false</overwritesessions>
+    <is_master_profile>false</is_master_profile>
+    <is_igel_os>true</is_igel_os>
+    <settings>
+        <pclass name="system.environment_variables.fixvariable%.name">
+            <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">KEY</pvalue>
+            <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">ICGADDRESS</pvalue>
+            <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">FINGERPRINT</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="system.environment_variables.fixvariable%.value">
+            <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">[KEY_VALUE]</pvalue>
+            <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">[ICG_ADDRESS]</pvalue>
+            <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">[Your_Certificate_Fingerprint]</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+    </settings>
+    <instancesettings>
+        <instance classprefix="sessions.custom_application%" serialnumber="-b7304d9:1779121d849:-7fd1192.168.178.56">
+            <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+            <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.autostartnotify" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/sbin/icg-config -s $ICGADDRESS -o $KEY -f $FINGERPRINT;zenity --warning --text="The Device was registered to the IGEL Cloud Gateway (ICG) and will be restarted now." --ellipsize;reboot</ivalue>
+            <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+            <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+            <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+            <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">applications-other</ivalue>
+            <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+            <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Register ICG</ivalue>
+            <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+            <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+            <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+            <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+        </instance>
+    </instancesettings>
+</profile>
