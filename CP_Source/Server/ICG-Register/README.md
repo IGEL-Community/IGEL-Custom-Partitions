@@ -1,4 +1,4 @@
-# ICG (IGEL Cloud Gateway) Register (9 February Update)
+# ICG (IGEL Cloud Gateway) Register (11 February Update)
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded command.            |
 |--------------------|------------|
@@ -23,3 +23,35 @@ reboot
 ![ICG Variables](images/icg_variables.png)
 
 ![ICG Register Custom App](images/icg_register_custom_app.png)
+
+------
+
+## Steps to add ICG connection to OSC installer:
+
+**NOTE** Do this on a VM (virtual machine) to allow cut and paste of script
+
+- Boot up OSC on a VM
+- Press the "edit settings" button
+- add your custom command script
+
+**This saves the settings for subsequent installs**
+
+```
+cat << 'EOF' >> /bin/igel_icg_setup.sh
+#!/bin/bash
+#set -x
+#trap read debug
+
+ACTION="connect_to_icg_${1}"
+
+# output to systemlog with ID amd tag
+LOGGER="logger -it ${ACTION}"
+
+echo "Starting" | $LOGGER
+
+/sbin/icg-config -s SERVER_NAME -p PORT -o ONE_TIME_PASSWORD -t UMS_STRUCTURE_TAG &
+EOF
+
+chmod a+x /bin/igel_icg_setup.sh
+/bin/igel_icg_setup.sh &
+  ```
