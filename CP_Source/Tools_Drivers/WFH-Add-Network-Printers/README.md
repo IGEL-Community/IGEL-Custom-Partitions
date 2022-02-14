@@ -11,13 +11,19 @@
 | [Add-Network-Printer-IPP-profile-v2.xml](Add-Network-Printer-IPP-profile-v2.xml) | Version 2 uses just the printer name / ip address and appends ipp/print |
 | [Add-Network-Printer-IPP-profile-v2-Citrix.xml](Add-Network-Printer-IPP-profile-v2-Citrix.xml) | Version 2 Citrix adds to Version 2 (above) the printers to Citrix wfclient.ini (ClientPrinterList) as noted [here](https://docs.citrix.com/en-us/citrix-workspace-app-for-linux/configure-xenapp.html). |
 
-Here is output from /usr/lib/cups/backend/snmp for my network printer (Brother MFC-L2750DW)
+Here is output from /usr/lib/cups/backend/snmp for my network printer (Brother MFC-L2750DW):
 
  ```{snmp}
 /usr/lib/cups/backend/snmp
   ```
 
 network lpd://BRWB068E696FC10/BINARY_P1 "Brother MFC-L2750DW series" "Brother MFC-L2750DW series" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:MFC-L2750DW series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;" “"
+
+Insead of using printer name use the printer's IP address:
+
+```
+CUPS_DEBUG_LEVEL=1 /usr/lib/cups/backend/snmp 2>&1 | grep "Received data from" | awk '{print $6}' | sort | uniq | sed 's/\.\.\.$//'
+  ```
 
 Command to add above printer:
 
