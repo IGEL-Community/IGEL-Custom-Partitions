@@ -6,7 +6,7 @@
 | Script Name | [orca-cp-init-script.sh](orca-cp-init-script.sh) |
 | CP Mount Path | /custom/orca |
 | Packaging Notes | See build script |
-| Package automation | [build-orca-cp.sh](build-orca-cp.sh) |
+| Package automation | [build-orca-cp.sh](build/build-orca-cp.sh) |
 
 **Customization**: Replaced /etc/init.d with systemd / systemctl for starting and stopping speech-dispatcher service (/etc/systemd/system/speech-dispatcher.service):<br /><br />
 
