@@ -4,7 +4,7 @@
 
 # Creating an IGELOS CP for remmina
 ## Development machine (Ubuntu 18.04)
-MISSING_LIBS="firmware-crystalhd freerdp2-x11 i965-va-driver i965-va-driver-shaders libavahi-ui-gtk3-0 libavcodec57 libavutil55 libayatana-appindicator3-1 libayatana-indicator3-7 libcrystalhd3 libfreerdp2-2 libfreerdp-client2-2 libgsm1 libopenjp2-7 libshine3 libsnappy1v5 libsoxr0 libssh-4 libswresample2 libva2 libva-drm2 libva-x11-2 libvdpau1 libvdpau-va-gl1 libvncclient1 libwinpr2-2 libx264-152 libx265-146 libxvidcore4 libzvbi0 libzvbi-common mesa-va-drivers mesa-vdpau-drivers nvidia-legacy-340xx-vdpau-driver nvidia-vdpau-driver remmina remmina-common remmina-plugin-exec remmina-plugin-kwallet remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc remmina-plugin-www remmina-plugin-x2go va-driver-all vdpau-driver-all"
+MISSING_LIBS="firmware-crystalhd freerdp2-x11 i965-va-driver i965-va-driver-shaders libavahi-ui-gtk3-0 libavcodec57 libavutil55 libayatana-appindicator3-1 libayatana-indicator3-7 libcrystalhd3 libdbusmenu-glib4 libdbusmenu-gtk3-4 libfreerdp2-2 libfreerdp-client2-2 libgsm1 libopenjp2-7 libshine3 libsnappy1v5 libsoxr0 libssh-4 libswresample2 libva2 libva-drm2 libva-x11-2 libvdpau1 libvdpau-va-gl1 libvncclient1 libwinpr2-2 libx264-152 libx265-146 libxvidcore4 libzvbi0 libzvbi-common mesa-va-drivers mesa-vdpau-drivers nvidia-legacy-340xx-vdpau-driver nvidia-vdpau-driver remmina remmina-common remmina-plugin-exec remmina-plugin-kwallet remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc remmina-plugin-www remmina-plugin-x2go va-driver-all vdpau-driver-all"
 
 sudo apt-add-repository ppa:remmina-ppa-team/remmina-next -y
 sudo apt update -y
