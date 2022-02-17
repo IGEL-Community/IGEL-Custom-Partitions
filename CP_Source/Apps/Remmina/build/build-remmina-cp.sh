@@ -38,9 +38,9 @@ chmod a+x clean_cp_usr_share.sh
 ./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/remmina/usr/share
 echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Remmina_dev.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Remmina.zip
 
-unzip Remmina_dev.zip -d custom
+unzip Remmina.zip -d custom
 mkdir -p custom/remmina/config/bin
 mkdir -p custom/remmina/lib/systemd/system
 mv custom/target/build/remmina_cp_apparmor_reload custom/remmina/config/bin
@@ -63,9 +63,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/remmina.inf
 
 # new build process into zip file
 tar cvjf target/remmina.tar.bz2 remmina remmina-cp-init-script.sh
-zip -g ../Remmina_dev.zip target/remmina.tar.bz2 target/remmina.inf
-zip -d ../Remmina_dev.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Remmina_dev.zip ../../Remmina_dev-${VERSION}_igel01.zip
+zip -g ../Remmina.zip target/remmina.tar.bz2 target/remmina.inf
+zip -d ../Remmina.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Remmina.zip ../../Remmina-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
