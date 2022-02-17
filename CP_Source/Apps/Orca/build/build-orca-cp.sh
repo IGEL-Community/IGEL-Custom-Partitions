@@ -4,7 +4,7 @@
 
 # Creating an IGELOS CP for Orca
 ## Development machine (Ubuntu 18.04)
-MISSING_LIBS="dconf-gsettings-backend espeak espeak-data gir1.2-atspi-2.0 gir1.2-glib-2.0 gir1.2-gtk-3.0 gir1.2-pango-1.0 gir1.2-wnck-3.0 gsettings-backend gsettings-desktop-schemas libao4 libatk-adaptor libbrlapi0.6 libdotconf0 libespeak1 liblouis14 libltdl7 libportaudio2 libpulse0 libsndfile1 libsonic0 libspeechd2 orca python3-brlapi python3-cairo python3-gi python3-louis python3-pyatspi python3-speechd python3-xdg speech-dispatcher speech-dispatcher-audio-plugins xbrlapi"
+MISSING_LIBS="asterisk-espeak brltty-espeak dconf-gsettings-backend emacspeak emacspeak-espeak-server espeak espeak-data espeakedit espeak-ng espeak-ng-data espeak-ng-espeak espeakup gespeaker gir1.2-atspi-2.0 gir1.2-glib-2.0 gir1.2-gtk-3.0 gir1.2-pango-1.0 gir1.2-wnck-3.0 gsettings-backend gsettings-desktop-schemas gstreamer1.0-espeak libao4 libatk-adaptor libbrlapi0.6 libdotconf0 libespeak1 libespeak-dev libespeak-ng1 libespeak-ng-dev libespeak-ng-libespeak1 libespeak-ng-libespeak-dev liblouis14 libltdl7 libpcaudio0 libperlspeak-perl libportaudio2 libpulse0 libsndfile1 libsonic0 libspeechd2 orca pypy-py python3-brlapi python3-cairo python3-espeak python3-gi python3-louis python3-py python3-pyatspi python3-speechd python3-xdg python-espeak python-py speech-dispatcher speech-dispatcher-audio-plugins speech-dispatcher-espeak speech-dispatcher-espeak-ng speechd-up stardict-plugin-espeak xbrlapi"
 
 sudo apt install unzip -y
 
@@ -16,8 +16,6 @@ for lib in $MISSING_LIBS; do
 done
 
 mkdir -p custom/orca
-
-dpkg -x ${HOME}/Downloads/orca_*.deb custom/orca
 
 find . -type f -name "*.deb" | while read LINE
 do
@@ -33,13 +31,11 @@ chmod a+x clean_cp_usr_share.sh
 ./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/orca/usr/share
 echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Orca_dev.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Orca.zip
 
-unzip Orca_dev.zip -d custom
+unzip Orca.zip -d custom
 
-mv custom/target/orca-cp-init-script.sh custom
-mkdir -p custom/orca/etc/systemd/system
-mv custom/target/speech-dispatcher.service custom/orca/etc/systemd/system
+mv custom/target/build/orca-cp-init-script.sh custom
 
 cd custom
 
@@ -57,9 +53,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/orca.inf
 
 # new build process into zip file
 tar cvjf target/orca.tar.bz2 orca orca-cp-init-script.sh
-zip -g ../Orca_dev.zip target/orca.tar.bz2 target/orca.inf
-zip -d ../Orca_dev.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Orca_dev.zip ../../Orca_dev-${VERSION}_igel01.zip
+zip -g ../Orca.zip target/orca.tar.bz2 target/orca.inf
+zip -d ../Orca.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Orca.zip ../../Orca-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
