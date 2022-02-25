@@ -3,7 +3,7 @@
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded command.            |
 |--------------------|------------|
 | Package | ICG-Register 1.01 |
-| IGEL OS Version (min) | 11.04.240 |
+| IGEL OS Version (min) | 11.06.100 |
 | Notes | Profile with custom application with predined variables that allow a user, with one click on icon on desktop, to register with IGEL ICG.  <br /><br /> Update variables in profile (System > Firmware Customization > Environment Variables > Predefined):  KEY, ICGADDRESS, FINGERPRINT <br /><br /> Assign profile to devices |
 
 ## ICG Command (Version 01):
@@ -23,6 +23,30 @@ reboot
 ![ICG Variables](images/icg_variables.png)
 
 ![ICG Register Custom App](images/icg_register_custom_app.png)
+
+## ICG Command (Version 02) Modify to remove fingerprint:
+
+The new Auto register Custom App accept user name and password and do not need a fingerprint (wildcard option). You can change "root" with another user, also if that user have a password. An login window appears to type in the password.
+
+```{icg command}
+pkexec --user root /sbin/icg-config -s $ICGADDRESS -o $KEY -f '*';\
+zenity --warning --text="The Device was registered to the IGEL Cloud Gateway and will be restarted now." --ellipsize;\
+reboot
+  ```
+
+------
+
+## ICG Command (Version 03):
+
+ICG Auto Registration Script which was worked out together with IGEL development.
+
+**NOTE:** If you see that the script doesn't seem to be running, then this is because from 11.05.100 the parameter system.icg.server0.host is not emptied during a reset. This can be checked with this command:
+
+ ```
+get system.icg.server0.host
+  ```
+
+If you delete the content or enter a value that differs from the script, the registration works reliably again.
 
 ------
 
