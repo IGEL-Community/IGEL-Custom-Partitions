@@ -1,4 +1,4 @@
-# ICG (IGEL Cloud Gateway) Register (11 February Update)
+# ICG (IGEL Cloud Gateway) Register (25 February Update)
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded command.            |
 |--------------------|------------|
