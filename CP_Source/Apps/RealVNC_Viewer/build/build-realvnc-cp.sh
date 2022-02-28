@@ -58,7 +58,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x ../../realvnc_*.deb
+ar -x ../../VNC-Viewer-*.deb
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
