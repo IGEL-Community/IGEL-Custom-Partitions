@@ -35,15 +35,6 @@ done
 mv custom/realvnc/usr/share/applications/ custom/realvnc/usr/share/applications.mime
 mkdir -p custom/realvnc/userhome/.vnc
 
-echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
-chmod a+x clean_cp_usr_lib.sh
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
-chmod a+x clean_cp_usr_share.sh
-./clean_cp_usr_lib.sh 11.05.133_usr_lib.txt custom/realvnc/usr/lib
-./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/realvnc/usr/share
-echo "+++++++=======  DONE CLEAN of USR =======+++++++"
-
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/RealVNC_Viewer.zip
 
 unzip RealVNC_Viewer.zip -d custom
