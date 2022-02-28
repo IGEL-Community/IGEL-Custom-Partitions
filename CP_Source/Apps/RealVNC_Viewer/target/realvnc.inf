@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="realvnc.tar.bz2"
+version="X.X.X"
+size="100M"
+name="realvnc"
+minfw="11.05.133"
