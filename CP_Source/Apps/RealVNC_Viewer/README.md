@@ -1,4 +1,4 @@
-# RealVNC Viewer (28 February) (Debug Testing)
+# RealVNC Viewer (28 February)
 
 |  CP Information |            |
 |-----------------|------------|
