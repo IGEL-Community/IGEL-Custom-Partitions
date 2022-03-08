@@ -32,7 +32,8 @@ mkdir -p custom/frame/usr/share/pixmaps
 mv custom/target/build/Frame.png custom/frame/usr/share/pixmaps
 mv custom/target/build/frame-launcher.sh custom/frame
 mv custom/target/build/frame-cp-init-script.sh custom
-
+mkdir -p custom/frame/etc/nutanix-frame
+mv custom/target/build/etc_nutanix-frame_preferences.conf custom/frame/etc/nutanix-frame/preferences.conf
 cd custom
 
 # edit inf file for version number

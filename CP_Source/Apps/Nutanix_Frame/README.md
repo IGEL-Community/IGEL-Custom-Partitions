@@ -1,4 +1,4 @@
-# Nutanix Frame (9 February) (Updated based on feedback)
+# Nutanix Frame (8 March) (Updated for 6.10.0 preferences)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -10,6 +10,34 @@
 | Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
 | Packaging Notes | See build script for details |
 | Package automation | [build-frame-cp.sh](build/build-frame-cp.sh) |
+
+-----
+
+# Frame 6.10.0 and newer
+
+Starting from Frame app 6.10.0 Administrators can control preferences on Linux, using configuration file located at:
+
+```
+/custom/frame/etc/nutanix-frame/preferences.conf
+  ```
+
+| Value Name | Type | Possible Value | Default Value |  
+|------------|------|----------------|---------------|
+| STARTUP_URL | REG_SZ | Valid URL | https://console.nutanix.com |
+| SEND_ERROR_REPORTS | REG_SZ | ON/OFF | ON |
+| CLEAR_CACHE_ON_STARTUP | REG_SZ | ON/OFF | OFF |
+| CHECK_FOR_UPDATES_ON_STARTUP | REG_SZ | ON/OFF | ON |
+| ADVANCED_USB | REG_SZ | ON/OFF | ON |
+
+**NOTE:** VALID_VALUE for string preferences can be any string, for bool preferences it can be ON/OFF
+
+**Example:**
+
+```
+STARTUP_URL=https://console.nutanix.com/customer/org/account
+ADVANCED_USB=OFF
+CHECK_FOR_UPDATES_ON_STARTUP=OFF
+  ```
 
 -----
 # Advanced Profile Setup - Configure Frame Account for IGEL
