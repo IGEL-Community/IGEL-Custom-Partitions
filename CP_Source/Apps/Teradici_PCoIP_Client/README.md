@@ -11,4 +11,6 @@
 
 **NOTES:**
 
-- A reboot is required before the agent can start.
+- A reboot is required before the client can start.
+
+- Profile disables the IGEL Teradici client
