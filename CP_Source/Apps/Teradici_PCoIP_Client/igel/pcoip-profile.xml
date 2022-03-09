@@ -16,8 +16,12 @@
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
+            <pclass name="services.addition_teradici_pcoip_client.enabled">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">false</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/usr/sbin/pcoip-configure-kernel-networking</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom/pcoip-cp-init-script.sh init &amp;amp&amp;amp /usr/sbin/pcoip-configure-kernel-networking</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
