@@ -41,6 +41,8 @@ init)
     fi
   done
 
+  ln -s . /usr/lib/x86_64-linux-gnu/pcoip-client/lib
+
   # basic persistency
   chown -R user:users "${CP}${USER_CONFIG}"
 
