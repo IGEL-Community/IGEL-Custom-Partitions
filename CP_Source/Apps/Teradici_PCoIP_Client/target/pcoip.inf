@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="pcoip.tar.bz2"
+version="x.x.x"
+size="200M"
+name="pcoip"
+minfw="11.05.133"
