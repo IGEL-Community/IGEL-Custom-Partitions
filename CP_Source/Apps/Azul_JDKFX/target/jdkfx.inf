@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="jdkfx.tar.bz2"
-version="11.45.27"
+version="X.X.X"
 size="500M"
 name="jdkfx"
-minfw="11.04.240"
+minfw="11.05.133"
