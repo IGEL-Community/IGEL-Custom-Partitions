@@ -67,7 +67,7 @@ mkdir -p $CP_PATH/userhome/.netextender
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/SonicWall_NetExtender.zip
 
 unzip SonicWall_NetExtender.zip -d custom
-mv custom/target/sonicwall-cp-init-script.sh custom
+mv custom/target/build/sonicwall-cp-init-script.sh custom
 
 cd custom
 
