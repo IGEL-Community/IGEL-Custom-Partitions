@@ -69,14 +69,14 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip SonicWall_NetExtender.zip -d custom
 mv custom/target/build/sonicwall-cp-init-script.sh custom
 
-cd custom
-
 # edit inf file for version number
 VERSION=$(grep Version $SWFILEPATH/install | cut -d "\"" -f 2)
 #echo "Version is: " ${VERSION}
 sed -i "/^version=/c version=\"${VERSION}\"" target/sonicwall.inf
 #echo "sonicwall.inf file is:"
 #cat target/sonicwall.inf
+
+cd custom
 
 # new build process into zip file
 tar cvjf target/sonicwall.tar.bz2 sonicwall sonicwall-cp-init-script.sh
