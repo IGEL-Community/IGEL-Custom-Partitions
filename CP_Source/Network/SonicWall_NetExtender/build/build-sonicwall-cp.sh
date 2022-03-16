@@ -70,9 +70,9 @@ unzip SonicWall_NetExtender.zip -d custom
 mv custom/target/build/sonicwall-cp-init-script.sh custom
 
 # edit inf file for version number
-VERSION=$(grep Version $SWFILEPATH/install | cut -d "\"" -f 2)
+VERSION=$(grep VERSION= $SWFILEPATH/install | cut -d "\"" -f 2)
 #echo "Version is: " ${VERSION}
-sed -i "/^version=/c version=\"${VERSION}\"" target/sonicwall.inf
+sed -i "/^version=/c version=\"${VERSION}\"" custom/target/sonicwall.inf
 #echo "sonicwall.inf file is:"
 #cat target/sonicwall.inf
 
