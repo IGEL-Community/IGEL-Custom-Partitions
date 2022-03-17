@@ -5,7 +5,7 @@
 | Package | [SonicWall NetExtender VPN](https://www.sonicwall.com/support/knowledge-base/how-can-i-download-and-install-netextender-on-linux/180105195559153/) |
 | Script Name | [sonicwall-cp-init-script.sh](build/sonicwall-cp-init-script.sh) |
 | CP Mount Path | /custom/sonicwall |
-| CP Size | 100M |
+| CP Size | 500M |
 | IGEL OS Version (min) | 11.05.133 |
 | Packing Notes | See build script for details |
 | Package automation | [build-sonicwall-cp.sh](build/build-sonicwall-cp.sh) |
