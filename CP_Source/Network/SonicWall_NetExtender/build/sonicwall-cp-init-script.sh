@@ -32,6 +32,10 @@ do
   fi
 done
 
+  # Java JAR file location
+  mkdir -p /usr/lib64
+  ln -s /usr/lib/NetExtender.jar /usr/lib64/NetExtender.jar
+
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
     wm_postsetup
