@@ -61,6 +61,10 @@ install -m 644 $SWFILEPATH/icons/* $USRSHAREICONS
 install -m 664 $SWFILEPATH/NetExtender.desktop $USRSHARE
 cp $USRSHARE/NetExtender.desktop $APPSMIME/sonicwall-netextender.desktop
 
+mkdir -p $CP_PATH/root
+touch $CP_PATH/root/.netextender
+chmod 644 $CP_PATH/root/.netextender
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/SonicWall_NetExtender.zip
 
 unzip SonicWall_NetExtender.zip -d custom
