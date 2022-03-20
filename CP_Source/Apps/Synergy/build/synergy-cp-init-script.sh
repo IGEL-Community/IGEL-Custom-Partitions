@@ -47,6 +47,8 @@ init)
     sleep 3
   fi
 
+  ldconfig
+
 ;;
 stop)
   # unlink linked files
