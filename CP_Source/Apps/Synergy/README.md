@@ -1,4 +1,4 @@
-# Synergy (24 November)
+# Synergy (20 March)
 
 |  CP Information |            |
 |-----------------|------------|

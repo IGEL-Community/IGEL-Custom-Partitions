@@ -39,17 +39,39 @@ mv custom/synergy/usr/share/applications/ custom/synergy/usr/share/applications.
 mkdir -p custom/synergy/userhome/.config/Synergy
 mkdir -p custom/synergy/userhome/.synergy
 
+echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
+chmod a+x clean_cp_usr_lib.sh
+wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
+chmod a+x clean_cp_usr_share.sh
+./clean_cp_usr_lib.sh 11.05.133_usr_lib.txt custom/synergy/usr/lib
+./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/synergy/usr/share
+echo "+++++++=======  DONE CLEAN of USR =======+++++++"
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Synergy.zip
 
 unzip Synergy.zip -d custom
-mv custom/target/synergy-cp-init-script.sh custom
+mv custom/target/build/synergy-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf synergy.tar.bz2 synergy synergy-cp-init-script.sh
-mv synergy.tar.bz2 ../..
-mv target/synergy.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x $HOME/Downloads/synergy_*_ubuntu18_amd64.deb
+tar xf control.tar.* ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/synergy.inf
+#echo "synergy.inf file is:"
+#cat target/synergy.inf
+
+# new build process into zip file
+tar cvjf target/synergy.tar.bz2 synergy synergy-cp-init-script.sh
+zip -g ../Synergy.zip target/synergy.tar.bz2 target/synergy.inf
+zip -d ../Synergy.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Synergy.zip ../../Synergy-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar

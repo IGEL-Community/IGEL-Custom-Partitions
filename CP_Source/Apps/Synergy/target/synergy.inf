@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="synergy.tar.bz2"
-version="1.14.2"
+version="X.X.X"
 size="100M"
 name="synergy"
 minfw="11.05.133"
