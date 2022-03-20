@@ -9,5 +9,5 @@
 | IGEL OS Version (min) | 11.05.133 |
 | Path to Executable | /custom/synergy/usr/bin/synergy |
 | Path to Icon | /custom/synergy/usr/share/icons/hicolor/scalable/apps/synergy.svg |
-| Packaging Notes | Details can be found in the build script [build-synergy-cp.sh](build-synergy-cp.sh) |
-| Package automation | [build-synergy-cp.sh](build-synergy-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
+| Packaging Notes | Details can be found in the build script |
+| Package automation | [build-synergy-cp.sh](build/build-synergy-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
