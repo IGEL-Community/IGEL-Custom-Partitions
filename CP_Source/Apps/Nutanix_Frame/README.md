@@ -17,8 +17,9 @@
 
 Fixed:
 
-• Full screen will only exit when the Escape key is held for 10 seconds or more.
-• For Frame App for Linux, generic USB devices can cause USB devices to lose connectivity.
+- Full screen will only exit when the Escape key is held for 10 seconds or more.
+
+- For Frame App for Linux, generic USB devices can cause USB devices to lose connectivity.
 
 
 -----
