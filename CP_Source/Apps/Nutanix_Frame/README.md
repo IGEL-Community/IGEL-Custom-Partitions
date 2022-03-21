@@ -1,4 +1,4 @@
-# Nutanix Frame (8 March) (Updated for 6.10.0 preferences)
+# Nutanix Frame (21 March) (Added note for 6.10.1)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -10,6 +10,16 @@
 | Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
 | Packaging Notes | See build script for details |
 | Package automation | [build-frame-cp.sh](build/build-frame-cp.sh) |
+
+-----
+
+# Frame 6.10.1
+
+Fixed:
+
+• Full screen will only exit when the Escape key is held for 10 seconds or more.
+• For Frame App for Linux, generic USB devices can cause USB devices to lose connectivity.
+
 
 -----
 
