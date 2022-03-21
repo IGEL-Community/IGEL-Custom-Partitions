@@ -43,6 +43,9 @@ init)
     fi
   done
 
+  # fix permissions
+  chmod 4755 "${CP}/opt/RingCentral Embeddable/chrome-sandbox"
+
   # basic persistency
   if [ -d "${CP}${USER_CONFIG}" ]; then
     chown -R user:users "${CP}${USER_CONFIG}"
