@@ -46,7 +46,7 @@ cd custom
 mkdir getversion
 cd getversion
 ar -x $HOME/Downloads/ringcentral-embeddable-voice-app_*_amd64.deb
-tar xf control.tar.xz ./control
+tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
