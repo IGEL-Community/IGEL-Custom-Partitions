@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="ringcentral.tar.bz2"
+version="X.X.X"
+size="400M"
+name="ringcentral"
+minfw="11.05.133"
