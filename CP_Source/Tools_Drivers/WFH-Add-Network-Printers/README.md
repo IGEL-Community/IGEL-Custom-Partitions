@@ -69,6 +69,8 @@ https://www.cups.org/blog/2018-06-06-demystifying-cups-development.html
 ***
 **Citrix Notes**
 
+[Citrix Printing Quick Start Guide](https://support.citrix.com/article/CTX227534)
+
 https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/printing.html
 
 https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/printing/printing-configuration-example.html
