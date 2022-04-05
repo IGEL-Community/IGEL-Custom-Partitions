@@ -1,11 +1,11 @@
-# Zoom (27 December)
+# Zoom (5 April)
 
 |  CP Information  |             |
 |-----------------|-------------|
 | Package | [Zoom - Current Version](https://support.zoom.us/hc/en-us/articles/205759689-New-Updates-for-Linux) |
 | Script Name | [zoom-cp-init-script.sh](build/zoom-cp-init-script.sh) |
 | CP Mount Path | /custom/zoom |
-| CP Size | 400M |
+| CP Size | 600M |
 | IGEL OS Version (min) | 11.4.240 |
 | Path to Executable | /custom/zoom/usr/bin/zoom |
 | Path to Icon | /custom/zoom/usr/share/pixmaps/Zoom.png |
