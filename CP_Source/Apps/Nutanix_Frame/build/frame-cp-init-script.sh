@@ -10,6 +10,9 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/frame"
 
+# config directory
+USER_CONFIG="/userhome/.Nutanix"
+
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
 
@@ -17,6 +20,13 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  # check for old folders / links and remove
+  if [ -L ${USER_CONFIG} ]; then
+    unlink ${USER_CONFIG}
+  fi
+  if [ -d ${USER_CONFIG} ]; then
+    rm -rf ${USER_CONFIG}
+  fi
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
@@ -31,6 +41,11 @@ init)
       fi
     fi
   done
+
+  # basic persistency
+  if [ -d "${CP}${USER_CONFIG}" ]; then
+    chown -R user:users "${CP}${USER_CONFIG}"
+  fi
 
 ;;
 stop)

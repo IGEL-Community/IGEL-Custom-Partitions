@@ -25,6 +25,16 @@ dpkg -x $HOME/Downloads/Frame-*.deb custom/frame
 
 mv custom/frame/usr/share/applications/ custom/frame/usr/share/applications.mime
 
+############################################
+# START: comment out for non-persistency!!!!
+############################################
+
+mkdir -p custom/frame/userhome/.Nutanix
+
+##########################################
+# END: comment out for non-persistency!!!!
+##########################################
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Nutanix_Frame.zip
 
 unzip Nutanix_Frame.zip -d custom
