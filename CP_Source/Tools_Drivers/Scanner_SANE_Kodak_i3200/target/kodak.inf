@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="kodak.tar.bz2"
+version="X.X.X"
+size="100M"
+name="kodak"
+minfw="11.05.133"
