@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="privoxy.tar.bz2"
+version="X.X.X"
+size="50M"
+name="privoxy"
+minfw="11.05.133"
