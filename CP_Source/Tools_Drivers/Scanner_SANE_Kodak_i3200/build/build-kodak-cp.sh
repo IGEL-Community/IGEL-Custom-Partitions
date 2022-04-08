@@ -32,7 +32,7 @@ cp custom/tmp/usr/lib/sane/* custom/kodak/usr/lib/x86_64-linux-gnu/sane
 mkdir -p custom/kodak/etc/sane.d
 cp custom/tmp/etc/sane.d/* custom/kodak/etc/sane.d
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Scanner_SANE_Kodak_i3200.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Tools_Drivers/Scanner_SANE_Kodak_i3200.zip
 
 unzip Scanner_SANE_Kodak_i3200.zip -d custom
 mv custom/target/build/kodak-cp-init-script.sh custom
