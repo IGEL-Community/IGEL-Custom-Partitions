@@ -9,3 +9,5 @@
 | IGEL OS Version (min) | 11.06.100 |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-kodak-cp.sh](build/build-kodak-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
+
+**NOTE:** Reboot required for the profile.
