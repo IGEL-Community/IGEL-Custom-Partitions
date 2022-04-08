@@ -54,7 +54,7 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/kodak.inf
 
 # new build process into zip file
 tar cvjf target/kodak.tar.bz2 kodak kodak-cp-init-script.sh
-zip -g ../kodak.zip target/kodak.tar.bz2 target/kodak.inf
+zip -g ../Scanner_SANE_Kodak_i3200.zip target/kodak.tar.bz2 target/kodak.inf
 zip -d ../Scanner_SANE_Kodak_i3200.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../Scanner_SANE_Kodak_i3200.zip ../../Scanner_SANE_Kodak_i3200-${VERSION}_igel01.zip
 
