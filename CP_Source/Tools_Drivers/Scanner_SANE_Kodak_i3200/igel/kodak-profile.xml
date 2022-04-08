@@ -12,7 +12,7 @@
     <is_igel_os>true</is_igel_os>
     <settings>
         <pclass name="userinterface.rccustom.custom_cmd_x11_early">
-            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">sed '/\kodak/i kds_i3000' /etc/sane.d/dll.conf</pvalue>
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">sed -i '/\kodak/i kds_i3000' /etc/sane.d/dll.conf</pvalue>
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
         <pclass name="ica.module.virtualdriver.fabulatech_scanner.enable">
