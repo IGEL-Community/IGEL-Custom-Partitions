@@ -13,6 +13,8 @@
 
 [Video: IGEL Demo on Dynabook](https://github.com/IGEL-Community/IGEL-Custom-Partitions/blob/master/utils/videos/211220-IGEL-Demo-on-Dynabook.mp4?raw=true)
 
+[Video: Privoxy CP for web filtering](https://github.com/IGEL-Community/IGEL-Custom-Partitions/blob/master/utils/videos/220409-Privoxy-CP.mp4?raw=true)
+
 ***
 ## Summary of steps to create custom partitions
 
