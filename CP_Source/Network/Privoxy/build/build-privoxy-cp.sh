@@ -44,7 +44,7 @@ ln -sv libmbedtls.so.2.8.0 libmbedtls.so.12
 popd
 
 sed -i "/OWNER=privoxy/c OWNER=root" custom/privoxy/lib/systemd/system/privoxy.service
-cp custom/privoxy/usr/share/privoxy/config custom/etc/privoxy/config
+cp custom/privoxy/usr/share/privoxy/config custom/privoxy/etc/privoxy/config
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Privoxy.zip
 
