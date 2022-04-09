@@ -37,14 +37,14 @@ do
   dpkg -x "${LINE}" custom/privoxy
 done
 
-echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
-chmod a+x clean_cp_usr_lib.sh
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
-chmod a+x clean_cp_usr_share.sh
-./clean_cp_usr_lib.sh 11.05.133_usr_lib.txt custom/privoxy/usr/lib
-./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/privoxy/usr/share
-echo "+++++++=======  DONE CLEAN of USR =======+++++++"
+pushd .
+cd custom/privoxy/usr/lib/x86_64-linux-gnu
+ln -sv libmbedcrypto.so.2.8.0 libmbedcrypto.so.3
+ln -sv libmbedtls.so.2.8.0 libmbedtls.so.12
+popd
+
+sed -i "/OWNER=privoxy/c OWNER=root" custom/privoxy/lib/systemd/system/privoxy.service
+cp custom/usr/share/privoxy/config custom/etc/privoxy/config
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Privoxy.zip
 
