@@ -1,4 +1,4 @@
-# Privoxy (9 April) (Debug Testing)
+# Privoxy (9 April)
 
 |  CP Information |            |
 |-----------------|------------|
