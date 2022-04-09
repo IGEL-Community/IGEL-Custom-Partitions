@@ -2,12 +2,12 @@
 <profiles>
     <profile>
         <profile_id>5682</profile_id>
-        <profilename>privoxy CP</profilename>
+        <profilenamE>Privoxy CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
             <version>11.05.133.01</version>
         </firmware>
-        <description>privoxy</description>
+        <description>Privoxy</description>
         <overwritesessions>false</overwritesessions>
         <is_master_profile>false</is_master_profile>
         <is_igel_os>true</is_igel_os>
@@ -21,16 +21,16 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">at &amp;lt&amp;lt 'EOF' &amp;gt&amp;gt /custom/privoxy/etc/privoxy/user.action
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt 'EOF' &amp;gt&amp;gt /custom/privoxy/etc/privoxy/user.action
 
 ############################################################
-# Blacklist
+# Blocklist
 ############################################################
 { +block }
 / # Block *all* URLs
 
 ############################################################
-# Whitelist
+# Allowlist
 ############################################################
 { -block }
 www.igel.com

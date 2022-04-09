@@ -43,8 +43,26 @@ ln -sv libmbedcrypto.so.2.8.0 libmbedcrypto.so.3
 ln -sv libmbedtls.so.2.8.0 libmbedtls.so.12
 popd
 
-sed -i "/OWNER=privoxy/c OWNER=root" custom/privoxy/lib/systemd/system/privoxy.service
 cp custom/privoxy/usr/share/privoxy/config custom/privoxy/etc/privoxy/config
+
+cat << 'EOF' > custom/privoxy/lib/systemd/system/privoxy.service
+[Unit]
+Description=Privacy enhancing HTTP Proxy
+Documentation=man:privoxy(8) https://www.privoxy.org/user-manual/
+After=network-online.target
+
+[Service]
+Environment=PIDFILE=/run/privoxy.pid
+Environment=OWNER=root
+Environment=CONFIGFILE=/etc/privoxy/config
+Type=forking
+ExecStart=/usr/sbin/privoxy --pidfile $PIDFILE --user $OWNER $CONFIGFILE
+ExecStopPost=/bin/rm -f $PIDFILE
+SuccessExitStatus=15
+
+[Install]
+WantedBy=multi-user.target
+EOF
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Privoxy.zip
 
