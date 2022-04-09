@@ -1,5 +1,7 @@
 # Privoxy (9 April)
 
+[Video: Privoxy CP for web filtering](https://github.com/IGEL-Community/IGEL-Custom-Partitions/blob/master/utils/videos/220409-Privoxy-CP.mp4?raw=true)
+
 |  CP Information |            |
 |-----------------|------------|
 | Package | [Privoxy](https://www.privoxy.org/) is a non-caching web proxy with advanced filtering capabilities |
