@@ -11,8 +11,10 @@
     <is_master_profile>false</is_master_profile>
     <is_igel_os>true</is_igel_os>
     <settings>
-        <pclass name="userinterface.rccustom.custom_cmd_x11_early">
-            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">sed -i '/\kodak/i kds_i3000' /etc/sane.d/dll.conf</pvalue>
+        <pclass name="userinterface.rccustom.custom_cmd_net_final">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">echo -e "kds_i3000" &amp;gt&amp;gt /etc/sane.d/dll.conf
+echo -e "kds_i3000" &amp;gt&amp;gt /dev/.mnt-system/rw/services/unsupported03/upper/etc/scanbd/sane.d/dll.conf
+echo -e "kds_i3000" &amp;gt&amp;gt /services/unsupported03/etc/scanbd/sane.d/dll.conf</pvalue>
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
         <pclass name="ica.module.virtualdriver.fabulatech_scanner.enable">
