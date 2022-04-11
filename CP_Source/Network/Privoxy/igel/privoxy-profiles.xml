@@ -20,13 +20,13 @@
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt 'EOF' &amp;gt&amp;gt /custom/privoxy/etc/privoxy/user.action
 
 ############################################################
-# Blacklist
+# BlockList
 ############################################################
 { +block }
 / # Block *all* URLs
 
 ############################################################
-# Whitelist
+# AllowList
 ############################################################
 { -block }
 www.igel.com
