@@ -57,6 +57,13 @@ init)
     chown -R user:users "${CP}${USER_VIDEOS}"
   fi
 
+  # after CP installation run wm_postsetup to activate mimetypes for SSO
+  if [ -d /run/user/777 ]; then
+    wm_postsetup
+    # delay the CP ready notification
+    sleep 3
+  fi
+
 ;;
 stop)
   # unlink linked files
