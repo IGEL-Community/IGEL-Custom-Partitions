@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profile>
     <profile_id>31764</profile_id>
-    <profilename>NxWitness Desktop CP</profilename>
+    <profilename>Nx Witness Desktop CP</profilename>
     <firmware>
         <model>IGEL OS 11</model>
         <version>11.05.133.01</version>
@@ -43,9 +43,9 @@
             <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
             <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
             <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
-            <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">vmsclient-default.png</ivalue>
+            <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/nxwitness/usr/share/icons/hicolor/scalable/vmsclient-default.png</ivalue>
             <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-            <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Frame</ivalue>
+            <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Nx Witness</ivalue>
             <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
             <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
