@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="nxwitness.tar.bz2"
+version="X.X.X"
+size="2000M"
+name="nxwitness"
+minfw="11.05.133"
