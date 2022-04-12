@@ -54,6 +54,22 @@ dpkg -x <filename>.deb <folder>
 
 To seach for missing libraries to download:  https://packages.ubuntu.com/bionic/allpackages
 
+------
+
+### Optional -- Install Gdebi to help resolve any dependencies
+
+Gdebi lets you install local deb packages while resolving and installing related dependencies.
+
+```bash
+sudo apt-get update
+sudo apt-get install gdebi
+  ```
+
+How to use Gdebi
+
+- Open Files, Right-click on DEB package to install, select "Open with Other Application", and then run "Gdebi Package Installer"
+- Collect the dependencies and add to installer (MISSING_LIBS)
+
 ***
 ## How-to use a Custom Partition
 
