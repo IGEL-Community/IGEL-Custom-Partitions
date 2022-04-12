@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/nxwitness"
 
 # app dirs
-USER_CONFIG="/userhome/.config/Network\ Optix"
+USER_CONFIG="/userhome/.config/Network Optix"
 USER_VIDEOS="/userhome/Videos"
 
 # output to systemlog with ID amd tag
@@ -22,11 +22,11 @@ echo "Starting" | $LOGGER
 case "$1" in
 init)
   # check for old folders / links and remove
-  if [ -L ${USER_CONFIG} ]; then
-    unlink ${USER_CONFIG}
+  if [ -L "${USER_CONFIG}" ]; then
+    unlink "${USER_CONFIG}"
   fi
-  if [ -d ${USER_CONFIG} ]; then
-    rm -rf ${USER_CONFIG}
+  if [ -d "${USER_CONFIG}" ]; then
+    rm -rf "${USER_CONFIG}"
   fi
   if [ -L ${USER_VIDEOS} ]; then
     unlink ${USER_VIDEOS}
