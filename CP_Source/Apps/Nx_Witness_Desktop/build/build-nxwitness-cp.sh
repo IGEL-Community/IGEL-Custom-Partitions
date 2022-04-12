@@ -45,7 +45,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x $HOME/Downloads/Frame-*.deb
+ar -x $HOME/Downloads/nxwitness-client-*-linux64.deb
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
