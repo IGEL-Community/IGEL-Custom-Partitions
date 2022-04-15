@@ -1,4 +1,12 @@
-# Fortinet FortiClient (13 April)
+# Fortinet FortiClient (15 April) (In debug testing)
+
+-----
+
+## FortiClient GUI Issue
+
+**NOTE:** FortiClient blank screen on start-up. The window opens with no text. Looking into the issue.
+
+-----
 
 |  CP Information |            |
 |-----------------|------------|
