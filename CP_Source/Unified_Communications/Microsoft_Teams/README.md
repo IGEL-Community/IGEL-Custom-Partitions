@@ -1,4 +1,4 @@
-# Microsoft Teams (1 December) (new format)
+# Microsoft Teams (19 April)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -10,7 +10,7 @@
 | Path to Executable | /custom/teams/usr/bin/teams |
 | Path to Icon | /custom/teams/usr/share/pixmaps/teams.png |
 | Packaging Notes | See build script for details |
-| Package automation | [build-teams-cp.sh](build/build-teams-cp.sh) <br /><br />[Microsoft Teams Linux Versions](https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/) <br /><br /> Tested with 1.3.00.25560, 1.3.00.30857, 1.4.00.7556, 1.4.00.13653 1.4.00.26453 |
+| Package automation | [build-teams-cp.sh](build/build-teams-cp.sh) <br /><br />[Microsoft Teams Linux Versions](https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/) |
 
 **NOTES:**
 
