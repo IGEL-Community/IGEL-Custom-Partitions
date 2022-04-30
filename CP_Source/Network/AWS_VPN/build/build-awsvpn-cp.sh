@@ -37,7 +37,7 @@ done
 
 mv custom/awsvpn/usr/share/applications/ custom/awsvpn/usr/share/applications.mime
 
-mkdir -p /custom/awsvpn/var/log/aws-vpn-client
+mkdir -p custom/awsvpn/var/log/aws-vpn-client
 mkdir -p custom/awsvpn/userhome/.config/AWSVPNClient
 mkdir -p custom/awsvpn/userhome/AWS_VPN
 cp $HOME/Downloads/*.ovpn custom/awsvpn/userhome/AWS_VPN
