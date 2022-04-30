@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="awsvpn.tar.bz2"
+version="x.x.x"
+size="300M"
+name="awsvpn"
+minfw="11.05.133"
