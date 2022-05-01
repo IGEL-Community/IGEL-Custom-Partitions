@@ -7,7 +7,7 @@
 
 sudo curl -1sLf https://dl.teradici.com/DeAdBCiUYInHcSTy/pcoip-client/cfg/setup/bash.deb.sh | sudo -E distro=ubuntu codename=bionic bash
 sudo apt-get update
-MISSING_LIBS="i965-va-driver libdouble-conversion1 libgraphicsmagick++-q16-12 libgraphicsmagick-q16-3 libhiredis0.13 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5opengl5 libqt5qml5 libqt5quick5 libqt5quickwidgets5 libqt5svg5 libqt5waylandclient5 libqt5waylandcompositor5 libqt5widgets5 libva-drm2 libva-x11-2 libva2 libxcb-xinerama0 mesa-va-drivers pcoip-client qml-module-qtgraphicaleffects qml-module-qtquick-controls qml-module-qtquick-layouts qml-module-qtquick-window2 qml-module-qtquick2 qt5-gtk-platformtheme qttranslations5-l10n qtwayland5 va-driver-all"
+MISSING_LIBS="i965-va-driver libdouble-conversion1 libgraphicsmagick++-q16-12 libgraphicsmagick-q16-3 libhiredis0.13 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5opengl5 libqt5qml5 libqt5quick5 libqt5quickwidgets5 libqt5svg5 libqt5waylandclient5 libqt5waylandcompositor5 libqt5widgets5 libva-drm2 libva-x11-2 libva2 libxcb-xinerama0 mesa-va-drivers pcoip-client qml-module-qtgraphicaleffects qml-module-qtquick-controls qml-module-qtquick-layouts qml-module-qtquick-window2 qml-module-qtquick2 qt5-gtk-platformtheme qttranslations5-l10n qtwayland5 va-driver-all libpcre2-16-0"
 
 sudo apt install unzip -y
 
