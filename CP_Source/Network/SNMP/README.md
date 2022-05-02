@@ -1,4 +1,4 @@
-# SNMP (1 May)
+# SNMP (2 May)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -12,3 +12,9 @@
 **NOTES:**
 
 - A reboot is required before the client can start.
+
+Command to test snmp:
+
+```bash
+snmpwalk -v 2c -c public localhost
+  ```
