@@ -8,6 +8,7 @@
 MISSING_LIBS="smistrip snmp snmp-mibs-downloader snmpd"
 
 sudo apt install unzip -y
+sudo apt install smistrip snmp snmp-mibs-downloader snmpd -y
 
 mkdir build_tar
 cd build_tar
@@ -23,9 +24,15 @@ do
   dpkg -x "${LINE}" custom/snmp
 done
 
+# copy mibs
+echo "****************** copy mibs ****************************"
+cp -R /var/lib/snmp/mibs/* custom/snmp/var/lib/snmp/mibs
+
 # Start Edit to match required settings for snmp and snmpd configuration
 sed -i "/^mibs/c #mibs" custom/snmp/etc/snmp/snmp.conf
+sed -i "s/^agentAddress/#agentAddress/" custom/snmp/etc/snmp/snmpd.conf
 sed -i "s/^#agentAddress udp:161/agentAddress udp:161/" custom/snmp/etc/snmp/snmpd.conf
+sed -i "s/-u Debian-snmp -g Debian-snmp//" custom/snmp/lib/systemd/system/snmpd.service
 # End Edit to match required settings for snmp and snmpd configuration
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/SNMP.zip
