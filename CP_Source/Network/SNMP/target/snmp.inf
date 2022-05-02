@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="snmp.tar.bz2"
+version="x.x.x"
+size="100M"
+name="snmp"
+minfw="11.05.133"
