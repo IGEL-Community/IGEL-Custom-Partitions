@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/awsvpn"
 
 # userhome
-USER_CONFIG="/userhome/.config/AWSVPNClient"
+#USER_CONFIG="/userhome/.config/AWSVPNClient"
 VPN_CONFIG="/userhome/AWS_VPN"
 
 # output to systemlog with ID amd tag
@@ -21,12 +21,12 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
-  if [ -L ${USER_CONFIG} ]; then
-    unlink ${USER_CONFIG}
-  fi
-  if [ -d ${USER_CONFIG} ]; then
-    rm -rf ${USER_CONFIG}
-  fi
+  #if [ -L ${USER_CONFIG} ]; then
+    #unlink ${USER_CONFIG}
+  #fi
+  #if [ -d ${USER_CONFIG} ]; then
+    #rm -rf ${USER_CONFIG}
+  #fi
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
 
@@ -44,7 +44,7 @@ init)
   done
 
   # basic persistency
-  chown -R user:users "${CP}${USER_CONFIG}"
+  #chown -R user:users "${CP}${USER_CONFIG}"
   chown -R user:users "${CP}${VPN_CONFIG}"
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO

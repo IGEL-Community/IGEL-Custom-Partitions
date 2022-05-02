@@ -38,9 +38,10 @@ done
 mv custom/awsvpn/usr/share/applications/ custom/awsvpn/usr/share/applications.mime
 
 mkdir -p custom/awsvpn/var/log/aws-vpn-client
-mkdir -p custom/awsvpn/userhome/.config/AWSVPNClient
+#mkdir -p custom/awsvpn/userhome/.config/AWSVPNClient
 mkdir -p custom/awsvpn/userhome/AWS_VPN
 cp $HOME/Downloads/*.ovpn custom/awsvpn/userhome/AWS_VPN
+chmod 444 custom/awsvpn/userhome/AWS_VPN
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/AWS_VPN.zip
 
