@@ -12,6 +12,7 @@ CP="${MP}/awsvpn"
 
 # userhome
 USER_CONFIG="/userhome/.config/AWSVPNClient"
+VPN_CONFIG="/userhome/AWS_VPN"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -44,6 +45,7 @@ init)
 
   # basic persistency
   chown -R user:users "${CP}${USER_CONFIG}"
+  chown -R user:users "${CP}${VPN_CONFIG}"
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
