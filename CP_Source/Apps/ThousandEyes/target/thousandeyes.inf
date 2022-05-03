@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="thousandeyes.tar.bz2"
+version="x.x.x"
+size="200M"
+name="thousandeyes"
+minfw="11.05.133"
