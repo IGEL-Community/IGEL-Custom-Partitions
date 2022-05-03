@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable awsvpnclient;
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable systemd-resolved.service; systemctl enable awsvpnclient;
 systemctl start awsvpnclient;</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
