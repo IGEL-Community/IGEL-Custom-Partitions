@@ -17,8 +17,8 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">rm -rf /wfs/user/.config/Microsoft/
-rm -rf /userhome/.config/Microsoft
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">rm -rf /custom/teams/userhome/.config/Microsoft/*
+rm -rf /userhome/.config/Microsoft/*
 </pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
