@@ -17,8 +17,42 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable systemd-resolved.service; systemctl enable awsvpnclient;
-systemctl start awsvpnclient;</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable systemd-resolved.service;
+systemctl enable awsvpnclient;
+systemctl start awsvpnclient;
+cat &amp;lt&amp;lt 'EOF' &amp;gt /tmp/rsync-awsvpn-config.sh
+#!/bin/sh
+#set -x
+#trap read debug
+
+# Assumption - This command is ONLY run at boot time!!!
+
+AWSVPN="/userhome/.config/AWSVPNClient"
+AWSVPN_CONNECTION="${AWSVPN}/OpenVpnConfigs/current_connection.txt"
+AWSVPN_BACKUP="/custom/awsvpn/userhome/.config/AWSVPNClient-backup"
+AWSVPN_BACKUP_CONNECTION="${AWSVPN_BACKUP}/OpenVpnConfigs/current_connection.txt"
+
+# On boot up - copy if it exists
+if &amp;lb -e ${AWSVPN_BACKUP_CONNECTION} &amp;rb; then
+  mkdir -p ${AWSVPN}
+  rsync -Pav ${AWSVPN_BACKUP}/ ${AWSVPN}
+  chown -R user:users ${AWSVPN}
+fi
+
+if &amp;lb ! -d ${AWSVPN_BACKUP} &amp;rb; then
+  mkdir -p ${AWSVPN_BACKUP}
+fi
+
+while true
+do
+  sleep 5
+  if &amp;lb -e ${AWSVPN_CONNECTION} &amp;rb; then
+    rsync --delete -Pav ${AWSVPN}/ ${AWSVPN_BACKUP}
+  fi
+done
+EOF
+chmod 700 /tmp/rsync-awsvpn-config.sh
+/tmp/rsync-awsvpn-config.sh &amp;amp</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
