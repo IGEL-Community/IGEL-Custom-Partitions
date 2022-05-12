@@ -1,4 +1,4 @@
-# Nutanix Frame (21 March) (Added note for 6.10.1)
+# Nutanix Frame (12 May) (Added note for 6.11.0)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -10,6 +10,23 @@
 | Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
 | Packaging Notes | See build script for details |
 | Package automation | [build-frame-cp.sh](build/build-frame-cp.sh) |
+
+-----
+
+# Frame 6.11.0
+
+## Frame App 6.11
+
+- Upgraded to Chromium 100
+- Added support to clear cache on close of Frame App in addition to startup when **Clear user local cache** is enabled
+
+## Frame App for Linux 6.11
+
+-	Fixed issue where secondary displays would also show Frame Gear Icon/Menu
+-	Fixed issue with keyboard shortcuts not working for shortcuts when **Windows** or **ALT** key is pressed first
+-	Fixed issue when in full-screen mode, switching focus to another Linux app and back to Frame App would result in a blank screen
+-	Fixed issue where after exiting full screen mode, Frame App menu bar shows up but there is no title bar or application window border and the Frame App window still takes up the full monitor without ability to resize.
+
 
 -----
 
