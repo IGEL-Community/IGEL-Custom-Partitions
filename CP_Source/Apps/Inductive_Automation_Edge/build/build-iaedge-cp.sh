@@ -34,7 +34,7 @@ cd ..
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Inductive_Automation_Edge.zip
 
 unzip Inductive_Automation_Edge.zip -d custom
-mv custom/target/build/iavision-cp-init-script.sh custom
+mv custom/target/build/iaedge-cp-init-script.sh custom
 
 cd custom
 
