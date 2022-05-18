@@ -2,7 +2,7 @@
 <profiles>
     <profile>
         <profile_id>5682</profile_id>
-        <profilename>Inductive Automation CP</profilename>
+        <profilename>Inductive Automation Edge CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
             <version>11.05.133.01</version>
@@ -34,6 +34,42 @@
                 <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMS_Server]:8443/ums_filetransfer/iaedge.inf</ivalue>
                 <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
+            </instance>
+            <instance classprefix="sessions.browser%" serialnumber="5632455b:180d8b2c5b9:-7fff127.0.1.1">
+                <ivalue classname="sessions.browser%.app.browser_startup_page" variableExpression="" variableSubstitutionActive="false">1</ivalue>
+                <ivalue classname="sessions.browser%.app.conv_homepage" variableExpression="" variableSubstitutionActive="false">http://localhost:8088</ivalue>
+                <ivalue classname="sessions.browser%.app.disable_savemodifier" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.app.param_conv" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.app.session_homepage" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.browser%.app.xineramamonitor" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.browser%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.browser%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.browser%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.autostartnotify" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.browser%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.browser%.final_action" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.browser%.firefox_version" variableExpression="" variableSubstitutionActive="false">78.6.1</ivalue>
+                <ivalue classname="sessions.browser%.gstreamer_version" variableExpression="" variableSubstitutionActive="false">bcr</ivalue>
+                <ivalue classname="sessions.browser%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.browser%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.browser%.icon" variableExpression="" variableSubstitutionActive="false">firefox</ivalue>
+                <ivalue classname="sessions.browser%.init_action" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.browser%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.browser%.name" variableExpression="" variableSubstitutionActive="false">IA Edge</ivalue>
+                <ivalue classname="sessions.browser%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.browser%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.browser%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.browser%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.browser%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.browser%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.browser%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.browser%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
             </instance>
         </instancesettings>
     </profile>
