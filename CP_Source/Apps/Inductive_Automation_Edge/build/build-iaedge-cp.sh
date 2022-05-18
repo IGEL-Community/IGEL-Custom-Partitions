@@ -26,7 +26,7 @@ cd custom
 
 IA_EDGE_DIR="iaedge/usr/local/bin/ignition"
 mkdir -p ${IA_EDGE_DIR}
-unzip $HOME/Downloads/Ignition-linux-64-*.zip -d ${IA_EDGE_DIR}
+unzip $HOME/Downloads/Ignition-Edge-linux-x86-64-*.zip -d ${IA_EDGE_DIR}
 chmod +x ${IA_EDGE_DIR}/*.sh
 
 cd ..
