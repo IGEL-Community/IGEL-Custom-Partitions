@@ -1,4 +1,4 @@
-# Zoom (5 April)
+# Zoom (19 May)
 
 |  CP Information  |             |
 |-----------------|-------------|
@@ -23,3 +23,9 @@
 
 Sample for setting German language (reboot required after CP deployed)
 ![zoomus.conf language German](build/zoom-zoomus.conf-lang-german.png)
+
+--------
+
+## Zoom Requirements
+
+[Zoom Virtual Background system requirements](https://support.zoom.us/hc/en-us/articles/360043484511)
