@@ -40,3 +40,9 @@ sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list
 sudo apt-get update
    ```
+
+-------
+
+## Microsoft Teams Notes
+
+[Microsoft Teams for Linux - Versions](https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/)
