@@ -1,4 +1,4 @@
-# Nutanix Frame (12 May) (Added note for 6.11.0)
+# Nutanix Frame (19 May) (Added note for 6.11.1)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -12,6 +12,16 @@
 | Package automation | [build-frame-cp.sh](build/build-frame-cp.sh) |
 
 -----
+
+# Frame 6.11.1
+
+Published on 2022-05-19
+
+Frame App 6.11.1 (Hotfix)
+
+This version is a hotfix to Frame App 6.11.0.
+
+- Fixed issue with ```addEventListener``` function which could prevent USB devices (including HID) from functioning properly from within the Frame session in certain situations.
 
 # Frame 6.11.0
 
