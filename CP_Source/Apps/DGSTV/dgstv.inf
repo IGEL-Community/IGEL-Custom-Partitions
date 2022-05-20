@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="dgstv.tar.bz2"
+version="1.1.1"
+size="400M"
+name="dgstv"
+minfw="11.05.133"
