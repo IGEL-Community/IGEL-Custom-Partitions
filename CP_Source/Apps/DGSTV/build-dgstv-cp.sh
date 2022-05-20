@@ -33,7 +33,7 @@ done
 
 mkdir -p custom/dgstv/usr/local
 wget https://vwest.com/Downloads/dgstv.test.tar.gz
-tar xvf dgstv.test.tar.gz -d custom/dgstv/usr/local
+tar xvf dgstv.test.tar.gz --directory custom/dgstv/usr/local
 
 echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
