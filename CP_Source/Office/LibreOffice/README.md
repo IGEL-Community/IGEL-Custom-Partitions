@@ -1,4 +1,4 @@
-# LibreOffice (9 March)
+# LibreOffice (1 May)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -11,6 +11,6 @@
 
 **NOTES**
 
-- For Help to open files in browser, you will need to enable browser (such as Firefox), allow the browser to read files on the filesystem, and disable **system.security.apparmor**.
+- For Help to open files in browser, you will need to enable Firefox browser, allow the browser to read files on the filesystem **Sessions > Firefox Browser > Firefox Browser Global > Security > Hide local filesystem (disable / false)**, and disable **system.security.apparmor**. A reboot is needed **before** the apparmor change is in effect.
 
 - The **version number is embedded in path** (currently 7.3) and references to 7.3 will need to be modified when 7.4 or later versions are released!
