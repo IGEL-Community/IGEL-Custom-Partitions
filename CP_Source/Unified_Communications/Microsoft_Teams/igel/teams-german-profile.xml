@@ -30,7 +30,7 @@ EOF
         </settings>
         <instancesettings>
             <instance classprefix="custom_partition.source%" serialnumber="3c0cb680:1759ea54c1a:-7ffc127.0.1.1">
-                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
                 <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/teams-cp-init-script.sh stop</ivalue>
                 <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/teams-cp-init-script.sh init</ivalue>
