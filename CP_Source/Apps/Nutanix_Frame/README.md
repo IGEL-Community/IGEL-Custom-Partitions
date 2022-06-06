@@ -1,4 +1,4 @@
-# Nutanix Frame (19 May) (Added note for 6.11.1)
+# Nutanix Frame (6 June) (Added command line options)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -10,6 +10,16 @@
 | Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
 | Packaging Notes | See build script for details |
 | Package automation | [build-frame-cp.sh](build/build-frame-cp.sh) |
+
+To launch Frame App with certain command line arguments, edit IGEL profile and append your command line argument(s) to the end of the command line.
+
+Use the table below to understand command line argument options and their syntax.
+
+| Command Line Argument | Description | Syntax |
+|-----------------------|-------------|--------|
+| displays-auto-arrange | Frame App will launch with virtual displays configured to match your local environment. | ./Frame" --displays-auto-arrange |
+| kiosk | Instructs Frame App to launch in full screen, a.k.a. “Kiosk mode.” | ./Frame" --kiosk |
+| url | Designates the startup URL. | ./Frame --url=console.nutanix.com |
 
 -----
 
