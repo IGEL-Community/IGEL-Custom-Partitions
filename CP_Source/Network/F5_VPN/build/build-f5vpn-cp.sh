@@ -40,7 +40,7 @@ chmod a+x ../custom/f5vpn/usr/local/lib/F5Networks/postinst/f5epi_postinst.sh
 cd ..
 rm -rf getpostinst
 
-dpkg -x $HOME/linux_f5vpn.x86_64.deb custom/f5vpn
+dpkg -x $HOME/Downloads/linux_f5vpn.x86_64.deb custom/f5vpn
 mkdir getpostinst
 cd getpostinst
 ar -x $HOME/Downloads/linux_f5vpn.x86_64.deb
