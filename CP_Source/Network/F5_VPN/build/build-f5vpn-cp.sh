@@ -60,7 +60,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x $HOME/Downloads/linxux_f5vpn.x86_64.deb
+ar -x $HOME/Downloads/linux_f5vpn.x86_64.deb
 tar xf control.tar.*
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
