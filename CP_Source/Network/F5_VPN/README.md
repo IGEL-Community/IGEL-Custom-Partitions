@@ -12,6 +12,12 @@
 
 [Using the Linux client f5fpc to connect to the BIG-IP APM network access for the first time](https://support.f5.com/csp/article/K47922841)
 
+Verify the f5fpc Linux client version by entering the following command:
+```
+/usr/local/bin/f5fpc -v
+/usr/local/bin/f5fpc --help
+  ```
+
 -----
 
 |  CP Information |            |
