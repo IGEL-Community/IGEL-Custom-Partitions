@@ -23,7 +23,7 @@ mkdir -p custom/userhome/.F5Networks
 dpkg -x $HOME/Downloads/linux_f5cli.x86_64.deb custom/f5vpn
 mkdir getpostinst
 cd getpostinst
-ar -x $HOME/Downloads/linxux_f5cli.x86_64.deb
+ar -x $HOME/Downloads/linux_f5cli.x86_64.deb
 tar xf control.tar.*
 cp postinst ../custom/f5vpn/usr/local/lib/F5Networks/postinst/f5cli_postinst.sh
 chmod a+x ../custom/f5vpn/usr/local/lib/F5Networks/postinst/f5cli_postinst.sh
@@ -33,7 +33,7 @@ rm -rf getpostinst
 dpkg -x $HOME/Downloads/linux_f5epi.x86_64.deb custom/f5vpn
 mkdir getpostinst
 cd getpostinst
-ar -x $HOME/Downloads/linxux_f5epi.x86_64.deb
+ar -x $HOME/Downloads/linux_f5epi.x86_64.deb
 tar xf control.tar.*
 cp postinst ../custom/f5vpn/usr/local/lib/F5Networks/postinst/f5epi_postinst.sh
 chmod a+x ../custom/f5vpn/usr/local/lib/F5Networks/postinst/f5epi_postinst.sh
@@ -43,7 +43,7 @@ rm -rf getpostinst
 dpkg -x $HOME/linux_f5vpn.x86_64.deb custom/f5vpn
 mkdir getpostinst
 cd getpostinst
-ar -x $HOME/Downloads/linxux_f5vpn.x86_64.deb
+ar -x $HOME/Downloads/linux_f5vpn.x86_64.deb
 tar xf control.tar.*
 cp postinst ../custom/f5vpn/usr/local/lib/F5Networks/postinst/f5vpn_postinst.sh
 chmod a+x ../custom/f5vpn/usr/local/lib/F5Networks/postinst/f5vpn_postinst.sh
