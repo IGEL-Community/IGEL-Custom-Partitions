@@ -58,7 +58,7 @@ cd custom
 tar cvjf target/dgstv.tar.bz2 dgstv dgstv-cp-init-script.sh
 zip -g ../DGSTV.zip target/dgstv.tar.bz2 target/dgstv.inf
 zip -d ../DGSTV.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../DGSTV.zip ../../DGSTV-${VERSION}_igel01.zip
+mv ../DGSTV.zip ../../DGSTV-1.1.1_igel01.zip
 
 cd ../..
 rm -rf build_tar
