@@ -1,4 +1,4 @@
-# DGSTV (20 May - Development Testing)
+# DGSTV (9 June - Development Testing)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -7,7 +7,7 @@
 | CP Size | 400M |
 | IGEL OS Version (min) | 11.05.133 |
 | Packaging Notes | See build script |
-| Package automation | [build-dgstv-cp.sh](build-dgstv-cp.sh) |
+| Package automation | [build-dgstv-cp.sh](build/build-dgstv-cp.sh) |
 
 **NOTE:** This application uses Mono () and the build script needs to be debugged.
 

@@ -44,17 +44,21 @@ chmod a+x clean_cp_usr_share.sh
 ./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/dgstv/usr/share
 echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
+# copy libc
+cp /lib/x86_64-linux-gnu/libc.so.6 custom/dgstv/usr/lib/libc.so
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/DGSTV.zip
 
 unzip DGSTV.zip -d custom
-mv custom/target/dgstv-cp-init-script.sh custom
+mv custom/target/build/dgstv-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf dgstv.tar.bz2 dgstv dgstv-cp-init-script.sh
-mv dgstv.tar.bz2 ../..
-mv target/dgstv.inf ../..
-mv igel/*.xml ../..
+# new build process into zip file
+tar cvjf target/dgstv.tar.bz2 dgstv dgstv-cp-init-script.sh
+zip -g ../DGSTV.zip target/dgstv.tar.bz2 target/dgstv.inf
+zip -d ../DGSTV.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../DGSTV.zip ../../DGSTV-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
