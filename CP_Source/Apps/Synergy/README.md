@@ -1,4 +1,4 @@
-# Synergy (20 March)
+# Synergy (13 June)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -10,4 +10,4 @@
 | Path to Executable | /custom/synergy/usr/bin/synergy |
 | Path to Icon | /custom/synergy/usr/share/icons/hicolor/scalable/apps/synergy.svg |
 | Packaging Notes | Details can be found in the build script |
-| Package automation | [build-synergy-cp.sh](build/build-synergy-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
+| Package automation | [build-synergy-cp.sh](build/build-synergy-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 <br /> <br /> Tested with 1.14.4 (2022-13 June)

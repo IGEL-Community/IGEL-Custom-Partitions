@@ -6,7 +6,7 @@
 ## Development machine (Ubuntu 18.04)
 # Obtain latest package and save into Downloads
 # Download Latest App for Linux (Debian)
-#synergy_1.14.2-stable.c6918b74_ubuntu18_amd64.deb
+#synergy_1.14.4-stable.ad7273eb_ubuntu18_amd64.deb
 if ! compgen -G "$HOME/Downloads/synergy_*_ubuntu18_amd64.deb" > /dev/null; then
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
