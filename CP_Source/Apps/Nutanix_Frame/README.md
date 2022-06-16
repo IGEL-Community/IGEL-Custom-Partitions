@@ -1,4 +1,4 @@
-# Nutanix Frame (6 June) (Added command line options)
+# Nutanix Frame (16 June)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -20,6 +20,38 @@ Use the table below to understand command line argument options and their syntax
 | displays-auto-arrange | Frame App will launch with virtual displays configured to match your local environment. | ./Frame" --displays-auto-arrange |
 | kiosk | Instructs Frame App to launch in full screen, a.k.a. “Kiosk mode.” | ./Frame" --kiosk |
 | url | Designates the startup URL. | ./Frame --url=console.nutanix.com |
+
+-----
+
+# Frame 6.12.0
+
+Published on 2022-06-16
+
+Frame App 6.12.0
+
+Added:
+
+General
+
+- Support for locking mouse back/forward buttons while in session to prevent users from accidentally exiting the session.
+
+- Support to enable/disable locking mouse back/forward buttons via command line argument (disable-mouse-lock).
+
+Fixed:
+
+General
+
+- Users can now exit full screen and kiosk mode by pressing and holding Esc for 5 seconds (previously 10 seconds).
+
+Frame App for Linux
+
+- Issue where Windows key can become unresponsive in session.
+
+- Issue where Ctrl, Alt, and Meta keys can become stuck in session.
+
+- Issue where Linux error logs are not sent to Frame Platform.
+
+- Changing application name from Frame Native Terminal to just Frame.
 
 -----
 
