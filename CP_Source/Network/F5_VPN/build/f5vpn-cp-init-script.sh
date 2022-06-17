@@ -45,11 +45,16 @@ init)
   # run postinst scripts
   /custom/f5vpn/usr/local/lib/F5Networks/postinst/f5cli_postinst.sh
   /custom/f5vpn/usr/local/lib/F5Networks/postinst/f5epi_postinst.sh
-  /custom/f5vpn/usr/local/lib/F5Networks/postinst/f5vpn_postinst.sh  
+  /custom/f5vpn/usr/local/lib/F5Networks/postinst/f5vpn_postinst.sh
 
   # basic persistency
   #chown -R user:users "${CP}${USER_CONFIG}"
   chown -R user:users "${CP}${VPN_CONFIG}"
+
+  # Add apparmor profile to trust in Firefox to make SSO possible
+  # We do this by a systemd service to run the reconfiguration
+  # surely after apparmor.service!!!
+  systemctl --no-block start igel-f5vpn-cp-apparmor-reload.service  
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then

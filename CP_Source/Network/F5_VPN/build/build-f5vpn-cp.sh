@@ -50,9 +50,16 @@ chmod a+x ../custom/f5vpn/usr/local/lib/F5Networks/postinst/f5vpn_postinst.sh
 cd ..
 rm -rf getpostinst
 
+mkdir -p custom/f5vpn/usr/share/applications.mime
+cp custom/f5vpn/opt/f5/vpn/com.f5.f5vpn.desktop custom/f5vpn/usr/share/applications.mime
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/F5_VPN.zip
 
 unzip F5_VPN.zip -d custom
+mkdir -p custom/f5vpn/config/bin
+mkdir -p custom/f5vpn/lib/systemd/system
+mv custom/target/build/f5vpn_cp_apparmor_reload custom/f5vpn/config/bin
+mv custom/target/build/igel-f5vpn-cp-apparmor-reload.service custom/f5vpn/lib/systemd/system/
 mv custom/target/build/f5vpn-cp-init-script.sh custom
 
 cd custom
