@@ -2,28 +2,28 @@
 
 # Check if all the required envs are set correctly
 if [ -z "${FRAME_CLIENT_ID}" ] || [ -z "${FRAME_CLIENT_SECRET}" ] || [ -z "${FRAME_ANONYMOUS_PROVIDER_NAME}" ] || [ -z "${FRAME_ORGANIZATION_ID}" ] || [ -z "${FRAME_EMAIL_DOMAIN}" ]; then
-    echo "Nutanix XI Frame: Please fill FRAME_CLIENT_ID, FRAME_CLIENT_SECRET, FRAME_EMAIL_DOMAIN, FRAME_ORGANIZATION_ID and FRAME_ANONYMOUS_PROVIDER_NAME environment variables"
+    echo "Nutanix Frame: Please fill FRAME_CLIENT_ID, FRAME_CLIENT_SECRET, FRAME_EMAIL_DOMAIN, FRAME_ORGANIZATION_ID and FRAME_ANONYMOUS_PROVIDER_NAME environment variables"
     exit 1
 else
 
     case $FRAME_ENV in
 
     production | "")
-        echo "Nutanix XI Frame: Configured environment is: production"
+        echo "Nutanix Frame: Configured environment is: production"
         cpanel_api="https://cpanel-backend-prod.frame.nutanix.com/api/graphql"
         cpanel_gateway_api="https://api.console.nutanix.com/v1/organizations/${FRAME_ORGANIZATION_ID}/secure-anonymous/${FRAME_ANONYMOUS_PROVIDER_NAME}/tokens"
         frame_url="https://console.nutanix.com"
         ;;
 
     staging)
-        echo "Nutanix XI Frame: Configured environment is: staging"
+        echo "Nutanix Frame: Configured environment is: staging"
         cpanel_api="https://cpanel-backend-staging.staging.frame.nutanix.com/api/graphql"
         cpanel_gateway_api="https://api.staging.frame.nutanix.com/v1/organizations/${FRAME_ORGANIZATION_ID}/secure-anonymous/${FRAME_ANONYMOUS_PROVIDER_NAME}/tokens"
         frame_url="https://frame.staging.nutanix.com"
         ;;
 
     *)
-        echo "Nutanix XI Frame: FRAME_ENV variable doesn't match any of the known environments: $FRAME_ENV"
+        echo "Nutanix Frame: FRAME_ENV variable doesn't match any of the known environments: $FRAME_ENV"
         exit 1
         ;;
     esac
@@ -67,11 +67,10 @@ setAutoLaunch() {
     "operationName": "SetUserPreferencesMutation",
     "variables": {
         "desktopAutoLaunch": true,
-        "terminalShortcuts": false,
         "enableQuickLaunch": false,
         "__typename": "UserPreferences"
         },
-    "query": "mutation SetUserPreferencesMutation($desktopAutoLaunch: Boolean!, $terminalShortcuts: Boolean!, $enableQuickLaunch: Boolean!) { setUserPreferences(desktopAutoLaunch: $desktopAutoLaunch, terminalShortcuts: $terminalShortcuts, enableQuickLaunch: $enableQuickLaunch) { id } }"
+    "query": "mutation SetUserPreferencesMutation($desktopAutoLaunch: Boolean!, $enableQuickLaunch: Boolean!) { setUserPreferences(desktopAutoLaunch: $desktopAutoLaunch, enableQuickLaunch: $enableQuickLaunch) { id } }"
     }'
     result="$(wget -q -O - $cpanel_api \
         --post-data "$request_body" \
@@ -81,7 +80,7 @@ setAutoLaunch() {
 }
 runFrame() {
     # Clear cache from previous session
-    rm -Rf .Nutanix/Frame/cache/
+    rm -Rf /custom/frame/userhome/.Nutanix/Frame/cache
 
     # Run Frame terminal
     #/custom/frame/usr/lib/frame/Frame --kiosk --force-gpu --url="$frame_url/#token=$token"
@@ -93,7 +92,7 @@ getToken
 
 # Confirm that token is obtained succefully
 if [ -z "$token" ]; then
-    echo "Nutanix XI Frame: Unable to obtain anonymous token. Exiting"
+    echo "Nutanix Frame: Unable to obtain anonymous token. Exiting"
     exit 1
 
 else
