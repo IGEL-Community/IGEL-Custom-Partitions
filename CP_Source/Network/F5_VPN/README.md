@@ -1,4 +1,4 @@
-# F5 VPN Client (17 June) (Debug Testing)
+# F5 VPN Client (17 June)
 
 -----
 
