@@ -29,7 +29,7 @@
                 <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/wireshark-cp-init-script.sh init</ivalue>
                 <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/wireshark-cp-init-script.sh stop</ivalue>
                 <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="true"></ivalue>
             </instance>
             <instance classprefix="sessions.custom_application%" serialnumber="15b384e4:179b92ebe92:-7ffe127.0.1.1">
                 <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
