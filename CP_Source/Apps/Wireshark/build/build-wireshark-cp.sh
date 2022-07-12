@@ -31,16 +31,29 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Wireshark.zip -d custom
 mkdir -p custom/wireshark/config/bin
 mkdir -p custom/wireshark/lib/systemd/system
-mv custom/target/wireshark_cp_apparmor_reload custom/wireshark/config/bin
-mv custom/target/igel-wireshark-cp-apparmor-reload.service custom/wireshark/lib/systemd/system/
-mv custom/target/wireshark-cp-init-script.sh custom
+mv custom/target/build/wireshark_cp_apparmor_reload custom/wireshark/config/bin
+mv custom/target/build/igel-wireshark-cp-apparmor-reload.service custom/wireshark/lib/systemd/system/
+mv custom/target/build/wireshark-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf wireshark.tar.bz2 wireshark wireshark-cp-init-script.sh
-mv wireshark.tar.bz2 ../..
-mv target/wireshark.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x ../../wireshark_*_amd64.deb
+tar xf control.tar.* ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/wireshark.inf
+#echo "wireshark.inf file is:"
+#cat target/wireshark.inf
+
+# new build process into zip file
+tar cvjf target/wireshark.tar.bz2 wireshark wireshark-cp-init-script.sh
+zip -g ../Wireshark.zip target/wireshark.tar.bz2 target/wireshark.inf
+zip -d ../Wireshark.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Wireshark.zip ../../Wireshark-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
