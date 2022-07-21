@@ -11,8 +11,8 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/silverfort"
 
 # Google user directories
-SILVERFORT_USER_CONFIG="/userhome/.config/Silverfort\ Client/"
-SILVERFORT_USER_PKI="/userhome/.pki/nssdb"
+SILVERFORT_USER_CONFIG="/userhome/.config"
+SILVERFORT_USER_PKI="/userhome/.pki"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
