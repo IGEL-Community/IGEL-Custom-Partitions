@@ -14,7 +14,7 @@
 
 ## Packaging notes (Version: 2.5.6-297)
 
-- Configured the Desktop App to start automatically
+- Configured the Desktop App to start automatically (**NOTE**: A reboot is needed after CP deployed)
 
 ### Steps to be done on each client
 
