@@ -18,11 +18,11 @@ cd build_tar
 
 mkdir -p custom/silverfort
 
-dpkg -x $HOME/Downloads/silverfort-client_*_amd64.deb /custom/silverfort
+dpkg -x $HOME/Downloads/silverfort-client_*_amd64.deb custom/silverfort
 
 mv custom/silverfort/usr/share/applications/ custom/silverfort/usr/share/applications.mime
-mkdir -p /custom/silverfort/userhome/.pki/nssdb
-mkdir -p /custom/silverfort/userhome/.config/Silverfort\ Client/
+mkdir -p custom/silverfort/userhome/.pki/nssdb
+mkdir -p custom/silverfort/userhome/.config/Silverfort\ Client/
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Silverfort.zip
 
