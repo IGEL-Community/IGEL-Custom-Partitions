@@ -2,7 +2,7 @@
 
 |  CP Information |            |
 |-----------------|------------|
-| Package | Silverfort Client - Current Stable Version |
+| Package | [Silverfort Client](https://www.silverfort.com/product) - Current Stable Version |
 | Script Name | [silverfort-cp-init-script.sh](build/silverfort-cp-init-script.sh) |
 | CP Mount Path | /custom/silverfort |
 | CP Size | 400M |
