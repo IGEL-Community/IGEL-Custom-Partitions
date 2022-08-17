@@ -8,6 +8,8 @@
 | Packaging Notes | See build script |
 | Package automation | [build-onedrive-cp.sh](build/build-onedrive-cp.sh) |
 
+**NOTE:** A reboot is required after CP deployed.
+
 -----
 
 # Details on Usage: [Usage](https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md)
@@ -31,11 +33,23 @@ Pattern  are  case  insensitive.  * and ? wildcards characters are supported.  U
 
 After installing the application you must run it at least once from the terminal to authorize it.
 
+```text
+/usr/local/bin/onedrive
+  ```
+
 You will be asked to open a specific link using your web browser  where you  will have to login into your Microsoft Account and give the application the permission to access your files. After  giving  the  permission, you will be redirected to a blank page. Copy the URI of the blank page into the application.
 
 ## Performing a selective sync via 'sync_list' file
 
 [Selective sync](https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#performing-a-selective-sync-via-sync_list-file) allows you to sync only specific files and directories. To enable selective sync create a file named `sync_list` in your application configuration directory (default is `~/.config/onedrive`). Each line of the file represents a relative path from your `sync_dir`. All files and directories not matching any line of the file will be skipped during all operations.
+
+## Testing your configuration
+
+You are able to [test your configuration](https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#testing-your-configuration) by utilising the `--dry-run` CLI option. No files will be downloaded, uploaded or removed, however the application will display what 'would' have occurred. For example:
+
+```text
+/usr/local/bin/onedrive --synchronize --verbose --dry-run
+  ```
 
 ## SYSTEMD INTEGRATION
 
