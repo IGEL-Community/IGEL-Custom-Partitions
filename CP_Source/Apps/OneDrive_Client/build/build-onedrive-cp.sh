@@ -28,8 +28,8 @@ mkdir -p custom/onedrive/usr/local/bin
 mkdir -p custom/onedrive/usr/local/etc/logrotate.d
 mkdir -p custom/onedrive/lib/systemd/system
 mkdir -p custom/onedrive/usr/lib/systemd/user
-mkdir -p custom/userhome/.config/onedrive
-mkdir -p custom/userhome/OneDrive
+mkdir -p custom/onedrive/userhome/.config/onedrive
+mkdir -p custom/onedrive/userhome/OneDrive
 
 cp compile/onedrive/onedrive custom/onedrive/usr/local/bin
 chmod 0644 custom/onedrive/usr/local/bin/onedrive
