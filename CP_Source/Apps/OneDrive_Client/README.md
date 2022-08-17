@@ -33,6 +33,10 @@ After installing the application you must run it at least once from the terminal
 
 You will be asked to open a specific link using your web browser  where you  will have to login into your Microsoft Account and give the application the permission to access your files. After  giving  the  permission, you will be redirected to a blank page. Copy the URI of the blank page into the application.
 
+## Performing a selective sync via 'sync_list' file
+
+[Selective sync](https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#performing-a-selective-sync-via-sync_list-file) allows you to sync only specific files and directories. To enable selective sync create a file named `sync_list` in your application configuration directory (default is `~/.config/onedrive`). Each line of the file represents a relative path from your `sync_dir`. All files and directories not matching any line of the file will be skipped during all operations.
+
 ## SYSTEMD INTEGRATION
 
 **NOTE:** This is configured into the profile to enable and start onedrive service.

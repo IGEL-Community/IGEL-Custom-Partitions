@@ -32,9 +32,9 @@ mkdir -p custom/onedrive/userhome/.config/onedrive
 mkdir -p custom/onedrive/userhome/OneDrive
 
 cp compile/onedrive/onedrive custom/onedrive/usr/local/bin
-chmod 0644 custom/onedrive/usr/local/bin/onedrive
+chmod 0755 custom/onedrive/usr/local/bin/onedrive
 cp compile/onedrive/config custom/onedrive/userhome/.config/onedrive
-chmod 0644 custom/onedrive/usr/local/bin/onedrive
+chmod 0644 custom/onedrive/userhome/.config/onedrive/config
 cp compile/onedrive/contrib/logrotate/onedrive.logrotate custom/onedrive/usr/local/etc/logrotate.d/onedrive
 chmod 0644 custom/onedrive/usr/local/etc/logrotate.d/onedrive
 cp compile/onedrive/contrib/systemd/onedrive@.service custom/onedrive/lib/systemd/system
