@@ -47,7 +47,7 @@
                 <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
                 <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">LibreOffice</ivalue>
                 <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/libreoffice/usr/share/icons/hicolor/256x256/apps/libreoffice7.3-main.png</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/libreoffice/usr/share/icons/hicolor/256x256/apps/libreoffice7.4-main.png</ivalue>
                 <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
                 <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
