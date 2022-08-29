@@ -10,11 +10,13 @@ sudo dpkg -i packages-microsoft-prod.deb
 rm -f packages-microsoft-prod.deb
 sudo apt-get update
 
+MISSING_LIBS_6_0="aspnetcore-runtime-6.0 dotnet-host dotnet-hostfxr-6.0 dotnet-runtime-6.0 dotnet-runtime-deps-6.0"
 MISSING_LIBS_5_0="aspnetcore-runtime-5.0 dotnet-host dotnet-hostfxr-5.0 dotnet-runtime-5.0 dotnet-runtime-deps-5.0"
 MISSING_LIBS_3_1="aspnetcore-runtime-3.1 dotnet-host dotnet-hostfxr-3.1 dotnet-runtime-3.1 dotnet-runtime-deps-3.1"
 
-# default build is for 5.0
-MISSING_LIBS=$MISSING_LIBS_5_0
+# default build is for 6.0
+MISSING_LIBS=$MISSING_LIBS_6_0
+#MISSING_LIBS=$MISSING_LIBS_5_0
 #MISSING_LIBS=$MISSING_LIBS_3_1
 
 mkdir build_tar
