@@ -38,10 +38,23 @@ mv custom/target/dotnet-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf dotnet.tar.bz2 dotnet dotnet-cp-init-script.sh
-mv dotnet.tar.bz2 ../..
-mv target/dotnet.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x ../../dotnet-runtime-[3-9]*_amd64.deb
+tar xf control.tar.* ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/dotnet.inf
+#echo "dotnet.inf file is:"
+#cat target/dotnet.inf
+
+# new build process into zip file
+tar cvjf target/dotnet.tar.bz2 dotnet dotnet-cp-init-script.sh
+zip -g ../Microsoft_NET_Runtime.zip target/dotnet.tar.bz2 target/dotnet.inf
+zip -d ../Microsoft_NET_Runtime.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Microsoft_NET_Runtime.zip ../../Microsoft_NET_Runtime-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
