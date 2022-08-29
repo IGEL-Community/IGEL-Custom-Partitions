@@ -2,12 +2,12 @@
 <profiles>
     <profile>
         <profile_id>10688</profile_id>
-        <profilename>Microsoft .NET 5.0 CP</profilename>
+        <profilename>Microsoft .NET 6.0 CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
             <version>11.05.133.01</version>
         </firmware>
-        <description>Microsoft .NET 5.0</description>
+        <description>Microsoft .NET 6.0</description>
         <overwritesessions>false</overwritesessions>
         <is_master_profile>false</is_master_profile>
         <is_igel_os>true</is_igel_os>
