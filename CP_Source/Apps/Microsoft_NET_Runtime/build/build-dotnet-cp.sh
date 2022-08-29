@@ -34,7 +34,7 @@ done
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Microsoft_NET_Runtime.zip
 
 unzip Microsoft_NET_Runtime.zip -d custom
-mv custom/target/dotnet-cp-init-script.sh custom
+mv custom/target/build/dotnet-cp-init-script.sh custom
 
 cd custom
 
