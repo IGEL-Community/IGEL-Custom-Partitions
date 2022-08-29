@@ -2,7 +2,7 @@
 #set -x
 #trap read debug
 
-# Creating an IGELOS CP for Microsoft .NET 5.0 or 3.1 Runtime
+# Creating an IGELOS CP for Microsoft .NET 6.0, 5.0, or 3.1 Runtime
 ## Development machine (Ubuntu 18.04)
 sudo apt install unzip -y
 wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
