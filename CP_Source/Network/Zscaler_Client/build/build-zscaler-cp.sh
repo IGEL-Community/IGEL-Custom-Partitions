@@ -54,7 +54,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x ../../zscaler_*_amd64.deb
+ar -x $HOME/Downloads/zscaler-client_*_amd64.deb
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
