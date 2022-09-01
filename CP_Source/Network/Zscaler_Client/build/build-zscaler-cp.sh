@@ -40,8 +40,8 @@ wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/mas
 chmod a+x clean_cp_usr_lib.sh
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
 chmod a+x clean_cp_usr_share.sh
-./clean_cp_usr_lib.sh 11.05.133_usr_lib.txt custom/zscaler/usr/lib
-./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/zscaler/usr/share
+./clean_cp_usr_lib.sh 11.07.100_usr_lib.txt custom/zscaler/usr/lib
+./clean_cp_usr_share.sh 11.07.100_usr_share.txt custom/zscaler/usr/share
 echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Zscaler_Client.zip

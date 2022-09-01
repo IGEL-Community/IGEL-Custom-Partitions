@@ -2,6 +2,6 @@
 [PART]
 file="zscaler.tar.bz2"
 version="X.X.X"
-size="200M"
+size="500M"
 name="zscaler"
-minfw="11.05.133"
+minfw="11.07.100"
