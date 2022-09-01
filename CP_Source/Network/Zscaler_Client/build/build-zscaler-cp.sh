@@ -44,7 +44,7 @@ chmod a+x clean_cp_usr_share.sh
 ./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/zscaler/usr/share
 echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Zscaler_Client.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Zscaler_Client.zip
 
 unzip Zscaler_Client.zip -d custom
 mv custom/target/build/zscaler-cp-init-script.sh custom
