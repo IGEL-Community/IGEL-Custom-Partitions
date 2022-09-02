@@ -1,4 +1,4 @@
-# LibreOffice (1 May)
+# LibreOffice (22 August)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -7,10 +7,10 @@
 | CP Size | 900M |
 | IGEL OS Version (min) | 11.05.133 |
 | Packaging Notes | See build script for details. |
-| Package automation | [build-libreoffice-cp.sh](build/build-libreoffice-cp.sh) <br /><br /> Tested with 7.3.X |
+| Package automation | [build-libreoffice-cp.sh](build/build-libreoffice-cp.sh) <br /><br /> Tested with 7.4.X |
 
 **NOTES**
 
 - For Help to open files in browser, you will need to enable Firefox browser, allow the browser to read files on the filesystem **Sessions > Firefox Browser > Firefox Browser Global > Security > Hide local filesystem (disable / false)**, and disable **system.security.apparmor**. A reboot is needed **before** the apparmor change is in effect.
 
-- The **version number is embedded in path** (currently 7.3) and references to 7.3 will need to be modified when 7.4 or later versions are released!
+- The **version number is embedded in path** (currently 7.4) and references to 7.4 will need to be modified if using a different version.
