@@ -11,4 +11,6 @@
 | Package automation | [build-zscaler-cp.sh](build/build-zscaler-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
 
 
-**Note:** Use the [/custom/zscaler/opt/zscaler/scripts/zscaler-config](https://help.zscaler.com/client-connector/customizing-zscaler-client-connector-install-options-linux#Silent) script to edit the /custom/zscaler/opt/zscaler/.config.ini file.
+**Note [1]:** Use the [/custom/zscaler/opt/zscaler/scripts/zscaler-config](https://help.zscaler.com/client-connector/customizing-zscaler-client-connector-install-options-linux#Silent) script to edit the /custom/zscaler/opt/zscaler/.config.ini file.
+
+**Note [2]:** A reboot is required after CP is deployed.
