@@ -40,7 +40,8 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Nutanix_Frame.zip -d custom
 mkdir -p custom/frame/usr/share/pixmaps
 mv custom/target/build/Frame.png custom/frame/usr/share/pixmaps
-mv custom/target/build/frame-launcher.sh custom/frame
+mv custom/target/build/frame-saml2-kiosk-launcher.sh custom/frame
+mv custom/target/build/frame-sat-kiosk-launcher.sh custom/frame
 mv custom/target/build/frame-cp-init-script.sh custom
 mkdir -p custom/frame/etc/nutanix-frame
 mv custom/target/build/etc_nutanix-frame_preferences.conf custom/frame/etc/nutanix-frame/preferences.conf
