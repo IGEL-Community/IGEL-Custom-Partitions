@@ -1,22 +1,20 @@
-# Microsoft .NET 5.0 or 3.1 Runtime (9 December)
+# Microsoft .NET 6.0, 5.0, or 3.1 Runtime (29 August)
 
 |  CP Information |            |
 |-----------------|------------|
-| Package | [Microsoft .NET 5.0 or 3.1 Runtime](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
-| Script Name | [dotnet-cp-init-script.sh](dotnet-cp-init-script.sh) |
+| Package | [Microsoft .NET 6.0, 5.0, or 3.1 Runtime](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
+| Script Name | [dotnet-cp-init-script.sh](build/dotnet-cp-init-script.sh) |
 | CP Mount Path | /custom/dotnet |
-| CP Size | 200M |
-| IGEL OS Version (min) | 11.4.240 |
-| Metadata File <br /> dotnet.inf | [INFO] <br /> [PART] <br /> file="dotnet.tar.bz2" <br /> version="5.0" <br /> size="200M" <br /> name="dotnet" <br /> minfw="11.04.240" |
 | Packing Notes | See build script for details |
-| Package automation | [build-dotnet-cp.sh](build-dotnet-cp.sh) |
+| Package automation | [build-dotnet-cp.sh](build/build-dotnet-cp.sh) |
 
 **NOTE:**
 
-Default build is for 5.0 and can be changed to 3.1 in the build script as noted below:
+Default build is for 6.0 and can be changed in the build script as noted below:
 
 ```
-# default build is for 5.0
-MISSING_LIBS=$MISSING_LIBS_5_0
+# default build is for 6.0
+MISSING_LIBS=$MISSING_LIBS_6_0
+#MISSING_LIBS=$MISSING_LIBS_5_0
 #MISSING_LIBS=$MISSING_LIBS_3_1
    ```

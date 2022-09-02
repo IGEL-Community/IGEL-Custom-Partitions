@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="onedrive.tar.bz2"
+version="X.X"
+size="600M"
+name="onedrive"
+minfw="11.05.133"

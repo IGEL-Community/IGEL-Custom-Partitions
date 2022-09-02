@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="element.tar.bz2"
+version="x.x.x"
+size="500M"
+name="element"
+minfw="11.05.133"
