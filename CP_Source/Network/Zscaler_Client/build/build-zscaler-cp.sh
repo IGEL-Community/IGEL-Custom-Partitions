@@ -33,6 +33,8 @@ done
 
 mv custom/zscaler/usr/share/applications/ custom/zscaler/usr/share/applications.mime
 mv custom/zscaler/opt/zscaler/bin/ZSTray.Deb custom/zscaler/opt/zscaler/bin/ZSTray
+rm -f custom/zscaler/opt/zscaler/bin/ZSTray.R*
+
 mkdir -p custom/zscaler/userhome/.Zscaler
 
 echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
