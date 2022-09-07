@@ -29,6 +29,8 @@
 # FRAME_LAUNCH_URL - obtained from Dashboard > Launchpad > Advanced Integrations for the Launch Link. The FRAME_LAUNCH_URL could have a Launchpad URL.
 # FRAME_TERMINAL_CONFIG_ID - obtainable from the Launch Link URL.
 #
+# Visit Frame's documentation at https://docs.frame.nutanix.com
+
 # Updated July 29, 2022
 #
 
