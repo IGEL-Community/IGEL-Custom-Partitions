@@ -12,3 +12,7 @@
 | Package automation | [build-edge_stable-cp.sh](build/build-edge_stable-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
 
 **NOTE:** [Beta build can be found here](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/CP_Source/Browsers/Microsoft_Edge)
+
+---------
+
+[How to use Microsoft Edge command-line options to configure proxy settings](https://docs.microsoft.com/en-us/deployedge/edge-learnmore-cmdline-options-proxy-settings)
