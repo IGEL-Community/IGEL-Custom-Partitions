@@ -16,8 +16,9 @@ mkdir -p build_tar/compile
 cd build_tar/compile
 git clone https://github.com/GNOME/orca.git
 cd orca
-./autogen.sh --prefix=`pwd`/bld && make && make install
-ORCA_BUILD_PATH=$(pwd)
+ORCA_BUILD_PATH=/custom/orca/usr
+sudo mkdir -p $ORCA_BUILD_PATH
+./autogen.sh --prefix=$ORCA_BUILD_PATH && make && make install
 cd ../../..
 # END build Orca
 
@@ -31,11 +32,13 @@ mkdir -p custom/orca
 
 # START copy Orca build
 mkdir -p custom/orca/usr/bin
-cp -R $ORCA_BUILD_PATH/bld/bin/* custom/orca/usr/bin
+cp -R $ORCA_BUILD_PATH/bin/* custom/orca/usr/bin
 mkdir -p custom/orca/usr/lib
-cp -R $ORCA_BUILD_PATH/bld/lib/* custom/orca/usr/lib
+cp -R $ORCA_BUILD_PATH/lib/* custom/orca/usr/lib
 mkdir -p custom/orca/usr/share
-cp -R $ORCA_BUILD_PATH/bld/share/* custom/orca/usr/share
+cp -R $ORCA_BUILD_PATH/share/* custom/orca/usr/share
+mkdir -p custom/orca/etc
+cp -R $ORCA_BUILD_PATH/etc/* custom/orca/etc
 # END copy Orca build
 
 find . -type f -name "*.deb" | while read LINE
