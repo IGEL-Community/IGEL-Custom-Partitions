@@ -1,7 +1,0 @@
-[INFO]
-[PART]
-file="orca.tar.bz2"
-version="X.X.X"
-size="100M"
-name="orca"
-minfw="11.05.133"
