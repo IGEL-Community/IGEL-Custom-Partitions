@@ -19,6 +19,7 @@ cd orca
 ORCA_BUILD_PATH=$(pwd)
 ORCA_PATH=/custom/orca/usr
 sudo mkdir -p $ORCA_PATH
+sudo chmod -R 777 $ORCA_PATH
 ./autogen.sh --prefix=$ORCA_PATH && make && make install
 cd ../../..
 # END build Orca
@@ -40,6 +41,7 @@ mkdir -p custom/orca/usr/share
 cp -R $ORCA_PATH/share/* custom/orca/usr/share
 mkdir -p custom/orca/etc
 cp -R $ORCA_PATH/etc/* custom/orca/etc
+sudo rm -rf $ORCA_PATH
 # END copy Orca build
 
 find . -type f -name "*.deb" | while read LINE
