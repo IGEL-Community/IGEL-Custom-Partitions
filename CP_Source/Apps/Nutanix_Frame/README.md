@@ -23,6 +23,34 @@ Use the table below to understand command line argument options and their syntax
 
 -----
 
+# Frame 6.13.0
+
+Published on 2022-09-15
+
+Frame App 6.13.0
+
+Added:
+
+General
+
+- New Help menu when starting Frame App via command line with --help argument. Displays all available command line arguments.
+
+- Option for users to configure time (in seconds) in which Esc key must be pressed in order to exit full-screen mode (configurable via Preferences menu or command line).
+
+Fixed:
+
+General
+
+- Issue where Frame App may crash unexpectedly resulting in a white screen. Also added ability for users to reload Frame App and return to Launchpad to resume their sessions in these situations.
+
+Frame App for Linux
+
+- Issue where Frame App application window may appear small upon start depending on screen resolution.
+
+Additional reliability fixes.
+
+-----
+
 # Frame 6.12.0
 
 Published on 2022-06-16
