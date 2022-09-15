@@ -4,25 +4,25 @@
 #
 # The following end user experience workflow is supported with this script:
 #
-#   1. Frame app's cache is wiped to ensure a fresh session and authentication.
-#   2. Frame app is Launched in Kiosk Mode with multiple monitor support, presenting IDP's login screen.
+#   1. Frame App's cache is wiped to ensure a fresh session and authentication.
+#   2. Frame App is launched in Kiosk Mode with multiple monitor support, presenting a third-party identity provider's login screen.
 #   3. After logging in, end users will be taken by Frame App directly to the desktop or application (depends on the Launch Link configuration).
 #   4. When a Frame session starts, the remote desktop will be in full-screen mode.
-#   5. When end users disconnects by action or inactivity timeout, they'll see an option to resume their session for the duration of the account/launchpad's configured idle timeout.
-#   6. When a user quits the session or shuts down windows, they'll be logged out and redirected to the IDP's initial login page.
-#   7. Starting a new session from scratch if Frame app is closed can be done by launching the Frame icon on the IGEL Desktop.
+#   5. When end users disconnects by action or inactivity timeout, they'll see an option to resume their session for the duration of the account/Launchpad's configured idle timeout.
+#   6. When a user quits the session or shuts down windows, they'll be logged out and redirected to the identity provider's initial login page.
+#   7. If Frame App is closed, user can start a new session by launching Frame App with the Frame icon on the IGEL Desktop.
 #
 # Frame configuration assumptions:
 #
 #   1. Published Launchpad.
-#   2. Configured IDP with associated roles/permissions allowing Launchpad access to the FRAME_LAUNCH_URL provided.
+#   2. Configured identity provider with associated roles/permissions allowing user access to the FRAME_LAUNCH_URL provided.
 #   3. Frame Launch Link with additional "Quit and log out" url parameter`&qlo=1`.
 #
 # The Frame account production workload VMs can be joined to a Windows domain, if desired.
 #
 # The following environment variables must be configured in the environment for this script to work.
 #
-# FRAME_LAUNCH_URL - obtained from Dashboard > Launchpad > Advanced Integrations for the Launch Link. The FRAME_LAUNCH_URL could have a Launchpad URL.
+# FRAME_LAUNCH_URL - obtained from Dashboard > Launchpad > Advanced Integrations for the Launch Link. The FRAME_LAUNCH_URL could be a Launchpad URL.
 #
 # Visit Frame's documentation at https://docs.frame.nutanix.com
 #
