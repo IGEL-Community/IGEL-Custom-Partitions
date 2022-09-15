@@ -1,4 +1,4 @@
-# Nutanix Frame (16 June)
+# Nutanix Frame (15 September)
 
 |  CP Information |            |
 |--------------------|------------|
@@ -17,6 +17,7 @@ Use the table below to understand command line argument options and their syntax
 
 | Command Line Argument | Description | Syntax |
 |-----------------------|-------------|--------|
+| help                  | New Help menu when starting Frame App via command line with --help argument. Displays all available command line arguments. | ./Frame --help |
 | displays-auto-arrange | Frame App will launch with virtual displays configured to match your local environment. | ./Frame" --displays-auto-arrange |
 | kiosk | Instructs Frame App to launch in full screen, a.k.a. “Kiosk mode.” | ./Frame" --kiosk |
 | url | Designates the startup URL. | ./Frame --url=console.nutanix.com |
