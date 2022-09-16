@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profile>
     <profile_id>31764</profile_id>
-    <profilename>Nutanix Frame Advanced CP</profilename>
+    <profilename>Frame SAML2 Kiosk CP</profilename>
     <firmware>
         <model>IGEL OS 11</model>
-        <version>11.05.133.01</version>
+        <version>11.07.170.01</version>
     </firmware>
-    <description>Nutanix Frame Custom Partition</description>
+    <description>Frame Custom Partition that is specifically configured to use SAML2 IdP for auth, Frame App for a kiosk UX, required environmental variables, and a script to tie it all together.</description>
     <overwritesessions>false</overwritesessions>
     <is_master_profile>false</is_master_profile>
     <is_igel_os>true</is_igel_os>
@@ -23,23 +23,31 @@
             <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">500M</pvalue>
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
+        <pclass name="system.environment_variables.fixvariable%.name">
+            <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">FRAME_LAUNCH_URL</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="system.environment_variables.fixvariable%.value">
+            <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">YOUR_FRAME_LAUNCH_LINK_URL</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
     </settings>
     <instancesettings>
         <instance classprefix="custom_partition.source%" serialnumber="-4e093fd6:175d0e2bce3:-7ffc127.0.0.1">
             <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
-            <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/frame.inf</ivalue>
+            <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/Frame/frame.inf</ivalue>
             <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/frame-cp-init-script.sh init</ivalue>
             <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/frame-cp-init-script.sh stop</ivalue>
             <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
         </instance>
         <instance classprefix="sessions.custom_application%" serialnumber="-4e093fd6:175d0e2bce3:-7ffb127.0.0.1">
-            <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
             <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-            <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-            <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/frame/frame-launcher.sh</ivalue>
-            <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/frame/frame-saml2-kiosk-launcher.sh</ivalue>
+            <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
             <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
             <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
@@ -53,7 +61,7 @@
             <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-            <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
