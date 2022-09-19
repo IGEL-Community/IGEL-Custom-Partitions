@@ -9,3 +9,5 @@
 | IGEL OS Version (min) | 11.07.100 |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-jspm-cp.sh](build/build-jspm-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
+
+**Note:** A reboot is required after CP deployed.

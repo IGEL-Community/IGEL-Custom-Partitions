@@ -16,10 +16,6 @@
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
-            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom/jspm/usr/bin/jspm* -c &amp;amp&amp;amp pkexec -u user /custom/jspm/usr/bin/jspm* /dev/null 2>&amp;amp1 &amp;amp</pvalue>
-                <variableSubstitutionActive>false</variableSubstitutionActive>
-            </pclass>
             <pclass name="custom_partition.size">
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">100M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
@@ -34,6 +30,35 @@
                 <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/jspm-cp-init-script.sh stop</ivalue>
                 <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            </instance>
+            <instance classprefix="sessions.custom_application%" serialnumber="-4d3f8689:182ef8efd9c:-7ff9127.0.1.1">
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.autostartnotify" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">jspm5</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">applications-other</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">JSPM5</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">2</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
             </instance>
         </instancesettings>
     </profile>
