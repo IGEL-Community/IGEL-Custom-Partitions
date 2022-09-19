@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>130780</profile_id>
+        <profilename>Neodynamic JSPrintManager Client CP</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.07.100.01</version>
+        </firmware>
+        <description>Neodynamic JSPrintManager Client</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="custom_partition.enabled">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom/jspm/usr/bin/jspm* -c &amp;amp&amp;amp pkexec -u user /custom/jspm/usr/bin/jspm* /dev/null 2>&amp;amp1 &amp;amp</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="custom_partition.size">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">100M</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings>
+            <instance classprefix="custom_partition.source%" serialnumber="19cdbe83:17d2bb9d0e2:-7ff5127.0.1.1">
+                <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/jspm.inf</ivalue>
+                <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/jspm-cp-init-script.sh init</ivalue>
+                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/jspm-cp-init-script.sh stop</ivalue>
+                <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            </instance>
+        </instancesettings>
+    </profile>
+</profiles>
