@@ -1,4 +1,4 @@
-# Neodynamic JSPrintManager Client (19 September)
+# Neodynamic JSPrintManager Client (19 September) (DRAFT in testing)
 
 |  CP Information |            |
 |-----------------|------------|
