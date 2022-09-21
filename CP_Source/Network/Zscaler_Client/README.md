@@ -1,4 +1,4 @@
-# Zscaler Client (1 September) (DRAFT for testing)
+# Zscaler Client (1 September)
 
 |  CP Information |            |
 |-----------------|------------|
