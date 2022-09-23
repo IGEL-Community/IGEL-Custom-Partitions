@@ -14,3 +14,7 @@
 **Note [1]:** Use the [/custom/zscaler/opt/zscaler/scripts/zscaler-config](https://help.zscaler.com/client-connector/customizing-zscaler-client-connector-install-options-linux#Silent) script to edit the /custom/zscaler/opt/zscaler/.config.ini file.
 
 **Note [2]:** A reboot is required after CP is deployed.
+
+-----
+
+[Zero Trust Networking](https://github.com/IGEL-Community/IGEL-Docs/blob/main/Docs/HOWTO-Zero-Trust-Networking.md)
