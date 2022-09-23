@@ -10,3 +10,7 @@
 | CP Size | 100M |
 | IGEL OS Version (min) | 11.07.100 |
 | Packaging Notes | Details can be found in the build script [build-tailscale-cp.sh](build/build-tailscale-cp.sh) |
+
+-----
+
+[Zero Trust Networking](https://github.com/IGEL-Community/IGEL-Docs/blob/main/Docs/HOWTO-Zero-Trust-Networking.md)
