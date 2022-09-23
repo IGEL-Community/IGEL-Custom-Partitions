@@ -9,3 +9,7 @@
 | IGEL OS Version (min) | 11.05.133 |
 | Packaging Notes | See build script for details |
 | Package automation | [build-edge-cp.sh](build/build-edge-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
+
+---------
+
+[How to use Microsoft Edge command-line options to configure proxy settings](https://docs.microsoft.com/en-us/deployedge/edge-learnmore-cmdline-options-proxy-settings)

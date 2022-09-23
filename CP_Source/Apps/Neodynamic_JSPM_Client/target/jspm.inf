@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="jspm.tar.bz2"
+version="X.X.X"
+size="100M"
+name="jspm"
+minfw="11.07.100"

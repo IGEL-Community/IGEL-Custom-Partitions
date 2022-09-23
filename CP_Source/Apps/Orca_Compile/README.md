@@ -1,8 +1,8 @@
-# Orca Screen Reader (Dev Testing) (16 Februrary)
+# Orca Screen Reader (Dev Testing) (9 September)
 
 |  CP Information |            |
 |--------------------|------------|
-| Package | [Orca Screen Reader](https://wiki.gnome.org/action/show/Projects/Orca?action=show&redirect=Orca) - Current Version <br /><br /> Orca is a free, open source, flexible, and extensible screen reader that provides access to the graphical desktop via user-customizable combinations of speech and/or braille. <br /><br /> [Orca Screen Reader Overview](https://techblog.wikimedia.org/2020/07/02/an-orca-screen-reader-tutorial/) |
+| Package | [Orca Screen Reader](https://wiki.gnome.org/action/show/Projects/Orca?action=show&redirect=Orca) - Build current Version <br /><br /> Orca is a free, open source, flexible, and extensible screen reader that provides access to the graphical desktop via user-customizable combinations of speech and/or braille. <br /><br /> [Orca Screen Reader Overview](https://techblog.wikimedia.org/2020/07/02/an-orca-screen-reader-tutorial/) <br /><br /> [Orca GitHub](https://github.com/GNOME/orca) |
 | Script Name | [orca-cp-init-script.sh](orca-cp-init-script.sh) |
 | CP Mount Path | /custom/orca |
 | Packaging Notes | See build script |
