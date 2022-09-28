@@ -1,19 +1,19 @@
-# Nutanix Frame (27 September)
+# Nutanix Frame (28 September)
 
-|  CP Information |            |
-|--------------------|------------|
-| Package | Nutanix Frame - Current Version |
-| Script Name | [frame-cp-init-script.sh](build/frame-cp-init-script.sh) |
-| CP Mount Path | /custom/frame |
-| CP Size | 500M |
-| IGEL OS Version (min) | 11.05.133 |
-| Download package | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
-| Packaging Notes | See build script for details |
-| Package automation | [build-frame-cp.sh](build/build-frame-cp.sh) |
+| CP Information        |                                                                                                               |
+| --------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Package               | Nutanix Frame - Current Version                                                                               |
+| Script Name           | [frame-cp-init-script.sh](build/frame-cp-init-script.sh)                                                      |
+| CP Mount Path         | /custom/frame                                                                                                 |
+| CP Size               | 500M                                                                                                          |
+| IGEL OS Version (min) | 11.05.133                                                                                                     |
+| Download package      | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
+| Packaging Notes       | See build script for details                                                                                  |
+| Package automation    | [build-frame-cp.sh](build/build-frame-cp.sh)                                                                  |
 
 -----
 
-## Frame App IGEL Bundling instructions For Ubuntu 22.04
+## Frame App IGEL Bundling instructions For Ubuntu 18.04
 1. Download the latest [Frame App for Linux (Debian)](https://portal.nutanix.com/page/downloads?product=xiframe) to your `~/Downloads` directory.
 2. Download and unzip `Nutanix_Frame.zip` from [https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Nutanix_Frame.zip](https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Nutanix_Frame.zip).
 3. Using a terminal, navigate to the unzipped directory to `/target/build/` and execute `build-frame-cp.sh`
@@ -118,46 +118,6 @@ This version is a hotfix to Frame App 6.11.0.
 -	Fixed issue when in full-screen mode, switching focus to another Linux app and back to Frame App would result in a blank screen
 -	Fixed issue where after exiting full screen mode, Frame App menu bar shows up but there is no title bar or application window border and the Frame App window still takes up the full monitor without ability to resize.
 
-
------
-
-## Frame App 6.10.1
-
-Fixed:
-
-- Full screen will only exit when the Escape key is held for 10 seconds or more.
-
-- For Frame App for Linux, generic USB devices can cause USB devices to lose connectivity.
-
-
------
-
-## Frame App 6.10.0 and newer
-
-Starting from Frame app 6.10.0 Administrators can control preferences on Linux, using configuration file located at:
-
-```
-/custom/frame/etc/nutanix-frame/preferences.conf
-  ```
-
-| Value Name | Type | Possible Value | Default Value |  
-|------------|------|----------------|---------------|
-| STARTUP_URL | REG_SZ | Valid URL | https://console.nutanix.com |
-| SEND_ERROR_REPORTS | REG_SZ | ON/OFF | ON |
-| CLEAR_CACHE_ON_STARTUP | REG_SZ | ON/OFF | OFF |
-| CHECK_FOR_UPDATES_ON_STARTUP | REG_SZ | ON/OFF | ON |
-| ADVANCED_USB | REG_SZ | ON/OFF | ON |
-
-**NOTE:** VALID_VALUE for string preferences can be any string, for bool preferences it can be ON/OFF
-
-**Example:**
-
-```
-STARTUP_URL=https://console.nutanix.com/customer/org/account
-ADVANCED_USB=OFF
-CHECK_FOR_UPDATES_ON_STARTUP=OFF
-  ```
-
 -----
 
 # Frame IGEL Custom Profiles
@@ -255,7 +215,7 @@ The following environment variables must be configured in the IGEL Custom Profil
       `FRAME_SAT_URL` - URL obtainable from the Playground. 
       
       For example: `https://api.console.nutanix.com/v1/accounts/XXXXXXXX-XXXX-XXXX-XXXX-31d09e2881cd/secure-anonymous/secure-anon-XXXXXXXX-XXXX-XXXX-XXXX-c5e2dc93df1e/tokens`.
-   - `FRAME_ACCOUNT_ID` - obtainable from the FRAME_SAT_URL if the SAT Provider was created on the Frame Account.
+   - `FRAME_ACCOUNT_ID` - Sign in to [Nutanix Console][https://console.nutanix.com] as an Admin. Locate your account, click the three-dot menu, and select "update" to view the Account's entity settings. Next, copy the Account UUID from the browser's URL bar. For example: `https://console.nutanix.com/frame/account/YOUR-FRAME-ACCOUNT-UUID-HERE/basic-info`
    - `FRAME_EMAIL_DOMAIN` - email domain name used to create the anonymous user email addresses that will be visible in the Session Trail.
    - `FRAME_LAUNCH_URL` - obtained from an Account's *Dashboard > Launchpad > Advanced Integrations* to get a configurable dialog with Launch Links. While we recommend Launch Links for Kiosk scenarios, the value of FRAME_LAUNCH_URL could instead be a standard Launchpad URL.
    - `FRAME_TERMINAL_CONFIG_ID` - obtainable from the Launch Link URL.
