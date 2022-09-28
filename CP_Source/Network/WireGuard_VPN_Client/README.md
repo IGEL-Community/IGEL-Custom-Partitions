@@ -1,6 +1,5 @@
 # WireGuard (28 September)
 
-
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded script.            |
 |--------------------|------------|
 | Package | [WireGuard VPN](https://www.wireguard.com/) <br /><br /> WireGuard VPN requires the exchange of public keys. This profile will copy the public key from the endpoint to UMS and store it in the **ums_structure_tag**. |
