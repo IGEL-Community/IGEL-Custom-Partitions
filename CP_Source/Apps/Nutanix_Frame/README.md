@@ -162,7 +162,7 @@ CHECK_FOR_UPDATES_ON_STARTUP=OFF
 
 # Frame IGEL Custom Profiles
 
-To get started, read each of the following profiles to see which sounds like the right fit for you, then import it into the IGEL UMS following the instructions below.
+To get started, read each of the following profiles to see which sounds like the right fit for you and then import it into the IGEL UMS following the instructions below.
 
 ## Basic Frame App Profile
 ```js
@@ -221,7 +221,7 @@ This profile is designed to support a specific end user workflow and assumes a p
 import 'igel/frame-sat-kiosk-profile.xml'
 ```
 
-The Frame SAT Kiosk Custom Profile is designed to support a specific end user workflow relying on Frame's SATs or [Secure Anonymous Tokens](https://docs.frame.nutanix.com/frame-apis/sat-api.html) for identity; this flow also assumes a particular Frame configuration to support KIOSK experience as defined below.
+The Frame SAT Kiosk Custom Profile is designed to support a specific end user workflow relying on Frame's SATs or [Secure Anonymous Tokens](https://docs.frame.nutanix.com/frame-apis/sat-api.html) for identity; this flow also assumes a particular Frame configuration to support the kiosk experience as defined below.
 
 ### SAT Kiosk Mode User Experience:
 
