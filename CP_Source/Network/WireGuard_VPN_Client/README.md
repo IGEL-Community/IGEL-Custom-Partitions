@@ -67,3 +67,11 @@ ITC000C29A1EAF6,10.66.66.6/32
 ITC000C29E8B942,10.66.66.7/32
 EOF
 ```
+
+-----
+
+## WireGuard vs. Tailscale
+
+[Tailscale](https://github.com/IGEL-Community/IGEL-Custom-Partitions/tree/master/CP_Source/Network/Tailscale_VPN) is built on top of WireGuard and acts as a holder of public keys, network ports, and private IP addresses.
+
+[Tailscale post on WireGuard](https://tailscale.com/compare/wireguard/)
