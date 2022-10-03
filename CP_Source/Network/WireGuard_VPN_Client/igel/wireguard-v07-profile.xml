@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>208696</profile_id>
+        <profilename>Wireguard V07 - Add Status - Start - Stop</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.07.100.01</version>
+        </firmware>
+        <description>Wireguard V07</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="system.environment_variables.fixvariable%.name">
+                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_ADDRESS</pvalue>
+                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_IPV4</pvalue>
+                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_IPV6</pvalue>
+                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">WG_PORT</pvalue>
+                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">WG_DNS1</pvalue>
+                <pvalue instancenr="5" variableExpression="" variableSubstitutionActive="false">WG_DNS2</pvalue>
+                <pvalue instancenr="6" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_KEY</pvalue>
+                <pvalue instancenr="7" variableExpression="" variableSubstitutionActive="false">WG_PRESHARE_KEY</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="system.environment_variables.fixvariable%.value">
+                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">192.168.205.9</pvalue>
+                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">10.66.66.2/32</pvalue>
+                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">fd42:42:42::2/128</pvalue>
+                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">51820</pvalue>
+                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">8.8.8.8</pvalue>
+                <pvalue instancenr="5" variableExpression="" variableSubstitutionActive="false">8.8.4.4</pvalue>
+                <pvalue instancenr="6" variableExpression="" variableSubstitutionActive="false">ABC=</pvalue>
+                <pvalue instancenr="7" variableExpression="" variableSubstitutionActive="false">DEF=</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_net_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">mkdir -p /wfs/wireguard; chmod 700 /wfs/wireguard; cat &amp;lt&amp;lt 'EOF' &amp;gt /wfs/wireguard/igel_wg_setup.sh
+#!/bin/bash
+#set -x
+#trap read debug
+
+ACTION="wireguard_setup_${1}"
+
+# output to systemlog with ID amd tag
+LOGGER="logger -it ${ACTION}"
+
+echo "Starting" | $LOGGER
+
+WFS_WG=/wfs/wireguard
+ETC_WG=/etc/wireguard
+
+if &amp;lb ! -e ${WFS_WG}/privatekey &amp;rb; then
+  wg genkey | tee ${WFS_WG}/privatekey | wg pubkey | tee ${WFS_WG}/publickey
+  WG_PUBKEY=$(cat ${WFS_WG}/publickey)
+  setparam system.remotemanager.ums_structure_tag ${WG_PUBKEY}
+  write_rmsettings
+fi
+
+cp ${WFS_WG}/privatekey ${ETC_WG}/privatekey
+cp ${WFS_WG}/publickey ${ETC_WG}/publickey
+cp ${WFS_WG}/wg0.conf ${ETC_WG}/wg0.conf
+
+HOSTNAME=$(hostname)
+HOST_PRIVATEKEY=$(cat ${ETC_WG}/privatekey)
+
+sed -i "s|CLIENT_PRIVATE_KEY|${HOST_PRIVATEKEY}|" ${ETC_WG}/wg0.conf
+sed -i "s|WG_DNS1|${WG_DNS1}|" ${ETC_WG}/wg0.conf
+sed -i "s|WG_DNS2|${WG_DNS2}|" ${ETC_WG}/wg0.conf
+sed -i "s|WG_PUBLIC_KEY|${WG_PUBLIC_KEY}|" ${ETC_WG}/wg0.conf
+sed -i "s|WG_PRESHARE_KEY|${WG_PRESHARE_KEY}|" ${ETC_WG}/wg0.conf
+sed -i "s|WG_PUBLIC_ADDRESS|${WG_PUBLIC_ADDRESS}|" ${ETC_WG}/wg0.conf
+sed -i "s|WG_PORT|${WG_PORT}|" ${ETC_WG}/wg0.conf
+
+cat ${WFS_WG}/wg_clients.csv| while read LINE
+  do
+    CURR_HOST=$(echo ${LINE} | awk --field-separator "," '{print $1}')
+    if &amp;lb ${HOSTNAME} = ${CURR_HOST} &amp;rb; then
+      CURR_HOST_ADDR=$(echo ${LINE} | awk --field-separator "," '{print $2}')
+      sed -i "s|CURR_HOST_ADDR|${CURR_HOST_ADDR}|" ${ETC_WG}/wg0.conf
+    fi
+  done
+
+chmod 400 /etc/wireguard/*
+chmod 400 /wfs/wireguard/*
+chmod 500 /wfs/wireguard/igel_wg_setup.sh
+wg-quick up wg0 | $LOGGER
+EOF
+
+cat &amp;lt&amp;lt 'EOF' &amp;gt /wfs/wireguard/wg_clients.csv
+ITC6845F1391E31,10.66.66.4/32
+ITC0800270F8F75,10.66.66.5/32
+ITC000C29A1EAF6,10.66.66.6/32
+ITC000C29E8B942,10.66.66.7/32
+EOF
+
+cat &amp;lt&amp;lt 'EOF' &amp;gt /wfs/wireguard/wg0.conf
+&amp;lbInterface&amp;rb
+PrivateKey = CLIENT_PRIVATE_KEY
+Address = CURR_HOST_ADDR
+DNS = WG_DNS1,WG_DNS2
+
+&amp;lbPeer&amp;rb
+PublicKey = WG_PUBLIC_KEY
+PresharedKey = WG_PRESHARE_KEY
+Endpoint = WG_PUBLIC_ADDRESS:WG_PORT
+AllowedIPs = 0.0.0.0/0,::/0
+EOF
+
+cat &amp;lt&amp;lt 'EOF' &amp;gt /bin/igel_wg_control.sh
+#!/bin/bash
+ACTION="WireGuard_status_start_stop_${1}"
+# output to systemlog with ID and tag
+LOGGER="logger -it ${ACTION}"
+echo "Starting" | $LOGGER
+
+if &amp;lb -e /etc/wireguard/wg0.conf &amp;rb; then
+  WG_UP=$(wg show | grep handshake | wc -l)
+else
+  notify-send-message -t 200000 -i /usr/share/icons/IGEL-Basic/categories/64/igel-network.png WireGuard_Status "WireGuard VPN is NOT setup on this system"
+  echo "WireGuard VPN is NOT setup on this system" | $LOGGER
+  exit 1
+fi
+
+case "$1" in
+status)
+  if &amp;lb $WG_UP = 1 &amp;rb; then
+    notify-send-message -t 200000 -i /usr/share/icons/IGEL-Basic/categories/64/igel-network.png WireGuard_Status "WireGuard VPN is On"
+  else
+    notify-send-message -t 200000 -i /usr/share/icons/IGEL-Basic/categories/64/igel-network.png WireGuard_Status "WireGuard VPN is Off"
+  fi
+;;
+start)
+  if &amp;lb $WG_UP = 0 &amp;rb; then
+    notify-send-message -t 200000 -i /usr/share/icons/IGEL-Basic/categories/64/igel-network.png WireGuard_Status "Turning WireGuard VPN On"
+    wg-quick up wg0 | $LOGGER
+  else
+    notify-send-message -t 200000 -i /usr/share/icons/IGEL-Basic/categories/64/igel-network.png WireGuard_Status "WireGuard VPN is alreay On"
+  fi
+;;
+stop)
+  if &amp;lb $WG_UP = 1 &amp;rb; then
+    notify-send-message -t 200000 -i /usr/share/icons/IGEL-Basic/categories/64/igel-network.png WireGuard_Status "Turning WireGuard VPN Off"
+    wg-quick down wg0 | $LOGGER
+  else
+    notify-send-message -t 200000 -i /usr/share/icons/IGEL-Basic/categories/64/igel-network.png WireGuard_Status "WireGuard VPN is alreay Off"
+  fi
+;;
+esac
+EOF
+
+chmod 400 /wfs/wireguard/*
+chmod 500 /wfs/wireguard/igel_wg_setup.sh
+chmod 500 /bin/igel_wg_status.sh
+chmod 500 /bin/igel_wg_change_status.sh
+chmod a+x /bin/igel_wg_control.sh
+/wfs/wireguard/igel_wg_setup.sh
+
+</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings>
+            <instance classprefix="sessions.custom_application%" serialnumber="-4d3f8689:182ef8efd9c:-7fee127.0.1.1">
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostartnotify" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/bin/igel_wg_control.sh status</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">igel</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">WireGuard Status</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+            </instance>
+            <instance classprefix="sessions.custom_application%" serialnumber="-4d3f8689:182ef8efd9c:-7fed127.0.1.1">
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostartnotify" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">pkexec -u root env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /bin/igel_wg_control.sh start</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">igel</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">WireGuard Start</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+            </instance>
+            <instance classprefix="sessions.custom_application%" serialnumber="-4d3f8689:182ef8efd9c:-7fec127.0.1.1">
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostartnotify" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">pkexec -u root env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /bin/igel_wg_control.sh stop</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">igel</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">WireGuard Stop</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+            </instance>
+        </instancesettings>
+    </profile>
+</profiles>
