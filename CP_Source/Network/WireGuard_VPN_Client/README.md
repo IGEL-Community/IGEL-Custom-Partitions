@@ -1,4 +1,4 @@
-# WireGuard (28 September)
+# WireGuard (5 October)
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded script.            |
 |--------------------|------------|
@@ -9,6 +9,10 @@ This profile creates the following files in the **/wfs/wireguard** folder:
 - igel_wg_setup.sh (Main script)
 - wg_clients.csv (Mapping for IGEL clients IPv4 and/or IPv6 to WireGuard defined addresses)
 - wg0.conf (Template file)
+
+and the following file:
+
+- /bin/igel_wg_control.sh (Displays current state of WireGuard and allows user to change state on / off)
 
 The **igel_wg_setup.sh** script will create the client's public / private keys, send the client's public key to the UMS (ums_structure_tag), update wg0.conf template file, copy these files to **/etc/wireguard**, and start WireGuard.
 
@@ -22,7 +26,7 @@ This profile has the following environment variables and is based on the followi
 
 - WG_PUBLIC_ADDRESS <- WG server IP or DNS
 - WG_PORT <- WG server port
-- WG_PUBLIC_KEY <- WG server public key 
+- WG_PUBLIC_KEY <- WG server public key
 - WG_PRESHARE_KEY <- Client preshared key configured in WG server
 - WG_ALLOWED_IPS <- Allowed IPv4+IPv6 range for client access
 
