@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profiles>
     <profile>
-        <profile_id>208696</profile_id>
+        <profile_id>951378</profile_id>
         <profilename>Wireguard V07 - Add Status - Start - Stop</profilename>
         <firmware>
             <model>IGEL OS 11</model>
@@ -14,24 +14,18 @@
         <settings>
             <pclass name="system.environment_variables.fixvariable%.name">
                 <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_ADDRESS</pvalue>
-                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_IPV4</pvalue>
-                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_IPV6</pvalue>
-                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">WG_PORT</pvalue>
-                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">WG_DNS1</pvalue>
-                <pvalue instancenr="5" variableExpression="" variableSubstitutionActive="false">WG_DNS2</pvalue>
-                <pvalue instancenr="6" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_KEY</pvalue>
-                <pvalue instancenr="7" variableExpression="" variableSubstitutionActive="false">WG_PRESHARE_KEY</pvalue>
+                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">WG_PORT</pvalue>
+                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_KEY</pvalue>
+                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">WG_ALLOWED_IPS</pvalue>
+                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">WG_PRESHARE_KEY</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="system.environment_variables.fixvariable%.value">
-                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">192.168.205.9</pvalue>
-                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">10.66.66.2/32</pvalue>
-                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">fd42:42:42::2/128</pvalue>
-                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">51820</pvalue>
-                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">8.8.8.8</pvalue>
-                <pvalue instancenr="5" variableExpression="" variableSubstitutionActive="false">8.8.4.4</pvalue>
-                <pvalue instancenr="6" variableExpression="" variableSubstitutionActive="false">ABC=</pvalue>
-                <pvalue instancenr="7" variableExpression="" variableSubstitutionActive="false">DEF=</pvalue>
+                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">Enter WG Server IP or Address</pvalue>
+                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">51820 &amp;lt- Enter Server Port</pvalue>
+                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">ABC= &amp;lt- Enter Public Server Key</pvalue>
+                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">0.0.0.0/0,::/0 &amp;lt- Change IPv4+IPv6 range for split networks</pvalue>
+                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">DEF= &amp;lt- Enter Client Preshared Key from Server Configuration</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_net_final">
@@ -65,12 +59,11 @@ HOSTNAME=$(hostname)
 HOST_PRIVATEKEY=$(cat ${ETC_WG}/privatekey)
 
 sed -i "s|CLIENT_PRIVATE_KEY|${HOST_PRIVATEKEY}|" ${ETC_WG}/wg0.conf
-sed -i "s|WG_DNS1|${WG_DNS1}|" ${ETC_WG}/wg0.conf
-sed -i "s|WG_DNS2|${WG_DNS2}|" ${ETC_WG}/wg0.conf
 sed -i "s|WG_PUBLIC_KEY|${WG_PUBLIC_KEY}|" ${ETC_WG}/wg0.conf
 sed -i "s|WG_PRESHARE_KEY|${WG_PRESHARE_KEY}|" ${ETC_WG}/wg0.conf
 sed -i "s|WG_PUBLIC_ADDRESS|${WG_PUBLIC_ADDRESS}|" ${ETC_WG}/wg0.conf
 sed -i "s|WG_PORT|${WG_PORT}|" ${ETC_WG}/wg0.conf
+sed -i "s|WG_ALLOWED_IPS|${WG_ALLOWED_IPS}|" ${ETC_WG}/wg0.conf
 
 cat ${WFS_WG}/wg_clients.csv| while read LINE
   do
@@ -98,13 +91,12 @@ cat &amp;lt&amp;lt 'EOF' &amp;gt /wfs/wireguard/wg0.conf
 &amp;lbInterface&amp;rb
 PrivateKey = CLIENT_PRIVATE_KEY
 Address = CURR_HOST_ADDR
-DNS = WG_DNS1,WG_DNS2
 
 &amp;lbPeer&amp;rb
 PublicKey = WG_PUBLIC_KEY
 PresharedKey = WG_PRESHARE_KEY
 Endpoint = WG_PUBLIC_ADDRESS:WG_PORT
-AllowedIPs = 0.0.0.0/0,::/0
+AllowedIPs = WG_ALLOWED_IPS
 EOF
 
 cat &amp;lt&amp;lt 'EOF' &amp;gt /bin/igel_wg_control.sh
@@ -161,7 +153,7 @@ chmod a+x /bin/igel_wg_control.sh
             </pclass>
         </settings>
         <instancesettings>
-            <instance classprefix="sessions.custom_application%" serialnumber="-4d3f8689:182ef8efd9c:-7fee127.0.1.1">
+            <instance classprefix="sessions.custom_application%" serialnumber="-3be8857d:1839cb44250:-7ffe127.0.1.1">
                 <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
@@ -190,7 +182,7 @@ chmod a+x /bin/igel_wg_control.sh
                 <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
                 <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
             </instance>
-            <instance classprefix="sessions.custom_application%" serialnumber="-4d3f8689:182ef8efd9c:-7fed127.0.1.1">
+            <instance classprefix="sessions.custom_application%" serialnumber="-3be8857d:1839cb44250:-7ffd127.0.1.1">
                 <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
@@ -219,7 +211,7 @@ chmod a+x /bin/igel_wg_control.sh
                 <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
                 <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
             </instance>
-            <instance classprefix="sessions.custom_application%" serialnumber="-4d3f8689:182ef8efd9c:-7fec127.0.1.1">
+            <instance classprefix="sessions.custom_application%" serialnumber="-3be8857d:1839cb44250:-7ffc127.0.1.1">
                 <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>

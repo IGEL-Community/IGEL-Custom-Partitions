@@ -7,7 +7,7 @@
 This profile creates the following files in the **/wfs/wireguard** folder:
 
 - igel_wg_setup.sh (Main script)
-- wg_clients.csv (Mapping for IGEL clients to WireGuard defined addresses)
+- wg_clients.csv (Mapping for IGEL clients IPv4 and/or IPv6 to WireGuard defined addresses)
 - wg0.conf (Template file)
 
 The **igel_wg_setup.sh** script will create the client's public / private keys, send the client's public key to the UMS (ums_structure_tag), update wg0.conf template file, copy these files to **/etc/wireguard**, and start WireGuard.
@@ -20,14 +20,11 @@ The **igel_wg_setup.sh** script will create the client's public / private keys, 
 
 This profile has the following environment variables and is based on the following document: [Automate WireGuard installation on Linux with Bash Script](https://techviewleo.com/automate-wireguard-installation-on-linux/)
 
-- WG_PUBLIC_ADDRESS
-- WG_PUBLIC_IPV4
-- WG_PUBLIC_IPV6
-- WG_PORT
-- WG_DNS1
-- WG_DNS2
-- WG_PUBLIC_KEY
-- WG_PRESHARE_KEY
+- WG_PUBLIC_ADDRESS <- WG server IP or DNS
+- WG_PORT <- WG server port
+- WG_PUBLIC_KEY <- WG server public key 
+- WG_PRESHARE_KEY <- Client preshared key configured in WG server
+- WG_ALLOWED_IPS <- Allowed IPv4+IPv6 range for client access
 
 Update the values for these environment variables based on the settings in your WireGuard server.
 
@@ -57,7 +54,7 @@ Query: umsStructuralTag ~ '(?i).*.*='
 
 ## Mapping of IGEL clients to WireGuard defined addreses
 
-Edit the profile (**System > Firmware Customization > Custom Commands > Network > Final Network Command**) to contain the mapping of clients to WireGuard IPs.
+Edit the profile (**System > Firmware Customization > Custom Commands > Network > Final Network Command**) to contain the mapping of clients (name of client) to WireGuard IPs. IPv4 and/or IPv6 can be used.
 
 ```bash
 cat << 'EOF' > /wfs/wireguard/wg_clients.csv
