@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profiles>
     <profile>
-        <profile_id>206991</profile_id>
-        <profilename>Wireguard</profilename>
+        <profile_id>209335</profile_id>
+        <profilename>Wireguard V09 - Control</profilename>
         <firmware>
             <model>IGEL OS 11</model>
             <version>11.07.100.01</version>
         </firmware>
-        <description>Wireguard</description>
+        <description>Wireguard V09</description>
         <overwritesessions>false</overwritesessions>
         <is_master_profile>false</is_master_profile>
         <is_igel_os>true</is_igel_os>
         <settings>
             <pclass name="system.environment_variables.fixvariable%.name">
                 <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_ADDRESS</pvalue>
-                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_IPV4</pvalue>
-                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_IPV6</pvalue>
-                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">WG_PORT</pvalue>
-                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">WG_DNS1</pvalue>
-                <pvalue instancenr="5" variableExpression="" variableSubstitutionActive="false">WG_DNS2</pvalue>
-                <pvalue instancenr="6" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_KEY</pvalue>
-                <pvalue instancenr="7" variableExpression="" variableSubstitutionActive="false">WG_PRESHARE_KEY</pvalue>
+                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">WG_PORT</pvalue>
+                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">WG_PUBLIC_KEY</pvalue>
+                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">WG_ALLOWED_IPS</pvalue>
+                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">WG_PRESHARE_KEY</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="system.environment_variables.fixvariable%.value">
-                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">192.168.205.9</pvalue>
-                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">10.66.66.2/32</pvalue>
-                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">fd42:42:42::2/128</pvalue>
-                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">51820</pvalue>
-                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">8.8.8.8</pvalue>
-                <pvalue instancenr="5" variableExpression="" variableSubstitutionActive="false">8.8.4.4</pvalue>
-                <pvalue instancenr="6" variableExpression="" variableSubstitutionActive="false">ABC=</pvalue>
-                <pvalue instancenr="7" variableExpression="" variableSubstitutionActive="false">DEF=</pvalue>
+                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">Enter WG Server IP or Address</pvalue>
+                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">51820 &amp;lt- Enter Server Port</pvalue>
+                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">ABC= &amp;lt- Enter Public Server Key</pvalue>
+                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">0.0.0.0/0,::/0 &amp;lt- Change IPv4+IPv6 range for split networks</pvalue>
+                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">DEF= &amp;lt- Enter Client Preshared Key from Server Configuration</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_net_final">
@@ -95,25 +89,88 @@ ITC000C29E8B942,10.66.66.7/32
 EOF
 
 cat &amp;lt&amp;lt 'EOF' &amp;gt /wfs/wireguard/wg0.conf
-[Interface]
+&amp;lbInterface&amp;rb
 PrivateKey = CLIENT_PRIVATE_KEY
 Address = CURR_HOST_ADDR
 DNS = WG_DNS1,WG_DNS2
 
-[Peer]
+&amp;lbPeer&amp;rb
 PublicKey = WG_PUBLIC_KEY
 PresharedKey = WG_PRESHARE_KEY
 Endpoint = WG_PUBLIC_ADDRESS:WG_PORT
 AllowedIPs = 0.0.0.0/0,::/0
 EOF
 
+cat &amp;lt&amp;lt 'EOF' &amp;gt /bin/igel_wg_control.sh
+#!/bin/bash
+ACTION="WireGuard_Control"
+# output to systemlog with ID and tag
+LOGGER="logger -it ${ACTION}"
+echo "Starting" | $LOGGER
+
+if &amp;lb -e /etc/wireguard/wg0.conf &amp;rb; then
+  WG_UP=$(wg show | grep handshake | wc -l)
+else 
+  zenity --error --width=400 --height=100 --title="WireGuard VPN" --text="WireGuard VPN is NOT setup on this system."
+  echo "WireGuard VPN is NOT setup on this system" | $LOGGER
+  exit 1
+fi
+
+if &amp;lb $WG_UP = 1 &amp;rb; then
+  zenity --question --width=400 --height=100 --title="WireGuard VPN is ON" --text="Would you like to turn WireGuard VPN OFF?"
+  RETURN_CODE=$?
+  # Yes = 0; No = 1
+  if &amp;lb $RETURN_CODE = 0 &amp;rb; then
+    echo "wg-quick down wg0" | $LOGGER
+  fi
+else
+  zenity --question --width=400 --height=100 --title="WireGuard VPN is OFF" --text="Would you like to turn WireGuard VPN ON?"
+  RETURN_CODE=$?
+  # Yes = 0; No = 1
+  if &amp;lb $RETURN_CODE = 0 &amp;rb; then
+    echo "wg-quick up wg0" | $LOGGER
+  fi
+fi
+EOF
+
 chmod 400 /wfs/wireguard/*
 chmod 500 /wfs/wireguard/igel_wg_setup.sh
+chmod a+x /bin/igel_wg_control.sh
 /wfs/wireguard/igel_wg_setup.sh
 </pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
         </settings>
-        <instancesettings/>
+        <instancesettings>
+            <instance classprefix="sessions.custom_application%" serialnumber="-4fefaf59:183a9ea7aae:-7ffd127.0.1.1">
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.autostartnotify" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">pkexec -u root env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /bin/igel_wg_control.sh</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">igel</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">WireGuard</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+            </instance>
+        </instancesettings>
     </profile>
 </profiles>
