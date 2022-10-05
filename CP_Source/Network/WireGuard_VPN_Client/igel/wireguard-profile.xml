@@ -78,7 +78,7 @@ cat ${WFS_WG}/wg_clients.csv| while read LINE
 chmod 400 /etc/wireguard/*
 chmod 400 /wfs/wireguard/*
 chmod 500 /wfs/wireguard/igel_wg_setup.sh
-wg-quick up wg0 | $LOGGER
+#wg-quick up wg0 | $LOGGER
 EOF
 
 cat &amp;lt&amp;lt 'EOF' &amp;gt /wfs/wireguard/wg_clients.csv
@@ -110,7 +110,7 @@ echo "Starting" | $LOGGER
 
 if &amp;lb -e /etc/wireguard/wg0.conf &amp;rb; then
   WG_UP=$(wg show | grep handshake | wc -l)
-else 
+else
   zenity --error --width=400 --height=100 --title="WireGuard VPN" --text="WireGuard VPN is NOT setup on this system."
   echo "WireGuard VPN is NOT setup on this system" | $LOGGER
   exit 1
