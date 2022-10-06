@@ -1,3 +1,4 @@
+
 # WireGuard (5 October)
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded script.            |
@@ -7,7 +8,7 @@
 This profile creates the following files in the **/wfs/wireguard** folder:
 
 - igel_wg_setup.sh (Main script)
-- wg_clients.csv (Mapping for IGEL clients IPv4 and/or IPv6 to WireGuard defined addresses)
+- wg_clients.csv (Mapping for IGEL clients IPv4 or IPv6 to WireGuard defined addresses)
 - wg0.conf (Template file)
 
 and the following file:
@@ -28,7 +29,7 @@ This profile has the following environment variables and is based on the followi
 - WG_PORT <- WG server port
 - WG_PUBLIC_KEY <- WG server public key
 - WG_PRESHARE_KEY <- Client preshared key configured in WG server
-- WG_ALLOWED_IPS <- Allowed IPv4+IPv6 range for client access
+- WG_ALLOWED_IPS <- Allowed IPv4+IPv6 range for client access (predefined to allow all IPv4+IPv6)
 
 Update the values for these environment variables based on the settings in your WireGuard server.
 
@@ -56,9 +57,11 @@ Query: umsStructuralTag ~ '(?i).*.*='
 
 -----
 
-## Mapping of IGEL clients to WireGuard defined addreses
+## Mapping of IGEL clients to WireGuard defined addresses
 
-Edit the profile (**System > Firmware Customization > Custom Commands > Network > Final Network Command**) to contain the mapping of clients (name of client) to WireGuard IPs. IPv4 and/or IPv6 can be used.
+**NOTE:** This is mandatory! IPv4 or IPv6 has to be the one configured o your WireGuard server.
+
+Edit the profile (**System > Firmware Customization > Custom Commands > Network > Final Network Command**) to contain the mapping of clients (name of client) to WireGuard IPs. IPv4 or IPv6 can be used, insert IPv6 instead of predefined IPv4.
 
 ```bash
 cat << 'EOF' > /wfs/wireguard/wg_clients.csv

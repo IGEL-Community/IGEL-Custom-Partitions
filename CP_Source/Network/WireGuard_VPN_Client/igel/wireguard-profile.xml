@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profiles>
     <profile>
-        <profile_id>209335</profile_id>
-        <profilename>Wireguard V09 - Control</profilename>
+        <profile_id>952099</profile_id>
+        <profilename>Wireguard VPN Client</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.07.100.01</version>
+            <version>11.07.170.01</version>
         </firmware>
-        <description>Wireguard V09</description>
+        <description>Wireguard V10</description>
         <overwritesessions>false</overwritesessions>
         <is_master_profile>false</is_master_profile>
         <is_igel_os>true</is_igel_os>
@@ -21,11 +21,11 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="system.environment_variables.fixvariable%.value">
-                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">Enter WG Server IP or Address</pvalue>
-                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">51820 &amp;lt- Enter Server Port</pvalue>
-                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">ABC= &amp;lt- Enter Public Server Key</pvalue>
-                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">0.0.0.0/0,::/0 &amp;lt- Change IPv4+IPv6 range for split networks</pvalue>
-                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">DEF= &amp;lt- Enter Client Preshared Key from Server Configuration</pvalue>
+                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">my.wgserver.com &amp;lt- Enter WG Server IP or Address</pvalue>
+                <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">51820 &amp;lt- Enter WG Server Port</pvalue>
+                <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">ABC=... &amp;lt- Enter Public Server Key</pvalue>
+                <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">0.0.0.0/0,::/0</pvalue>
+                <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">DEF=... &amp;lt- Enter Client Preshared Key from WG Server Configuration</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_net_final">
@@ -119,14 +119,16 @@ if &amp;lb $WG_UP = 1 &amp;rb; then
   RETURN_CODE=$?
   # Yes = 0; No = 1
   if &amp;lb $RETURN_CODE = 0 &amp;rb; then
-    echo "wg-quick down wg0" | $LOGGER
+    wg-quick down wg0 | $LOGGER
+    zenity --info --width=400 --height=100 --title="WireGuard VPN" --text="WireGuard VPN is now OFF."
   fi
 else
   zenity --question --width=400 --height=100 --title="WireGuard VPN is OFF" --text="Would you like to turn WireGuard VPN ON?"
   RETURN_CODE=$?
   # Yes = 0; No = 1
   if &amp;lb $RETURN_CODE = 0 &amp;rb; then
-    echo "wg-quick up wg0" | $LOGGER
+    wg-quick up wg0 | $LOGGER
+    zenity --info --width=400 --height=100 --title="WireGuard VPN" --text="WireGuard VPN is now ON."
   fi
 fi
 EOF
@@ -140,7 +142,7 @@ chmod a+x /bin/igel_wg_control.sh
             </pclass>
         </settings>
         <instancesettings>
-            <instance classprefix="sessions.custom_application%" serialnumber="-4fefaf59:183a9ea7aae:-7ffd127.0.1.1">
+            <instance classprefix="sessions.custom_application%" serialnumber="-3be8857d:1839cb44250:-7ffa127.0.1.1">
                 <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
@@ -152,9 +154,9 @@ chmod a+x /bin/igel_wg_control.sh
                 <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
-                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">igel</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">vpn-network</ivalue>
                 <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">WireGuard</ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">WireGuard VPN</ivalue>
                 <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
                 <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
                 <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
