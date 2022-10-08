@@ -47,6 +47,15 @@ init)
     chown -R user:users "${CP}${USER_CONFIG}"
   fi
 
+  # after CP installation run wm_postsetup to activate mimetypes
+  if [ -d /run/user/777 ]; then
+    wm_postsetup
+    # delay the CP ready notification
+    sleep 3
+  fi
+
+  ldconfig
+
 ;;
 stop)
   # unlink linked files
