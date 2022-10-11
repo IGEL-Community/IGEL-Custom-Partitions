@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="forticlient.tar.bz2"
+version="x.x.x"
+size="500M"
+name="forticlient"
+minfw="11.07.100"
