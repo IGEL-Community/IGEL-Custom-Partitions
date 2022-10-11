@@ -7,14 +7,15 @@
 
 #https://tailscale.com/download/linux/ubuntu-1804
 
+sudo apt install curl -y
+sudo apt install unzip -y
+
 sudo curl https://pkgs.tailscale.com/stable/ubuntu/bionic.gpg | sudo apt-key add -
 sudo curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/bionic.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 
 sudo apt-get update
 
 MISSING_LIBS="tailscale"
-
-sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar
