@@ -12,14 +12,15 @@ if ! compgen -G "$HOME/Downloads/*.ovpn" > /dev/null; then
   exit 1
 fi
 
+sudo apt install curl -y
+sudo apt install unzip -y
+
 # https://docs.aws.amazon.com/vpn/latest/clientvpn-user/client-vpn-connect-linux.html
 sudo curl https://d20adtppz83p9s.cloudfront.net/GTK/latest/debian-repo/awsvpnclient_public_key.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://d20adtppz83p9s.cloudfront.net/GTK/latest/debian-repo ubuntu-18.04 main" > /etc/apt/sources.list.d/aws-vpn-client.list'
 sudo apt-get update
 
 MISSING_LIBS="awsvpnclient"
-
-sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar
