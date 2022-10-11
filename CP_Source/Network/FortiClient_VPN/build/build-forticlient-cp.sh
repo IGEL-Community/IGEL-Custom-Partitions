@@ -13,7 +13,7 @@ sudo apt install unzip -y
 # FortiClient 6.4
 sudo curl https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" > /etc/apt/sources.list.d/forticlient-main.list'
-MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7"
+MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7 libdbusmenu-glib4 libdbusmenu-gtk4"
 
 # FortiClient 7.0
 #sudo curl https://repo.fortinet.com/repo/7.0/ubuntu/DEB-GPG-KEY | sudo apt-key add -
