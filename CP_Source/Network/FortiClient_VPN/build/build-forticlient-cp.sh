@@ -10,15 +10,15 @@
 sudo apt install curl -y
 sudo apt install unzip -y
 
-# FortiClient 6.4 (Issue with blank screen -- need to debug)
-#sudo curl https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
-#sudo sh -c 'echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" > /etc/apt/sources.list.d/forticlient-main.list'
-#MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7"
+# FortiClient 6.4
+sudo curl https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" > /etc/apt/sources.list.d/forticlient-main.list'
+MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7"
 
 # FortiClient 7.0
-sudo curl https://repo.fortinet.com/repo/7.0/ubuntu/DEB-GPG-KEY | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://repo.fortinet.com/repo/7.0/ubuntu/ /bionic multiverse" > /etc/apt/sources.list.d/forticlient-main.list'
-MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7 libnss3-tools"
+#sudo curl https://repo.fortinet.com/repo/7.0/ubuntu/DEB-GPG-KEY | sudo apt-key add -
+#sudo sh -c 'echo "deb [arch=amd64] https://repo.fortinet.com/repo/7.0/ubuntu/ /bionic multiverse" > /etc/apt/sources.list.d/forticlient-main.list'
+#MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7 libnss3-tools"
 
 sudo apt-get update
 
@@ -29,17 +29,22 @@ for lib in $MISSING_LIBS; do
   apt-get download $lib
 done
 
-mkdir -p custom/forticlient
+CP_PATH="custom/forticlient"
+
+mkdir -p ${CP_PATH}
 
 find . -type f -name "*.deb" | while read LINE
 do
-  dpkg -x "${LINE}" custom/forticlient
+  dpkg -x "${LINE}" ${CP_PATH}
 done
 
-mv custom/forticlient/usr/share/applications/ custom/forticlient/usr/share/applications.mime
+mv ${CP_PATH}/usr/share/applications/ ${CP_PATH}/usr/share/applications.mime
+mkdir -p -m 755 ${CP_PATH}/var/lib/forticlient
+cp ${CP_PATH}/opt/forticlient/.config.db.init /var/lib/forticlient/config.db
+chmod 600 ${CP_PATH}/var/lib/forticlient/config.db
 
-mkdir -p custom/forticlient/userhome/.pki
-mkdir -p custom/forticlient/userhome/.config/FortiClient
+mkdir -p ${CP_PATH}/userhome/.pki
+mkdir -p ${CP_PATH}/userhome/.config/FortiClient
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/FortiClient_VPN.zip
 
