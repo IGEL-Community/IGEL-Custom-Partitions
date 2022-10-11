@@ -19,6 +19,7 @@
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/opt/forticlient/fortitraylauncher</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
             <pclass name="custom_partition.size">
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">500M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
