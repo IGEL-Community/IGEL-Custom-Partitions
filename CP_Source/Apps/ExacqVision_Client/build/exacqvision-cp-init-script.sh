@@ -12,6 +12,7 @@ CP="${MP}/exacqvision"
 
 # config directory
 USER_CONFIG="/userhome/.edvrclient.dir"
+USER_CONFIG1="/userhome"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -43,8 +44,8 @@ init)
   done
 
   # basic persistency
-  if [ -d "${CP}${USER_CONFIG}" ]; then
-    chown -R user:users "${CP}${USER_CONFIG}"
+  if [ -d "${CP}${USER_CONFIG1}" ]; then
+    chown -R user:users "${CP}${USER_CONFIG1}"
   fi
 
   # after CP installation run wm_postsetup to activate mimetypes
