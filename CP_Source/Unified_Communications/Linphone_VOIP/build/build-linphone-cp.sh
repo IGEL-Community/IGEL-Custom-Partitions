@@ -75,20 +75,20 @@ mkdir -p custom/linphone/userhome/.local/share/linphone/logs
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Linphone_VOIP.zip
 
 unzip Linphone_VOIP.zip -d custom
-mv custom/target/build/linephone-cp-init-script.sh custom
+mv custom/target/build/linphone-cp-init-script.sh custom
 
 cd custom
 
 # edit inf file for version number
 VERSION=${APPIMAGEVERSION}
 #echo "Version is: " ${VERSION}
-sed -i "/^version=/c version=\"${VERSION}\"" target/linephone.inf
-#echo "linephone.inf file is:"
-#cat target/linephone.inf
+sed -i "/^version=/c version=\"${VERSION}\"" target/linphone.inf
+#echo "linphone.inf file is:"
+#cat target/linphone.inf
 
 # new build process into zip file
-tar cvjf target/linephone.tar.bz2 linephone linephone-cp-init-script.sh
-zip -g ../Linphone_VOIP.zip target/linephone.tar.bz2 target/linephone.inf
+tar cvjf target/linphone.tar.bz2 linphone linphone-cp-init-script.sh
+zip -g ../Linphone_VOIP.zip target/linphone.tar.bz2 target/linphone.inf
 zip -d ../Linphone_VOIP.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../Linphone_VOIP.zip ../../Linphone_VOIP-${VERSION}_igel01.zip
 
