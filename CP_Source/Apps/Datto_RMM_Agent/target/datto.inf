@@ -1,7 +1,7 @@
 [INFO]
 [PART]
-file="dgstv.tar.bz2"
+file="datto.tar.bz2"
 version="1.1.1"
-size="100M"
-name="dgstv"
+size="400M"
+name="datto"
 minfw="11.07.100"
