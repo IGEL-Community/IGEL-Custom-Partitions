@@ -29,7 +29,7 @@ echo $1
 echo $1 >>$LOGFILE
 }
 ##############################################################
-# Start - From Datto RMM Agent setup.sh
+# End - From Datto RMM Agent setup.sh
 ##############################################################
 
 if ! compgen -G "$HOME/Downloads/setup.sh" > /dev/null; then
@@ -131,8 +131,8 @@ wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/mas
 chmod a+x clean_cp_usr_lib.sh
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
 chmod a+x clean_cp_usr_share.sh
-./clean_cp_usr_lib.sh 11.05.133_usr_lib.txt custom/datto/usr/lib
-./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/datto/usr/share
+./clean_cp_usr_lib.sh 11.07.100_usr_lib.txt custom/datto/usr/lib
+./clean_cp_usr_share.sh 11.07.100_usr_share.txt custom/datto/usr/share
 echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
 # copy libc
