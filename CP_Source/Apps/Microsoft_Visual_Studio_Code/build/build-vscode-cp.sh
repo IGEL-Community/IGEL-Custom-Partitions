@@ -29,6 +29,7 @@ done
 mv custom/vscode/usr/share/applications/ custom/vscode/usr/share/applications.mime
 mkdir -p custom/vscode/userhome/.config/Code
 mkdir -p custom/vscode/userhome/.vscode
+mkdir -p custom/vscode/userhome/Code
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Microsoft_Visual_Studio_Code.zip
 

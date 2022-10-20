@@ -13,6 +13,7 @@ CP="${MP}/vscode"
 # Code directory
 VSCODE_CONFIG="/userhome/.config/Code"
 VSCODE="/userhome/.vscode"
+VSCODE_DIR="/userhome/Code"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -39,6 +40,7 @@ init)
   # basic persistency
   chown -R user:users "${CP}${VSCODE_CONFIG}"
   chown -R user:users "${CP}${VSCODE}"
+  chown -R user:users "${CP}${VSCODE_DIR}"
 
   # after CP installation run wm_postsetup to activate mimetypes
   if [ -d /run/user/777 ]; then
