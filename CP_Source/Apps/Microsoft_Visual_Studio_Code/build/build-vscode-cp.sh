@@ -6,7 +6,7 @@
 ## Development machine (Ubuntu 18.04)
 sudo apt install unzip -y
 sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt-get update
 
 MISSING_LIBS="code"
