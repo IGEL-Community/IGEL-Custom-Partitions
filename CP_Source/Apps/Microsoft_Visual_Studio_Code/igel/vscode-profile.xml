@@ -5,7 +5,7 @@
         <profilename>Microsoft Visual Studio Code CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.05.133.01</version>
+            <version>11.07.100.01</version>
         </firmware>
         <description>Microsoft Visual Studio Code</description>
         <overwritesessions>false</overwritesessions>
@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">500M</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">800M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
         </settings>

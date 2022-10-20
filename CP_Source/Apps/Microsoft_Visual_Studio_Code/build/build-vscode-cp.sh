@@ -32,14 +32,27 @@ mkdir -p custom/vscode/userhome/.vscode
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Microsoft_Visual_Studio_Code.zip
 
 unzip Microsoft_Visual_Studio_Code.zip -d custom
-mv custom/target/vscode-cp-init-script.sh custom
+mv custom/target/build/vscode-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf vscode.tar.bz2 vscode vscode-cp-init-script.sh
-mv vscode.tar.bz2 ../..
-mv target/vscode.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x ../../code*.deb
+tar xf control.tar.*
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/vscode.inf
+#echo "vscode.inf file is:"
+#cat target/vscode.inf
+
+# new build process into zip file
+tar cvjf target/vscode.tar.bz2 vscode vscode-cp-init-script.sh
+zip -g ../Microsoft_Visual_Studio_Code.zip target/vscode.tar.bz2 target/vscode.inf
+zip -d ../Microsoft_Visual_Studio_Code.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Microsoft_Visual_Studio_Code.zip ../../Microsoft_Visual_Studio_Code-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar

@@ -1,7 +1,7 @@
 [INFO]
 [PART]
 file="vscode.tar.bz2"
-version="1.61.2"
-size="500M"
+version="X.X.X"
+size="800M"
 name="vscode"
-minfw="11.05.133"
+minfw="11.07.100"
