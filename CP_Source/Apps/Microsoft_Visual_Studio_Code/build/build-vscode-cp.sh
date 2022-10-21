@@ -11,7 +11,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/code sta
 sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt-get update
 
-MISSING_LIBS="code git git-man liberror-perl"
+MISSING_LIBS="code git git-man liberror-perl libgnome-keyring0"
 
 mkdir build_tar
 cd build_tar
