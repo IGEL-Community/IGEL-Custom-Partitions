@@ -42,6 +42,11 @@ init)
   chown -R user:users "${CP}${VSCODE}"
   chown -R user:users "${CP}${VSCODE_DIR}"
 
+  # Add apparmor profile to trust in Firefox to make SSO possible
+  # We do this by a systemd service to run the reconfiguration
+  # surely after apparmor.service!!!
+  systemctl --no-block start igel-vscode-cp-apparmor-reload.service
+
   # after CP installation run wm_postsetup to activate mimetypes
   if [ -d /run/user/777 ]; then
     wm_postsetup
