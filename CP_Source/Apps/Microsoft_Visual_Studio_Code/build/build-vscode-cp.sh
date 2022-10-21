@@ -8,9 +8,10 @@ sudo apt install curl -y
 sudo apt install unzip -y
 sudo curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt-get update
 
-MISSING_LIBS="code"
+MISSING_LIBS="code git git-man liberror-perl"
 
 mkdir build_tar
 cd build_tar
