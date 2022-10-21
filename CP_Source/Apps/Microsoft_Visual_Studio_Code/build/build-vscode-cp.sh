@@ -35,6 +35,10 @@ mkdir -p custom/vscode/userhome/Code
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Microsoft_Visual_Studio_Code.zip
 
 unzip Microsoft_Visual_Studio_Code.zip -d custom
+mkdir -p custom/vscode/config/bin
+mkdir -p custom/vscode/lib/systemd/system
+mv custom/target/build/vscode_cp_apparmor_reload custom/vscode/config/bin
+mv custom/target/build/igel-vscode-cp-apparmor-reload.service custom/vscode/lib/systemd/system/
 mv custom/target/build/vscode-cp-init-script.sh custom
 
 cd custom
