@@ -14,6 +14,7 @@ CP="${MP}/vscode"
 VSCODE_CONFIG="/userhome/.config/Code"
 VSCODE="/userhome/.vscode"
 VSCODE_DIR="/userhome/Code"
+GIT_CONFIG="/userhome/.gitconfig"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -41,6 +42,7 @@ init)
   chown -R user:users "${CP}${VSCODE_CONFIG}"
   chown -R user:users "${CP}${VSCODE}"
   chown -R user:users "${CP}${VSCODE_DIR}"
+  chown -R user:users "${CP}${GIT_CONFIG}"
 
   # Add apparmor profile to trust in Firefox to make SSO possible
   # We do this by a systemd service to run the reconfiguration

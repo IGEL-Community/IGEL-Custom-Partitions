@@ -32,6 +32,10 @@ mkdir -p custom/vscode/userhome/.config/Code
 mkdir -p custom/vscode/userhome/.vscode
 mkdir -p custom/vscode/userhome/Code
 
+#git config --global user.name "Your Name"
+#git config --global user.email "youremail@yourdomain.com"
+touch custom/vscode/userhome/.gitconfig
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Microsoft_Visual_Studio_Code.zip
 
 unzip Microsoft_Visual_Studio_Code.zip -d custom
