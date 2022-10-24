@@ -20,6 +20,6 @@ echo "TimeZone:" $NEW_TZ
 if [ "$NEW_TZ" = "" ]; then
   echo "No TZ entered"
 else
-  pkexec -user root timedatectl set-timezone $NEW_TZ
+  pkexec --user root timedatectl set-timezone $NEW_TZ
 fi
   ```
