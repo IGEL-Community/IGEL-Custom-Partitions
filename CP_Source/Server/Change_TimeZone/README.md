@@ -13,7 +13,7 @@
 #trap read debug
 #Allows a user to change the timezone of their device
 
-NEW_TZ=$(timedatectl list-timezones | zenity --list --checklist --title="TimeZones" --column="Select One" --column="TimeZones" | cut -f 1 -d '|')
+NEW_TZ=$(timedatectl list-timezones | zenity --width=400 --height=400 --list --checklist --title="TimeZones" --column="Select One" --column="TimeZones" | cut -f 1 -d '|')
 
 echo "TimeZone:" $NEW_TZ
 
