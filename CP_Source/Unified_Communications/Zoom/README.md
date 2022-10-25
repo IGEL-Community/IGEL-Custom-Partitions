@@ -31,7 +31,7 @@ Sample for setting German language (reboot required after CP deployed)
 To restart pulseaudio:
 
 ```bash
-pulseaudo -k
+pulseaudio -k
    ```
 
 Update the command in profile to restart pulseaudio as part of the command to start Zoom:
