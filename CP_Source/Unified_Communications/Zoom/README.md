@@ -1,4 +1,4 @@
-# Zoom (19 May)
+# Zoom (25 October)
 
 |  CP Information  |             |
 |-----------------|-------------|
@@ -23,6 +23,22 @@
 
 Sample for setting German language (reboot required after CP deployed)
 ![zoomus.conf language German](build/zoom-zoomus.conf-lang-german.png)
+
+--------
+
+## Pulseaudio Notes
+
+To restart pulseaudio:
+
+```bash
+pulseaudo -k
+   ```
+
+Update the command in profile to restart pulseaudio as part of the command to start Zoom:
+
+```bash
+pulseaudio -k && zoom
+   ```
 
 --------
 
