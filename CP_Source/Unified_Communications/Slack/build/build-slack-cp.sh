@@ -41,16 +41,29 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip Slack.zip -d custom
 mkdir -p custom/slack/config/bin
 mkdir -p custom/slack/lib/systemd/system
-mv custom/target/slack_cp_apparmor_reload custom/slack/config/bin
-mv custom/target/igel-slack-cp-apparmor-reload.service custom/slack/lib/systemd/system/
-mv custom/target/slack-cp-init-script.sh custom
+mv custom/target/build/slack_cp_apparmor_reload custom/slack/config/bin
+mv custom/target/build/igel-slack-cp-apparmor-reload.service custom/slack/lib/systemd/system/
+mv custom/target/build/slack-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf slack.tar.bz2 slack slack-cp-init-script.sh
-mv slack.tar.bz2 ../..
-mv target/slack.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+mkdir getversion
+cd getversion
+ar -x $HOME/Downloads/slack-desktop-*.deb
+tar xf control.tar.*
+VERSION=$(grep Version control | cut -d " " -f 2)
+#echo "Version is: " ${VERSION}
+cd ..
+sed -i "/^version=/c version=\"${VERSION}\"" target/slack.inf
+#echo "slack.inf file is:"
+#cat target/slack.inf
+
+# new build process into zip file
+tar cvjf target/slack.tar.bz2 slack slack-cp-init-script.sh
+zip -g ../Slack.zip target/slack.tar.bz2 target/slack.inf
+zip -d ../Slack.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Slack.zip ../../Slack-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
