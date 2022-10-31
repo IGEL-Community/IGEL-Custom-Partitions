@@ -1,4 +1,4 @@
-# Zoom (25 October)
+# Zoom (31 October)
 
 |  CP Information  |             |
 |-----------------|-------------|
@@ -45,3 +45,11 @@ pulseaudio -k && zoom
 ## Zoom Requirements
 
 [Zoom Virtual Background system requirements](https://support.zoom.us/hc/en-us/articles/360043484511)
+
+--------
+
+## Zoom Linux (November 2022) - Retiring current key pair to sign Zoom desktop client
+
+**Note: This is NOT an issue for Zoom CP on IGEL OS**
+
+In [November 2022](https://support.zoom.us/hc/en-us/articles/9836712961165-Downloading-the-public-key-for-Linux), Zoom is retiring the current key pair used to sign the Zoom desktop client for Linux, which customers can use to validate the Zoom desktop client. Users must download the new public key before attempting to upgrade to version 5.12.6, otherwise they will be unable to install this update. Prior versions (before 5.12.6) will not be impacted.
