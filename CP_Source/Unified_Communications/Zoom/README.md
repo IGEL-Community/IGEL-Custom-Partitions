@@ -12,7 +12,7 @@
 | Packaging Notes | See build script for details |
 | Package automation | [build-zoom-cp.sh](build/build-zoom-cp.sh) |
 
-|  Customization | /wfs/user/.zoom/.zoomus.conf |
+|  Customization | /custom/zoom/userhome/.config/zoomus.conf |
 |----------------|------------------------------|
 | German Language | language=de |
 | French Language | language=fr |
