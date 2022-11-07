@@ -12,7 +12,7 @@
 | Packaging Notes | See build script for details |
 | Package automation | [build-zoom-cp.sh](build/build-zoom-cp.sh) |
 
-|  Customization | /custom/zoom/userhome/.config/zoomus.conf |
+|  Customization | /userhome/.config/zoomus.conf and is symbolic linked (ln -s) to /custom/zoom/userhome/.config/zoomus.conf (allows for settings to be saved after reboot)|
 |----------------|------------------------------|
 | German Language | language=de |
 | French Language | language=fr |
