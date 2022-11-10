@@ -1,4 +1,8 @@
-# Microsoft Teams (19 April)
+# Microsoft Teams (10 November)
+
+[Microsoft Teams progressive web app (PWA) via Edge](https://github.com/IGEL-Community/IGEL-Docs/blob/main/Docs/HOWTO-Microsoft-Teams-Optimization.md)
+
+---------
 
 |  CP Information |            |
 |-----------------|------------|

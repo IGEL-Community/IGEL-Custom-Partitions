@@ -1,4 +1,4 @@
-# Microsoft Edge Beta (14 December - BETA Channel)
+# Microsoft Edge Beta (10 November)
 
 |  CP Information |            |
 |-----------------|------------|
@@ -13,3 +13,7 @@
 ---------
 
 [How to use Microsoft Edge command-line options to configure proxy settings](https://docs.microsoft.com/en-us/deployedge/edge-learnmore-cmdline-options-proxy-settings)
+
+---------
+
+[Microsoft Teams progressive web app (PWA) via Edge](https://github.com/IGEL-Community/IGEL-Docs/blob/main/Docs/HOWTO-Microsoft-Teams-Optimization.md)
