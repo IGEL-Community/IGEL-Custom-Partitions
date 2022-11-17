@@ -35,7 +35,7 @@
 #
 
 # Check if all the required variables are set correctly
-if [ -z "${FRAME_CLIENT_ID}" ] || [ -z "${FRAME_CLIENT_SECRET}" ] || [ -z "${FRAME_SAT_URL}" ] || [ -z "${FRAME_ACCOUNT_ID}" ] || [ -z "${FRAME_EMAIL_DOMAIN}" ] || [ -z "${FRAME_LAUNCH_URL}" ] || [ -z "${FRAME_TERMINAL_CONFIG_ID}" ] ]; then
+if [ -z "${FRAME_CLIENT_ID}" ] || [ -z "${FRAME_CLIENT_SECRET}" ] || [ -z "${FRAME_SAT_URL}" ] || [ -z "${FRAME_ACCOUNT_ID}" ] || [ -z "${FRAME_EMAIL_DOMAIN}" ] || [ -z "${FRAME_LAUNCH_URL}" ] || [ -z "${FRAME_TERMINAL_CONFIG_ID}" ]; then
     echo "Please fill FRAME_CLIENT_ID, FRAME_CLIENT_SECRET, FRAME_SAT_URL, FRAME_ACCOUNT_ID, FRAME_EMAIL_DOMAIN, FRAME_LAUNCH_URL, and FRAME_TERMINAL_CONFIG_ID environment variables"
     exit 1
 fi
