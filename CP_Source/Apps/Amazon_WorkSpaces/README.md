@@ -3,9 +3,9 @@
 |  CP Information |            |
 |------------------|------------|
 | Package | [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-linux-client.html) <br /><br /> [Install Linux client notes](https://clients.amazonworkspaces.com/linux-install) |
-| Script Name | [aws_ws-cp-init-script.sh](aws_ws-cp-init-script.sh) |
+| Script Name | [awsws-cp-init-script.sh](awsws-cp-init-script.sh) |
 | Packing Notes | See build script for details |
-| Package automation | [build-aws_ws-cp.sh](build/build-aws_ws-cp.sh) |
+| Package automation | [build-awsws-cp.sh](build/build-awsws-cp.sh) |
 
 -----
 

@@ -1,7 +1,7 @@
 [INFO]
 [PART]
-file="aws_ws.tar.bz2"
+file="awsws.tar.bz2"
 version="X.X.X"
 size="200M"
-name="aws_ws"
+name="awsws"
 minfw="11.07.100"

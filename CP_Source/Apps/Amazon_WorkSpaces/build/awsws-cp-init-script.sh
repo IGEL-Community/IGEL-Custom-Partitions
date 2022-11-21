@@ -2,13 +2,13 @@
 #set -x
 #trap read debug
 
-ACTION="custompart-aws_ws_${1}"
+ACTION="custompart-awsws_${1}"
 
 # mount point path
 MP=$(get custom_partition.mountpoint)
 
 # custom partition path
-CP="${MP}/aws_ws"
+CP="${MP}/awsws"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
