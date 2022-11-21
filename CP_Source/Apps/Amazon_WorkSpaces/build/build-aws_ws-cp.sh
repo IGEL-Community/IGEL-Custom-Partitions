@@ -27,7 +27,7 @@ do
 done
 
 mv custom/aws_ws/usr/share/applications/ custom/aws_ws/usr/share/applications.mime
-#mkdir -p custom/vscode/userhome/.workspaces
+#mkdir -p custom/aws_ws/userhome/.workspaces
 
 echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
