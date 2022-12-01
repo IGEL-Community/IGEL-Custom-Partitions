@@ -48,9 +48,10 @@ chmod +x /etc/NetworkManager/dispatcher.d/99-wlan</pvalue>
         </pclass>
         <pclass name="userinterface.rccustom.custom_cmd_x11_init">
             <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt"EOF" &amp;gt /tmp/netbannerfix
-#!/bin/bash 
+#!/bin/bash
 
-sed -i 's/show_progress.*/show_progress false/' /bin/netcontrol
+#sed -i 's/show_progress.*/show_progress false/' /bin/netcontrol
+sed -i 's/show_progress "\$@"$/true # \0 #/' /bin/netcontrol
 EOF
 chmod +x /tmp/netbannerfix
 /tmp/netbannerfix</pvalue>
