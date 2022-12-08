@@ -1,4 +1,4 @@
-# Nutanix Frame (10 November)
+# Nutanix Frame (8 December)
 
 | CP Information        |                                                                                                               |
 | --------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -34,6 +34,32 @@ set up *Firmware Customization -> Custom Partition -> Download* with your UMS se
 -----
 
 # Frame App Releases
+## Frame App 6.16
+
+Published on 2022-12-08
+
+Added:
+
+General
+
+- Ability for users to automatically enable sound, microphone, and webcam via Preferences.
+
+- Ability to hide the [Frame Status Bar](https://docs.frame.nutanix.com/enduser/enduser-navaccount.html#status-bar) when in full-screen mode with Frame App. This feature can be enabled by setting the following Advanced Terminal Argument (either within Dashboard > Settings > Session > Advanced Options or Dashboard > Launchpads > Session Settings > Advanced Options).
+
+- Advanced Terminal Argument: `hideStatusBarOnFullscreen`
+
+Fixed:
+
+General
+
+- Issue where Frame App would automatically exit full-screen mode when session closed while in [kiosk mode](https://docs.frame.nutanix.com/session-conduct/frame-app/frame-app-config.html#frapp-args).
+
+- Issue where users were able to exit full-screen mode while in [kiosk mode](https://docs.frame.nutanix.com/session-conduct/frame-app/frame-app-config.html#frapp-args).
+
+- Additional reliability fixes.
+
+-----
+
 ## Frame App 6.15
 
 Published on 2022-11-10
