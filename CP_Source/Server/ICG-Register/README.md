@@ -1,10 +1,20 @@
-# ICG (IGEL Cloud Gateway) Register (25 February Update)
+# ICG (IGEL Cloud Gateway) Register (9 December)
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded command.            |
 |--------------------|------------|
 | Package | ICG-Register 1.01 |
 | IGEL OS Version (min) | 11.06.100 |
 | Notes | Profile with custom application with predined variables that allow a user, with one click on icon on desktop, to register with IGEL ICG.  <br /><br /> Update variables in profile (System > Firmware Customization > Environment Variables > Predefined):  KEY, ICGADDRESS, FINGERPRINT <br /><br /> Assign profile to devices |
+
+-----
+
+# NOTE: IGEL UMS Method for ICG setup (Add / Remove)
+
+If you have the devices connected to UMS already, the KB below describes the IGEL supported method. The method mentioned here may cause problems in a production environment.
+
+[Moving an Endpoint Device to an ICG](https://kb.igel.com/igelicg-2.05/en/moving-an-endpoint-device-to-an-icg-57324473.html)
+
+-----
 
 ## ICG Command (Version 01):
 ```{icg command}
