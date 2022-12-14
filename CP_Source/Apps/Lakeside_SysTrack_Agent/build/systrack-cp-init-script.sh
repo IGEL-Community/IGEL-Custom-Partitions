@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/systrack"
 
 # Installer
-INSTALL_PATH=${CP}/install
+INSTALL_PATH=${CP}/tmp
 ZIP_FILE="SysTrack_*_Install_Linux.zip"
 
 # output to systemlog with ID amd tag
@@ -28,11 +28,17 @@ init)
     cd ${INSTALL_PATH}
     unzip ${ZIP_FILE}
     # Patch SystemsManagementAgentLinux.sh
-    sed -i "s/^AGENTDIR=/AGENTDIR=/custom/systrack" SystemsManagementAgentLinux.sh
-    sed -i "s/^AGENTOPT=/AGENTOPT=/custom/systrack" SystemsManagementAgentLinux.sh
+    sed -i "s|^AGENTDIR=|AGENTDIR=/custom/systrack|" SystemsManagementAgentLinux.sh
+    sed -i "s|^AGENTOPT=|AGENTOPT=/custom/systrack|" SystemsManagementAgentLinux.sh
     sed -i "s/rm -rf \$EXTRACTDIR/#rm -rf \$EXTRACTDIR/g" SystemsManagementAgentLinux.sh
+    sed -i "s/fnStartDaemon$/#fnStartDaemon/" SystemsManagementAgentLinux.sh
     # run install with profile environment variable for SysTrack Server
+    mkdir -p ${CP}/etc/init.d
+    mkdir -p /opt/lsiagent/bin
     /bin/bash ./SystemsManagementAgentLinux.sh install -m ${SYSTRACK_FQDN_SERVER}
+    mv /etc/init.d/lsiagent ${CP}/etc/init.d
+    mv /opt/lsiagent/bin/lsiagentd ${CP}/opt/lsiagent/bin
+    rm -rf /opt/lsiagent
     popd
   fi
   # Initial permissions
