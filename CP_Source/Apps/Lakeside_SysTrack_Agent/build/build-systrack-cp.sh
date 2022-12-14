@@ -25,7 +25,7 @@ cd build_tar
 
 mkdir -p custom/systrack/tmp
 
-cp "$HOME/Downloads/SysTrack_*_Install_Linux.zip" custom/systrack/tmp
+cp $HOME/Downloads/SysTrack_*_Install_Linux.zip custom/systrack/tmp
 cp $HOME/Downloads/systrack-cert.crt custom/systrack/tmp
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Lakeside_SysTrack_Agent.zip
