@@ -12,6 +12,12 @@
 
 -----
 
+## Profile variable SYSTRACK_FQDN_SERVER
+
+Edit Profile to set `SYSTRACK_FQDN_SERVER` to the SysTrack server name. The IGEL OS endpoint must be able to resolve and connect to the SysTrack server.
+
+-----
+
 ## SysTrack SSL Preparation
 
 The Linux child agent requires SSL (Secure Socket Layer) Certificate Verification in order to securely connect to the Master. This type of security protocol requires that a valid SSL certificate is installed on the Linux child system.
