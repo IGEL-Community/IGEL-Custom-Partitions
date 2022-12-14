@@ -30,14 +30,13 @@ init)
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
-  find ${CP} | while read LINE
+  find ${CP} -printf "/%P\n" | while read DEST
   do
-    DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
     if [ ! -z "${DEST}" -a ! -e "${DEST}" ]; then
       # Remove the last slash, if it is a dir
-      [ -d $LINE ] && DEST=$(echo "${DEST}" | sed -e "s/\/$//g") | $LOGGER
+      [ -d $DEST ] && DEST=${DEST%/} | $LOGGER
       if [ ! -z "${DEST}" ]; then
-        ln -sv "${LINE}" "${DEST}" | $LOGGER
+        ln -sv "${CP}/${DEST}" "${DEST}" | $LOGGER
       fi
     fi
   done
@@ -49,12 +48,13 @@ init)
 
 ;;
 stop)
-  # unlink linked files
-  find ${CP} | while read LINE
-  do
-    DEST=$(echo -n "${LINE}" | sed -e "s|${CP}||g")
+# Unlinking files and folders on proper path
+find ${CP} -printf "/%P\n" | while read DEST
+do
+  if [ -L "${DEST}" ]; then
     unlink $DEST | $LOGGER
-  done
+  fi
+done
 
 ;;
 esac
