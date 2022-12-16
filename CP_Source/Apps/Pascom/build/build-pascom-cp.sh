@@ -31,7 +31,7 @@ mkdir -p custom/pascom_Client/userhome/.local/share/AppRun
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Pascom.zip
 
 unzip Pascom.zip -d custom
-mv custom/target/pascom-cp-init-script.sh custom
+mv custom/target/build/pascom-cp-init-script.sh custom
 
 cd custom
 
