@@ -27,6 +27,7 @@ tar xvf $HOME/Downloads/pascom_Client*.tar.bz2
 cd ..
 
 mkdir -p custom/pascom_Client/userhome/.local/share/AppRun
+mkdir -p "custom/pascom_Client/userhome/.local/share/pascom Client"
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Pascom.zip
 

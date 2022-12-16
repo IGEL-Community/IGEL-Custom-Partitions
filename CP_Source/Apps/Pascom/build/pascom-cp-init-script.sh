@@ -11,7 +11,8 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/pascom_Client"
 
 # Teams directory
-PASCOM="/userhome/.local/share/AppRun"
+PASCOM1="/userhome/.local/share/AppRun"
+PASCOM2="/userhome/.local/share/pascom Client"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -23,11 +24,15 @@ init)
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
 # basic persistency
-  ln -sv "${CP}${PASCOM}" "${PASCOM}"
-  chown -R user:users "${CP}${PASCOM}"
+  ln -sv "${CP}${PASCOM1}" "${PASCOM1}"
+  ln -sv "${CP}${PASCOM2}" "${PASCOM2}"
+  chown -R user:users "${CP}${PASCOM1}"
+  chown -R user:users "${CP}${PASCOM2}"
 
 ;;
 stop)
+  unlink "${PASCOM1}"
+  unlink "${PASCOM2}"
 
 ;;
 esac
