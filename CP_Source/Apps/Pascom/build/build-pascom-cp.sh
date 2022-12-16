@@ -28,17 +28,25 @@ cd ..
 
 mkdir -p custom/pascom_Client/userhome/.local/share/AppRun
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/pascom.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Pascom.zip
 
-unzip pascom.zip -d custom
+unzip Pascom.zip -d custom
 mv custom/target/pascom-cp-init-script.sh custom
 
 cd custom
 
-tar cvjf pascom.tar.bz2 pascom_Client pascom-cp-init-script.sh
-mv pascom.tar.bz2 ../..
-mv target/pascom.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+VERSION=$(basename $HOME/Downloads/pascom_Client*.tar.bz2 | cut -c 15- | rev | cut -c 9- | rev)
+#echo "Version is: " ${VERSION}
+sed -i "/^version=/c version=\"${VERSION}\"" target/pascom.inf
+#echo "pascom.inf file is:"
+#cat target/pascom.inf
+
+# new build process into zip file
+tar cvjf target/pascom.tar.bz2 pascom pascom-cp-init-script.sh
+zip -g ../Pascom.zip target/pascom.tar.bz2 target/pascom.inf
+zip -d ../Pascom.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Pascom.zip ../../Pascom-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
