@@ -1,7 +1,0 @@
-[INFO]
-[PART]
-file="pascom.tar.bz2"
-version="X.X.X"
-size="500M"
-name="pascom"
-minfw="11.07.100"
