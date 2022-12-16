@@ -43,7 +43,7 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/pascom.inf
 #cat target/pascom.inf
 
 # new build process into zip file
-tar cvjf target/pascom.tar.bz2 pascom pascom-cp-init-script.sh
+tar cvjf target/pascom.tar.bz2 pascom_Client pascom-cp-init-script.sh
 zip -g ../Pascom.zip target/pascom.tar.bz2 target/pascom.inf
 zip -d ../Pascom.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../Pascom.zip ../../Pascom-${VERSION}_igel01.zip
