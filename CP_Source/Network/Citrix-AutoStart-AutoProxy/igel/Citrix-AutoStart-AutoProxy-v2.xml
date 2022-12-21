@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile>
+    <profile_id>413442</profile_id>
+    <profilename>Citrix AutoStart AutoProxy v2</profilename>
+    <firmware>
+        <model>IGEL OS 11</model>
+        <version>11.08.230.01</version>
+    </firmware>
+    <description>based on automatic Proxy Switcher from Stephan Mallmann (IGEL)</description>
+    <overwritesessions>false</overwritesessions>
+    <is_master_profile>false</is_master_profile>
+    <is_igel_os>true</is_igel_os>
+    <settings>
+        <pclass name="system.environment_variables.fixvariable%.name">
+            <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">sys_no_proxies_on</pvalue>
+            <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">sys_proxy_http</pvalue>
+            <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">sys_proxy_http_port</pvalue>
+            <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">internal_website</pvalue>
+            <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">external_website</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="system.environment_variables.fixvariable%.value">
+            <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">localhost, 127.0.0.1, mydomain.org</pvalue>
+            <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">my-proxy.mydomain.or</pvalue>
+            <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">8080</pvalue>
+            <pvalue instancenr="3" variableExpression="" variableSubstitutionActive="false">https://my.storefront.org</pvalue>
+            <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">https://my.netscaler.org</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="userinterface.rccustom.custom_cmd_net_final">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt"EOF" &amp;gt /tmp/proxy_switcher
+#!/bin/bash 
+ 
+#Load System Variables
+sys_no_proxies_on=$(get system.environment_variables.fixvariable0.value)
+sys_proxy_http=$(get system.environment_variables.fixvariable1.value)
+sys_proxy_http_port=$(get system.environment_variables.fixvariable2.value)
+internal_website=$(get system.environment_variables.fixvariable3.value)
+external_website=$(get system.environment_variables.fixvariable4.value)
+
+
+#Logging action
+ACTION="proxy_switcher_${1}"
+#output to systemlog with ID and tag
+LOGGER="logger -it ${ACTION}"
+
+if ping -c 1 $sys_proxy_http &amp;amp&amp;gt /dev/null
+then
+	#Intern
+	echo "proxy reachable, proxy configuration done" | $LOGGER
+	
+	#Set System Proxy
+	setparam network.proxy.settings.sys_no_proxies_on $sys_no_proxies_on 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_type 1 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_http $sys_proxy_http 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_http_port $sys_proxy_http_port 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_ssl $sys_proxy_http 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_ssl_port $sys_proxy_http_port 2&amp;gt&amp;amp1 | $LOGGER
+
+
+	#Set Chromium Proxy	
+	setparam chromiumglobal.app.proxy_http $sys_proxy_http 2&amp;gt&amp;amp1 | $LOGGER
+	setparam chromiumglobal.app.proxy_http_port $sys_proxy_http_port 2&amp;gt&amp;amp1 | $LOGGER
+	setparam chromiumglobal.app.proxy_ssl $sys_proxy_http 2&amp;gt&amp;amp1 | $LOGGER
+	setparam chromiumglobal.app.proxy_ssl_port $sys_proxy_http_port 2&amp;gt&amp;amp1 | $LOGGER
+	setparam chromiumglobal.app.proxy_type fixed_servers  2&amp;gt&amp;amp1 | $LOGGER
+                             killwait_postsetupd
+	
+	#Open Chromium
+	chromium-browser --app=$internal_website --start-maximized --proxy-auto-detect
+
+else
+	#Extern
+	echo "unreachable, proxy not set" | $LOGGER
+	
+	#Set System Proxy
+	setparam network.proxy.settings.sys_no_proxies_on "" 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_type 0 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_http "" 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_http_port "" 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_ssl "" 2&amp;gt&amp;amp1 | $LOGGER
+	setparam network.proxy.settings.sys_proxy_ssl_port "" 2&amp;gt&amp;amp1 | $LOGGER
+
+	#Set Chromium Proxy	
+	setparam chromiumglobal.app.proxy_http "" 2&amp;gt&amp;amp1 | $LOGGER
+	setparam chromiumglobal.app.proxy_http_port "" 2&amp;gt&amp;amp1 | $LOGGER
+	setparam chromiumglobal.app.proxy_ssl "" 2&amp;gt&amp;amp1 | $LOGGER
+	setparam chromiumglobal.app.proxy_ssl_port "" 2&amp;gt&amp;amp1 | $LOGGER
+	setparam chromiumglobal.app.proxy_type direct 2&amp;gt&amp;amp1 | $LOGGER
+
+	#Open Chromium
+	chromium-browser --app=$external_website --start-maximized
+fi
+ 
+EOF
+chmod +x /tmp/proxy_switcher</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+    </settings>
+    <instancesettings>
+        <instance classprefix="sessions.custom_application%" serialnumber="-7787f63a:18530aa8b03:-7fff192.168.178.45">
+            <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+            <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.autostartnotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/tmp/proxy_switcher</ivalue>
+            <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+            <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+            <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+            <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">pn</ivalue>
+            <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+            <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Citrix Login</ivalue>
+            <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+            <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+            <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+            <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">2</ivalue>
+            <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+        </instance>
+    </instancesettings>
+</profile>
