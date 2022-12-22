@@ -20,4 +20,4 @@ Update Linphone profile to change media player from `mediaplayer` to `/custom/li
 
 `sed -i "/^Exec=mediaplayer/c Exec=/custom/linphone/AppRun %U" /usr/share/applications.mime/mediaplayer.desktop`
 
-See [Adding or Changing a MIME Type Hander](https://kb.igel.com/igelos-11.08/en/adding-or-changing-a-mime-type-handler-63803902.html) for additional details.
+See [Adding or Changing a MIME Type Hander](https://kb.igel.com/igelos-11.08.200/en/adding-or-changing-a-mime-type-handler-69176914.html) for additional details.

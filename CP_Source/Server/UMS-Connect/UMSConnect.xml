@@ -24,7 +24,7 @@ pkexec --user root get_rmsettings
 pkexec --user root killwait_postsetupd
 
 # determine interfaces
-# https://kb.igel.com/igelos-11.06.210/en/lan-interfaces-54082728.html
+# https://kb.igel.com/igelos-11.08.200/en/lan-interfaces-69178031.html
 if [ -e /config/net/en-interfaces ]; then
   LOCAL_IP=$(head -n 1 /config/net/en-interfaces)
 else
