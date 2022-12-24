@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>36298</profile_id>
+        <profilename>Free Disk Space</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.07.100.01</version>
+        </firmware>
+        <description>Free Disk Space</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="userinterface.rccustom.custom_cmd_net_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt 'EOF' &amp;gt /bin/igel_free_disk_space.sh
+#!/bin/bash
+# Find and report free space on IGEL OS device
+# This will be saved in UMS Structure Tag
+# Based on note from Milan P on IGEL Community on Slack
+# https://igelcommunity.slack.com/archives/C8GP9JHQE/p1671833360500039
+
+#### A.  Overall space of main disk partition (only igf0) - bytes
+a=$(lsblk -rb | grep -e "igf0" | cut -d" " -f4 | paste -s -d+ - | bc)
+
+#### B.  Physical space used by all features and igf partitions (except igf0) - bytes
+b=$(lsblk -rb | grep -e "igf[1-9].*" | cut -d" " -f4 | paste -s -d+ - | bc)
+
+#### C.  Available physical space - MB
+c=$(echo "($a-$b)/(1024*1024)" | bc)
+
+echo $c
+setparam system.remotemanager.ums_structure_tag FREE_DISK_SPACE_${c}MB
+write_rmsettings
+EOF
+chmod a+x /bin/igel_free_disk_space.sh
+/bin/igel_free_disk_space.sh</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+    </profile>
+</profiles>
