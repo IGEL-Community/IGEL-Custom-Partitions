@@ -8,14 +8,15 @@
 # Download Latest App for Linux (Debian)
 #https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
 #https://www.webex.com/downloads.html
-if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
-  echo "***********"
-  echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
-  echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
-  echo "https://www.webex.com/downloads.html"
-  echo "***********"
-  exit 1
-fi
+wget -O $HOME/Downloads/Webex.deb https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
+#if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
+  #echo "***********"
+  #echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
+  #echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
+  #echo "https://www.webex.com/downloads.html"
+  #echo "***********"
+  #exit 1
+#fi
 
 MISSING_LIBS="libxcb-xinerama0"
 
