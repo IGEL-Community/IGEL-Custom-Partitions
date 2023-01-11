@@ -63,4 +63,4 @@ zip -d ../PrinterLogic.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../PrinterLogic.zip ../../PrinterLogic-${VERSION}_igel01.zip
 
 cd ../..
-rm -rf build_tar
+sudo rm -rf build_tar
