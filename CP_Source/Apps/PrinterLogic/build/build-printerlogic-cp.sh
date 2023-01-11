@@ -16,8 +16,6 @@ if ! compgen -G "$HOME/Downloads/printerinstallerclient_amd64.deb" > /dev/null; 
   exit 1
 fi
 sudo apt install unzip -y
-sudo apt install libtcl8.6 -y
-sudo apt install libtk8.6 -y
 sudo apt install gdebi -y
 
 mkdir build_tar
@@ -30,7 +28,7 @@ sudo gdebi $HOME/Downloads/printerinstallerclient_amd64.deb --non-interactive
 
 # collect the installed files
 sudo cp /etc/chromium/native-messaging-hosts/com.printerlogic.host.native.client.json custom/printerlogic/etc/chromium-browser/native-messaging-hosts
-TAR_FILES="/etc/sudoers.d/printerlogicidp /opt/PrinterInstallerClient /usr/bin/printer-installer-client /usr/lib/cups/backend/printerlogic /usr/lib/mozilla/native-messaging-hosts/com.printerlogic.host.native.client.json"
+TAR_FILES="/etc/sudoers.d/printerlogicidp /opt/PrinterInstallerClient /usr/bin/printer-installer-client /usr/lib/cups/backend/printerlogic /usr/lib/mozilla/native-messaging-hosts/com.printerlogic.host.native.client.json /usr/share/applications/printerlogicidp.desktop"
 sudo tar cvf /tmp/printerlogic.tar ${TAR_FILES}
 
 # extract the files
@@ -51,7 +49,7 @@ mkdir getversion
 cd getversion
 ar -x $HOME/Downloads/printerinstallerclient_amd64.deb
 tar xf control.tar.* ./control
-VERSION=$(grep Version control | cut -d " " -f 2)
+VERSION=$(grep ^Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/printerlogic.inf
