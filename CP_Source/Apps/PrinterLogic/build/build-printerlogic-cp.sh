@@ -16,7 +16,7 @@ if ! compgen -G "$HOME/Downloads/printerinstallerclient_amd64.deb" > /dev/null; 
   exit 1
 fi
 
-MISSING_LIBS="libappindicator3-1"
+MISSING_LIBS="libappindicator3-1 libindicator3-7 libdbusmenu-gtk3-4"
 
 sudo apt install unzip -y
 sudo apt install gdebi -y
