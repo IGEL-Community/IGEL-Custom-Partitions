@@ -15,6 +15,9 @@ if ! compgen -G "$HOME/Downloads/printerinstallerclient_amd64.deb" > /dev/null; 
   echo "***********"
   exit 1
 fi
+
+MISSING_LIBS="libappindicator3-1"
+
 sudo apt install unzip -y
 sudo apt install gdebi -y
 
@@ -28,8 +31,19 @@ sudo gdebi $HOME/Downloads/printerinstallerclient_amd64.deb --non-interactive
 
 # collect the installed files
 sudo cp /etc/chromium/native-messaging-hosts/com.printerlogic.host.native.client.json custom/printerlogic/etc/chromium-browser/native-messaging-hosts
-TAR_FILES="/etc/systemd/system/printer-installer-client.service /etc/sudoers.d/printerlogicidp /opt/PrinterInstallerClient /usr/bin/printer-installer-client /usr/lib/cups/backend/printerlogic /usr/lib/mozilla/native-messaging-hosts/com.printerlogic.host.native.client.json /usr/share/applications/printerlogicidp.desktop"
+TAR_FILES="/etc/pl_dir /etc/systemd/system/printer-installer-client.service /etc/sudoers.d/printerlogicidp /opt/PrinterInstallerClient /usr/bin/printer-installer-client /usr/lib/cups/backend/printerlogic /usr/lib/mozilla/native-messaging-hosts/com.printerlogic.host.native.client.json /usr/share/applications/printerlogicidp.desktop"
 sudo tar cvf /tmp/printerlogic.tar ${TAR_FILES}
+
+# missing libs
+for lib in $MISSING_LIBS; do
+  apt-get download $lib
+done
+
+find . -name "*.deb" | while read LINE
+do
+  dpkg -x "${LINE}" custom/printerlogic
+done
+
 
 # extract the files
 cd custom/printerlogic

@@ -17,6 +17,9 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  if [ -L /usr/bin/printer-installer-client ]; then
+    unlink /usr/bin/printer-installer-client
+  fi
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
