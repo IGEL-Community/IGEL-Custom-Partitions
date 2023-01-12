@@ -20,6 +20,9 @@ init)
   if [ -L /usr/bin/printer-installer-client ]; then
     unlink /usr/bin/printer-installer-client
   fi
+  if [ -e /etc/pl_dir ]; then
+    rm -f /etc/pl_dir
+  fi
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
