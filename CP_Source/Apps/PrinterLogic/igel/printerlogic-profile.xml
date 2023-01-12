@@ -33,7 +33,7 @@ URL_SCHEME=$(get system.environment_variables.fixvariable0.value)
 HOME_URL=$(get system.environment_variables.fixvariable1.value)
 AUTH_CODE=$(get system.environment_variables.fixvariable2.value)
 
-/custom/printerlogic/opt/PrinterInstallerClient/bin/./set_home_url.sh $URL_SCHEME $HOME_URL &amp;amp&amp;amp /custom/printerlogic/opt/PrinterInstallerClient/bin/use_authorization_code.sh $AUTH_CODE
+/custom/printerlogic/opt/PrinterInstallerClient/bin/set_home_url.sh $URL_SCHEME $HOME_URL &amp;amp&amp;amp /custom/printerlogic/opt/PrinterInstallerClient/bin/use_authorization_code.sh $AUTH_CODE
 
 systemctl enable /custom/printerlogic/etc/systemd/system/printer-installer-client.service
 systemctl start printer-installer-client.service
