@@ -19,7 +19,7 @@
               <variableSubstitutionActive>false</variableSubstitutionActive>
           </pclass>
           <pclass name="system.environment_variables.fixvariable%.value">
-              <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">HTTPS if a cert is used or HTTP if no cert is used</pvalue>
+              <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">https if a cert is used or http if no cert is used</pvalue>
               <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">URL of your instance</pvalue>
               <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">Your authorization code</pvalue>
               <variableSubstitutionActive>false</variableSubstitutionActive>
