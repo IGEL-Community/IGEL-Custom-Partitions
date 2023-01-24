@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="jc.tar.bz2"
+version="X.X.X"
+size="100M"
+name="jc"
+minfw="11.07.110"
