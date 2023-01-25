@@ -35,7 +35,7 @@ init)
     # run install with profile environment variable for SysTrack Server
     mkdir -p ${CP}/etc/init.d
     mkdir -p /opt/lsiagent/bin
-    /bin/bash ./SystemsManagementAgentLinux.sh install -m ${SYSTRACK_FQDN_SERVER}
+    /bin/bash ./SystemsManagementAgentLinux.sh install -m ${SYSTRACK_FQDN_SERVER} --config IGEL
     mv /etc/init.d/lsiagent ${CP}/etc/init.d
     mv /opt/lsiagent/bin/lsiagentd ${CP}/opt/lsiagent/bin
     rm -rf /opt/lsiagent
