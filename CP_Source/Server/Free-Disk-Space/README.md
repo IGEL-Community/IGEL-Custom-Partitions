@@ -4,11 +4,15 @@
 |--------------------|------------|
 | Package | free-disk-space 1.01 |
 | IGEL OS Version (min) | 11.07.100 |
-| Notes | Free Disk Space is an IGEL OS custom command to report back the free disk space on device. This is stored in the UMS Structure Tag field. |
+| Notes | Free Disk Space is an IGEL OS custom command to report back the estimated free disk space on device. This is stored in the UMS Structure Tag field. |
 
 -----
 
-**NOTE:** Two reboots (for profile and to run command).
+**NOTES:**
+
+- Two reboots (for profile and to run command).
+
+- This free space CP does not show the entire picture, and there is no way to show this today in IGEL OS due to hidden / unmounted partitions that are reserved for updates and squashfs files.
 
 -----
 
