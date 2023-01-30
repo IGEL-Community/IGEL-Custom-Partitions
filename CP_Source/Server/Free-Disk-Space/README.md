@@ -1,5 +1,12 @@
 # Free Disk Space
 
+## This does not account for hidden partitions on IGEL OS that are not mounted during normal operation. The hidden partions contain the following:
+
+* Compressed squashfs files
+* Empty space to allow for IGEL OS updates to be deployed
+
+Currently there is no good way to see these in the running operating system, but just keep in mind that IGEL OS will take up to 4GB during installation as long as it is available.
+
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded command.            |
 |--------------------|------------|
 | Package | free-disk-space 1.01 |
