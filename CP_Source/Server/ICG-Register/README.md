@@ -1,5 +1,7 @@
 # ICG (IGEL Cloud Gateway) Register (9 December)
 
+## <u><h2 style="color:red">!!! WARNING !!!</u>: This package has been removed, because it can cause problems if devices try to re-register against your ICG at every boot cycle</h2> 
+
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded command.            |
 |--------------------|------------|
 | Package | ICG-Register 1.01 |
