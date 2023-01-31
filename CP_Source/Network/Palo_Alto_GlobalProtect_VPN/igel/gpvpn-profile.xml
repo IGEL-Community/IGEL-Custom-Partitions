@@ -21,7 +21,7 @@
 systemctl start gpd.service
 sysctl -w net.ipv4.ping_group_range="0 0"
 systemctl --global enable /custom/gpvpn/opt/paloaltonetworks/globalprotect/gpa.service
-su -c 'XDG_RUNTIME_DIR="/run/user/$UID" DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" systemctl --user start gpa' user</pvalue>
+su -c 'XDG_RUNTIME_DIR="/run/user/777" DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" systemctl --user start gpa' user</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
