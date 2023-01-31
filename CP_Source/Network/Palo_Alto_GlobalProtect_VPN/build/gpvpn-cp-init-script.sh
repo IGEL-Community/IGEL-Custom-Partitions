@@ -11,7 +11,8 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/gpvpn"
 
 # GP Vars
-GPDIR=/opt/paloaltonetworks/globalprotect
+GPDIR="/opt/paloaltonetworks/globalprotect"
+USER_CONFIG="/userhome/.GlobalProtect"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -20,6 +21,12 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  if [ -L ${USER_CONFIG} ]; then
+    unlink ${USER_CONFIG}
+  fi
+  if [ -d ${USER_CONFIG} ]; then
+    rm -rf ${USER_CONFIG}
+  fi
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
@@ -35,6 +42,9 @@ init)
   done
 
   ln -sv ${CP}${GPDIR}/globalprotect /usr/bin/globalprotect | $LOGGER
+
+  # basic persistency
+  chown -R user:users "${CP}${USER_CONFIG}"
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
