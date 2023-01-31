@@ -49,7 +49,7 @@ init)
   done
 
   # basic persistency
-  chown -R user:users "${CP}${KEEPASS_CONFIG}"
+  chown -R user:users "${CP}${USER_CONFIG}"
   chown -R user:users "${CP}${KEEPASS_DB}"
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
