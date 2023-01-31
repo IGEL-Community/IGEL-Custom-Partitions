@@ -24,7 +24,7 @@ dpkg -x $HOME/Downloads/GlobalProtect_UI_deb-*.deb custom/gpvpn
 
 mv custom/gpvpn/usr/share/applications/ custom/gpvpn/usr/share/applications.mime
 GPDIR=/opt/paloaltonetworks/globalprotect
-cp custom/gpvpn/$GPDIR/gp.desktop /usr/share/applications.mime/gp.desktop
+cp custom/gpvpn/$GPDIR/gp.desktop custom/gpvpn/usr/share/applications.mime/gp.desktop
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Palo_Alto_GlobalProtect_VPN.zip
 
