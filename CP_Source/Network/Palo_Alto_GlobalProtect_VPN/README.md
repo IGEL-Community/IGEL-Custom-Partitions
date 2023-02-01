@@ -1,5 +1,17 @@
 # Palo Alto GlobalProtect VPN Client (31 January)
 
+-----
+
+## This CP is not currently functional
+
+**Having issue starting as user and therefore `globalprotect` cannot connect to local gpd service:**
+
+`/opt/paloaltonetworks/globalprotect/PanGPA start`
+
+`su -c 'XDG_RUNTIME_DIR="/run/user/$UID" DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" systemctl --user start gpa' user`
+
+-----
+
 |  CP Information |            |
 |-----------------|------------|
 | Package | [Palo Alto GlobalProtect VPN Client](https://docs.paloaltonetworks.com/globalprotect/5-1/globalprotect-app-user-guide/globalprotect-app-for-linux/download-and-install-the-globalprotect-app-for-linux) |
