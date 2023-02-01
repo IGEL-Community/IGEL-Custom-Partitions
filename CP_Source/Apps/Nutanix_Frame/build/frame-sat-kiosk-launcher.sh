@@ -28,10 +28,11 @@
 # FRAME_EMAIL_DOMAIN - email domain name used to create the anonymous user email addresses that will be visible in the Session Trail.
 # FRAME_LAUNCH_URL - obtained from Dashboard > Launchpad > Advanced Integrations for the Launch Link. The FRAME_LAUNCH_URL could have a Launchpad URL.
 # FRAME_TERMINAL_CONFIG_ID - obtainable from the Launch Link URL.
+# FRAME_LOGOUT_URL - Optional but recommended. Any accessible URL that you'd like your users to be redirected to if they log out for any reason.
 #
 # Visit Frame's documentation at https://docs.frame.nutanix.com
 
-# Updated July 29, 2022
+# Updated Jan 20th, 2023
 #
 
 # Check if all the required variables are set correctly
@@ -147,14 +148,19 @@ getToken() {
     randomId=$(openssl rand -hex 21)
     email="${randomId}@${FRAME_EMAIL_DOMAIN}"
 
-    # Include optional params such as first_name, last_name, email_domain, email or metadata
+    # If provided, specify logout URL in metadata
+    if [ -n "$FRAME_LOGOUT_URL" ]; then
+        metadata=",\"metadata\":{\"should_accept_tos\":false,\"frame_logout_url\":\"$FRAME_LOGOUT_URL\"}"
+    else
+    	metadata=",\"metadata\":{\"should_accept_tos\":false}"
+    fi
+
+    # Include optional params such as first_name, last_name, email_domain, email and/or metadata
     local request_body='{
-        "email": "'"$email"'",
-        "first_name": "'"$serial"'",
-        "last_name": "User",
-        "metadata": {
-            "should_accept_tos": false
-        }
+        "email": "'$email'",
+        "first_name": "'$serial'",
+        "last_name": "User"
+	'$metadata'
     }'
 
     # Make request
