@@ -210,7 +210,7 @@ This profile is designed to support a specific end user workflow and assumes a p
 
 1. A *Published* Launchpad.
 2. Configured identity provider with associated roles/permissions allowing access to the desired Frame Account.
-3. Frame Launch Link with additional "Quit and log out" url parameter`&qlo=1`.
+3. Frame Launch Link with additional ["Quit and log out"](https://docs.frame.nutanix.com/platform/session/advanced-integrations/#supported-query-params) url parameter: `&qlo=1`.
 4. *Optional:* The Frame account production workload VMs can be joined to a Windows domain, if desired.
 
 5. **Edit your IGEL UMS Custom Profile and go to**:
@@ -247,7 +247,7 @@ The Frame SAT Kiosk Custom Profile is designed to support a specific end user wo
 5. *Optional:* The Frame account production workload VMs can be joined to a Windows domain, if desired.
 
 
-### Required Environment Variables
+### Environment Variables
 
 The following environment variables must be configured in the IGEL Custom Profile for this profile to work.
 
@@ -265,7 +265,8 @@ The following environment variables must be configured in the IGEL Custom Profil
    - `FRAME_EMAIL_DOMAIN` - email domain name used to create the anonymous user email addresses that will be visible in the Session Trail.
    - `FRAME_LAUNCH_URL` - obtained from an Account's *Dashboard > Launchpad > Advanced Integrations* to get a configurable dialog with Launch Links. While we recommend Launch Links for Kiosk scenarios, the value of FRAME_LAUNCH_URL could instead be a standard Launchpad URL.
    - `FRAME_TERMINAL_CONFIG_ID` - obtainable from the Launch Link URL.
-
+   - `FRAME_LOGOUT_URL` - Optional. Allows configuration of the "logout" behavior by specifying a URL. Useful when using a Frame Launch Link with additional ["Quit and log out"](https://docs.frame.nutanix.com/platform/session/advanced-integrations/#supported-query-params) url parameter: `&qlo=1`.
+   
 ---
 
 ## Frame Admin API and SAT quick setup guide
