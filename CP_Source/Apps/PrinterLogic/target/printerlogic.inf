@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="printerlogic.tar.bz2"
+version="X.X.X"
+size="500M"
+name="printerlogic"
+minfw="11.07.100"

@@ -28,7 +28,8 @@ sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 sudo apt-get autoremove -y
 sudo apt-get install build-essential gcc make perl dkms -y
-sudo apt install apt-rdepends
+sudo apt install apt-rdepends -y
+sudo apt install gdebi -y
 echo "******* Ending -- apt-get update / upgrade / dist-upgrade / autoremove"
 
 #

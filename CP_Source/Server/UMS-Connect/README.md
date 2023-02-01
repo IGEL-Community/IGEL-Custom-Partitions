@@ -2,8 +2,8 @@
 
 |  CP Information | **NOTE:** This is not a CP. It is a profile with an embedded command.            |
 |--------------------|------------|
-| Package | ums-connect 1.01 |
-| IGEL OS Version (min) | 11.04.100 |
+| Package | ums-connect 1.02 |
+| IGEL OS Version (min) | 11.07.100 |
 | Notes | UMSConnect is an IGEL OS 11 custom application that connects to UMS after changing IP addresses on the endpoint. This may happen due to a network issue, a VPN connection, or other event. After the IP changes, in some situations, you cannot reconnect to UMS. When your connection is lost, do not fear! You do not need to reboot, rediscover, or do anything except click on “UMS Connect”. |
 
 -----
@@ -24,21 +24,21 @@
 ![UMSConnect 04](UMSConnect_04.png)
 
 -----
-UMSConnect Command:
-```{UMSConnect}
+
+**/bin/igel_umsconnect.sh**
+
+```bash
 #!/bin/bash
 ###########################################################################################
-# Script Name UMSConnect for IGEL OS 11.06.1
+# Script Name umsconnect for IGEL OS 11.07.100
 # Written by Michael Greear 09/2020 edited for 11.06.1 01/22/2022
 # Version 3.0.2
-#
-# Must chmod a+x to run in IGEL OS
 ###########################################################################################
 pkexec --user root get_rmsettings
 pkexec --user root killwait_postsetupd
 
 # determine interfaces
-# https://kb.igel.com/igelos-11.06.210/en/lan-interfaces-54082728.html
+# https://kb.igel.com/igelos-11.08.200/en/lan-interfaces-69178031.html
 if [ -e /config/net/en-interfaces ]; then
   LOCAL_IP=$(head -n 1 /config/net/en-interfaces)
 else

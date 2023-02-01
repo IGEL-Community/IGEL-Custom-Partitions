@@ -1,4 +1,4 @@
-# Zoom (19 May)
+# Zoom (31 October)
 
 |  CP Information  |             |
 |-----------------|-------------|
@@ -12,7 +12,7 @@
 | Packaging Notes | See build script for details |
 | Package automation | [build-zoom-cp.sh](build/build-zoom-cp.sh) |
 
-|  Customization | /wfs/user/.zoom/.zoomus.conf |
+|  Customization | /userhome/.config/zoomus.conf and is symbolic linked (ln -s) to /custom/zoom/userhome/.config/zoomus.conf (allows for settings to be saved after reboot)|
 |----------------|------------------------------|
 | German Language | language=de |
 | French Language | language=fr |
@@ -26,6 +26,30 @@ Sample for setting German language (reboot required after CP deployed)
 
 --------
 
+## Pulseaudio Notes
+
+To restart pulseaudio:
+
+```bash
+pulseaudio -k
+   ```
+
+Update the command in profile to restart pulseaudio as part of the command to start Zoom:
+
+```bash
+pulseaudio -k && zoom
+   ```
+
+--------
+
 ## Zoom Requirements
 
 [Zoom Virtual Background system requirements](https://support.zoom.us/hc/en-us/articles/360043484511)
+
+--------
+
+## Zoom Linux (November 2022) - Retiring current key pair to sign Zoom desktop client
+
+**Note: This is NOT an issue for Zoom CP on IGEL OS**
+
+In [November 2022](https://support.zoom.us/hc/en-us/articles/9836712961165-Downloading-the-public-key-for-Linux), Zoom is retiring the current key pair used to sign the Zoom desktop client for Linux, which customers can use to validate the Zoom desktop client. Users must download the new public key before attempting to upgrade to version 5.12.6, otherwise they will be unable to install this update. Prior versions (before 5.12.6) will not be impacted.

@@ -7,13 +7,14 @@
 
 # https://element.io/get-started#linux-details
 
+sudo apt install curl -y
+sudo apt install unzip -y
+
 sudo curl https://packages.element.io/debian/element-io-archive-keyring.gpg | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packages.element.io/debian/ default main" > /etc/apt/sources.list.d/element-main.list'
 sudo apt-get update
 
 MISSING_LIBS="element-desktop libappindicator3-1 libsqlcipher0"
-
-sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar

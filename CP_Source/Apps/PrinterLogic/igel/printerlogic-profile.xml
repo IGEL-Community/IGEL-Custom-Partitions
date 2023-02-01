@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>10688</profile_id>
+        <profilename>PrinterLogic CP</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.07.100.01</version>
+        </firmware>
+        <description>PrinterLogic</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+          <pclass name="system.environment_variables.fixvariable%.name">
+              <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">URL_SCHEME</pvalue>
+              <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">HOME_URL</pvalue>
+              <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">AUTH_CODE</pvalue>
+              <variableSubstitutionActive>false</variableSubstitutionActive>
+          </pclass>
+          <pclass name="system.environment_variables.fixvariable%.value">
+              <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">https if a cert is used or http if no cert is used</pvalue>
+              <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">URL of your instance</pvalue>
+              <pvalue instancenr="2" variableExpression="" variableSubstitutionActive="false">Your authorization code</pvalue>
+              <variableSubstitutionActive>false</variableSubstitutionActive>
+          </pclass>
+          <pclass name="userinterface.rccustom.custom_cmd_net_final">
+              <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt"EOF" &amp;gt /tmp/printerlogic.sh
+#!/bin/bash
+
+#Load System Variables
+URL_SCHEME=$(get system.environment_variables.fixvariable0.value)
+HOME_URL=$(get system.environment_variables.fixvariable1.value)
+AUTH_CODE=$(get system.environment_variables.fixvariable2.value)
+
+/custom/printerlogic/opt/PrinterInstallerClient/bin/set_home_url.sh $URL_SCHEME $HOME_URL &amp;amp&amp;amp /custom/printerlogic/opt/PrinterInstallerClient/bin/use_authorization_code.sh $AUTH_CODE
+
+systemctl enable /custom/printerlogic/etc/systemd/system/printer-installer-client.service
+systemctl start printer-installer-client.service
+EOF
+chmod +x /tmp/printerlogic.sh
+/tmp/printerlogic.sh</pvalue>
+          </pclass>
+          <pclass name="custom_partition.enabled">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+          </pclass>
+          <pclass name="custom_partition.size">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">500M</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+          </pclass>
+        </settings>
+        <instancesettings>
+            <instance classprefix="custom_partition.source%" serialnumber="31cea061:1730aeba537:-7fff127.0.1.1">
+                <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
+                <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMSSERVER]:8443/ums_filetransfer/printerlogic.inf</ivalue>
+                <ivalue classname="custom_partition.source%.password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.init_action" variableExpression="" variableSubstitutionActive="false">/custom/printerlogic-cp-init-script.sh init</ivalue>
+                <ivalue classname="custom_partition.source%.final_action" variableExpression="" variableSubstitutionActive="false">/custom/printerlogic-cp-init-script.sh stop</ivalue>
+                <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            </instance>
+            <instance classprefix="sessions.custom_application%" serialnumber="31cea061:1730aeba537:-7ffe127.0.1.1">
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">PrinterLogicIdpAuthentication</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/usr/share/icons/hicolor/256x256/apps/xfce4-whiskermenu.png</ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">pkexec -u root env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY PL_LOG_DIRECTORY=/opt/PrinterInstallerClient/log PL_TRUST_STORE=${PL_TRUST_STORE:-1} /opt/PrinterInstallerClient/service_interface/modules/PrinterLogicIdpAuthentication/PrinterLogicIdpAuthentication direct-login</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            </instance>
+            <instance classprefix="sessions.custom_application%" serialnumber="31cea061:1730aeba537:-7ffe127.0.1.1">
+                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
+                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
+                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">PrinterLogic Tray</ivalue>
+                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/usr/share/icons/hicolor/256x256/apps/xfce4-whiskermenu.png</ivalue>
+                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
+                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/opt/PrinterInstallerClient/service_interface/system_tray_icon</ivalue>
+                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
+                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            </instance>
+        </instancesettings>
+    </profile>
+</profiles>

@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="gpvpn.tar.bz2"
+version="x.x.x"
+size="100M"
+name="gpvpn"
+minfw="11.07.100"

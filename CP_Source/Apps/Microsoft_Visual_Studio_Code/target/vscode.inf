@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="vscode.tar.bz2"
+version="X.X.X"
+size="800M"
+name="vscode"
+minfw="11.07.100"

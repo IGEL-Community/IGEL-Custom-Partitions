@@ -1121,8 +1121,8 @@
 ./python2.7/lib2to3/fixes/__init__.py
 ./python2.7/lib2to3/Grammar.txt
 ./python2.7/lib2to3/__init__.py
-./python2.7/lib2to3/main.py
 ./python2.7/lib2to3/__main__.py
+./python2.7/lib2to3/main.py
 ./python2.7/lib2to3/patcomp.py
 ./python2.7/lib2to3/PatternGrammar.txt
 ./python2.7/lib2to3/pgen2/conv.py
@@ -1441,8 +1441,8 @@
 ./python3.6/codecs.py
 ./python3.6/codeop.py
 ./python3.6/code.py
-./python3.6/collections/abc.py
 ./python3.6/_collections_abc.py
+./python3.6/collections/abc.py
 ./python3.6/collections/__init__.py
 ./python3.6/collections/__pycache__/abc.cpython-36.pyc
 ./python3.6/collections/__pycache__/__init__.cpython-36.pyc

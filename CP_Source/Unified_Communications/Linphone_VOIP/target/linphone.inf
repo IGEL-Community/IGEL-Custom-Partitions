@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="linphone.tar.bz2"
+version="x.x.x"
+size="500M"
+name="linphone"
+minfw="11.07.100"

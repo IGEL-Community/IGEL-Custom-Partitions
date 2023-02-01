@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile>
+    <profile_id>385155</profile_id>
+    <profilename>Wifi-Signal-Quality-AutoSwitch v2</profilename>
+    <firmware>
+        <model>IGEL OS 11</model>
+        <version>11.07.170.01</version>
+    </firmware>
+    <description></description>
+    <overwritesessions>false</overwritesessions>
+    <is_master_profile>false</is_master_profile>
+    <is_igel_os>true</is_igel_os>
+    <settings>
+        <pclass name="system.environment_variables.fixvariable%.name">
+            <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">IFACE</pvalue>
+            <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">LIMIT</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="system.environment_variables.fixvariable%.value">
+            <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">wlan0</pvalue>
+            <pvalue instancenr="1" variableExpression="" variableSubstitutionActive="false">-50</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="userinterface.rccustom.custom_cmd_nodeaction">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">sed -i "s/managed=.*/managed=true/g" /etc/NetworkManager/NetworkManager.conf
+cat &amp;lt&amp;lt"EOF" &amp;gt/etc/NetworkManager/dispatcher.d/99-wlan
+while true; do
+        signal=$(iw $IFACE link | grep signal | awk '{print $2}')
+        &amp;lb $signal &amp;rb &amp;amp&amp;amp &amp;lb $signal -lt $LIMIT &amp;rb &amp;amp&amp;amp iw $IFACE disconnect
+        echo $signal
+        sleep 1
+done
+chmod +x /etc/NetworkManager/dispatcher.d/99-wlan</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">sed -i "s/managed=.*/managed=true/g" /etc/NetworkManager/NetworkManager.conf
+cat &amp;lt&amp;lt"EOF" &amp;gt/etc/NetworkManager/dispatcher.d/99-wlan
+while true; do
+        signal=$(iw $IFACE link | grep signal | awk '{print $2}')
+        &amp;lb $signal &amp;rb &amp;amp&amp;amp &amp;lb $signal -lt $LIMIT &amp;rb &amp;amp&amp;amp iw $IFACE disconnect
+        echo $signal
+        sleep 1
+done
+EOF
+chmod +x /etc/NetworkManager/dispatcher.d/99-wlan</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+        <pclass name="userinterface.rccustom.custom_cmd_x11_init">
+            <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt"EOF" &amp;gt /tmp/netbannerfix
+#!/bin/bash
+
+#sed -i 's/show_progress.*/show_progress false/' /bin/netcontrol
+sed -i 's/show_progress "\$@"$/true # \0 #/' /bin/netcontrol
+EOF
+chmod +x /tmp/netbannerfix
+/tmp/netbannerfix</pvalue>
+            <variableSubstitutionActive>false</variableSubstitutionActive>
+        </pclass>
+    </settings>
+    <instancesettings/>
+</profile>
