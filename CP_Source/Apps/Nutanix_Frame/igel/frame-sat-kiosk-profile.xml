@@ -31,6 +31,7 @@
             <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">FRAME_EMAIL_DOMAIN</pvalue>
             <pvalue instancenr="5" variableExpression="" variableSubstitutionActive="false">FRAME_LAUNCH_URL</pvalue>
             <pvalue instancenr="6" variableExpression="" variableSubstitutionActive="false">FRAME_TERMINAL_CONFIG_ID</pvalue>
+            <pvalue instancenr="7" variableExpression="" variableSubstitutionActive="false">FRAME_LOGOUT_URL</pvalue>
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
         <pclass name="system.environment_variables.fixvariable%.value">
@@ -41,6 +42,7 @@
             <pvalue instancenr="4" variableExpression="" variableSubstitutionActive="false">frame.example.com</pvalue>
             <pvalue instancenr="5" variableExpression="" variableSubstitutionActive="false">YOUR_FRAME_LAUNCH_LINK_URL</pvalue>
             <pvalue instancenr="6" variableExpression="" variableSubstitutionActive="false">YOUR_TERMINAL_CONFIG_ID_FROM_LAUNCH_LINK_PARAMS</pvalue>
+            <pvalue instancenr="7" variableExpression="" variableSubstitutionActive="false">YOUR_LOGOUT_URL</pvalue>
             <variableSubstitutionActive>false</variableSubstitutionActive>
         </pclass>
     </settings>
@@ -73,7 +75,7 @@
             <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-            <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">false</ivalue>
+                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
