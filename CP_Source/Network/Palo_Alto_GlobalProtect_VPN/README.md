@@ -10,6 +10,10 @@
 
 `su -c 'XDG_RUNTIME_DIR="/run/user/$UID" DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus" systemctl --user start gpa' user`
 
+`Update` The issue in starting PanGPA appears to be that the IGEL user uid is 777 (only 3 digits) and Ubuntu user uid is four (4) digits and the service stops starting.
+
+- With `strace -s 9999 /opt/paloaltonetworks/globalprotect/PanGPA start`, the process exits after looking for the uid.
+
 -----
 
 |  CP Information |            |
