@@ -1,4 +1,4 @@
-# Tailscale VPN (21 September)
+# Tailscale VPN (2 February)
 
 -----
 
@@ -10,6 +10,10 @@
 | CP Size | 100M |
 | IGEL OS Version (min) | 11.07.100 |
 | Packaging Notes | Details can be found in the build script [build-tailscale-cp.sh](build/build-tailscale-cp.sh) |
+
+-----
+
+**NOTE:** A reboot is needed after deployment of CP.
 
 -----
 

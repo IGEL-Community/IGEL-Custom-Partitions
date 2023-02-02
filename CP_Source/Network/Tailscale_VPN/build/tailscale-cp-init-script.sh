@@ -34,9 +34,10 @@ init)
   done
 
   #Start Tailscale service
+  if [ -L /var/lib/tailscale ]; then
+    unlink /var/lib/tailscale
+  fi
   sudo systemctl start tailscaled
-
-  tailscale web
 
 ;;
 stop)
