@@ -31,6 +31,9 @@ do
   dpkg -x "${LINE}" custom/tailscale
 done
 
+#Tailscale_VPN CP: tailscaled.state file not persistent #25
+mkdir -p custom/tailscale/var/lib/tailscale
+
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Tailscale_VPN.zip
 
 unzip Tailscale_VPN.zip -d custom
