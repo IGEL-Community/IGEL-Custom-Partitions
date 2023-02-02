@@ -36,7 +36,7 @@ init)
   #Start Tailscale service
   sudo systemctl start tailscaled
 
-  tailscale up
+  tailscale web
 
 ;;
 stop)

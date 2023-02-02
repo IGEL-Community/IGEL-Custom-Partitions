@@ -33,6 +33,7 @@ done
 
 #Tailscale_VPN CP: tailscaled.state file not persistent #25
 mkdir -p custom/tailscale/var/lib/tailscale
+sed -i "s|--state=/var|--state=/custom/tailscale/var|" custom/tailscale/lib/systemd/system/tailscaled.service
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/Tailscale_VPN.zip
 
