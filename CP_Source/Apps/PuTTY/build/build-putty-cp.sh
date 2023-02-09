@@ -44,7 +44,7 @@ mkdir -p custom/putty/userhome/.putty
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/PuTTY.zip
 
 unzip PuTTY.zip -d custom
-mv custom/target/putty-cp-init-script.sh custom
+mv custom/target/build/putty-cp-init-script.sh custom
 
 cd custom
 
