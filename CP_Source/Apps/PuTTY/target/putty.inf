@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="putty.tar.bz2"
+version="X.X.X"
+size="50M"
+name="putty"
+minfw="11.07.100"
