@@ -38,6 +38,7 @@ init)
     unlink /var/lib/tailscale
   fi
   sudo systemctl start tailscaled
+  nohup tailscale web >/root/tailscale-web.log 2>&1 &
 
 ;;
 stop)
