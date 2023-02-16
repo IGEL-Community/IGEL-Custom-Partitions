@@ -114,6 +114,8 @@ sudo apt-get upgrade -y
 sudo apt-get install build-essential gcc make perl dkms -y
 sudo apt install chrony -y
 sudo apt install apt-rdepends
+sudo apt install zip -y
+sudo apt install unzip -y
   ```
 
 ***
