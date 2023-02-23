@@ -28,7 +28,7 @@ mkdir -p "${CP_PATH}"/var/lib/deviceservice
 chmod 700 "${CP_PATH}"/var/lib/deviceservice
 mkdir -p "${CP_PATH}"/opt/NetIQ/Logging/Logs
 
-dpkg -x "${DEB_FILE}" custom/netiq_ds
+dpkg -x ${DEB_FILE} custom/netiq_ds
 
 # Edit below for your config.properties
 cat << 'EOF' > "${CP_PATH}"/opt/NetIQ/DeviceService/config.properties
@@ -67,7 +67,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x "${DEB_FILE}"
+ar -x ${DEB_FILE}
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
