@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="netiq_ds.tar.bz2"
+version="X.X.X"
+size="200M"
+name="netiq_ds"
+minfw="11.08.230"
