@@ -7,7 +7,7 @@
 # Obtain latest package and save into Downloads
 # Download Latest App for Linux (Debian)
 # https://www.netiq.com/documentation/advanced-authentication-64/device-service-installation/data/installing_device_service_for_linux.html
-DEB_FILE="$HOME/Downloads/naaf-deviceservice-linux64-release-*.deb"
+DEB_FILE="$HOME/Downloads/naaf-deviceservice-debian-linux64-release-*.deb"
 if ! compgen -G "${DEB_FILE}" > /dev/null; then
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
