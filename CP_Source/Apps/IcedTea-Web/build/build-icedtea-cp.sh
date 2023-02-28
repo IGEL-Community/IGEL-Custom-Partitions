@@ -43,18 +43,26 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 unzip IcedTea-Web.zip -d custom
 mkdir -p custom/icedtea/config/bin
 mkdir -p custom/icedtea/lib/systemd/system
-mv custom/target/icedtea_cp_apparmor_reload custom/icedtea/config/bin
-mv custom/target/igel-icedtea-cp-apparmor-reload.service custom/icedtea/lib/systemd/system/
-mv custom/target/icedtea-cp-init-script.sh custom
+mv custom/target/build/icedtea_cp_apparmor_reload custom/icedtea/config/bin
+mv custom/target/build/igel-icedtea-cp-apparmor-reload.service custom/icedtea/lib/systemd/system/
+mv custom/target/build/icedtea-cp-init-script.sh custom
 mkdir -p custom/icedtea/usr/share/applications.mime
-mv custom/target/javaws-wrapper.desktop custom/icedtea/usr/share/applications.mime
+mv custom/target/build/javaws-wrapper.desktop custom/icedtea/usr/share/applications.mime
 
 cd custom
 
-tar cvjf icedtea.tar.bz2 icedtea icedtea-cp-init-script.sh
-mv icedtea.tar.bz2 ../..
-mv target/icedtea.inf ../..
-mv igel/*.xml ../..
+# edit inf file for version number
+VERSION=$(basename $HOME/Downloads/zulu-icedtea-web*.zip | cut -d "-" -f 4)
+#echo "Version is: " ${VERSION}
+sed -i "/^version=/c version=\"${VERSION}\"" target/icedtea.inf
+#echo "icedtea.inf file is:"
+#cat target/icedtea.inf
+
+# new build process into zip file
+tar cvjf target/icedtea.tar.bz2 icedtea icedtea-cp-init-script.sh
+zip -g ../IcedTea-Web.zip target/icedtea.tar.bz2 target/icedtea.inf
+zip -d ../IcedTea-Web.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../IcedTea-Web.zip ../../IcedTea-Web-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
