@@ -16,6 +16,8 @@ mkdir build_tar
 cd build_tar
 
 wget http://ftp.debian.org/debian/pool/main/r/rdesktop/rdesktop_1.9.0-2+b1_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/main/n/nettle/libhogweed6_3.7.3-1build2_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/main/n/nettle/libnettle8_3.7.3-1build2_amd64.deb
 
 mkdir -p custom/rdesktop
 
@@ -23,6 +25,17 @@ find . -type f -name "*.deb" | while read LINE
 do
   dpkg -x "${LINE}" custom/rdesktop
 done
+
+mkdir -p custom/rdesktop/tmp
+mv custom/rdesktop/usr/lib/x86_64-linux-gnu custom/rdesktop/tmp
+
+# Edit below for your config.properties
+cat << 'EOF' > custom/rdesktop/usr/bin/start_rdesktop.sh
+#!/bash
+
+export LD_LIBRARY_PATH=/tmp/x86_64-linux-gnu
+exec /usr/bin/rdesktop "$@"
+EOF
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Rdesktop_latest.zip
 
