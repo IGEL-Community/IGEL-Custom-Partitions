@@ -36,6 +36,7 @@ cat << 'EOF' > custom/rdesktop/usr/bin/start_rdesktop.sh
 export LD_LIBRARY_PATH=/tmp/x86_64-linux-gnu
 exec /usr/bin/rdesktop "$@"
 EOF
+chmod 755 custom/rdesktop/usr/bin/start_rdesktop.sh
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Rdesktop_latest.zip
 
