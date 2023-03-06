@@ -29,7 +29,7 @@ done
 mkdir -p custom/rdesktop/tmp
 mv custom/rdesktop/usr/lib/x86_64-linux-gnu custom/rdesktop/tmp
 
-# Edit below for your config.properties
+# Wrapper script to pull in newer libs before starting
 cat << 'EOF' > custom/rdesktop/usr/bin/start_rdesktop.sh
 #!/bin/bash
 
