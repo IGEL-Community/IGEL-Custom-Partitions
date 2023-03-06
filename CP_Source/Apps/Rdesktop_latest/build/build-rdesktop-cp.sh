@@ -31,7 +31,7 @@ mv custom/rdesktop/usr/lib/x86_64-linux-gnu custom/rdesktop/tmp
 
 # Edit below for your config.properties
 cat << 'EOF' > custom/rdesktop/usr/bin/start_rdesktop.sh
-#!/bash
+#!/bin/bash
 
 export LD_LIBRARY_PATH=/tmp/x86_64-linux-gnu
 exec /usr/bin/rdesktop "$@"
