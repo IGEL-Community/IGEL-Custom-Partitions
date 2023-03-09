@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="expect.tar.bz2"
+version="X.X.X"
+size="100M"
+name="expect"
+minfw="11.07.100"
