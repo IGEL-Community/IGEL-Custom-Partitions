@@ -4,7 +4,7 @@
 
 # Creating an IGELOS CP for expect
 ## Development machine (Ubuntu 18.04)
-MISSING_LIBS="expect"
+MISSING_LIBS="expect tcl-expect"
 
 sudo apt install unzip -y
 
