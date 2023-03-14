@@ -48,10 +48,10 @@ init)
   chromium_certDir=/userhome/.config/chromium/.pki/nssdb
 
   #firefox cert
-  certutil -A -n "$certificateName" -t "TC,TC,TC" -i "$certificateFile" -d "sql:$firefox_certDir" | $LOGGER
+  #certutil -A -n "$certificateName" -t "CT,C,C" -i "$certificateFile" -d "sql:$firefox_certDir" | $LOGGER
 
   #chromium cert
-  certutil -A -n "$certificateName" -t "TC,TC,TC" -i "$certificateFile" -d "sql:$chromium_certDir" | $LOGGER
+  #certutil -A -n "$certificateName" -t "CT,C,C" -i "$certificateFile" -d "sql:$chromium_certDir" | $LOGGER
 
 ;;
 stop)

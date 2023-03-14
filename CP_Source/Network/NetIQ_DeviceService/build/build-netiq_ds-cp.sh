@@ -22,6 +22,7 @@ mkdir build_tar
 cd build_tar
 
 CP_PATH=custom/netiq_ds
+NETIQ_ROOT_CERT=custom/netiq_ds/opt/NetIQ/DeviceService/bin/rootCA.crt
 
 mkdir -p "${CP_PATH}"
 mkdir -p "${CP_PATH}"/var/lib/deviceservice
@@ -61,6 +62,9 @@ wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Pack
 
 unzip NetIQ_DeviceService.zip -d custom
 mv custom/target/build/netiq_ds-cp-init-script.sh custom
+
+# copy NetIQ Root cert to target folder
+cp ${NETIQ_ROOT_CERT} custom/target
 
 cd custom
 

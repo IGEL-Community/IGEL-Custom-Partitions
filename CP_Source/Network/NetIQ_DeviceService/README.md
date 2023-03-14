@@ -21,18 +21,15 @@
 
 -----
 
-## The CP init script sets up NetIQ root cert into Firefox and chromium.
- 
-The best method is to manage Browser Certs via UMS as noted below
+## Steps to add NetIQ root cert into Firefox and chromium
  
 https://kb.igel.com/endpointmgmt-6.10/en/files-registering-files-on-the-igel-ums-server-and-transferring-them-to-devices-57321597.html
  
 https://kb.igel.com/igelos-11.08/en/deploying-trusted-root-certificates-in-igel-os-63803399.html
  
------
+**NOTE:** The cert, `rootCA.crt` is located in the target folder of the CP zip file.
 
-Location of cert
-`/custom/netiq_ds/opt/NetIQ/DeviceService/bin/rootCA.crt`
+-----
 
 Sample script to check for NetIQ in browser:
  
@@ -47,14 +44,4 @@ certutil -d "sql:$firefox_certDir" -L
  
 #list chromium certs
 certutil -d "sql:$chromium_certDir" -L
-```
-
-**NOTE:** Edit the init script, `netiq_ds-cp-init-script.sh`, to comment out `certutil` commands as noted below: 
-
-```bash
-#firefox cert
-#certutil -A -n "$certificateName" -t "TC,TC,TC" -i "$certificateFile" -d "sql:$firefox_certDir" | $LOGGER
-
-  #chromium cert
-  #certutil -A -n "$certificateName" -t "TC,TC,TC" -i "$certificateFile" -d "sql:$chromium_certDir" | $LOGGER
 ```
