@@ -82,7 +82,7 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/netiq_ds.inf
 
 # new build process into zip file
 tar cvjf target/netiq_ds.tar.bz2 netiq_ds netiq_ds-cp-init-script.sh
-zip -g ../NetIQ_DeviceService.zip target/netiq_ds.tar.bz2 target/netiq_ds.inf
+zip -g ../NetIQ_DeviceService.zip target/netiq_ds.tar.bz2 target/netiq_ds.inf target/$(basename ${NETIQ_ROOT_CERT})
 zip -d ../NetIQ_DeviceService.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../NetIQ_DeviceService.zip ../../NetIQ_DeviceService-${VERSION}_igel01.zip
 
