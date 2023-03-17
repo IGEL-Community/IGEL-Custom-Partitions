@@ -1,4 +1,10 @@
-# VLC Media Player (18 October Updated)
+# VLC Media Player (17 March Updated)
+
+-----
+
+**NOTE:** Builder works for OS11 (build with Ubuntu 18.04) and OS12 (build with 20.04)
+
+-----
 
 |  CP Information |            |
 |-----------------|------------|
