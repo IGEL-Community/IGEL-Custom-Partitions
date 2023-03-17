@@ -22,7 +22,7 @@
 |------|-------------|
 | 1. |Setup lab environment|
 | 2. |Download Linux package (\<package.deb>)|
-| 3. |Unpack the package on a Linux Ubuntu (18.04) system (dpkg -x \<package.deb> \<directory>)|
+| 3. |Unpack the package on a Linux Ubuntu (OS11 = 18.04; OS12= 20.04)  system (dpkg -x \<package.deb> \<directory>)|
 | 4. |Create the initialization script|
 | 5. |Compress the custom partition contents (tar cvjf \<package.tar.bz2> \<directory> \<init_script.sh>)|
 | 6. |Write the \*.inf Metadata file|
@@ -41,18 +41,19 @@ See the following:<br />
 Find the missing libraries on the IGEL OS.
 
 On IGEL OS:
-```{find missing shared libraries}
+```bash
 cd /custom/<folder>
 find . -executable -type f -exec ldd ‘{}’ \; | grep ‘not found’ >> /custom/ldd.txt
-  ```
+```
 
 On Linux Ubuntu:
-```{download missing libraries and add to CP}
+```bash
 apt download <filename>
 dpkg -x <filename>.deb <folder>
-  ```
+```
 
-To seach for missing libraries to download:  https://packages.ubuntu.com/bionic/allpackages
+- To seach for missing libraries to download (OS11):  https://packages.ubuntu.com/bionic/allpackages
+- To seach for missing libraries to download (OS12):  https://packages.ubuntu.com/focal/allpackages
 
 ------
 
@@ -98,24 +99,24 @@ IGEL custom partitions are delivered as a zip archive. The archive has the follo
 |6. |In some cases it is required to restart the TC after deployment of the CP.|
 
 ***
-## Build Ubuntu 18.04 Virtual Machine and Snapshots to roll back to baseline
+## Build Ubuntu (OS11 = 18.04; OS12 = 20.04) Virtual Machine and Snapshots to roll back to baseline
 
 | Step | Description |
 |------|-------------|
-| 1. |Install and configure Ubuntu 18.04 desktop|
+| 1. |Install and configure Ubuntu (OS11 = 18.04; OS12 = 20.04) desktop|
 | 2. |Take snapshot of the base VM|
 | 3. |Setup and package application|
 | 4. |Roll back to base VM snapshot|
 
-Configure Ubuntu 18.04 OS:
+Configure Ubuntu (OS11 = 18.04; OS12 = 20.04) OS:
 ```{Configure Ubuntu 18.04}
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install build-essential gcc make perl dkms -y
-sudo apt install chrony -y
-sudo apt install apt-rdepends
-sudo apt install zip -y
-sudo apt install unzip -y
+sudo apt-get install chrony -y
+sudo apt-get install apt-rdepends -y
+sudo apt-get install zip unzip -y
+sudo apt-get install gdebi -y
   ```
 
 ***
@@ -143,6 +144,7 @@ Your IGEL Support/PreSales Team April 2012
 
 | Element Version | Date | Change Owner | Description |
 | ---- | ---- | ---- | ---- |
+| 0.5 | 17-March-2023 | Ron Neher | Adding OS11 vs OS12 build logic |
 | 0.4 | 29-December-2021 | Ron Neher | Updated CP build automation workflow |
 | 0.3 | 30-November-2021 | Ron Neher | Adding build folder for automation |
 | 0.2 | 09-August-2020 | Ron Neher | Completed the GitHub automation to take CP files and create package.zip files |
