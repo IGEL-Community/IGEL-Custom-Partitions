@@ -7,7 +7,14 @@
 CP="vlc"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
 ZIP_FILE="VLC"
-USERHOME_FOLDERS="custom/${CP}/userhome/.config/${CP} custom/${CP}/userhome/.local/share/${CP}"
+FIX_MIME="TRUE"
+CLEAN="TRUE"
+OS11_CLEAN="11.07.100"
+OS12_CLEAN="12.01.100"
+USERHOME_FOLDERS="TRUE"
+USERHOME_FOLDERS_DIRS="custom/${CP}/userhome/.config/${CP} custom/${CP}/userhome/.local/share/${CP}"
+APPARMOR="TRUE"
+GETVERSION_FILE="../../${CP}_*amd64.deb"
 MISSING_LIBS_OS11="i965-va-driver liba52-0.7.4 libaacs0 libaribb24-0 libass9 libavcodec57 libavformat57 libavutil55 libbasicusageenvironment1 libbdplus0 libbluray2 libcddb2 libchromaprint1 libcrystalhd3 libdc1394-22 libdca0 libdouble-conversion1 libdvbpsi10 libdvdnav4 libdvdread4 libebml4v5 libfaad2 libgme0 libgroupsock8 libgsm1 libkate1 liblirc-client0 liblivemedia62 liblua5.2-0 libmad0 libmatroska6v5 libmicrodns0 libmpcdec6 libmpeg2-4 libnfs11 libopenjp2-7 libopenmpt-modplug1 libopenmpt0 libplacebo4 libpostproc54 libprotobuf-lite10 libproxy-tools libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libqt5x11extras5 libresid-builder0c2a libsdl-image1.2 libsdl1.2debian libshine3 libsidplay2 libsnappy1v5 libsndio6.1 libsoxr0 libssh-gcrypt-4 libssh2-1 libswresample2 libswscale4 libupnp6 libusageenvironment3 libva-drm2 libva-wayland2 libva-x11-2 libva2 libvdpau1 libvlc-bin libvlc5 libvlccore9 libvulkan1 libx264-152 libx265-146 libxcb-xinerama0 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers qt5-gtk-platformtheme qttranslations5-l10n va-driver-all vdpau-driver-all vlc vlc-bin vlc-data vlc-l10n vlc-plugin-base vlc-plugin-notify vlc-plugin-qt vlc-plugin-samba vlc-plugin-skins2 vlc-plugin-video-output vlc-plugin-video-splitter vlc-plugin-visualization"
 MISSING_LIBS_OS12="i965-va-driver intel-media-va-driver liba52-0.7.4 libaacs0 libaom0 libaribb24-0 libass9 libavcodec58 libavformat58 libavutil56 libbasicusageenvironment1 libbdplus0 libbluray2 libcddb2 libchromaprint1 libcodec2-0.9 libdc1394-22 libdca0 libdouble-conversion3 libdvbpsi10 libdvdnav4 libdvdread7 libebml4v5 libfaad2 libgme0 libgroupsock8 libgsm1 libigdgmm11 libixml10 libkate1 liblirc-client0 liblivemedia77 liblua5.2-0 libmad0 libmatroska6v5 libmpcdec6 libmpeg2-4 libmysofa1 libopenmpt-modplug1 libopenmpt0 libpcre2-16-0 libplacebo7 libpostproc55 libprotobuf-lite17 libproxy-tools libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libqt5x11extras5 libresid-builder0c2a libsdl-image1.2 libsdl1.2debian libshine3 libsidplay2 libsnappy1v5 libsndio7.0 libspatialaudio0 libsrt1 libssh-gcrypt-4 libssh2-1 libswresample3 libswscale5 libupnp13 libusageenvironment3 libva-drm2 libva-wayland2 libva-x11-2 libva2 libvdpau1 libvlc-bin libvlc5 libvlccore9 libx264-155 libx265-179 libxcb-xinerama0 libxcb-xinput0 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1 qt5-gtk-platformtheme qttranslations5-l10n va-driver-all vdpau-driver-all vlc vlc-bin vlc-data vlc-l10n vlc-plugin-base vlc-plugin-notify vlc-plugin-qt vlc-plugin-samba vlc-plugin-skins2 vlc-plugin-video-output vlc-plugin-video-splitter vlc-plugin-visualization"
 
@@ -20,7 +27,7 @@ elif [ "${VERSION_ID}" = "20.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS12}"
   IGELOS_ID="OS12"
 else
-  echo "Not a valid Ubuntu OS release. OS11 needs 18.04 and OS12 needs 20.04."
+  echo "Not a valid Ubuntu OS release. OS11 needs 18.04 (bionic) and OS12 needs 20.04 (focal)."
   exit 1
 fi
 
@@ -40,33 +47,42 @@ do
   dpkg -x "${LINE}" custom/${CP}
 done
 
-mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
-
-for folder in $USERHOME_FOLDERS; do
-  mkdir -p $folder
-done
-
-echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
-chmod a+x clean_cp_usr_lib.sh
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
-chmod a+x clean_cp_usr_share.sh
-if [ "${IGELOS_ID}" = "OS11" ]; then
-  ./clean_cp_usr_lib.sh 11.07.100_usr_lib.txt custom/${CP}/usr/lib
-  ./clean_cp_usr_share.sh 11.07.100_usr_share.txt custom/${CP}/usr/share
-else
-  ./clean_cp_usr_lib.sh 12.01.100_usr_lib.txt custom/${CP}/usr/lib
-  ./clean_cp_usr_share.sh 12.01.100_usr_share.txt custom/${CP}/usr/share
+if [ "${FIX_MIME}" = "TRUE" ]; then
+  mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
 fi
-echo "+++++++=======  DONE CLEAN of USR =======+++++++"
+
+if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
+  for folder in $USERHOME_FOLDERS_DIRS; do
+    mkdir -p $folder
+  done
+fi
+
+if [ "${CLEAN}" = "TRUE" ]; then
+  echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
+  wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
+  chmod a+x clean_cp_usr_lib.sh
+  wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
+  chmod a+x clean_cp_usr_share.sh
+  if [ "${IGELOS_ID}" = "OS11" ]; then
+    ./clean_cp_usr_lib.sh ${OS11_CLEAN}_usr_lib.txt custom/${CP}/usr/lib
+    ./clean_cp_usr_share.sh ${OS11_CLEAN}_usr_share.txt custom/${CP}/usr/share
+  else
+    ./clean_cp_usr_lib.sh ${OS12_CLEAN}_usr_lib.txt custom/${CP}/usr/lib
+    ./clean_cp_usr_share.sh ${OS12_CLEAN}_usr_share.txt custom/${CP}/usr/share
+  fi
+  echo "+++++++=======  DONE CLEAN of USR =======+++++++"
+fi
 
 wget ${ZIP_LOC}/${ZIP_FILE}.zip
 
 unzip ${ZIP_FILE}.zip -d custom
-mkdir -p custom/${CP}/config/bin
-mkdir -p custom/${CP}/lib/systemd/system
-mv custom/target/build/${CP}_cp_apparmor_reload custom/${CP}/config/bin
-mv custom/target/build/igel-${CP}-cp-apparmor-reload.service custom/${CP}/lib/systemd/system/
+
+if [ "${APPARMOR}" = "TRUE" ]; then
+  mkdir -p custom/${CP}/config/bin
+  mkdir -p custom/${CP}/lib/systemd/system
+  mv custom/target/build/${CP}_cp_apparmor_reload custom/${CP}/config/bin
+  mv custom/target/build/igel-${CP}-cp-apparmor-reload.service custom/${CP}/lib/systemd/system/
+fi
 mv custom/target/build/${CP}-cp-init-script.sh custom
 
 cd custom
@@ -74,7 +90,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x ../../${CP}_*amd64.deb
+ar -x ${GETVERSION_FILE}
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
