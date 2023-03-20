@@ -1,27 +1,21 @@
-# Google Chrome (2 December) (new format)
+# Google Chrome (20 March) (new format)
+
+-----
+
+**NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic) and OS12 (build with Ubuntu 20.04 - focal)
+
+-----
 
 |  CP Information |            |
 |-----------------|------------|
 | Package | Google Chrome - Current Stable Version |
 | Script Name | [chrome-cp-init-script.sh](build/chrome-cp-init-script.sh) |
-| CP Mount Path | /custom/chrome |
-| CP Size | 600M |
-| IGEL OS Version (min) | 11.05.133 |
-| Path to Executable | /custom/chrome/usr/bin/google-chrome-stable |
-| Path to Icon | /custom/chrome/opt/google/chrome/product_logo_256.png |
-| Packaging Notes | See build script for details. |
+| Icon name | /custom/chrome/opt/google/chrome/product_logo_256.png |
+| Command | /custom/chrome/usr/bin/google-chrome-stable |
+| Packaging Notes | Details can be found in the build script |
 | Package automation | [build-chrome-cp.sh](build/build-chrome-cp.sh) |
 
-**Automation Notes:** [build-chrome-cp.sh](build/build-chrome-cp.sh)
-
-Add respsitory:
-
-```{add-respsitory}
-sudo apt install curl -y
-sudo curl https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-sudo apt-get update
-   ```
+-----
 
 **Set up endpoint verification on your computer**
 
