@@ -2,87 +2,113 @@
 #set -x
 #trap read debug
 
-# Creating an IGELOS CP for Webex
-## Development machine (Ubuntu 18.04)
-# Obtain latest package and save into Downloads
-# Download Latest App for Linux (Debian)
-#https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
-#https://www.webex.com/downloads.html
-wget -O $HOME/Downloads/Webex.deb https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
-#if ! compgen -G "$HOME/Downloads/Webex*.deb" > /dev/null; then
-  #echo "***********"
-  #echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
-  #echo "https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb"
-  #echo "https://www.webex.com/downloads.html"
-  #echo "***********"
-  #exit 1
-#fi
+# Creating an IGELOS CP
+## Development machine Ubuntu (OS11 = 18.04; OS12 = 20.04)
+CP="webex"
+ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications"
+ZIP_FILE="Webex"
+FIX_MIME="FALSE"
+CLEAN="FALSE"
+OS11_CLEAN="11.07.100"
+OS12_CLEAN="12.01.100"
+USERHOME_FOLDERS="TRUE"
+USERHOME_FOLDERS_DIRS="custom/webex/userhome/.local/share/Webex"
+APPARMOR="TRUE"
+GETVERSION_FILE="../../Webex*.deb"
+MISSING_LIBS_OS11=""
+MISSING_LIBS_OS12=""
 
-MISSING_LIBS="libxcb-xinerama0"
+VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
+
+if [ "${VERSION_ID}" = "18.04" ]; then
+  MISSING_LIBS="${MISSING_LIBS_OS11}"
+  IGELOS_ID="OS11"
+elif [ "${VERSION_ID}" = "20.04" ]; then
+  MISSING_LIBS="${MISSING_LIBS_OS12}"
+  IGELOS_ID="OS12"
+else
+  echo "Not a valid Ubuntu OS release. OS11 needs 18.04 (bionic) and OS12 needs 20.04 (focal)."
+  exit 1
+fi
 
 sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar
 
-#wget https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
+wget https://binaries.webex.com/WebexDesktop-Ubuntu-Official-Package/Webex.deb
 
 for lib in $MISSING_LIBS; do
   apt-get download $lib
 done
 
-mkdir -p custom/webex
+mkdir -p custom/${CP}
 
-dpkg -x $HOME/Downloads/Webex*.deb custom/webex
-#dpkg -x Webex*.deb custom/webex
-
-find . -type f -name "*.deb" | while read LINE
+find . -name "*.deb" | while read LINE
 do
-  dpkg -x "${LINE}" custom/webex
+  dpkg -x "${LINE}" custom/${CP}
 done
 
-mkdir -p custom/webex/usr/share/applications.mime
-cp custom/webex/opt/Webex/bin/webex.desktop custom/webex/usr/share/applications.mime
+if [ "${FIX_MIME}" = "TRUE" ]; then
+  mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
+fi
 
-############################################
-# START: comment out for non-persistency!!!!
-############################################
+mkdir -p custom/${CP}/usr/share/applications.mime
+cp custom/${CP}/opt/Webex/bin/webex.desktop custom/${CP}/usr/share/applications.mime
 
-mkdir -p custom/webex/userhome/.local/share/Webex
+if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
+  for folder in $USERHOME_FOLDERS_DIRS; do
+    mkdir -p $folder
+  done
+fi
 
-##########################################
-# END: comment out for non-persistency!!!!
-##########################################
+if [ "${CLEAN}" = "TRUE" ]; then
+  echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
+  wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
+  chmod a+x clean_cp_usr_lib.sh
+  wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
+  chmod a+x clean_cp_usr_share.sh
+  if [ "${IGELOS_ID}" = "OS11" ]; then
+    ./clean_cp_usr_lib.sh ${OS11_CLEAN}_usr_lib.txt custom/${CP}/usr/lib
+    ./clean_cp_usr_share.sh ${OS11_CLEAN}_usr_share.txt custom/${CP}/usr/share
+  else
+    ./clean_cp_usr_lib.sh ${OS12_CLEAN}_usr_lib.txt custom/${CP}/usr/lib
+    ./clean_cp_usr_share.sh ${OS12_CLEAN}_usr_share.txt custom/${CP}/usr/share
+  fi
+  echo "+++++++=======  DONE CLEAN of USR =======+++++++"
+fi
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications/Webex.zip
+wget ${ZIP_LOC}/${ZIP_FILE}.zip
 
-unzip Webex.zip -d custom
-mkdir -p custom/webex/config/bin
-mkdir -p custom/webex/lib/systemd/system
-mv custom/target/build/webex_cp_apparmor_reload custom/webex/config/bin
-mv custom/target/build/igel-webex-cp-apparmor-reload.service custom/webex/lib/systemd/system/
-mv custom/target/build/webex-cp-init-script.sh custom
+unzip ${ZIP_FILE}.zip -d custom
+
+if [ "${APPARMOR}" = "TRUE" ]; then
+  mkdir -p custom/${CP}/config/bin
+  mkdir -p custom/${CP}/lib/systemd/system
+  mv custom/target/build/${CP}_cp_apparmor_reload custom/${CP}/config/bin
+  mv custom/target/build/igel-${CP}-cp-apparmor-reload.service custom/${CP}/lib/systemd/system/
+fi
+mv custom/target/build/${CP}-cp-init-script.sh custom
 
 cd custom
 
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x $HOME/Downloads/Webex*.deb
-#ar -x ../../Webex*.deb
-tar xf control.tar.gz ./control
+ar -x ${GETVERSION_FILE}
+tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
-sed -i "/^version=/c version=\"${VERSION}\"" target/webex.inf
-#echo "webex.inf file is:"
-#cat target/webex.inf
+sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
+#echo "${CP}.inf file is:"
+#cat target/${CP}.inf
 
 # new build process into zip file
-tar cvjf target/webex.tar.bz2 webex webex-cp-init-script.sh
-zip -g ../Webex.zip target/webex.tar.bz2 target/webex.inf
-zip -d ../Webex.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Webex.zip ../../Webex-${VERSION}_igel01.zip
+tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh
+zip -g ../${ZIP_FILE}.zip target/${CP}.tar.bz2 target/${CP}.inf
+zip -d ../${ZIP_FILE}.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID}_igel01.zip
 
 cd ../..
 rm -rf build_tar
