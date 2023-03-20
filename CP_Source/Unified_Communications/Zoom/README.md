@@ -1,16 +1,21 @@
-# Zoom (31 October)
+# Zoom (20 March)
 
-|  CP Information  |             |
-|-----------------|-------------|
+-----
+
+**NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic) and OS12 (build with Ubuntu 20.04 - focal)
+
+-----
+
+|  CP Information |            |
+|-----------------|------------|
 | Package | [Zoom - Current Version](https://support.zoom.us/hc/en-us/articles/205759689-New-Updates-for-Linux) |
 | Script Name | [zoom-cp-init-script.sh](build/zoom-cp-init-script.sh) |
-| CP Mount Path | /custom/zoom |
-| CP Size | 600M |
-| IGEL OS Version (min) | 11.4.240 |
-| Path to Executable | /custom/zoom/usr/bin/zoom |
-| Path to Icon | /custom/zoom/usr/share/pixmaps/Zoom.png |
-| Packaging Notes | See build script for details |
+| Icon name | /custom/zoom/usr/share/pixmaps/Zoom.png |
+| Command | /custom/zoom/usr/bin/zoom |
+| Packaging Notes | Details can be found in the build script |
 | Package automation | [build-zoom-cp.sh](build/build-zoom-cp.sh) |
+
+-----
 
 |  Customization | /userhome/.config/zoomus.conf and is symbolic linked (ln -s) to /custom/zoom/userhome/.config/zoomus.conf (allows for settings to be saved after reboot)|
 |----------------|------------------------------|
