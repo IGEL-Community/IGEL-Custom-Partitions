@@ -2,6 +2,6 @@
 [PART]
 file="libreoffice.tar.bz2"
 version="X.X.X"
-size="900M"
+size="1500M"
 name="libreoffice"
-minfw="11.05.133"
+minfw="11.07.140"
