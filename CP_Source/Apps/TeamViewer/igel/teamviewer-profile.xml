@@ -5,7 +5,7 @@
         <profilename>TeamViewer CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.05.133.01</version>
+            <version>11.08.200.01</version>
         </firmware>
         <description>TeamViewer</description>
         <overwritesessions>false</overwritesessions>
