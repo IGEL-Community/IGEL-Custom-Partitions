@@ -22,3 +22,17 @@
 ```
 /custom/falcon/opt/CrowdStrike/falconctl -s --cid=[CID]
    ```
+
+-----
+
+## Configuring a proxy
+
+If your hosts use a proxy, configure the Falcon sensor to use it.
+
+- Configure proxy: `/opt/CrowdStrike/falconctl -s --aph=<proxy host> --app=<proxy port>`
+
+- Confirm config: `/opt/CrowdStrike/falconctl -g --aph --app`
+
+- Enable proxy: `/opt/CrowdStrike/falconctl -s --apd=FALSE`
+
+- Disable proxy: `/opt/CrowdStrike/falconctl -s --apd=TRUE`
