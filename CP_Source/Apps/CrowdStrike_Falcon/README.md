@@ -29,10 +29,10 @@
 
 If your hosts use a proxy, configure the Falcon sensor to use it.
 
-- Configure proxy: `/opt/CrowdStrike/falconctl -s --aph=<proxy host> --app=<proxy port>`
+- Configure proxy: `/custom/falcon/opt/CrowdStrike/falconctl -s --aph=<proxy host> --app=<proxy port>`
 
-- Confirm config: `/opt/CrowdStrike/falconctl -g --aph --app`
+- Confirm config: `/custom/falcon/opt/CrowdStrike/falconctl -g --aph --app`
 
-- Enable proxy: `/opt/CrowdStrike/falconctl -s --apd=FALSE`
+- Enable proxy: `/custom/falcon/opt/CrowdStrike/falconctl -s --apd=FALSE`
 
-- Disable proxy: `/opt/CrowdStrike/falconctl -s --apd=TRUE`
+- Disable proxy: `/custom/falcon/opt/CrowdStrike/falconctl -s --apd=TRUE`
