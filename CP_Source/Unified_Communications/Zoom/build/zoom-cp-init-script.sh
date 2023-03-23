@@ -36,6 +36,12 @@ init)
   if [ -f /userhome/.config/zoomus.conf ]; then
     rm -f /userhome/.config/zoomus.conf
   fi
+  if [ -L /userhome/.config/zoom.conf ]; then
+    unlink /userhome/.config/zoom.conf
+  fi
+  if [ -f /userhome/.config/zoom.conf ]; then
+    rm -f /userhome/.config/zoom.conf
+  fi
 
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER

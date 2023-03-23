@@ -58,6 +58,7 @@ if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
     mkdir -p $folder
   done
   touch custom/zoom/userhome/.config/zoomus.conf
+  touch custom/zoom/userhome/.config/zoom.conf
 fi
 
 if [ "${CLEAN}" = "TRUE" ]; then
