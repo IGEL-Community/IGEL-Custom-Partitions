@@ -10,6 +10,9 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/zoom"
 
+# mime file
+MIME_FILE="${CP}/usr/share/applications/Zoom.desktop"
+
 # config directory
 USER_CONFIG="/userhome"
 
@@ -66,6 +69,9 @@ init)
   # We do this by a systemd service to run the reconfiguration
   # surely after apparmor.service!!!
   systemctl --no-block start igel-zoom-cp-apparmor-reload.service
+
+  # mime type
+  xdg-desktop-menu install --novendor ${MIME_FILE}
 
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then

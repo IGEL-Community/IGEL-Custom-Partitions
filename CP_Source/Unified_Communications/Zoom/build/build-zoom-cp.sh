@@ -7,7 +7,7 @@
 CP="zoom"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Unified_Communications"
 ZIP_FILE="Zoom"
-FIX_MIME="TRUE"
+#FIX_MIME="TRUE"
 CLEAN="FALSE"
 OS11_CLEAN="11.07.100"
 OS12_CLEAN="12.01.100"
@@ -49,9 +49,9 @@ do
   dpkg -x "${LINE}" custom/${CP}
 done
 
-if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
-  mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
-fi
+#if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
+  #mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
+#fi
 
 if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
   for folder in $USERHOME_FOLDERS_DIRS; do
