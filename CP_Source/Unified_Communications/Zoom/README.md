@@ -67,10 +67,14 @@ In OS11, moving `/usr/share/applications` to `/usr/share/applications.mime` allo
 
 OS12 does not currently, as of 21 March 2023, work in this manner.
 
-Running the command as user:
+Running either command as user:
 
 ```bash
 xdg-mime default Zoom.desktop x-scheme-handler/zoommtg
+```
+
+```bash
+xdg-desktop-menu install --novendor /custom/zoom/usr/share/applications/Zoom.desktop
 ```
 
 adds the following line to `~/.config/mimeapps.list`
