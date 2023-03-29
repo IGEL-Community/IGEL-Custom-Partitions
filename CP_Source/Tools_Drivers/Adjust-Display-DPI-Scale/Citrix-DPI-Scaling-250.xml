@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles>
+    <profile>
+        <profile_id>23000</profile_id>
+        <profilename>Citrix DPI Scaling 250</profilename>
+        <firmware>
+            <model>IGEL OS 11</model>
+            <version>11.08.230.01</version>
+        </firmware>
+        <description>250</description>
+        <overwritesessions>false</overwritesessions>
+        <is_master_profile>false</is_master_profile>
+        <is_igel_os>true</is_igel_os>
+        <settings>
+            <pclass name="x.xserver%.dpi">
+                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">250</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="x.xserver%.auto_dpi">
+                <pvalue instancenr="0" variableExpression="" variableSubstitutionActive="false">off</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+            <pclass name="ica.wfclient.dpimatchingenabled">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
+        </settings>
+        <instancesettings/>
+    </profile>
+</profiles>

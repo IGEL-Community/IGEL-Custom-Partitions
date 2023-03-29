@@ -17,3 +17,7 @@ English version:
 setparam x.xserver0.auto_dpi off && setparam x.xserver0.dpi $(zenity --scale --min-value=30 --max-value=300 --step=5 --text="Please choose the DPI scale" --value=90) && /usr/bin/wmrefresh
   ```
 ![English Version](DPI_scale_english.png)
+
+-----
+
+## Citrix DPI Scaling 250 Profile
