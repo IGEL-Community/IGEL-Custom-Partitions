@@ -11,7 +11,7 @@
 | Package | [Zoom - Current Version](https://support.zoom.us/hc/en-us/articles/205759689-New-Updates-for-Linux) |
 | Script Name | [zoom-cp-init-script.sh](build/zoom-cp-init-script.sh) |
 | Icon name | /custom/zoom/usr/share/pixmaps/Zoom.png |
-| Command | /custom/zoom/usr/bin/zoom |
+| Command | xdg-mime default Zoom.desktop x-scheme-handler/zoommtg && /custom/zoom/usr/bin/zoom |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-zoom-cp.sh](build/build-zoom-cp.sh) |
 
@@ -86,4 +86,4 @@ x-scheme-handler/zoommtg=Zoom.desktop
 
 The system wide file is `/etc/gnome/defaults.list`
 
-**NOTE:** This is neede for Zoom to call browser and return to Zoom for SAML (SSO).
+**NOTE:** This is needed for Zoom to call browser and return to Zoom for SAML (SSO).
