@@ -74,6 +74,8 @@ tar xf control.tar.*
 mkdir -p ../custom/${CP}/tmp
 cp postinst ../custom/${CP}/tmp/${CP}_postinst.sh
 chmod a+x ../custom/${CP}/tmp/${CP}_postinst.sh
+# Need to add the file, agentInstallationPackageFileName, as a UMS file download into /wfs
+sed -i "s|INSTALLATION_PACKAGE_NAME_FILE_PATH=/tmp/|INSTALLATION_PACKAGE_NAME_FILE_PATH=/wfs/|" ../custom/${CP}/tmp/${CP}_postinst.sh
 cd ..
 rm -rf getpostinst
 # END - Get postinst

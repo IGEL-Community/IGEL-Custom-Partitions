@@ -18,3 +18,9 @@
 | Command | env OPENCLOUD_AGENT_ENVIRONMENT=production OPENCLOUD_AGENT_EXECUTION_MODE=service OPENCLOUD_AGENT_PRODUCT_NAME="OpenNAC Agent" OPENCLOUD_AGENT_UI_NAME="OpenNAC UI Console" OPENCLOUD_AGENT_SERVICE_NAME="OpenNACService" OPENCLOUD_AGENT_GLOBALIZATION_CUSTOM_COUNTRY="False" /custom/opennac/opt/opencloudfactory/opencloudfactory.agent.ui/OpenCloudFactory.Agent.UI |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-opennac-cp.sh](build/build-opennac-cp.sh) |
+
+-----
+
+**NOTE:** The postinst script from init script requires the following file in /wfs
+
+- Need to add the file, agentInstallationPackageFileName, as a UMS file download into /wfs
