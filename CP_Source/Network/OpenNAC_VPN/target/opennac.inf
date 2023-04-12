@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="opennac.tar.bz2"
+version="X.X.X"
+size="400M"
+name="opennac"
+minfw="11.08.200"
