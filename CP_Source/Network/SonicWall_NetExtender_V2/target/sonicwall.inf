@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="sonicwall.tar.bz2"
+version="X.X.X"
+size="500M"
+name="sonicwall"
+minfw="11.08.230"
