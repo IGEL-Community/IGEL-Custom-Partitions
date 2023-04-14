@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="vlc.tar.bz2"
+version="X.X.X"
+size="300M"
+name="vlc"
+minfw="11.07.100"
