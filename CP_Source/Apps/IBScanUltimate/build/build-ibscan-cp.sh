@@ -67,11 +67,19 @@ do
 done
 
 #START - Install on package machine using ${CP}
-read -p "Installer will run and path MUST be changed to /custom/${CP}/opt/device-service (Press Enter)" name
+echo "======================================"
+echo "======================================"
+echo "Installer will run and path MUST be changed to:"
+echo "/custom/${CP}/opt/device-service" 
+echo "======================================"
+echo "======================================"
+echo ""
+read -p "(Press Enter)" name
 sudo mkdir -p /custom/${CP}/opt/device-service
 sudo ${GET_FILE2}
 mkdir -p custom/${CP}/etc/systemd/system
 sudo cp /etc/systemd/system/DeviceService.service custom/${CP}/etc/systemd/system
+sudo mkdir -p custom/${CP}/opt
 sudo cp -r /custom/${CP}/opt/device-service custom/${CP}/opt
 sudo tar xvf ${GETVERSION_FILE} -C custom/${CP}/opt
 #END -  Install on package machine using ${CP}
@@ -117,14 +125,14 @@ mv custom/target/build/${CP}-cp-init-script.sh custom
 cd custom
 
 # edit inf file for version number
-VERSION=$(echo ${GETVERSION_FILE} | cut -d "_" -f 3 | rev | cut -c4-)
+VERSION=$(echo ${GETVERSION_FILE} | cut -d "_" -f 3 | rev | cut -c5- | rev)
 #echo "Version is: " ${VERSION}
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
 #cat target/${CP}.inf
 
 # new build process into zip file
-tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh
+sudo tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh
 zip -g ../${ZIP_FILE}.zip target/${CP}.tar.bz2 target/${CP}.inf
 zip -d ../${ZIP_FILE}.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID}_igel01.zip
