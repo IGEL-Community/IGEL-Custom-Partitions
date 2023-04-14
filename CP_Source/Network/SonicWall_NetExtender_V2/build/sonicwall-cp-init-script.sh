@@ -33,7 +33,7 @@ do
 done
 
   #run installer 
-  echo "Y" | ${CP}/tmp/swinstall/install
+  echo "Y" | ${CP}/tmp/swinstall/netExtenderClient/install
 
   # Java JAR file location
   mkdir -p /usr/lib64

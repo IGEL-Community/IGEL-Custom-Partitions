@@ -56,12 +56,12 @@
                 <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
                 <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">SonicWall NetExtender</ivalue>
                 <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/sonicwall/usr/share/netExtender/icons/nx48.xpm</ivalue>
+                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/usr/share/netExtender/icons/nx48.xpm</ivalue>
                 <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
                 <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">pkexec -u root env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /custom/sonicwall/usr/bin/netExtenderGui</ivalue>
+                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">pkexec -u root env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /usr/bin/netExtenderGui</ivalue>
                 <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
                 <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
