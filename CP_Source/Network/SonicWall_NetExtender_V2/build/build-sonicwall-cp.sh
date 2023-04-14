@@ -22,8 +22,8 @@ mkdir build_tar
 cd build_tar
 
 CP_PATH='custom/sonicwall'
-SWFILEPATH='custom/swinstall/netExtenderClient'
 SWINSTALL='custom/sonicwall/tmp/swinstall'
+SWFILEPATH='custom/sonicwall/tmp/swinstall/netExtenderClient'
 APPSMIME='custom/sonicwall/usr/share/applications.mime'
 mkdir -p $CP_PATH
 mkdir -p $SWINSTALL
@@ -31,7 +31,7 @@ mkdir -p $APPSMIME
 
 tar xvf $HOME/Downloads/NetExtender.Linux-*.x86_64.tgz --directory $SWINSTALL
 
-cp $SWINSTALL/NetExtender.desktop $APPSMIME/sonicwall-netextender.desktop
+cp $SWFILEPATH/NetExtender.desktop $APPSMIME/sonicwall-netextender.desktop
 
 mkdir -p $CP_PATH/root
 touch $CP_PATH/root/.netextender
@@ -39,7 +39,7 @@ chmod 644 $CP_PATH/root/.netextender
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Network/SonicWall_NetExtender_V2.zip
 
-unzip SonicWall_NetExtender.zip -d custom
+unzip SonicWall_NetExtender_V2.zip -d custom
 mv custom/target/build/sonicwall-cp-init-script.sh custom
 
 # edit inf file for version number
@@ -53,9 +53,9 @@ cd custom
 
 # new build process into zip file
 tar cvjf target/sonicwall.tar.bz2 sonicwall sonicwall-cp-init-script.sh
-zip -g ../SonicWall_NetExtender.zip target/sonicwall.tar.bz2 target/sonicwall.inf
-zip -d ../SonicWall_NetExtender.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../SonicWall_NetExtender.zip ../../SonicWall_NetExtender-${VERSION}_igel01.zip
+zip -g ../SonicWall_NetExtender_V2.zip target/sonicwall.tar.bz2 target/sonicwall.inf
+zip -d ../SonicWall_NetExtender_V2.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../SonicWall_NetExtender_V2.zip ../../SonicWall_NetExtender-${VERSION}_igel01_V2.zip
 
 cd ../..
 rm -rf build_tar
