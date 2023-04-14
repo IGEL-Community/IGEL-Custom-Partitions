@@ -1,6 +1,7 @@
 # Building IGEL OS Custom Partition
 
-***
+-----
+
 ## Tutorial videos
 
 [Video: Build Microsoft Teams Custom Partition in 42 seconds](https://www.linkedin.com/posts/jedayres_igelos-somethingcool-microsoftteams-activity-6740750840077926400-YjSK)
