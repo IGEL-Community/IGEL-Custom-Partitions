@@ -120,7 +120,8 @@ if [ "${APPARMOR}" = "TRUE" ]; then
   mv custom/target/build/${CP}_cp_apparmor_reload custom/${CP}/config/bin
   mv custom/target/build/igel-${CP}-cp-apparmor-reload.service custom/${CP}/lib/systemd/system/
 fi
-mv custom/target/build/${CP}-cp-init-script.sh custom
+sudo mv custom/target/build/${CP}-cp-init-script.sh custom
+sudo chmod a+x custom/${CP}-cp-init-script.sh
 
 cd custom
 
