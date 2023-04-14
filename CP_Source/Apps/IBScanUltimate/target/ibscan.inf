@@ -1,7 +1,7 @@
 [INFO]
 [PART]
-file="vlc.tar.bz2"
+file="ibscan.tar.bz2"
 version="X.X.X"
-size="300M"
-name="vlc"
-minfw="11.07.100"
+size="600M"
+name="ibscan"
+minfw="11.08.230"
