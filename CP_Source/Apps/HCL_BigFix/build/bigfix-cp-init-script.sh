@@ -37,7 +37,7 @@ init)
     fi
   done
 
-  # Start BESClient
+  # Start the BESClient
   ${DAEMON} &
 
 ;;
