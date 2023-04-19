@@ -8,6 +8,9 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/bigfix"
 
+NAME=BESClient
+DAEMON=/opt/BESClient/bin/$NAME
+
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
 
@@ -34,8 +37,8 @@ init)
     fi
   done
 
-  # /etc/init.d/besclient
-  /usr/sbin/update-rc.d besclient defaults
+  # Start BESClient
+  ${DAEMON} &
 
 ;;
 stop)
