@@ -115,8 +115,13 @@ sudo chmod a+x custom/${CP}-cp-init-script.sh
 cd custom
 
 # edit inf file for version number
-VERSION=$(echo ${GETVERSION_FILE} | cut -d "_" -f 3 | rev | cut -c5- | rev)
+mkdir getversion
+cd getversion
+ar -x ${GETVERSION_FILE}
+tar xf control.tar.* ./control
+VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
+cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
 #cat target/${CP}.inf
