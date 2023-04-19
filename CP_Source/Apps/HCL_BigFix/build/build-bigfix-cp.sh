@@ -55,7 +55,7 @@ sudo apt install unzip -y
 mkdir build_tar
 cd build_tar
 
-cp "${GETVERSION_FILE}" .
+cp ${GETVERSION_FILE} .
 
 for lib in $MISSING_LIBS; do
   apt-get download $lib
@@ -79,8 +79,8 @@ if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
 fi
 
 # START - Copy masthead
-mkdir -p custom/${CP}/etc/opt/BESClient
-cp ${GET_FILE2} /etc/opt/BESClient
+sudo mkdir -p custom/${CP}/etc/opt/BESClient
+sudo cp ${GET_FILE2} /etc/opt/BESClient
 # END - Copy masthead
 
 if [ "${CLEAN}" = "TRUE" ]; then
