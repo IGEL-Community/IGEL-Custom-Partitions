@@ -80,7 +80,7 @@ fi
 
 # START - Copy masthead
 sudo mkdir -p custom/${CP}/etc/opt/BESClient
-sudo cp ${GET_FILE2} /etc/opt/BESClient
+sudo cp ${GET_FILE2} custom/${CP}/etc/opt/BESClient
 # END - Copy masthead
 
 if [ "${CLEAN}" = "TRUE" ]; then
