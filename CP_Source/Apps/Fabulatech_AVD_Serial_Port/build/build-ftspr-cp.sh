@@ -60,6 +60,7 @@ done
 
 #START setup
 tar xvf ${GETVERSION_FILE} -C custom/${CP}/opt
+mkdir -p custom/${CP}/etc
 cp custom/${CP}/opt/ftspr/doc/ftspr.conf custom/${CP}/etc
 #END setup
 
