@@ -74,11 +74,6 @@ if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
   done
 fi
 
-# START - Copy masthead
-sudo mkdir -p custom/${CP}/etc/opt/BESClient
-sudo cp ${GET_FILE2} custom/${CP}/etc/opt/BESClient
-# END - Copy masthead
-
 if [ "${CLEAN}" = "TRUE" ]; then
   echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
   wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
