@@ -51,7 +51,7 @@ for lib in $MISSING_LIBS; do
   apt-get download $lib
 done
 
-mkdir -p custom/${CP}
+mkdir -p custom/${CP}/opt
 
 find . -name "*.deb" | while read LINE
 do
