@@ -94,7 +94,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x ${GETVERSION_FILE}
+tar -x ${GETVERSION_FILE}
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
