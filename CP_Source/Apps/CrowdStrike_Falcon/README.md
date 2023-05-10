@@ -36,3 +36,11 @@ If your hosts use a proxy, configure the Falcon sensor to use it.
 - Enable proxy: `/custom/falcon/opt/CrowdStrike/falconctl -s --apd=FALSE`
 
 - Disable proxy: `/custom/falcon/opt/CrowdStrike/falconctl -s --apd=TRUE`
+
+-----
+
+## IGEL OS Kernel
+
+- Crowdstrike full functionality is supported in LTS kernel versions. 
+- Crowdstrike on non-LTS kernel runs in reduced functionality mode (RFM).
+- IGEL OS may ship with non-LTS kernel to support new features or new hardware.
