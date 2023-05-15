@@ -62,17 +62,17 @@ done
 # file listing before install
 pushd .
 cd /
-sudo sh -c 'find bin etc home lib opt sbin usr var | sort > /tmp/find_root_listing1.txt'
+sudo sh -c 'find bin etc home lib opt sbin usr | sort > /tmp/find_root_listing1.txt'
 popd
 
 # do install
 chmod a+x ${GETVERSION_FILE}
-${GETVERSION_FILE} --agentkey ${LANSWEEPER_AUTHENTICATION_KEY} --mode unattended
+sudo ${GETVERSION_FILE} --agentkey ${LANSWEEPER_AUTHENTICATION_KEY} --mode unattended
 
 # file listing after install
 pushd .
 cd /
-sudo sh -c 'find bin etc home lib opt sbin usr var | sort > /tmp/find_root_listing2.txt'
+sudo sh -c 'find bin etc home lib opt sbin usr | sort > /tmp/find_root_listing2.txt'
 popd
 
 # tar file of the new files
@@ -128,7 +128,7 @@ cd custom
 
 # edit inf file for version number
 #ftspr-2.9.0.0-x86_64.tar.gz
-VERSION=$({GETVERSION_FILE} --version | cut -f 2)
+VERSION=$(${GETVERSION_FILE} --version | cut -f 2)
 #echo "Version is: " ${VERSION}
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
