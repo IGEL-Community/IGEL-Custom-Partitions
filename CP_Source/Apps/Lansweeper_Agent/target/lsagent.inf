@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="lsagent.tar.bz2"
+version="X.X.X"
+size="200M"
+name="lsagent"
+minfw="11.08.230"
