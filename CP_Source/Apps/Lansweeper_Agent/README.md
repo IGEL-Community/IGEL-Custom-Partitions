@@ -19,4 +19,4 @@
 
 - Edit the builder and change the key for your environment `LANSWEEPER_AUTHENTICATION_KEY="4c2db649-014a-41f5-a01d-08950d7af"`
 - [Installing LsAgent on a Linux computer](https://community.lansweeper.com/t5/scanning-your-network/installing-lsagent-on-a-linux-computer/ta-p/64469) provides details on how to obtain key
-- The key can be found in stored in /custom/lsagent/opt/LansweeperAgent/LsAgent.ini as `AgentKey=4c2db649-014a-41f5-a01d-08950d7af`
+- The key can be found in /custom/lsagent/opt/LansweeperAgent/LsAgent.ini as `AgentKey=4c2db649-014a-41f5-a01d-08950d7af`
