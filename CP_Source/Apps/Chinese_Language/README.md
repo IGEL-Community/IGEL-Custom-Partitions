@@ -14,3 +14,7 @@
 | Package automation | [build-chinese_lang-cp.sh](build/build-chinese_lang-cp.sh) |
 
 -----
+
+**NOTES:**
+
+- This CP includes [Fcitx](https://wiki.archlinux.org/title/Fcitx). Fcitx is a lightweight input method framework aimed at providing environment independent language support for Linux. It supports a lot of different languages and also provides many useful non-CJK features. 
