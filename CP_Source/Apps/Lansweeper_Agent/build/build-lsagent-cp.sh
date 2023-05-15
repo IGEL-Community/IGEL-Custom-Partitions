@@ -66,7 +66,7 @@ sudo sh -c 'find bin etc home lib opt sbin usr var | sort > /tmp/find_root_listi
 popd
 
 # do install
-LsAgent-linux-x64.run --agentkey ${LANSWEEPER_AUTHENTICATION_KEY} --mode unattended
+${GETVERSION_FILE} --agentkey ${LANSWEEPER_AUTHENTICATION_KEY} --mode unattended
 
 # file listing after install
 pushd .
