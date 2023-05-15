@@ -11,7 +11,7 @@
 | Package | [Lansweeper Agent](https://community.lansweeper.com/t5/scanning-your-network/installing-lsagent-on-a-linux-computer/ta-p/64469)
 | Script Name | [lsagent-cp-init-script.sh](build/lsagent-cp-init-script.sh) |
 | Packaging Notes | Details can be found in the build script |
-| Package automation | [build-lsagent-cp.sh](build/build-ftspr-cp.sh) |
+| Package automation | [build-lsagent-cp.sh](build/build-lsagent-cp.sh) |
 
 -----
 
