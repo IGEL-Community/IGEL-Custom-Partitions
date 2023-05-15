@@ -1,4 +1,4 @@
-# Lansweeper Agent (15 May) (Pending build testing)
+# Lansweeper Agent (15 May) (In development and pending build testing)
 
 -----
 
