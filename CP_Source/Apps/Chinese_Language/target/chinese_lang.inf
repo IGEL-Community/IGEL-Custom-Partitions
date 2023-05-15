@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="chinese_lang.tar.bz2"
+version="X.X.X"
+size="200M"
+name="chinese_lang"
+minfw="11.08.230"
