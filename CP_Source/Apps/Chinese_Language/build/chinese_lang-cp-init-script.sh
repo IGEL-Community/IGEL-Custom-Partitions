@@ -8,9 +8,6 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/chinese_lang"
 
-NAME=chinese_langd
-DAEMON=/opt/chinese_lang/sbin/$NAME
-
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
 
@@ -31,9 +28,6 @@ init)
       fi
     fi
   done
-
-  # Start the daemon
-  ${DAEMON} &
 
 ;;
 stop)
