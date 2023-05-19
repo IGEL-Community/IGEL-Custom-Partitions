@@ -22,8 +22,9 @@ init)
   chown -R root:root "${CP}" | $LOGGER
 
   bash ${CP}/opt/IBScanUltimate_x64_3.9.2/install/install-IBScanUltimate.sh
-  systemctl enable ${CP}/etc/systemd/system/DeviceService.service
-  systemctl start DeviceService.service
+  # systemctl commands moved to Setup > System > Firmware Customization > Custom Commands > Desktop > Final desktop command
+  #systemctl enable ${CP}/etc/systemd/system/DeviceService.service
+  #systemctl start DeviceService.service
   find ${CP} -name "*.sh" -exec chmod a+x {} \;
 
 ;;

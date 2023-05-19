@@ -1,4 +1,4 @@
-# IBScanUltimate (13 April)
+# IBScanUltimate (19 April)
 
 -----
 
@@ -14,3 +14,6 @@
 | Command | cd /custom/ibscan/opt/IBScanUltimate_x64_3.9.2/bin ; ./IBSU_FunctionTesterForJava.sh bash /custom/ibscan/opt/IBScanUltimate_x64_3.9.2/bin/IBSU_FunctionTesterForJava.sh |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-ibscan-cp.sh](build/build-ibscan-cp.sh) |
+
+
+**NOTE:** Reboot needed after profile applied to allow for `systemctl start DeviceService.service` to start.
