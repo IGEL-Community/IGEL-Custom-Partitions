@@ -15,7 +15,8 @@ USERHOME_FOLDERS="TRUE"
 USERHOME_FOLDERS_DIRS="custom/${CP}/userhome/.yubioath"
 APPARMOR="FALSE"
 GETVERSION_FILE="../../yubioath-desktop*.deb"
-MISSING_LIBS_OS11="libccid libmng2 libmysqlclient20 libpyside1.2 libpython-stdlib libqt4-dbus libqt4-declarative libqt4-network libqt4-script libqt4-sql libqt4-sql-mysql libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4 libshiboken1.2v5 libykpers-1-1 libyubikey0 mysql-common pcscd python python-click python-colorama python-crypto python-minimal python-pkg-resources python-pyscard python-pyside.qtcore python-pyside.qtgui python-pyside.qtnetwork python2.7 python2.7-minimal qdbus qt-at-spi qtchooser qtcore4-l10n yubioath-desktop"
+#MISSING_LIBS_OS11="libccid libmng2 libmysqlclient20 libpyside1.2 libpython-stdlib libqt4-dbus libqt4-declarative libqt4-network libqt4-script libqt4-sql libqt4-sql-mysql libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4 libshiboken1.2v5 libykpers-1-1 libyubikey0 mysql-common pcscd python python-click python-colorama python-crypto python-minimal python-pkg-resources python-pyscard python-pyside.qtcore python-pyside.qtgui python-pyside.qtnetwork python2.7 python2.7-minimal qdbus qt-at-spi qtchooser qtcore4-l10n yubioath-desktop"
+MISSING_LIBS_OS11="libccid libmng2 libmysqlclient20 libpyside1.2 libpython-stdlib libqt4-dbus libqt4-declarative libqt4-network libqt4-script libqt4-sql libqt4-sql-mysql libqt4-xml libqt4-xmlpatterns libqtcore4 libqtdbus4 libqtgui4 libshiboken1.2v5 libykpers-1-1 libyubikey0 mysql-common pcscd qdbus qt-at-spi qtchooser qtcore4-l10n yubioath-desktop"
 MISSING_LIBS_OS12="TBD"
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
