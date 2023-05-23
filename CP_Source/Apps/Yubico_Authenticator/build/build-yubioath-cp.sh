@@ -51,7 +51,8 @@ done
 wget ${GETVERSION_FILE}
 tar xvf $(basename ${GETVERSION_FILE})
 VERSION=$(ls -d yubioath-desktop* | cut -d "-" -f 3)
-cp -R yubioath-deskt*/* custom/${CP}
+mkdir -p custom/${CP}/usr/local/yubioath
+cp -R yubioath-deskt*/* custom/${CP}/usr/local/yubioath
 # END - wget latest version and extract
 
 if [ "${FIX_MIME}" = "TRUE" ]; then

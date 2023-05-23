@@ -2,7 +2,7 @@
 
 -----
 
-**NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic). OS12 not currently supported by automated builder.
+**NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic) and OS12 (build with Ubuntu 20.04 - focal)
 
 -----
 
