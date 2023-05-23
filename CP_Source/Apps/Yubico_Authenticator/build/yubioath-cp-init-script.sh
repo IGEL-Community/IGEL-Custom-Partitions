@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/yubioath"
 
 # userhome
-YUBIOATH_CONFIG="/userhome/.yubioath"
+YUBIOATH_CONFIG="/userhome/.local/share/authenticator"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
