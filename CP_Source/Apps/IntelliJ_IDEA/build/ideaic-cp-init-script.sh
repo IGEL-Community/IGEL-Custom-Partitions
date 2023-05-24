@@ -11,8 +11,10 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/ideaic"
 
 # userhome
-IDEAIC_CONFIG="/userhome/.config/JetBrains"
-IDEAIC_CACHE="/userhome/.local/JetBrains"
+#IDEAIC_CONFIG="/userhome/.config/JetBrains"
+IDEAIC_CONFIG="/userhome/.config"
+#IDEAIC_CACHE="/userhome/.local/share/JetBrains"
+IDEAIC_CACHE="/userhome/.local/share"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"

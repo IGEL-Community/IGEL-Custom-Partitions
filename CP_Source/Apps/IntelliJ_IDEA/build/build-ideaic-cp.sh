@@ -25,7 +25,7 @@ cd build_tar
 
 mkdir -p custom/ideaic/usr/local
 mkdir -p custom/ideaic/userhome/.config/JetBrains
-mkdir -p custom/ideaic/userhome/.local/JetBrains
+mkdir -p custom/ideaic/userhome/.local/share/JetBrains
 
 tar xvf $HOME/Downloads/$FILE_NAME --directory=custom/ideaic/usr/local
 
