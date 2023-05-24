@@ -5,7 +5,7 @@
 | Package | [IntelliJ IDEA IC](https://www.jetbrains.com/idea/) – the Leading Java and Kotlin IDE.  The IDE that makes development a more productive and enjoyable experience |
 | Script Name | [ideaic-cp-init-script.sh](build/ideaic-cp-init-script.sh) |
 | CP Mount Path | /custom/ideaic |
-| CP Size |2000M |
+| CP Size |5000M |
 | IGEL OS Version (min) | 11.08.330 |
 | Path to Executable | /custom/ideaic/usr/local/idea-IC-`version`/bin/idea.sh |
 | Packaging Notes | See build script for details |

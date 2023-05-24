@@ -2,6 +2,6 @@
 [PART]
 file="ideaic.tar.bz2"
 version="X.X.X"
-size="2000M"
+size="5000M"
 name="ideaic"
 minfw="11.08.330"
