@@ -37,7 +37,7 @@ mv custom/target/build/ideaic-cp-init-script.sh custom
 cd custom
 
 # edit inf file for version number
-VERSION=$(ls $FILE_NAME | cut -d "-" -f 2 | rev | cut -c 8- | rev)
+VERSION=$(ls $HOME/Downloads/$FILE_NAME | cut -d "-" -f 2 | rev | cut -c 8- | rev)
 #echo "Version is: " ${VERSION}
 sed -i "/^version=/c version=\"${VERSION}\"" target/ideaic.inf
 #echo "ideaic.inf file is:"
