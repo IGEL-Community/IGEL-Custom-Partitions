@@ -17,17 +17,33 @@ if ! compgen -G "$HOME/Downloads/$FILE_NAME" > /dev/null; then
   echo "***********"
   exit 1
 fi
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update
+MISSING_LIBS="git git-man liberror-perl"
+
 
 sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar
 
+for lib in $MISSING_LIBS; do
+  apt-get download $lib
+done
+
 mkdir -p custom/ideaic/usr/local
 mkdir -p custom/ideaic/userhome/.config/JetBrains
 mkdir -p custom/ideaic/userhome/.local/share/JetBrains
 mkdir -p custom/ideaic/userhome/.cache/JetBrains
 mkdir -p custom/ideaic/userhome/.java
+#git config --global user.name "Your Name"
+#git config --global user.email "youremail@yourdomain.com"
+touch custom/vscode/userhome/.gitconfig
+
+find . -name "*.deb" | while read LINE
+do
+  dpkg -x "${LINE}" custom/ideaic
+done
 
 tar xvf $HOME/Downloads/$FILE_NAME --directory=custom/ideaic/usr/local
 
