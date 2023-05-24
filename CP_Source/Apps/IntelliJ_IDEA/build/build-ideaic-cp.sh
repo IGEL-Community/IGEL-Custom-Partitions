@@ -38,7 +38,7 @@ mkdir -p custom/ideaic/userhome/.cache/JetBrains
 mkdir -p custom/ideaic/userhome/.java
 #git config --global user.name "Your Name"
 #git config --global user.email "youremail@yourdomain.com"
-touch custom/vscode/userhome/.gitconfig
+touch custom/ideaic/userhome/.gitconfig
 
 find . -name "*.deb" | while read LINE
 do
