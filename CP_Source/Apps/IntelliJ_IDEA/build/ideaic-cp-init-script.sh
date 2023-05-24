@@ -13,8 +13,10 @@ CP="${MP}/ideaic"
 # userhome
 #IDEAIC_CONFIG="/userhome/.config/JetBrains"
 IDEAIC_CONFIG="/userhome/.config"
-#IDEAIC_CACHE="/userhome/.local/share/JetBrains"
-IDEAIC_CACHE="/userhome/.local/share"
+#IDEAIC_CACHE1="/userhome/.local/share/JetBrains"
+IDEAIC_CACHE1="/userhome/.local/share"
+#IDEAIC_CACHE2="/userhome/.cache/JetBrains"
+IDEAIC_CACHE2="/userhome/.cache"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -24,6 +26,8 @@ echo "Starting" | $LOGGER
 case "$1" in
 init)
   # Initial permissions
+  mkdir -p /userhome/.local | $LOGGER
+  chown -R user:users /userhome/.local | $LOGGER
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
   find ${CP} | while read LINE
@@ -40,7 +44,8 @@ init)
 
   # basic persistency
   chown -R user:users "${CP}${IDEAIC_CONFIG}"
-  chown -R user:users "${CP}${IDEAIC_CACHE}"
+  chown -R user:users "${CP}${IDEAIC_CACHE1}"
+  chown -R user:users "${CP}${IDEAIC_CACHE2}"
 
 ;;
 stop)
