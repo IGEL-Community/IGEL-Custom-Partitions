@@ -25,7 +25,7 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
-  # Initial permissions
+  # Initial permissions and /userhome/.local
   mkdir -p /userhome/.local | $LOGGER
   chown -R user:users /userhome/.local | $LOGGER
   chown -R root:root "${CP}" | $LOGGER
