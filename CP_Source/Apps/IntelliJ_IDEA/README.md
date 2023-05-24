@@ -7,6 +7,7 @@
 | CP Mount Path | /custom/ideaic |
 | CP Size |5000M |
 | IGEL OS Version (min) | 11.08.330 |
+| Path to Icon | /custom/ideaic/usr/local/idea-IC-`version`/bin/idea.png |
 | Path to Executable | /custom/ideaic/usr/local/idea-IC-`version`/bin/idea.sh |
 | Packaging Notes | See build script for details |
 | Package automation | [build-ideaic-cp.sh](build/build-ideaic-cp.sh) |
