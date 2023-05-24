@@ -27,7 +27,7 @@ mkdir -p custom/ideaic/usr/local
 mkdir -p custom/ideaic/userhome/.config/JetBrains
 mkdir -p custom/ideaic/userhome/.local/JetBrains
 
-tar xvf $HOME/$FILE_NAME --directory=custom/ideaic/usr/local
+tar xvf $HOME/Downloads/$FILE_NAME --directory=custom/ideaic/usr/local
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/IntelliJ_IDEA.zip
 
