@@ -11,12 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/ideaic"
 
 # userhome
-#IDEAIC_CONFIG="/userhome/.config/JetBrains"
-IDEAIC_CONFIG="/userhome/.config"
-#IDEAIC_CACHE1="/userhome/.local/share/JetBrains"
-IDEAIC_CACHE1="/userhome/.local/share"
-#IDEAIC_CACHE2="/userhome/.cache/JetBrains"
-IDEAIC_CACHE2="/userhome/.cache"
+IDEAIC_CONFIG="/userhome"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -44,8 +39,6 @@ init)
 
   # basic persistency
   chown -R user:users "${CP}${IDEAIC_CONFIG}"
-  chown -R user:users "${CP}${IDEAIC_CACHE1}"
-  chown -R user:users "${CP}${IDEAIC_CACHE2}"
 
 ;;
 stop)

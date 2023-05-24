@@ -27,6 +27,7 @@ mkdir -p custom/ideaic/usr/local
 mkdir -p custom/ideaic/userhome/.config/JetBrains
 mkdir -p custom/ideaic/userhome/.local/share/JetBrains
 mkdir -p custom/ideaic/userhome/.cache/JetBrains
+mkdir -p custom/ideaic/userhome/.java
 
 tar xvf $HOME/Downloads/$FILE_NAME --directory=custom/ideaic/usr/local
 
