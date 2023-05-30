@@ -38,9 +38,9 @@ Update the values for these environment variables based on the settings in your 
 ## UMS Structure Tag holds WireGuard client public key
 
 ```bash
-setparm system.remotemanager.ums_structure_tag CLIENT_PUBLIC_KEY
+setparam system.remotemanager.ums_structure_tag CLIENT_PUBLIC_KEY
 write_rmsettings
-get system.remotemanager.ums_structure_tag CLIENT_PUBLIC_KEY
+get system.remotemanager.ums_structure_tag
 ```
 
 In the UMS, a view can be created to show the mapping of client machines to their WireGuard public key. This view can be exported to a file and added to the WireGuard server.
