@@ -14,7 +14,7 @@ OS12_CLEAN="12.01.100"
 USERHOME_FOLDERS="FALSE"
 USERHOME_FOLDERS_DIRS=""
 APPARMOR="FALSE"
-GETVERSION_FILE="../../docker-se*.deb"
+GETVERSION_FILE="../../docker-ce_*.deb"
 MISSING_LIBS_OS11="containerd.io docker-buildx-plugin docker-ce docker-ce-cli docker-ce-rootless-extras docker-compose-plugin git git-man liberror-perl libpcre2-8-0 pigz"
 MISSING_LIBS_OS12="containerd.io docker-buildx-plugin docker-ce docker-ce-cli docker-ce-rootless-extras docker-compose-plugin git git-man liberror-perl libpcre2-8-0 pigz"
 

@@ -16,6 +16,13 @@
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable /custom/docker/lib/systemd/system/containerd.service &amp;amp&amp;amp
+systemctl enable /custom/docker/lib/systemd/system/docker.service &amp;amp&amp;amp
+systemctl start containerd.service &amp;amp&amp;amp
+systemctl start docker.service &amp;amp&amp;amp</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
             <pclass name="custom_partition.size">
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">1100M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
