@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="docker.tar.bz2"
+version="X.X.X"
+size="1100M"
+name="docker"
+minfw="11.08.230"
