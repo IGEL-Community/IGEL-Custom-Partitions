@@ -14,3 +14,16 @@
 | Command | /custom/webex/opt/Webex/bin/CiscoCollabHost |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-webex-cp.sh](build/build-webex-cp.sh) |
+
+-----
+
+**NOTES:**
+
+To use Webex over a proxy server, create a script with this content and use for the start of Webex:
+
+```bash
+#!/bin/bash
+export http_proxy=http://proxy-host:proxy-port
+export https_proxy=https://proxy-host:proxy-port
+/custom/webex/opt/Webex/bin/CiscoCollabHost --proxy-server=proxy-host:proxy-port
+```
