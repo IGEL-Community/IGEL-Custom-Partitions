@@ -2,11 +2,39 @@
 #set -x
 #trap read debug
 
-# Creating an IGELOS CP for remmina
-## Development machine (Ubuntu 18.04)
-MISSING_LIBS="firmware-crystalhd freerdp2-x11 i965-va-driver i965-va-driver-shaders libavahi-ui-gtk3-0 libavcodec57 libavutil55 libayatana-appindicator3-1 libayatana-indicator3-7 libcrystalhd3 libdbusmenu-glib4 libdbusmenu-gtk3-4 libfreerdp2-2 libfreerdp-client2-2 libgsm1 libopenjp2-7 libshine3 libsnappy1v5 libsoxr0 libssh-4 libswresample2 libva2 libva-drm2 libva-x11-2 libvdpau1 libvdpau-va-gl1 libvncclient1 libwinpr2-2 libx264-152 libx265-146 libxvidcore4 libzvbi0 libzvbi-common mesa-va-drivers mesa-vdpau-drivers nvidia-legacy-340xx-vdpau-driver nvidia-vdpau-driver remmina remmina-common remmina-plugin-exec remmina-plugin-kwallet remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc remmina-plugin-www remmina-plugin-x2go va-driver-all vdpau-driver-all"
+# Creating an IGELOS CP
+## Development machine Ubuntu (OS11 = 18.04; OS12 = 20.04)
+CP="remmina"
+ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
+ZIP_FILE="Remmina"
+FIX_MIME="TRUE"
+CLEAN="TRUE"
+OS11_CLEAN="11.07.100"
+OS12_CLEAN="12.01.110"
+USERHOME_FOLDERS="TRUE"
+USERHOME_FOLDERS_DIRS="custom/remmina/userhome/.config/remmina custom/remmina/userhome/.local/share/remmina"
+APPARMOR="TRUE"
+GETVERSION_FILE="../../remmina_*.deb"
+MISSING_LIBS_OS11="firmware-crystalhd freerdp2-x11 i965-va-driver i965-va-driver-shaders libavahi-ui-gtk3-0 libavcodec57 libavutil55 libayatana-appindicator3-1 libayatana-indicator3-7 libcrystalhd3 libdbusmenu-glib4 libdbusmenu-gtk3-4 libfreerdp2-2 libfreerdp-client2-2 libgsm1 libopenjp2-7 libshine3 libsnappy1v5 libsoxr0 libssh-4 libswresample2 libva2 libva-drm2 libva-x11-2 libvdpau1 libvdpau-va-gl1 libvncclient1 libwinpr2-2 libx264-152 libx265-146 libxvidcore4 libzvbi0 libzvbi-common mesa-va-drivers mesa-vdpau-drivers nvidia-legacy-340xx-vdpau-driver nvidia-vdpau-driver remmina remmina-common remmina-plugin-exec remmina-plugin-kwallet remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc remmina-plugin-www remmina-plugin-x2go va-driver-all vdpau-driver-all"
+MISSING_LIBS_OS12="i965-va-driver intel-media-va-driver libaom0 libavahi-ui-gtk3-0 libavcodec58 libavutil56 libayatana-appindicator3-1 libayatana-indicator3-7 libcodec2-0.9 libdbusmenu-gtk3-4 libfreerdp-client2-2 libfreerdp2-2 libgsm1 libigdgmm11 libshine3 libsnappy1v5 libssh-4 libswresample3 libva-drm2 libva-x11-2 libva2 libvdpau1 libvncclient1 libwinpr2-2 libx264-155 libx265-179 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1 remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc va-driver-all vdpau-driver-all"
 
+VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
+
+if [ "${VERSION_ID}" = "18.04" ]; then
+  MISSING_LIBS="${MISSING_LIBS_OS11}"
+  IGELOS_ID="OS11"
+elif [ "${VERSION_ID}" = "20.04" ]; then
+  MISSING_LIBS="${MISSING_LIBS_OS12}"
+  IGELOS_ID="OS12"
+else
+  echo "Not a valid Ubuntu OS release. OS11 needs 18.04 (bionic) and OS12 needs 20.04 (focal)."
+  exit 1
+fi
+
+# Remmina - add - repository
 sudo apt-add-repository ppa:remmina-ppa-team/remmina-next -y
+# Remmina - add - repository
+
 sudo apt update -y
 
 sudo apt install unzip -y
@@ -18,54 +46,70 @@ for lib in $MISSING_LIBS; do
   apt-get download $lib
 done
 
-mkdir -p custom/remmina
+mkdir -p custom/${CP}
 
-find . -type f -name "*.deb" | while read LINE
+find . -name "*.deb" | while read LINE
 do
-  dpkg -x "${LINE}" custom/remmina
+  dpkg -x "${LINE}" custom/${CP}
 done
 
-mv custom/remmina/usr/share/applications/ custom/remmina/usr/share/applications.mime
-mkdir -p custom/remmina/userhome/.config/remmina
-mkdir -p custom/remmina/userhome/.local/share/remmina
+if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
+  mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
+fi
 
-echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
-chmod a+x clean_cp_usr_lib.sh
-wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
-chmod a+x clean_cp_usr_share.sh
-./clean_cp_usr_lib.sh 11.05.133_usr_lib.txt custom/remmina/usr/lib
-./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/remmina/usr/share
-echo "+++++++=======  DONE CLEAN of USR =======+++++++"
+if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
+  for folder in $USERHOME_FOLDERS_DIRS; do
+    mkdir -p $folder
+  done
+fi
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Remmina.zip
+if [ "${CLEAN}" = "TRUE" ]; then
+  echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
+  wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh
+  chmod a+x clean_cp_usr_lib.sh
+  wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
+  chmod a+x clean_cp_usr_share.sh
+  if [ "${IGELOS_ID}" = "OS11" ]; then
+    ./clean_cp_usr_lib.sh ${OS11_CLEAN}_usr_lib.txt custom/${CP}/usr/lib
+    ./clean_cp_usr_share.sh ${OS11_CLEAN}_usr_share.txt custom/${CP}/usr/share
+  else
+    ./clean_cp_usr_lib.sh ${OS12_CLEAN}_usr_lib.txt custom/${CP}/usr/lib
+    ./clean_cp_usr_share.sh ${OS12_CLEAN}_usr_share.txt custom/${CP}/usr/share
+  fi
+  echo "+++++++=======  DONE CLEAN of USR =======+++++++"
+fi
 
-unzip Remmina.zip -d custom
-mkdir -p custom/remmina/config/bin
-mkdir -p custom/remmina/lib/systemd/system
-mv custom/target/build/remmina_cp_apparmor_reload custom/remmina/config/bin
-mv custom/target/build/igel-remmina-cp-apparmor-reload.service custom/remmina/lib/systemd/system/
-mv custom/target/build/remmina-cp-init-script.sh custom
+wget ${ZIP_LOC}/${ZIP_FILE}.zip
+
+unzip ${ZIP_FILE}.zip -d custom
+
+if [ "${APPARMOR}" = "TRUE" ]; then
+  mkdir -p custom/${CP}/config/bin
+  mkdir -p custom/${CP}/lib/systemd/system
+  mv custom/target/build/${CP}_cp_apparmor_reload custom/${CP}/config/bin
+  mv custom/target/build/igel-${CP}-cp-apparmor-reload.service custom/${CP}/lib/systemd/system/
+fi
+mv custom/target/build/${CP}-cp-init-script.sh custom
 
 cd custom
 
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x ../../remmina_*.deb
+ar -x ${GETVERSION_FILE}
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
-sed -i "/^version=/c version=\"${VERSION}\"" target/remmina.inf
-#echo "remmina.inf file is:"
-#cat target/remmina.inf
+sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
+#echo "${CP}.inf file is:"
+#cat target/${CP}.inf
 
 # new build process into zip file
-tar cvjf target/remmina.tar.bz2 remmina remmina-cp-init-script.sh
-zip -g ../Remmina.zip target/remmina.tar.bz2 target/remmina.inf
-zip -d ../Remmina.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Remmina.zip ../../Remmina-${VERSION}_igel01.zip
+tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh
+zip -g ../${ZIP_FILE}.zip target/${CP}.tar.bz2 target/${CP}.inf
+zip -d ../${ZIP_FILE}.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID}_igel01.zip
 
 cd ../..
 rm -rf build_tar
