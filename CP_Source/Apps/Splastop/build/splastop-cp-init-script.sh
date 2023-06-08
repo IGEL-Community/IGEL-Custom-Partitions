@@ -20,6 +20,20 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  # START From postinst
+  if [ ! -d "${CP}/opt/splashtop-business/config/" ]; then
+	  mkdir -p ${CP}/opt/splashtop-business/config/
+  fi
+  if [ ! -d "${CP}/opt/splashtop-business/dump/" ]; then
+	  mkdir -p ${CP}/opt/splashtop-business/dump/
+  fi
+  if [ ! -d "${CP}/opt/splashtop-business/log/" ]; then
+	  mkdir -p ${CP}/opt/splashtop-business/log/
+  fi
+  chmod a=rwx ${CP}/opt/splashtop-business/config
+  chmod a=rwx ${CP}/opt/splashtop-business/
+  chmod a=rwx ${CP}/opt/splashtop-business/log
+  # END From postinst
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
