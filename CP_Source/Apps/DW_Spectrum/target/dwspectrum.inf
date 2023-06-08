@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="dwspectrum.tar.bz2"
+version="X.X.X"
+size="800M"
+name="dwspectrum"
+minfw="11.08.230"
