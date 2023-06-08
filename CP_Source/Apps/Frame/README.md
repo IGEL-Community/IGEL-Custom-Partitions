@@ -1,8 +1,14 @@
-# Nutanix Frame (4 May)
+# Frame (8 June)
+
+-----
+
+[Dizzion Acquires Frame from Nutanix to Accelerate Growth in DaaS Market](https://www.dizzion.com/company/news/dizzion-acquires-frame/)
+
+-----
 
 | CP Information        |                                                                                                               |
 | --------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Package               | Nutanix Frame - Current Version                                                                               |
+| Package               | Frame - Current Version                                                                               |
 | Script Name           | [frame-cp-init-script.sh](build/frame-cp-init-script.sh)                                                      |
 | CP Mount Path         | /custom/frame                                                                                                 |
 | CP Size               | 500M                                                                                                          |
@@ -21,7 +27,7 @@
 
 ## Frame App IGEL Bundling instructions For Ubuntu 18.04
 1. Download the latest [Frame App for Linux (Debian)](https://portal.nutanix.com/page/downloads?product=xiframe) to your `~/Downloads` directory.
-2. Download and unzip `Nutanix_Frame.zip` from [https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Nutanix_Frame.zip](https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Nutanix_Frame.zip).
+2. Download and unzip `Frame.zip` from [https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Frame.zip](https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Frame.zip).
 3. Using a terminal, navigate to the unzipped directory to `/target/build/` and execute `build-frame-cp.sh`
 4. Copy `frame.ini` and `frame.tar.bz2` from `/target/` to the UMS RemoteManager server.
    1. Linux UMS host: `/opt/IGEL/RemoteManager/rmguiserver/webapps/ums_filetransfer/Frame/`

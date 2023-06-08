@@ -2,7 +2,7 @@
 #set -x
 #trap read debug
 
-# Creating an IGELOS CP for Nutanix Frame
+# Creating an IGELOS CP for Frame
 ## Development machine (Ubuntu 18.04)
 sudo apt install unzip -y
 
@@ -35,9 +35,9 @@ mkdir -p custom/frame/userhome/.Nutanix
 # END: comment out for non-persistency!!!!
 ##########################################
 
-wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Nutanix_Frame.zip
+wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Frame.zip
 
-unzip Nutanix_Frame.zip -d custom
+unzip Frame.zip -d custom
 mkdir -p custom/frame/usr/share/pixmaps
 mv custom/target/build/Frame.png custom/frame/usr/share/pixmaps
 mv custom/target/build/frame-saml2-kiosk-launcher.sh custom/frame
@@ -61,9 +61,9 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/frame.inf
 
 # new build process into zip file
 tar cvjf target/frame.tar.bz2 frame frame-cp-init-script.sh
-zip -g ../Nutanix_Frame.zip target/frame.tar.bz2 target/frame.inf
-zip -d ../Nutanix_Frame.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../Nutanix_Frame.zip ../../Nutanix_Frame-${VERSION}_igel01.zip
+zip -g ../Frame.zip target/frame.tar.bz2 target/frame.inf
+zip -d ../Frame.zip "target/build/*" "target/igel/*" "target/target/*"
+mv ../Frame.zip ../../Frame-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
