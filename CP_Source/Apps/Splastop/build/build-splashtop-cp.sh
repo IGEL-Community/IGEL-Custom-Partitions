@@ -7,7 +7,7 @@
 CP="splastop"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
 ZIP_FILE="Splastop"
-FIX_MIME="FALSE"
+FIX_MIME="TRUE"
 CLEAN="TRUE"
 OS11_CLEAN="11.08.230"
 OS12_CLEAN="12.01.100"
@@ -54,7 +54,7 @@ for lib in $MISSING_LIBS; do
 done
 
 # START extract package
-tar xvf "$HOME/Downloads/$DOWNLOAD_FILE"
+tar xvf $HOME/Downloads/$DOWNLOAD_FILE
 # END extract package
 
 mkdir -p custom/${CP}
@@ -107,11 +107,11 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x ${GETVERSION_FILE}
+ar -x ../../${GETVERSION_FILE}
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
-#cd ..
+cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
 #cat target/${CP}.inf
