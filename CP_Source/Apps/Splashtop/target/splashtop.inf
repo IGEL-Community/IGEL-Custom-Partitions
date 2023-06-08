@@ -1,7 +1,7 @@
 [INFO]
 [PART]
-file="splastop.tar.bz2"
+file="splashtop.tar.bz2"
 version="X.X.X"
 size="200M"
-name="splastop"
+name="splashtop"
 minfw="11.08.230"

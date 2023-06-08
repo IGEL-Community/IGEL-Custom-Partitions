@@ -1,4 +1,4 @@
-# Splastop Business (8 June)
+# Splashtop Business (8 June)
 
 -----
 

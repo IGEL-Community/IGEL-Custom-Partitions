@@ -4,9 +4,9 @@
 
 # Creating an IGELOS CP
 ## Development machine Ubuntu (OS11 = 18.04; OS12 = 20.04)
-CP="splastop"
+CP="splashtop"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
-ZIP_FILE="Splastop"
+ZIP_FILE="Splashtop"
 FIX_MIME="TRUE"
 CLEAN="TRUE"
 OS11_CLEAN="11.08.230"

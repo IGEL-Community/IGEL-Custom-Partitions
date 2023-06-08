@@ -2,7 +2,7 @@
 #set -x
 #trap read debug
 
-ACTION="custompart-splastop_${1}"
+ACTION="custompart-splashtop_${1}"
 
 # mount point path
 MP=$(get custom_partition.mountpoint)
@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/splastop"
 
 # userhome
-USER_CONFIG="/userhome/.local/share/authenticator"
+USER_CONFIG="/userhome/.config/foobar"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
