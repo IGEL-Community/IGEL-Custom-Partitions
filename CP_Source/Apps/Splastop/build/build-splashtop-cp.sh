@@ -16,7 +16,7 @@ USERHOME_FOLDERS_DIRS=""
 APPARMOR="FALSE"
 GETVERSION_FILE="splashtop-business_Ubuntu_amd64.deb"
 DOWNLOAD_FILE="splashtop-business_Ubuntu_*_amd64.tar.gz"
-MISSING_LIBS_OS11="libdouble-conversion1 libossp-uuid16 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libxcb-xinerama0 libxcb-xtest0 qt5-gtk-platformtheme qttranslations5-l10n uuid libavcodec57 libavutil55"
+MISSING_LIBS_OS11="libdouble-conversion1 libossp-uuid16 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libxcb-xinerama0 libxcb-xtest0 qt5-gtk-platformtheme qttranslations5-l10n uuid libavcodec57 libavutil55 libswresample2 libcrystalhd3 libzvbi0 libxvidcore4 libx265-146"
 MISSING_LIBS_OS12=""
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
