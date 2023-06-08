@@ -54,7 +54,7 @@ for lib in $MISSING_LIBS; do
 done
 
 # START extract package
-cp $HOME/$ GETVERSION_FILE .
+cp $HOME/Downloads/$GETVERSION_FILE .
 # END extract package
 
 mkdir -p custom/${CP}
