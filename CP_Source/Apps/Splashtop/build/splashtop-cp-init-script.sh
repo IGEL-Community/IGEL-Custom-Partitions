@@ -8,7 +8,7 @@ ACTION="custompart-splashtop_${1}"
 MP=$(get custom_partition.mountpoint)
 
 # custom partition path
-CP="${MP}/splastop"
+CP="${MP}/splashtop"
 
 # userhome
 USER_CONFIG="/userhome/.config/foobar"
