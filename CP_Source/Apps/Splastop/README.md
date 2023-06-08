@@ -4,6 +4,9 @@
 
 **NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic) and OS12 (build with Ubuntu 20.04 - focal)
 
+- Pending testing on OS 11
+- Not currently ready for OS 12
+
 -----
 
 |  CP Information |            |
