@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/splashtop"
 
 # userhome
-USER_CONFIG="/userhome/.config/foobar"
+#USER_CONFIG="/userhome/.config/foobar"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -30,9 +30,9 @@ init)
   if [ ! -d "${CP}/opt/splashtop-business/log/" ]; then
 	  mkdir -p ${CP}/opt/splashtop-business/log/
   fi
-  chmod a=rwx ${CP}/opt/splashtop-business/config
-  chmod a=rwx ${CP}/opt/splashtop-business/
-  chmod a=rwx ${CP}/opt/splashtop-business/log
+  chmod -R a=rwx ${CP}/opt/splashtop-business/config
+  chmod -R a=rwx ${CP}/opt/splashtop-business/
+  chmod -R a=rwx ${CP}/opt/splashtop-business/log
   # END From postinst
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
@@ -49,7 +49,7 @@ init)
   done
 
   # basic persistency
-  chown -R user:users "${CP}${USER_CONFIG}"
+  #chown -R user:users "${CP}${USER_CONFIG}"
 
   # after CP installation run wm_postsetup to activate mimetypes
   if [ -d /run/user/777 ]; then
