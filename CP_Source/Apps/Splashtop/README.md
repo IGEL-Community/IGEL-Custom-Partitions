@@ -4,14 +4,13 @@
 
 **NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic) and OS12 (build with Ubuntu 20.04 - focal)
 
-- Pending testing on OS 11
-- Not currently ready for OS 12
+- Pending testing on OS 11 and 12
 
 -----
 
 |  CP Information |            |
 |-----------------|------------|
-| Package | 
+| Package | [Splashtop Business](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/4404715685147) |
 | Script Name | [splashtop-cp-init-script.sh](build/splashtop-cp-init-script.sh) |
 | Icon name | /custom/splashtop/usr/share/pixmaps/logo_about_biz.png |
 | Command OS 11 | /custom/splashtop/opt/splashtop-business/splashtop-business-bionic |
