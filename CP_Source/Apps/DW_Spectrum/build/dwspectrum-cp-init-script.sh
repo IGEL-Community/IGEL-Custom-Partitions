@@ -11,7 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/dwspectrum"
 
 # userhome
-USER_CONFIG="/userhome/.config/foobar"
+USER_CONFIG="/userhome/.config"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
