@@ -12,9 +12,7 @@ CLEAN="TRUE"
 OS11_CLEAN="11.08.230"
 OS12_CLEAN="12.01.100"
 USERHOME_FOLDERS="TRUE"
-USERHOME_FOLDERS_DIRS="custom/${CP}/userhome/.config/nx_ini custom/${CP}/userhome/.config/Digital\ Watchdog"
-USER_CONFIG="/userhome/.config"
-
+USERHOME_FOLDERS_DIRS=("custom/${CP}/userhome/.config/nx_ini" "custom/${CP}/userhome/.config/Digital Watchdog")
 APPARMOR="FALSE"
 GETVERSION_FILE="dwspectrum-client-*-linux_x64.deb"
 MISSING_LIBS_OS11="libopenal-data libopenal1 libsndio6.1 libxcb-xinerama0"
@@ -71,8 +69,8 @@ if [ "${FIX_MIME}" = "TRUE" ]; then
 fi
 
 if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
-  for folder in $USERHOME_FOLDERS_DIRS; do
-    mkdir -p $folder
+  for folder in "${USERHOME_FOLDERS_DIRS[@]}"; do
+    mkdir -p "$folder"
   done
 fi
 
