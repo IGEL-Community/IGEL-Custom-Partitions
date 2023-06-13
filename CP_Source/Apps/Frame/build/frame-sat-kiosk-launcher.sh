@@ -103,6 +103,21 @@ if [[ `pgrep -f $0` != "$$" ]]; then
     exit 1
 fi
 
+# Cache path based on Frame App version
+LEGACY_FRAME_CACHE_PATH="/custom/frame/userhome/.Nutanix/Frame/cache"
+FRAME_CACHE_PATH="/custom/frame/userhome/.config/Frame/Cache /custom/frame/userhome/.config/Frame/Cookies /custom/frame/userhome/.config/Frame/Local Storage"
+
+# Frame App path and CLI separator
+FRAME_APP_PATH="/custom/frame/usr/bin/frame"
+LEGACY_FRAMEAPP=false
+
+# Check if the legacy Frame App version is installed
+if [ -x "/custom/frame/usr/bin/nutanix-frame/Frame" ]; then
+    logMessage "Legacy Frame App installed."
+    FRAME_APP_PATH="/custom/frame/usr/bin/nutanix-frame/Frame"
+    LEGACY_FRAMEAPP=true
+fi
+
 # Does a passed session state match any of the "open" session states?
 isSessionOpen () {
     if printf '%s\0' "${OPEN_SESSION_STATES[@]}" | grep -Fxqz "$1"; then
@@ -281,11 +296,19 @@ quitAndRestartWrapper() {
 }
 
 launchFrame() {
-    # Clear cache from previous session
-    rm -Rf /custom/frame/userhome/.Nutanix/Frame/cache
+    # Clear cache from previous session based on the Frame App version
+    cache_path="$FRAME_CACHE_PATH"
+    if [ "$FRAME_APP_PATH" = "/custom/frame/usr/bin/nutanix-frame/Frame" ]; then
+        cache_path="$LEGACY_FRAME_CACHE_PATH"
+    fi
+    rm -Rf "$cache_path"
 
     # Run Frame App in kiosk mode, auto-arrange displays if more than one monitor attached, using FRAME_LAUNCH_URL with Secure Anonymous Token
-    /custom/frame/usr/bin/nutanix-frame/Frame --kiosk --displays-auto-arrange --url="$FRAME_LAUNCH_URL#token=$token" &
+    if [ -n "$LEGACY_FRAMEAPP" ]; then
+        "$FRAME_APP_PATH" "$FRAME_APP_CLI_SEPARATOR" --kiosk --displays-auto-arrange --url="$FRAME_LAUNCH_URL#token=$token" &
+    else
+        "$FRAME_APP_PATH" --kiosk --displays-auto-arrange --url="$FRAME_LAUNCH_URL#token=$token" &
+    fi
 }
 
 # Wait for a Session ID and monitor a session's status and handle continued UX after a session has closed.

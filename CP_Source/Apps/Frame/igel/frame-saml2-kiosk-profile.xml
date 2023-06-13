@@ -4,7 +4,7 @@
     <profilename>Frame SAML2 Kiosk CP</profilename>
     <firmware>
         <model>IGEL OS 11</model>
-        <version>11.07.170.01</version>
+        <version>11.08.230.01</version>
     </firmware>
     <description>Frame Custom Partition that is specifically configured to use SAML2 IdP for auth, Frame App for a kiosk UX, required environmental variables, and a script to tie it all together.</description>
     <overwritesessions>false</overwritesessions>
