@@ -1,0 +1,10 @@
+{
+  "url": "https://console.nutanix.com",
+  "holdEscTime": 5,
+  "checkForUpdate": true,
+  "clearCache": true,
+  "usb": false,
+  "sendErrorReports": true,
+  "camera": false,
+  "microphone": false
+}
