@@ -1,12 +1,14 @@
 # Microsoft Teams (10 November)
 
+**NOTE:** Microsoft dropped support for native Linux client and moved to PWA for Teams.
+
 [Microsoft Teams progressive web app (PWA) via Edge](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Microsoft-Teams-Optimization/)
 
 ---------
 
 |  CP Information |            |
 |-----------------|------------|
-| Package | Microsoft Teams - Current Version |
+| Package | Native Linux Microsoft Teams - Current Version |
 | Script Name | [teams-cp-init-script.sh](build/teams-cp-init-script.sh) |
 | CP Mount Path | /custom/teams |
 | CP Size | 500M |
