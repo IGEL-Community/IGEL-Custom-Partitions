@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="sapgui.tar.bz2"
+version="X.X.X"
+size="400M"
+name="sapgui"
+minfw="11.08.230"
