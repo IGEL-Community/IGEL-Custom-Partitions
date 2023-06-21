@@ -97,7 +97,7 @@ sudo mv custom/${CP}/usr/local/share/applications custom/${CP}/usr//share/applic
 #END setup
 
 if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
-  mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
+  sudo mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
 fi
 
 if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
@@ -155,4 +155,4 @@ zip -d ../${ZIP_FILE}.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID}_igel01.zip
 
 cd ../..
-rm -rf build_tar
+sudo rm -rf build_tar
