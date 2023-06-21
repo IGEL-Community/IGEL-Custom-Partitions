@@ -284,6 +284,33 @@ pollSessionStatus() {
     # Session closed or otherwise? Time to restart!
     if [ "$sessionStatus" -eq 1 ]; then
         quitAndRestartWrapper
+        keep_token=false
+    fi
+}
+
+isTokenExpiring() {
+    JWT_TOKEN=$1
+
+    # Split the JWT into header, payload, and signature
+    JWT_PAYLOAD=$(echo $JWT_TOKEN | cut -d "." -f 2 | tr '-_' '/+')
+
+    # Add required padding
+    padding=$(echo $JWT_PAYLOAD | awk '{print (4 - length % 4) % 4}')
+    pad=$(printf %${padding}s)
+    JWT_PAYLOAD=${JWT_PAYLOAD}${pad// /=}
+
+    # Base64 decode and get 'exp' field
+    JWT_EXPIRY=$(echo $JWT_PAYLOAD | base64 --decode | sed -n 's/.*"exp":[ ]*\([0-9]*\).*/\1/p')
+
+    # Get current time and add 15 minutes (900 seconds)
+    CURRENT_TIME_PLUS_15=$(($(date +%s) + 900))
+
+    if [[ "$CURRENT_TIME_PLUS_15" -gt "$JWT_EXPIRY" ]]; then
+        # Token will expire in less than 15 minutes
+        return 0
+    else
+        # Token will not expire in less than 15 minutes
+        return 1
     fi
 }
 
@@ -298,8 +325,13 @@ quitAndRestartWrapper() {
     logMessage "Frame Wrapper closed. Re-launching..."
     sleep 3;
 
-    # get new token
+    # Reuse or get a new token
+    if isTokenExpiring "$token" && [ "$keep_token" = true ]; then
+        logMessage "Token is about to expire, regenerating..."
     getToken
+    else
+        logMessage "Token is still valid for the next 15 minutes. Keeping existing token from failed session attempt."
+    fi
     
     # Start a fresh session
     launchFrame
@@ -347,6 +379,11 @@ getToken
 # Confirm that token is obtained succefully
 if [ -z "$token" ]; then
     logMessage "Unable to obtain anonymous token. Exiting"
+
+    # Graceful wait before exiting; IGEL OS will restart this
+    # script immediately; this timeout is a small buffer between
+    # token requests.
+    sleep 5
     exit 1
 else
     # Launch Frame App with our new token
