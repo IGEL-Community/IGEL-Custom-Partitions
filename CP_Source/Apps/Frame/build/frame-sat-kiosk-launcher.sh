@@ -215,23 +215,37 @@ queryActiveSession() {
 
 # Poll Frame until an active session is found and a Session ID can be set.
 pollSessionId() {
-    logMessage "Checking for active session... $FRAME_SESSION_ID";
+    logMessage "Checking for active session... $FRAME_SESSION_ID"
+
+    local elapsedSeconds=0
+    local retryDurationMinutes=${RETRY_DURATION:-10}       # retry for 10 minutes by default
+    local maxElapsedSeconds=$((retryDurationMinutes * 60)) # Convert minutes to seconds
     
     while [ -z "$FRAME_SESSION_ID" ]; do
-        logMessage "Checking for active session... $FRAME_SESSION_ID";
+        logMessage "Checking for active session... $FRAME_SESSION_ID"
         queryActiveSession
-        ## Response Example:
-        ## {"data":{"activeSession":{"__typename":"Session","id":"gateway-prod.KR5LDopQG8MzV136","state":"RESERVED","userId":"84c661ab-60ab-43e0-b7bd-3fa44d49ce05"}}}
-        ## Closed example: {"data":{"activeSession":null}}
+        # Response Example:
+        # {"data":{"activeSession":{"__typename":"Session","id":"gateway-prod.KR5LDopQG8MzV136","state":"RESERVED","userId":"84c661ab-60ab-43e0-b7bd-3fa44d49ce05"}}}
+        # Closed example: {"data":{"activeSession":null}}
         local sessionId="$(echo $activeSessionResponse | grep -o '"id":"[^"]*' | grep -o '[^"]*$')"
         
         if [ "$sessionId" != "" ]; then
             logMessage "Session ID is: $sessionId"
             FRAME_SESSION_ID="$sessionId"
-        fi;
+        fi
+
+        sleep 2
+        elapsedSeconds=$((elapsedSeconds + 2)) # Increment the elapsed seconds by the sleep duration
         
-        sleep 2;
+        # Check if the elapsed time has reached the maximum allowed based on the retry duration.
+        if [ $elapsedSeconds -ge $maxElapsedSeconds ]; then
+            logMessage "Session Start Timeout reached. Restarting Frame Wrapper..."
+            keep_token=true
+            quitAndRestartWrapper
+            break
+        fi
         
+        retryCounter=$((retryCounter + 1))
     done
 }
 
