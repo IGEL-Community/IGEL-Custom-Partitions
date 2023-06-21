@@ -94,9 +94,6 @@ handleWgetStatus() {
     8)
         logMessage "Response: Error from server."
         ;;
-    *)
-        logMessage "Unexpected status code: $1"
-        ;;
     esac
 }
 
@@ -285,8 +282,8 @@ pollSessionStatus() {
 
     # Session closed or otherwise? Time to restart!
     if [ "$sessionStatus" -eq 1 ]; then
-        quitAndRestartWrapper
         keep_token=false
+        quitAndRestartWrapper
     fi
 }
 
