@@ -76,7 +76,7 @@ echo "==============================================="
 echo ""
 read -p "(Press Enter)" name
 chmod a+x ${GETVERSION_FILE}
-sudo ${GETVERSION_FILE} 
+sudo ${GETVERSION_FILE} install -f -s
 
 # file listing after install
 pushd .
