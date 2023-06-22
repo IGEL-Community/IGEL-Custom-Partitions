@@ -1,17 +1,15 @@
-#! /bin/bash
-#set -x
-#trap read debug
+#!/bin/sh
 
-ACTION="custompart-splashtop_${1}"
+ACTION="custompart-sapgui_${1}"
 
 # mount point path
 MP=$(get custom_partition.mountpoint)
 
 # custom partition path
-CP="${MP}/splashtop"
+CP="${MP}/sapgui"
 
-# userhome
-#USER_CONFIG="/userhome/.config/foobar"
+# config directory
+USER_CONFIG="/userhome"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -20,20 +18,6 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
-  # START From postinst
-  if [ ! -d "${CP}/opt/splashtop-business/config/" ]; then
-	  mkdir -p ${CP}/opt/splashtop-business/config/
-  fi
-  if [ ! -d "${CP}/opt/splashtop-business/dump/" ]; then
-	  mkdir -p ${CP}/opt/splashtop-business/dump/
-  fi
-  if [ ! -d "${CP}/opt/splashtop-business/log/" ]; then
-	  mkdir -p ${CP}/opt/splashtop-business/log/
-  fi
-  chmod -R a=rwx ${CP}/opt/splashtop-business/config
-  chmod -R a=rwx ${CP}/opt/splashtop-business/
-  chmod -R a=rwx ${CP}/opt/splashtop-business/log
-  # END From postinst
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
@@ -49,9 +33,11 @@ init)
   done
 
   # basic persistency
-  #chown -R user:users "${CP}${USER_CONFIG}"
+  if [ -d "${CP}${USER_CONFIG}" ]; then
+    chown -R user:users "${CP}${USER_CONFIG}"
+  fi
 
-  # after CP installation run wm_postsetup to activate mimetypes
+  # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
     wm_postsetup
     # delay the CP ready notification
@@ -60,7 +46,7 @@ init)
 
 ;;
 stop)
-  # Unlinking files and folders on proper path
+# Unlinking files and folders on proper path
   find ${CP} -printf "/%P\n" | while read DEST
   do
     if [ -L "${DEST}" ]; then
@@ -70,7 +56,6 @@ stop)
 
 ;;
 esac
-
 echo "Finished" | $LOGGER
 
 exit 0

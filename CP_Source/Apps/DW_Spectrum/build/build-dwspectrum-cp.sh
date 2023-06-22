@@ -4,21 +4,20 @@
 
 # Creating an IGELOS CP
 ## Development machine Ubuntu (OS11 = 18.04; OS12 = 20.04)
-CP="splashtop"
+CP="dwspectrum"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
-ZIP_FILE="Splashtop"
+ZIP_FILE="DW_Spectrum"
 FIX_MIME="TRUE"
 CLEAN="TRUE"
 OS11_CLEAN="11.08.230"
 OS12_CLEAN="12.01.100"
 USERHOME_FOLDERS="TRUE"
-USERHOME_FOLDERS_DIRS=""
+USERHOME_FOLDERS_DIRS=("custom/${CP}/userhome/.config/nx_ini" "custom/${CP}/userhome/.config/Digital Watchdog")
 APPARMOR="FALSE"
-GETVERSION_FILE="splashtop-business_Ubuntu_amd64.deb"
-DOWNLOAD_FILE="splashtop-business_Ubuntu_*_amd64.tar.gz"
-MISSING_LIBS_OS11="libdouble-conversion1 libossp-uuid16 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libxcb-xinerama0 libxcb-xtest0 qt5-gtk-platformtheme qttranslations5-l10n uuid libavcodec57 libavutil55 libswresample2 libcrystalhd3 libzvbi0 libxvidcore4 libx265-146"
-MISSING_LIBS_OS12="libdouble-conversion3 libgcc1 libossp-uuid16 libpcre2-16-0 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libxcb-xinerama0 libxcb-xinput0 libxcb-xtest0 qt5-gtk-platformtheme qttranslations5-l10n uuid libcrystalhd3 libzvbi0 libxvidcore4"
+GETVERSION_FILE="dwspectrum-client-*-linux_x64.deb"
+MISSING_LIBS_OS11="libopenal-data libopenal1 libsndio6.1 libxcb-xinerama0"
 
+MISSING_LIBS_OS12=""
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
@@ -26,6 +25,8 @@ if [ "${VERSION_ID}" = "18.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS11}"
   IGELOS_ID="OS11"
 elif [ "${VERSION_ID}" = "20.04" ]; then
+  echo "Not ready for OS 12 build"
+  exit 1
   MISSING_LIBS="${MISSING_LIBS_OS12}"
   IGELOS_ID="OS12"
 else
@@ -36,10 +37,10 @@ fi
 sudo apt install unzip -y
 
 # START - Get the latest version of installer
-if ! compgen -G "$HOME/Downloads/$DOWNLOAD_FILE" > /dev/null; then
+if ! compgen -G "$HOME/Downloads/$GETVERSION_FILE" > /dev/null; then
   echo "***********"
-  echo "Obtain latest Splashtop Business app for Linux .tar.gz package, save into $HOME/Downloads and re-run this script "
-  echo "https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/4404715685147"
+  echo "Obtain latest DW Spectrum client install for Linux .tar.gz package, save into $HOME/Downloads and re-run this script "
+  echo "https://dwspectrum.digital-watchdog.com/download/linux"
   echo "***********"
   exit 1
 fi
@@ -53,7 +54,7 @@ for lib in $MISSING_LIBS; do
 done
 
 # START extract package
-tar xvf $HOME/Downloads/$DOWNLOAD_FILE
+cp $HOME/Downloads/$GETVERSION_FILE .
 # END extract package
 
 mkdir -p custom/${CP}
@@ -68,8 +69,8 @@ if [ "${FIX_MIME}" = "TRUE" ]; then
 fi
 
 if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
-  for folder in $USERHOME_FOLDERS_DIRS; do
-    mkdir -p $folder
+  for folder in "${USERHOME_FOLDERS_DIRS[@]}"; do
+    mkdir -p "$folder"
   done
 fi
 

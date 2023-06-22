@@ -2,16 +2,16 @@
 #set -x
 #trap read debug
 
-ACTION="custompart-splashtop_${1}"
+ACTION="custompart-dwspectrum_${1}"
 
 # mount point path
 MP=$(get custom_partition.mountpoint)
 
 # custom partition path
-CP="${MP}/splashtop"
+CP="${MP}/dwspectrum"
 
 # userhome
-#USER_CONFIG="/userhome/.config/foobar"
+USER_CONFIG="/userhome/.config"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -20,19 +20,6 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
-  # START From postinst
-  if [ ! -d "${CP}/opt/splashtop-business/config/" ]; then
-	  mkdir -p ${CP}/opt/splashtop-business/config/
-  fi
-  if [ ! -d "${CP}/opt/splashtop-business/dump/" ]; then
-	  mkdir -p ${CP}/opt/splashtop-business/dump/
-  fi
-  if [ ! -d "${CP}/opt/splashtop-business/log/" ]; then
-	  mkdir -p ${CP}/opt/splashtop-business/log/
-  fi
-  chmod -R a=rwx ${CP}/opt/splashtop-business/config
-  chmod -R a=rwx ${CP}/opt/splashtop-business/
-  chmod -R a=rwx ${CP}/opt/splashtop-business/log
   # END From postinst
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
@@ -49,7 +36,7 @@ init)
   done
 
   # basic persistency
-  #chown -R user:users "${CP}${USER_CONFIG}"
+  chown -R user:users "${CP}${USER_CONFIG}"
 
   # after CP installation run wm_postsetup to activate mimetypes
   if [ -d /run/user/777 ]; then

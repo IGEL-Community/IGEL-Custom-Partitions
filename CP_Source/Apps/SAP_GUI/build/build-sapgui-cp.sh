@@ -4,21 +4,20 @@
 
 # Creating an IGELOS CP
 ## Development machine Ubuntu (OS11 = 18.04; OS12 = 20.04)
-CP="splashtop"
+CP="sapgui"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
-ZIP_FILE="Splashtop"
+ZIP_FILE="SAP_GUI"
 FIX_MIME="TRUE"
-CLEAN="TRUE"
+CLEAN="FALSE"
 OS11_CLEAN="11.08.230"
 OS12_CLEAN="12.01.100"
 USERHOME_FOLDERS="TRUE"
-USERHOME_FOLDERS_DIRS=""
+USERHOME_FOLDERS_DIRS=("custom/${CP}/userhome/.SAPGUI")
 APPARMOR="FALSE"
-GETVERSION_FILE="splashtop-business_Ubuntu_amd64.deb"
-DOWNLOAD_FILE="splashtop-business_Ubuntu_*_amd64.tar.gz"
-MISSING_LIBS_OS11="libdouble-conversion1 libossp-uuid16 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libxcb-xinerama0 libxcb-xtest0 qt5-gtk-platformtheme qttranslations5-l10n uuid libavcodec57 libavutil55 libswresample2 libcrystalhd3 libzvbi0 libxvidcore4 libx265-146"
-MISSING_LIBS_OS12="libdouble-conversion3 libgcc1 libossp-uuid16 libpcre2-16-0 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5 libxcb-xinerama0 libxcb-xinput0 libxcb-xtest0 qt5-gtk-platformtheme qttranslations5-l10n uuid libcrystalhd3 libzvbi0 libxvidcore4"
-
+#ls -d opt/SAPClients/SAPGUI[0-9]* | cut -c 22-
+GETVERSION_FILE="$HOME/Downloads/PlatinGUI-Linux-x86_64-Installation"
+MISSING_LIBS_OS11=""
+MISSING_LIBS_OS12=""
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
@@ -28,22 +27,22 @@ if [ "${VERSION_ID}" = "18.04" ]; then
 elif [ "${VERSION_ID}" = "20.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS12}"
   IGELOS_ID="OS12"
+  echo "Builder has not been updated for OS12"
+  exit 1
 else
   echo "Not a valid Ubuntu OS release. OS11 needs 18.04 (bionic) and OS12 needs 20.04 (focal)."
   exit 1
 fi
 
-sudo apt install unzip -y
-
-# START - Get the latest version of installer
-if ! compgen -G "$HOME/Downloads/$DOWNLOAD_FILE" > /dev/null; then
+if ! compgen -G "${GETVERSION_FILE}" > /dev/null; then
   echo "***********"
-  echo "Obtain latest Splashtop Business app for Linux .tar.gz package, save into $HOME/Downloads and re-run this script "
-  echo "https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/4404715685147"
+  echo "Obtain SAP GUI ${GETVERSION_FILE} for Linux (Linux version) 64bit, save into $HOME/Downloads and re-run this script "
+  echo "https://accounts.sap.com/saml2/idp/sso"
   echo "***********"
   exit 1
 fi
-# END - Get the latest version of installer
+
+sudo apt install unzip -y
 
 mkdir build_tar
 cd build_tar
@@ -52,10 +51,6 @@ for lib in $MISSING_LIBS; do
   apt-get download $lib
 done
 
-# START extract package
-tar xvf $HOME/Downloads/$DOWNLOAD_FILE
-# END extract package
-
 mkdir -p custom/${CP}
 
 find . -name "*.deb" | while read LINE
@@ -63,13 +58,51 @@ do
   dpkg -x "${LINE}" custom/${CP}
 done
 
-if [ "${FIX_MIME}" = "TRUE" ]; then
-  mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
+#START setup
+# file listing before install
+pushd .
+cd /
+#sudo sh -c 'find bin etc home lib opt sbin usr var | sort > /tmp/find_root_listing1.txt'
+sudo sh -c 'find etc opt usr | sort > /tmp/find_root_listing1.txt'
+popd
+
+# do install
+echo "==============================================="
+echo "==============================================="
+echo "Installer will run and do not change defaults"
+echo "/custom/${CP}/opt/device-service" 
+echo "==============================================="
+echo "==============================================="
+echo ""
+read -p "(Press Enter)" name
+chmod a+x ${GETVERSION_FILE}
+sudo ${GETVERSION_FILE} install -f -s
+
+# file listing after install
+pushd .
+cd /
+#sudo sh -c 'find bin etc home lib opt sbin usr var | sort > /tmp/find_root_listing2.txt'
+sudo sh -c 'find etc opt usr | sort > /tmp/find_root_listing2.txt'
+popd
+
+# tar file of the new files
+pushd .
+cd /
+sudo sh -c 'comm -1 -3 /tmp/find_root_listing1.txt /tmp/find_root_listing2.txt | xargs tar -cjvf /tmp/newfiles.tar.bz2'
+popd
+
+# untar files into CP
+sudo tar xvf /tmp/newfiles.tar.bz2 --directory custom/${CP}
+sudo mv custom/${CP}/usr/local/share/applications custom/${CP}/usr//share/applications
+#END setup
+
+if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
+  sudo mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
 fi
 
 if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
-  for folder in $USERHOME_FOLDERS_DIRS; do
-    mkdir -p $folder
+  for folder in "${USERHOME_FOLDERS_DIRS[@]}"; do
+    mkdir -p "$folder"
   done
 fi
 
@@ -100,26 +133,26 @@ if [ "${APPARMOR}" = "TRUE" ]; then
   mv custom/target/build/igel-${CP}-cp-apparmor-reload.service custom/${CP}/lib/systemd/system/
 fi
 mv custom/target/build/${CP}-cp-init-script.sh custom
+chmod a+x custom/${CP}-cp-init-script.sh
 
 cd custom
 
 # edit inf file for version number
-mkdir getversion
-cd getversion
-ar -x ../../${GETVERSION_FILE}
-tar xf control.tar.* ./control
-VERSION=$(grep Version control | cut -d " " -f 2)
+#VERSION=$(${GETVERSION_FILE} --version | cut -d " " -f 2)
+pushd .
+cd ${CP}
+VERSION=$(ls -d opt/SAPClients/SAPGUI[0-9]* | cut -c 22-)
+popd
 #echo "Version is: " ${VERSION}
-cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
 #cat target/${CP}.inf
 
 # new build process into zip file
-tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh
+sudo tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh
 zip -g ../${ZIP_FILE}.zip target/${CP}.tar.bz2 target/${CP}.inf
 zip -d ../${ZIP_FILE}.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID}_igel01.zip
 
 cd ../..
-rm -rf build_tar
+sudo rm -rf build_tar
