@@ -288,10 +288,10 @@ pollSessionStatus() {
 }
 
 isTokenExpiring() {
-    JWT_TOKEN=$1
+    logMessage "Checking token expiry..."
 
     # Split the JWT into header, payload, and signature
-    JWT_PAYLOAD=$(echo $JWT_TOKEN | cut -d "." -f 2 | tr '-_' '/+')
+    JWT_PAYLOAD=$(echo $token | cut -d "." -f 2 | sed 'y/-_/\/+/')
 
     # Add required padding
     padding=$(echo $JWT_PAYLOAD | awk '{print (4 - length % 4) % 4}')
@@ -302,7 +302,14 @@ isTokenExpiring() {
     JWT_EXPIRY=$(echo $JWT_PAYLOAD | base64 --decode | sed -n 's/.*"exp":[ ]*\([0-9]*\).*/\1/p')
 
     # Get current time and add 15 minutes (900 seconds)
+    CURRENT_TIME=$(date +%s)
     CURRENT_TIME_PLUS_15=$(($(date +%s) + 900))
+
+    # Calculate time remaining for the token to expire in minutes
+    TIME_LEFT=$(($JWT_EXPIRY - $CURRENT_TIME))
+    TIME_LEFT_MINUTES=$(($TIME_LEFT / 60))
+
+    logMessage "Token expires in $TIME_LEFT_MINUTES minutes"
 
     if [[ "$CURRENT_TIME_PLUS_15" -gt "$JWT_EXPIRY" ]]; then
         # Token will expire in less than 15 minutes
@@ -315,7 +322,7 @@ isTokenExpiring() {
 
 # Clean session and token details.
 quitAndRestartWrapper() {
-    unset FRAME_SESSION_ID token sessionStatus
+    unset FRAME_SESSION_ID sessionStatus
     logMessage "Quitting Frame Wrapper."
 
     # Close Frame App:
@@ -325,11 +332,16 @@ quitAndRestartWrapper() {
     sleep 3
 
     # Reuse or get a new token
-    if isTokenExpiring "$token" && [ "$keep_token" = true ]; then
+    if [ "$keep_token" = false ]; then
+        unset token
+        getToken
+    else
+        if isTokenExpiring; then
         logMessage "Token is about to expire, regenerating..."
         getToken
     else
         logMessage "Token is still valid for the next 15 minutes. Keeping existing token from failed session attempt."
+        fi
     fi
 
     # Start a fresh session
