@@ -33,7 +33,7 @@
 #
 # Visit Frame's documentation at https://docs.fra.me
 
-# Updated June 21st, 2023
+# Updated June 22nd, 2023
 #
 
 # Check if all the required variables are set correctly
@@ -243,8 +243,6 @@ pollSessionId() {
             quitAndRestartWrapper
             break
         fi
-
-        retryCounter=$((retryCounter + 1))
     done
 }
 
@@ -268,6 +266,10 @@ querySessionStatus() {
 pollSessionStatus() {
     logMessage "Polling session status..."
 
+    local elapsedSeconds=0
+    local retryDurationMinutes=${SESSION_RETRY_DURATION_MINUTES:-10} # retry for 10 minutes by default
+    local maxElapsedSeconds=$((retryDurationMinutes * 60))           # Convert minutes to seconds
+
     # Query the session's status
     querySessionStatus
     logMessage "Sesssion state: [$sessionStatus] $sessionState"
@@ -278,6 +280,14 @@ pollSessionStatus() {
         logMessage "Sesssion state: [$sessionStatus] $sessionState"
 
         sleep $FRAME_POLLING_INTERVAL_SECONDS
+        elapsedSeconds=$((elapsedSeconds + $FRAME_POLLING_INTERVAL_SECONDS)) # Increment the elapsed seconds by the sleep duration
+
+        if [ $elapsedSeconds -ge $maxElapsedSeconds ]; then
+            logMessage "Session Streaming Timeout reached. Restarting Frame Wrapper..."
+            keep_token=true
+            quitAndRestartWrapper
+            break
+        fi
     done
 
     # Session closed or otherwise? Time to restart!
@@ -337,10 +347,10 @@ quitAndRestartWrapper() {
         getToken
     else
         if isTokenExpiring; then
-        logMessage "Token is about to expire, regenerating..."
-        getToken
-    else
-        logMessage "Token is still valid for the next 15 minutes. Keeping existing token from failed session attempt."
+            logMessage "Token is about to expire, regenerating..."
+            getToken
+        else
+            logMessage "Token is still valid for the next 15 minutes. Keeping existing token from failed session attempt."
         fi
     fi
 
