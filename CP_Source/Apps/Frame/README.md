@@ -75,6 +75,8 @@ Published on June 2, 2023
 - No support for FIDO2/WebAuthn hardware authentication tokens.
 - **\[macOS\]** No kiosk mode support.
 
+-----
+
 ### Frame App 6.16
 
 Published on 2022-12-08
@@ -98,30 +100,6 @@ General
 - Issue where users were able to exit full-screen mode while in [kiosk mode](https://docs.fra.me/platform/session/frame-app/config/#frapp-args).
 
 - Additional reliability fixes.
-
------
-
-### Frame App 6.15
-
-Published on 2022-11-10
-
-Fixed:
-
-General
-
-- Reverted to CEF version 100.
-
-- Issue where session performance degradation may occur in certain configurations.
-
-Frame App for Linux
-
-- Issue where resizing Frame App windows size may fail resulting in black border around windows contents.
-
-- Additional reliability fixes.
-
------
-
-For more releases, visit the [Frame Releases](https://docs.fra.me/releases/)
 
 -----
 
