@@ -4,7 +4,7 @@
     <profilename>Frame SAT Kiosk CP</profilename>
     <firmware>
         <model>IGEL OS 11</model>
-        <version>11.07.170.01</version>
+        <version>11.08.230.01</version>
     </firmware>
     <description>Frame Custom Partition that is specifically configured to use Frame SAT for auth, Frame App for a kiosk UX, required environmental variables, and a script to tie it all together.</description>
     <overwritesessions>false</overwritesessions>
@@ -75,7 +75,7 @@
             <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
+            <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>

@@ -10,8 +10,12 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/frame"
 
-# config directory
-USER_CONFIG="/userhome/.Nutanix"
+# config directory - check for Legacy Frame App
+if [ -x "/custom/frame/usr/bin/nutanix-frame/Frame" ]; then
+  USER_CONFIG="/userhome/.Nutanix"
+else
+  USER_CONFIG="/userhome/.config/Frame"
+fi
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"

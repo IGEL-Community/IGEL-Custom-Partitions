@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <profile>
     <profile_id>31764</profile_id>
-    <profilename>Frame App CP</profilename>
+    <profilename>Frame Basic CP</profilename>
     <firmware>
         <model>IGEL OS 11</model>
-        <version>11.07.170.01</version>
+        <version>11.08.230.01</version>
     </firmware>
-    <description>Frame Custom Partition</description>
+    <description>Frame Basic Custom Partition</description>
     <overwritesessions>false</overwritesessions>
     <is_master_profile>false</is_master_profile>
     <is_igel_os>true</is_igel_os>
@@ -38,12 +38,12 @@
             <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
             <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-            <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/frame/usr/bin/nutanix-frame/Frame –url=console.nutanix.com</ivalue>
+            <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/frame/usr/bin/frame</ivalue>
             <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
             <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
             <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
-            <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/frame/usr/share/pixmaps/Frame.png</ivalue>
+            <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/frame/usr/share/icons/hicolor/scalable/apps/frame.svg</ivalue>
             <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
             <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Frame</ivalue>
             <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
