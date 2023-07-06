@@ -161,3 +161,11 @@ real	4m10.435s
 user	3m45.442s
 sys	0m12.501s
    ```
+
+-----
+
+Additional scripts:
+
+- [disable-ipv6.sh](disable-ipv6.sh) - Disable IP V6 use if issue with wget.
+
+- [killfuser.sh](killfuser.sh) - Check for DEB package manager lock. If so, then `kill -9 PID`
