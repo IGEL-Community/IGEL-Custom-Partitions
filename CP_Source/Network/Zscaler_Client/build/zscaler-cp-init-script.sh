@@ -46,7 +46,7 @@ init)
   fi
 
   ldconfig
-  /bin/sh -c "/opt/bitrock/zscaler-client-1.3.0.30-0/helperBinary --mode unattended --rpmstage postinstall"
+  /bin/sh -c "/opt/bitrock/zscaler-client-*/helperBinary --mode unattended --rpmstage postinstall"
 
 ;;
 stop)
