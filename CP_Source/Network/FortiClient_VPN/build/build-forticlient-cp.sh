@@ -10,15 +10,10 @@
 sudo apt install curl -y
 sudo apt install unzip -y
 
-# FortiClient 6.4
-sudo curl https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse" > /etc/apt/sources.list.d/forticlient-main.list'
-MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7 libdbusmenu-glib4 libdbusmenu-gtk4"
-
 # FortiClient 7.0
-#sudo curl https://repo.fortinet.com/repo/7.0/ubuntu/DEB-GPG-KEY | sudo apt-key add -
-#sudo sh -c 'echo "deb [arch=amd64] https://repo.fortinet.com/repo/7.0/ubuntu/ /bionic multiverse" > /etc/apt/sources.list.d/forticlient-main.list'
-#MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7 libnss3-tools"
+sudo curl https://repo.fortinet.com/repo/7.0/ubuntu/DEB-GPG-KEY | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://repo.fortinet.com/repo/7.0/ubuntu/ /bionic multiverse" > /etc/apt/sources.list.d/forticlient-main.list'
+MISSING_LIBS="forticlient gconf-service gconf-service-backend gconf2-common libappindicator1 libgconf-2-4 libindicator7 libnss3-tools"
 
 sudo apt-get update
 
@@ -40,7 +35,7 @@ done
 
 mv ${CP_PATH}/usr/share/applications/ ${CP_PATH}/usr/share/applications.mime
 mkdir -p -m 755 ${CP_PATH}/var/lib/forticlient
-cp ${CP_PATH}/opt/forticlient/.config.db.init /var/lib/forticlient/config.db
+cp ${CP_PATH}/opt/forticlient/.config.db.init ${CP_PATH}/var/lib/forticlient/config.db
 chmod 600 ${CP_PATH}/var/lib/forticlient/config.db
 
 mkdir -p ${CP_PATH}/userhome/.pki
