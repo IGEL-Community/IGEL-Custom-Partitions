@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="nmap.tar.bz2"
+version="X.X.X"
+size="100M"
+name="nmap"
+minfw="11.08.230"
