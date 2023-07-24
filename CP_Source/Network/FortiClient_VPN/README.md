@@ -25,4 +25,4 @@
 
 -----
 
-[IGEL Community Note on VPN](https://github.com/IGEL-Community/IGEL-Docs/blob/main/Docs/HOWTO-VPN.md)
+[IGEL Community Note on VPN](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-VPN)

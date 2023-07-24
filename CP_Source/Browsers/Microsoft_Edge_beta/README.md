@@ -21,4 +21,4 @@
 
 ---------
 
-[Microsoft Teams progressive web app (PWA) via Edge](https://github.com/IGEL-Community/IGEL-Docs/blob/main/Docs/HOWTO-Microsoft-Teams-Optimization.md)
+[Microsoft Teams progressive web app (PWA) via Edge](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Microsoft-Teams-Optimization)

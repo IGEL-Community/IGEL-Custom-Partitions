@@ -17,4 +17,4 @@
 
 -----
 
-[Zero Trust Networking](https://github.com/IGEL-Community/IGEL-Docs/blob/main/Docs/HOWTO-Zero-Trust-Networking.md)
+[Zero Trust Networking](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Zero-Trust-Networking/)
