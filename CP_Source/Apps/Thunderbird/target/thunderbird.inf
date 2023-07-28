@@ -3,5 +3,5 @@
 file="thunderbird.tar.bz2"
 version="X.X.X"
 size="800M"
-name="nmap"
+name="thunderbird"
 minfw="11.08.230"
