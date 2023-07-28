@@ -64,7 +64,7 @@ mkdir -p custom/${CP}/usr/local/bin
 mkdir -p custom/${CP}/usr/local/share/applications.mime
 tar xvf ${GETVERSION_FILE} --directory=custom/${CP}/opt
 ln -s custom/${CP}/opt/thunderbird/thunderbird custom/${CP}/usr/local/bin/thunderbird
-wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/installing-thunderbird-linux/thunderbird.desktop -P /usr/local/share/applications.mime
+wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/installing-thunderbird-linux/thunderbird.desktop -P custom/${CP}/usr/local/share/applications.mime
 # End Setup
 
 if [ "${FIX_MIME}" = "TRUE" ]; then
