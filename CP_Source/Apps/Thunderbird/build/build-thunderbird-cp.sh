@@ -14,7 +14,7 @@ CLEAN="FALSE"
 OS11_CLEAN="11.08.230"
 OS12_CLEAN="12.01.100"
 USERHOME_FOLDERS="TRUE"
-USERHOME_FOLDERS_DIRS=("custom/${CP}/userhome/.SAPGUI")
+USERHOME_FOLDERS_DIRS=("custom/${CP}/userhome/.thunderbird")
 APPARMOR="FALSE"
 #thunderbird-115.0.1.tar.bz2
 GETVERSION_FILE="$HOME/Downloads/thunderbird-*.tar.bz2"
