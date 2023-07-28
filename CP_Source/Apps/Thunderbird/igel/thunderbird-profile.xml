@@ -31,8 +31,7 @@
                 <ivalue classname="custom_partition.source%.crypt_password" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="custom_partition.source%.autoupdate" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             </instance>
-        </instancesettings>
-        <instance classprefix="sessions.custom_application%" serialnumber="31cea061:1730aeba537:-7ffe127.0.1.1">
+            <instance classprefix="sessions.custom_application%" serialnumber="31cea061:1730aeba537:-7ffe127.0.1.1">
                 <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
                 <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
                 <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
@@ -60,5 +59,6 @@
                 <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
                 <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
             </instance>
+        </instancesettings>
     </profile>
 </profiles>
