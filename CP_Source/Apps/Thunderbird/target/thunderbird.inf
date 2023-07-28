@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="thunderbird.tar.bz2"
+version="X.X.X"
+size="800M"
+name="nmap"
+minfw="11.08.230"
