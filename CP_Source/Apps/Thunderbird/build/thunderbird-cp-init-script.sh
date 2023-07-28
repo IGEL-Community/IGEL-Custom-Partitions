@@ -2,13 +2,13 @@
 #set -x
 #trap read debug
 
-ACTION="custompart-thuderbird_${1}"
+ACTION="custompart-thunderbird_${1}"
 
 # mount point path
 MP=$(get custom_partition.mountpoint)
 
 # custom partition path
-CP="${MP}/thuderbird"
+CP="${MP}/thunderbird"
 
 # userhome
 TB_CONFIG="/userhome/.thunderbird"
