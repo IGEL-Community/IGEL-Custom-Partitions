@@ -7,7 +7,8 @@
 # Obtain latest package and save into Downloads
 # Download Latest App for Linux (Debian)
 #synergy_1.14.4-stable.ad7273eb_ubuntu18_amd64.deb
-if ! compgen -G "$HOME/Downloads/synergy_*_ubuntu18_amd64.deb" > /dev/null; then
+#synergy-linux_x64-libssl1.1-v3.0.73.7-rc2.deb
+if ! compgen -G "$HOME/Downloads/synergy[-_]*.deb" > /dev/null; then
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
   echo "https://symless.com/synergy/downloads"
@@ -28,7 +29,7 @@ done
 
 mkdir -p custom/synergy
 
-dpkg -x $HOME/Downloads/synergy_*_ubuntu18_amd64.deb custom/synergy
+dpkg -x $HOME/Downloads/synergy[-_]*.deb custom/synergy
 
 find . -type f -name "*.deb" | while read LINE
 do
@@ -44,8 +45,8 @@ wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/mas
 chmod a+x clean_cp_usr_lib.sh
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
 chmod a+x clean_cp_usr_share.sh
-./clean_cp_usr_lib.sh 11.05.133_usr_lib.txt custom/synergy/usr/lib
-./clean_cp_usr_share.sh 11.05.133_usr_share.txt custom/synergy/usr/share
+./clean_cp_usr_lib.sh 11.08.230_usr_lib.txt custom/synergy/usr/lib
+./clean_cp_usr_share.sh 11.08.230_usr_share.txt custom/synergy/usr/share
 echo "+++++++=======  DONE CLEAN of USR =======+++++++"
 
 wget https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Synergy.zip
@@ -58,7 +59,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x $HOME/Downloads/synergy_*_ubuntu18_amd64.deb
+ar -x $HOME/Downloads/synergy[-_]*.deb
 tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}

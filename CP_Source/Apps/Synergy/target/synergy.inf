@@ -2,6 +2,6 @@
 [PART]
 file="synergy.tar.bz2"
 version="X.X.X"
-size="100M"
+size="400M"
 name="synergy"
-minfw="11.05.133"
+minfw="11.08.230"

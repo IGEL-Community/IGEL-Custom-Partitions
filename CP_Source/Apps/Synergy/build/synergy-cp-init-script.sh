@@ -40,6 +40,12 @@ init)
   chown -R user:users "${CP}${SYNERGY_CONFIG}"
   chown -R user:users "${CP}${SYNERGY}"
 
+  # Start service
+  ${CP}/opt/Synergy/synergy-service --install
+
+  # SUID chrome-sandbox for Electron 5+
+  chmod 4755 ${CP}/opt/Synergy/chrome-sandbox
+
   # after CP installation run wm_postsetup to activate mimetypes for SSO
   if [ -d /run/user/777 ]; then
     wm_postsetup
