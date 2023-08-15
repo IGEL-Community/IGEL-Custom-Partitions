@@ -12,7 +12,7 @@ CP="${MP}/synergy"
 
 # userhome
 SYNERGY_CONFIG="/userhome/.config/Synergy"
-SYNERGY="/userhome/.synergy"
+SYNERGY="/userhome/.config/synergy"
 
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
@@ -39,9 +39,6 @@ init)
   # basic persistency
   chown -R user:users "${CP}${SYNERGY_CONFIG}"
   chown -R user:users "${CP}${SYNERGY}"
-
-  # Start service
-  ${CP}/opt/Synergy/synergy-service --install
 
   # SUID chrome-sandbox for Electron 5+
   chmod 4755 ${CP}/opt/Synergy/chrome-sandbox

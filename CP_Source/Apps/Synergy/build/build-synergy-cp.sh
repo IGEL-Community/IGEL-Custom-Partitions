@@ -37,8 +37,9 @@ do
 done
 
 mv custom/synergy/usr/share/applications/ custom/synergy/usr/share/applications.mime
+mkdir -p custom/synergy/userhome/.config/synergy
 mkdir -p custom/synergy/userhome/.config/Synergy
-mkdir -p custom/synergy/userhome/.synergy
+mkdir -p custom/synergy/root/.config/Synergy
 
 echo "+++++++=======  STARTING CLEAN of USR =======+++++++"
 wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_lib.sh

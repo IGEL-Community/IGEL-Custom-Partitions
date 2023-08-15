@@ -16,6 +16,10 @@
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">/custom/synergy/opt/Synergy/synergy-service -d &amp;amp</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
             <pclass name="custom_partition.size">
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">400M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>

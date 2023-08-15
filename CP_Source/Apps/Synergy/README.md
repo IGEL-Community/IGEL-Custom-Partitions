@@ -11,3 +11,7 @@
 | Path to Icon | /custom/synergy/usr/share/icons/hicolor/256x256/apps/synergy.png |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-synergy-cp.sh](build/build-synergy-cp.sh) <br /><br /> This script will build the latest version based on Ubuntu 18.04 |
+
+-----
+
+**NOTE:** A reboot is required for service to start after CP deployed.
