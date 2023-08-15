@@ -1,5 +1,11 @@
 # Synergy (15 August)
 
+-----
+
+**Updated for -- Synergy 3**
+
+-----
+
 |  CP Information |            |
 |-----------------|------------|
 | Package | [Synergy](https://symless.com/synergy) <br /><br /> Share one mouse and keyboard across multiple computers. Make all your computers feel like a single device. Move between them seamlessly while staying focused on your task. |
