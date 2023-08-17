@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="ambir.tar.bz2"
+version="X.X.X"
+size="100M"
+name="ambir"
+minfw="11.08.230"
