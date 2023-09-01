@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="spinoco.tar.bz2"
+version="x.x.x"
+size="600M"
+name="spinoco"
+minfw="11.08.330"
