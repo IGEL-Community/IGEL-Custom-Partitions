@@ -50,6 +50,8 @@ APPTEMPDIR=$(mount | grep Spinoco | cut -d " " -f 3)
 
 # copy it to the CP
 (cd $APPTEMPDIR;cp -r -p * $BASEDIR)
+# remove autoupdate
+rm -f $BASEDIR/resources/app-update.yml
 
 APPIMAGEVERSION=$(grep "^X-AppImage" $BASEDIR/spinoco.desktop | cut -d "=" -f 2)
 
