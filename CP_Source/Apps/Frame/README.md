@@ -14,7 +14,7 @@
 | CP Mount Path         | /custom/frame                                                                                                 |
 | CP Size               | 500M                                                                                                          |
 | IGEL OS Version (min) | 11.08.230                                                                                                     |
-| Download package      | Download Latest Frame App for Linux (Debian) <br /> https://portal.nutanix.com/page/downloads?product=xiframe |
+| Download package      | Download Latest Frame App for Linux (Debian) <br /> https://docs.fra.me/downloads                             |
 | Packaging Notes       | See build script for details                                                                                  |
 | Package automation    | [build-frame-cp.sh](build/build-frame-cp.sh)                                                                  |
 
@@ -29,7 +29,7 @@
 -----
 
 ## Frame App IGEL Bundling instructions For Ubuntu 18.04
-1. Download the latest [Frame App for Linux (Debian)](https://portal.nutanix.com/page/downloads?product=xiframe) to your `~/Downloads` directory.
+1. Download the latest [Frame App for Linux (Debian)](https://docs.fra.me/downloads) to your `~/Downloads` directory.
 2. Download and unzip `Frame.zip` from [https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Frame.zip](https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps/Frame.zip).
 3. Using a terminal, navigate to the unzipped directory to `/target/build/` and execute `build-frame-cp.sh`
    - **Note:** For Frame App **6.x** and below, use `build-frame-cp-legacy.sh`.
