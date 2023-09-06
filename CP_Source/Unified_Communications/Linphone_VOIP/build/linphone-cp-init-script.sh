@@ -19,7 +19,7 @@ case "$1" in
 init)
   ln -sv /custom/linphone/userhome/.config/linphone /userhome/.config/linphone
   ln -sv /custom/linphone/userhome/Documents/linphone/captures /userhome/Documents/linphone/captures
-  ln -sv /custom/linphone/userhome/.local/share/linphone/logs
+  ln -sv /custom/linphone/userhome/.local/share/linphone/logs /userhome/.local/share/linphone/logs
 
   chown -R user:users /custom/linphone/userhome
 
