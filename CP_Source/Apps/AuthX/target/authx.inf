@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="authx.tar.bz2"
+version="X.X.X"
+size="100M"
+name="authx"
+minfw="11.08.330"
