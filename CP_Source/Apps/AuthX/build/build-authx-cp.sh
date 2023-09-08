@@ -7,9 +7,9 @@
 CP="authx"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
 ZIP_FILE="AuthX"
-FIX_MIME="FALSE"
+FIX_MIME="TRUE"
 CLEAN="FALSE"
-OS11_CLEAN="11.08.230"
+OS11_CLEAN="11.08.330"
 OS12_CLEAN="12.01.100"
 USERHOME_FOLDERS="FALSE"
 USERHOME_FOLDERS_DIRS=("")
