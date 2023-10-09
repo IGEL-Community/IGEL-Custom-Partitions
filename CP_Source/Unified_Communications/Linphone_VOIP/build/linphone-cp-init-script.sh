@@ -18,8 +18,12 @@ echo "Starting" | $LOGGER
 case "$1" in
 init)
   ln -sv /custom/linphone/userhome/.config/linphone /userhome/.config/linphone
-  ln -sv /custom/linphone/userhome/Documents/linphone/captures /userhome/Documents/linphone/captures
-  ln -sv /custom/linphone/userhome/.local/share/linphone/logs /userhome/.local/share/linphone/logs
+  mkdir -p /userhome/Documents
+  chown -R user:users /userhome/Documents
+  ln -sv /custom/linphone/userhome/Documents/linphone /userhome/Documents/linphone
+  mkdir -p /userhome/.local/share
+  chown -R user:users /userhome/.local/share
+  ln -sv /custom/linphone/userhome/.local/share/linphone /userhome/.local/share/linphone
 
   chown -R user:users /custom/linphone/userhome
 
