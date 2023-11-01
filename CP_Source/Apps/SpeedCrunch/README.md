@@ -1,5 +1,11 @@
 # SpeedCrunch (01 November)
 
+-----
+
+**NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic) and OS12 (build with Ubuntu 20.04 - focal)
+
+-----
+
 |  CP Information |            |
 |-----------------|------------|
 | Package | [SpeedCrunch](https://speedcrunch.org/index.html) - SpeedCrunch is a high-precision scientific calculator featuring a fast, keyboard-driven user interface. |
