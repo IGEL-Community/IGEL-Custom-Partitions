@@ -78,9 +78,9 @@ launchFrame() {
 
     # Run Frame App in kiosk mode, auto-arrange displays if more than one monitor attached, using FRAME_LAUNCH_URL with Secure Anonymous Token
     if [ -n "$LEGACY_FRAMEAPP" ]; then
-        "$FRAME_APP_PATH" -- --kiosk --displays-auto-arrange --startup-url="$FRAME_LAUNCH_URL#token=$token" &
+        "$FRAME_APP_PATH" -- --kiosk-mode --displays-auto-arrange --startup-url="$FRAME_LAUNCH_URL#token=$token" &
     else
-        "$FRAME_APP_PATH" --kiosk --displays-auto-arrange --url="$FRAME_LAUNCH_URL#token=$token" &
+        "$FRAME_APP_PATH" --kiosk-mode --displays-auto-arrange --url="$FRAME_LAUNCH_URL#token=$token" &
     fi
 }
 
