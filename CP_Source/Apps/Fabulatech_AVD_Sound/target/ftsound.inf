@@ -1,7 +1,7 @@
 [INFO]
 [PART]
-file="ftspr.tar.bz2"
+file="ftsound.tar.bz2"
 version="X.X.X"
 size="50M"
-name="ftspr"
+name="ftsound"
 minfw="11.08.230"
