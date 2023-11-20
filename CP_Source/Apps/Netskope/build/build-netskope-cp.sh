@@ -75,6 +75,7 @@ echo ""
 read -p "(Press Enter)" name
 chmod a+x ${GETVERSION_FILE}
 sudo ${GETVERSION_FILE} 
+sudo rm -f /opt/netskope/stagent/svc
 
 # file listing after install
 pushd .
@@ -91,7 +92,6 @@ popd
 
 # untar files into CP
 sudo tar xvf /tmp/newfiles.tar.bz2 --directory custom/${CP}
-sudo mv custom/${CP}/usr/local/share/applications custom/${CP}/usr//share/applications
 #END setup
 
 if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
