@@ -14,3 +14,5 @@
 | Package automation | [build-netskope-cp.sh](build/build-netskope-cp.sh) |
 
 -----
+
+**NOTE:** A reboot is required after CP deployed so that system (`stAgentSvca`) and user (`stAgentApp`) services are running. To check that they are running: `ps -ef | grep -i stagent`
