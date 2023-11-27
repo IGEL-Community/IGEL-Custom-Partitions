@@ -5,8 +5,8 @@ ACTION="custompart-libreoffice_apparmor"
 # Add apparmor profile to trust libreoffice in Firefox
 logger -it "$ACTION" "Adding LibreOffice to firefox apparmor profile"
 # NOTE: version number embedded in path -- May need to update!!!
-echo "$( get custom_partition.mountpoint )/libreoffice/opt/libreoffice7.4/program/soffice.bin Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/libreoffice
-echo "$( get custom_partition.mountpoint )/libreoffice/opt/libreoffice7.4/program/oosplash Uxr," >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/libreoffice
+echo "$( get custom_partition.mountpoint )/libreoffice/opt/libreoffice7.6/program/soffice.bin Uxr," > /etc/apparmor.d/abstractions/ubuntu-browsers.d/libreoffice
+echo "$( get custom_partition.mountpoint )/libreoffice/opt/libreoffice7.6/program/oosplash Uxr," >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/libreoffice
 echo '#include <abstractions/ubuntu-browsers.d/libreoffice>' >> /etc/apparmor.d/abstractions/ubuntu-browsers.d/firefox
 
 # reload apparmor only if it is enabled
