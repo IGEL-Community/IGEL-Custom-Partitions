@@ -146,6 +146,7 @@ Your IGEL Support/PreSales Team April 2012
 
 | Element Version | Date | Change Owner | Description |
 | ---- | ---- | ---- | ---- |
+| 0.6 | 04-December-2023 | Ron Neher | Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12 = 20.04 |
 | 0.5 | 17-March-2023 | Ron Neher | Adding OS11 vs OS12 build logic |
 | 0.4 | 29-December-2021 | Ron Neher | Updated CP build automation workflow |
 | 0.3 | 30-November-2021 | Ron Neher | Adding build folder for automation |
