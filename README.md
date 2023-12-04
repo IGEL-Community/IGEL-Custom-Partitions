@@ -23,7 +23,7 @@
 |------|-------------|
 | 1. |Setup lab environment|
 | 2. |Download Linux package (\<package.deb>)|
-| 3. |Unpack the package on a Linux Ubuntu (OS11 = 18.04; OS12= 20.04)  system (dpkg -x \<package.deb> \<directory>)|
+| 3. |Unpack the package on a Linux Ubuntu (Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12= 20.04)  system (dpkg -x \<package.deb> \<directory>)|
 | 4. |Create the initialization script|
 | 5. |Compress the custom partition contents (tar cvjf \<package.tar.bz2> \<directory> \<init_script.sh>)|
 | 6. |Write the \*.inf Metadata file|
@@ -53,7 +53,8 @@ apt download <filename>
 dpkg -x <filename>.deb <folder>
 ```
 
-- To seach for missing libraries to download (OS11):  https://packages.ubuntu.com/bionic/allpackages
+- To seach for missing libraries to download (Pre OS11.09):  https://packages.ubuntu.com/bionic/allpackages
+- To seach for missing libraries to download (OS11.09+):  https://packages.ubuntu.com/jammy/allpackages
 - To seach for missing libraries to download (OS12):  https://packages.ubuntu.com/focal/allpackages
 
 ------
@@ -104,7 +105,7 @@ IGEL custom partitions are delivered as a zip archive. The archive has the follo
 
 | Step | Description |
 |------|-------------|
-| 1. |Install and configure Ubuntu (OS11 = 18.04; OS12 = 20.04) desktop|
+| 1. |Install and configure Ubuntu (Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12 = 20.04) desktop|
 | 2. |Take snapshot of the base VM|
 | 3. |Setup and package application|
 | 4. |Roll back to base VM snapshot|
