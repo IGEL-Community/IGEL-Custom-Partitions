@@ -100,7 +100,7 @@ IGEL custom partitions are delivered as a zip archive. The archive has the follo
 |6. |In some cases it is required to restart the TC after deployment of the CP.|
 
 ***
-## Build Ubuntu (OS11 = 18.04; OS12 = 20.04) Virtual Machine and Snapshots to roll back to baseline
+## Build Ubuntu (Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12 = 20.04) Virtual Machine and Snapshots to roll back to baseline
 
 | Step | Description |
 |------|-------------|
@@ -109,7 +109,7 @@ IGEL custom partitions are delivered as a zip archive. The archive has the follo
 | 3. |Setup and package application|
 | 4. |Roll back to base VM snapshot|
 
-Configure Ubuntu (OS11 = 18.04; OS12 = 20.04) OS:
+Configure Ubuntu (Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12 = 20.04) OS:
 ```{Configure Ubuntu 18.04}
 sudo apt-get update -y
 sudo apt-get upgrade -y
