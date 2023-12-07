@@ -8,7 +8,8 @@
 # Download Latest App for Linux (Debian)
 # https://www.azul.com/downloads/icedtea-web-community/
 # https://www.azul.com/products/components/icedtea-web/
-if ! compgen -G "$HOME/Downloads/zulu-icedtea-web*.zip" > /dev/null; then
+# azul-icedtea-web-1.8.8-28.portable.zip
+if ! compgen -G "$HOME/Downloads/azul-icedtea-web*.zip" > /dev/null; then
   echo "***********"
   echo "Obtain latest .zip package, save into $HOME/Downloads and re-run this script "
   echo "https://www.azul.com/products/components/icedtea-web/"
@@ -23,7 +24,7 @@ cd build_tar
 
 mkdir -p custom/icedtea/services/zulu_jre8/jre
 
-unzip $HOME/Downloads/zulu-icedtea-web*.zip
+unzip $HOME/Downloads/azul-icedtea-web*.zip
 
 cp -R icedtea-web-image/* custom/icedtea/services/zulu_jre8/jre
 
@@ -52,7 +53,7 @@ mv custom/target/build/javaws-wrapper.desktop custom/icedtea/usr/share/applicati
 cd custom
 
 # edit inf file for version number
-VERSION=$(basename $HOME/Downloads/zulu-icedtea-web*.zip | cut -d "-" -f 4)
+VERSION=$(basename $HOME/Downloads/azul-icedtea-web*.zip | cut -d "-" -f 4)
 #echo "Version is: " ${VERSION}
 sed -i "/^version=/c version=\"${VERSION}\"" target/icedtea.inf
 #echo "icedtea.inf file is:"
