@@ -26,7 +26,7 @@ mkdir -p custom/icedtea/services/zulu_jre8/jre
 
 unzip $HOME/Downloads/azul-icedtea-web*.zip
 
-cp -R icedtea-web-image/* custom/icedtea/services/zulu_jre8/jre
+cp -R azul-icedtea-web-*/* custom/icedtea/services/zulu_jre8/jre
 
 ############################################
 # START: comment out for non-persistency!!!!
