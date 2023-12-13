@@ -3,7 +3,9 @@
 -----
 
 **📢 Announcement:**
-> [Dizzion Acquires Frame from Nutanix to Accelerate Growth in DaaS Market](https://www.dizzion.com/company/news/dizzion-acquires-frame/) 🎉
+> [Dizzion Acquires Frame from Nutanix to Accelerate Growth in DaaS Market](https://www.nutanix.com/products/frame/faq)
+
+> [IGEL Community Docs - Frame](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Frame-Setup/)
 
 -----
 
