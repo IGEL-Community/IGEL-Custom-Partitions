@@ -31,34 +31,6 @@
                 <ivalue classname="custom_partition.source%.url" variableExpression="" variableSubstitutionActive="false">https://[UMS_Server]:8443/ums_filetransfer/go.inf</ivalue>
                 <ivalue classname="custom_partition.source%.username" variableExpression="" variableSubstitutionActive="false">[USERNAME]</ivalue>
             </instance>
-            <instance classprefix="sessions.custom_application%" serialnumber="-15716ed1:171bbf0e520:-7fff127.0.1.1">
-                <ivalue classname="sessions.custom_application%.applaunch" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.applaunch_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.applaunch_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.appliance_mode_access" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.autostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">export PATH=$PATH:/usr/local/go/bin; /usr/local/go/bin/go</ivalue>
-                <ivalue classname="sessions.custom_application%.desktop" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.desktop_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.hotkey" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.hotkeymodifier" variableExpression="" variableSubstitutionActive="false">None</ivalue>
-                <ivalue classname="sessions.custom_application%.icon" variableExpression="" variableSubstitutionActive="false">/custom/go/icon_path</ivalue>
-                <ivalue classname="sessions.custom_application%.menu_path" variableExpression="" variableSubstitutionActive="false"></ivalue>
-                <ivalue classname="sessions.custom_application%.name" variableExpression="" variableSubstitutionActive="false">Go</ivalue>
-                <ivalue classname="sessions.custom_application%.position" variableExpression="" variableSubstitutionActive="false">0</ivalue>
-                <ivalue classname="sessions.custom_application%.pulldown" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.pwprotected" variableExpression="" variableSubstitutionActive="false">none</ivalue>
-                <ivalue classname="sessions.custom_application%.quick_start" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.restart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.scardautostart" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.snotify" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.startmenu" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.startmenu_system" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.usehotkey" variableExpression="" variableSubstitutionActive="false">false</ivalue>
-                <ivalue classname="sessions.custom_application%.waitfornetwork" variableExpression="" variableSubstitutionActive="false">true</ivalue>
-                <ivalue classname="sessions.custom_application%.waittime2autostart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
-                <ivalue classname="sessions.custom_application%.waittime2restart" variableExpression="" variableSubstitutionActive="false">0</ivalue>
-            </instance>
         </instancesettings>
     </profile>
 </profiles>
