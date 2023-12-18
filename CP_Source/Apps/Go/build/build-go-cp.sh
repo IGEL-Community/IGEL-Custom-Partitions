@@ -106,7 +106,7 @@ chmod a+x custom/${CP}-cp-init-script.sh
 cd custom
 
 # edit inf file for version number
-VERSION=$(echo ${GETVERSION_FILE} | cut -c 3- | rev | cut -c 20- | rev)
+VERSION=$(basename ${GETVERSION_FILE} | cut -c 3- | rev | cut -c 20- | rev)
 #echo "Version is: " ${VERSION}
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
