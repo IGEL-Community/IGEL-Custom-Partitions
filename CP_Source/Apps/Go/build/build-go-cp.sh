@@ -4,7 +4,7 @@
 
 # Creating an IGELOS CP
 ## Development machine Ubuntu (OS11.08 = 18.04; OS11.09 = 22.04; OS12 = 20.04)
-CP="netskope"
+CP="go"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
 ZIP_FILE="Go"
 FIX_MIME="FALSE"
