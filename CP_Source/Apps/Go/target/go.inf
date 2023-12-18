@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="go.tar.bz2"
+version="X.X.X"
+size="900M"
+name="go"
+minfw="11.09.100"
