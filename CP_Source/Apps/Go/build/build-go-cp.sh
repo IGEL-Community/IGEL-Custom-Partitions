@@ -61,7 +61,7 @@ do
 done
 
 #START extract files
-tar -xzf ${GETVERSION_FILE} -C custom/${CP}/usr/local
+tar -xvzf ${GETVERSION_FILE} -C custom/${CP}/usr/local
 #END extract files
 
 if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
@@ -106,7 +106,7 @@ chmod a+x custom/${CP}-cp-init-script.sh
 cd custom
 
 # edit inf file for version number
-VERSION=$(echo ${GETVERSION_FILE} | cut -c 3- | rev | cut 20- | rev)
+VERSION=$(echo ${GETVERSION_FILE} | cut -c 3- | rev | cut -c 20- | rev)
 #echo "Version is: " ${VERSION}
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
