@@ -2,6 +2,6 @@
 [PART]
 file="awsws.tar.bz2"
 version="X.X.X"
-size="200M"
+size="400M"
 name="awsws"
 minfw="11.08.440"
