@@ -18,6 +18,7 @@ APPARMOR="FALSE"
 GETVERSION_FILE_OS11="new_workspacesclient_jammy_amd64.deb"
 #https://d3nt0h4h6pmmc4.cloudfront.net/new_workspacesclient_focal_amd64.deb
 GETVERSION_FILE_OS12="new_workspacesclient_focal_amd64.deb"
+WGET_URL="https://d3nt0h4h6pmmc4.cloudfront.net"
 MISSING_LIBS_OS11=""
 MISSING_LIBS_OS12=""
 
@@ -39,7 +40,7 @@ fi
 mkdir build_tar
 cd build_tar
 
-wget ${GETVERSION_FILE}
+wget ${WGET_URL}/${GETVERSION_FILE}
 
 for lib in $MISSING_LIBS; do
   apt-get download $lib
