@@ -104,7 +104,7 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x "$framePackage"
+ar -x "$islandPackage"
 tar xf control.tar.* ./control ./postinst
 VERSION=$(grep Version control | cut -d " " -f 2)
 # copy postinst to CP
