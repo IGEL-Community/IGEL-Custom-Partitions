@@ -20,7 +20,10 @@ MISSING_LIBS_OS12=""
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
-if [ "${VERSION_ID}" = "22.04" ]; then
+if [ "${VERSION_ID}" = "18.04" ]; then
+  MISSING_LIBS="${MISSING_LIBS_OS11}"
+  IGELOS_ID="OS11"
+elif [ "${VERSION_ID}" = "22.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS11}"
   IGELOS_ID="OS11"
 elif [ "${VERSION_ID}" = "20.04" ]; then
