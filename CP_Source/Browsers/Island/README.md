@@ -12,3 +12,11 @@
 | Script Name | [island-cp-init-script.sh](build/island-cp-init-script.sh) |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-island-cp.sh](build/build-island-cp.sh) |
+
+-----
+
+**NOTE:**
+
+- The Deb file has a postinst script, this is copied into the CP but did not run it. Look at this file if something is missing or need to adjust something.
+ 
+`/custom/island/opt/island/island-browser/igel_postinst.sh`
