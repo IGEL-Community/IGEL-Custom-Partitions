@@ -4,7 +4,7 @@
 
 # Creating an IGELOS CP
 ## Development machine Ubuntu (OS11.09+ = 22.04; OS12 = 20.04)
-CP="aws"
+CP="awsws"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
 ZIP_FILE="Amazon_WorkSpaces"
 FIX_MIME="TRUE"
