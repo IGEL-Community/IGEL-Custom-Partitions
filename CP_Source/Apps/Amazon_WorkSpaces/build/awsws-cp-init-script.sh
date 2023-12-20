@@ -10,6 +10,9 @@ MP=$(get custom_partition.mountpoint)
 # custom partition path
 CP="${MP}/awsws"
 
+# user directories
+AWS_USER_CONFIG="/userhome/.config/WorkSpaces"
+
 # output to systemlog with ID amd tag
 LOGGER="logger -it ${ACTION}"
 
@@ -31,6 +34,9 @@ init)
       fi
     fi
   done
+
+  # basic persistency
+  chown -R user:users "${CP}/userhome"
 
   # after CP installation run wm_postsetup to activate mimetypes
   if [ -d /run/user/777 ]; then
