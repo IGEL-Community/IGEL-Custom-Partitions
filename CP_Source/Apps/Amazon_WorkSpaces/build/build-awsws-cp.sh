@@ -26,7 +26,7 @@ VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
 if [ "${VERSION_ID}" = "22.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS11}"
-  IGELOS_ID="OS11"
+  IGELOS_ID="OS1109"
   GETVERSION_FILE=${GETVERSION_FILE_OS11}
 elif [ "${VERSION_ID}" = "20.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS12}"
@@ -69,7 +69,7 @@ if [ "${CLEAN}" = "TRUE" ]; then
   chmod a+x clean_cp_usr_lib.sh
   wget https://raw.githubusercontent.com/IGEL-Community/IGEL-Custom-Partitions/master/utils/igelos_usr/clean_cp_usr_share.sh
   chmod a+x clean_cp_usr_share.sh
-  if [ "${IGELOS_ID}" = "OS11" ]; then
+  if [ "${IGELOS_ID}" = "OS1109" ]; then
     ./clean_cp_usr_lib.sh ${OS11_CLEAN}_usr_lib.txt custom/${CP}/usr/lib
     ./clean_cp_usr_share.sh ${OS11_CLEAN}_usr_share.txt custom/${CP}/usr/share
   else
@@ -97,7 +97,7 @@ cd custom
 mkdir getversion
 cd getversion
 ar -x ../../${GETVERSION_FILE}
-tar xf control.tar.* ./control
+tar xf control.tar.*
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 cd ..
