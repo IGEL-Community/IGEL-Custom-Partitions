@@ -45,6 +45,8 @@ init)
     sleep 3
   fi
 
+  ${MP}/igel_awsws_postinst.sh configure
+
 ;;
 stop)
   # unlink linked files

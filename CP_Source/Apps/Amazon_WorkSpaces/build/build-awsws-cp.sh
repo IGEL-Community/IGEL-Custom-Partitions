@@ -100,6 +100,9 @@ ar -x ../../${GETVERSION_FILE}
 tar xf control.tar.*
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
+# move postinst into CP and edit arch
+mv postinst ../igel_awsws_postinst.sh
+sed -i "/arch=/c\arch=x86_64" ../igel_awsws_postinst.sh
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
