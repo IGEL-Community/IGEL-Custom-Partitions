@@ -11,7 +11,7 @@ FIX_MIME="TRUE"
 CLEAN="FALSE"
 OS11_CLEAN="11.09.150"
 OS12_CLEAN="12.2.2"
-USERHOME_FOLDERS="TRUE"
+USERHOME_FOLDERS="FALSE"
 USERHOME_FOLDERS_DIRS="custom/${CP}/userhome/.local/share/workspacesclient"
 APPARMOR="FALSE"
 #https://d3nt0h4h6pmmc4.cloudfront.net/new_workspacesclient_jammy_amd64.deb
