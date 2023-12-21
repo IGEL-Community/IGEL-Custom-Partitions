@@ -45,7 +45,7 @@ init)
     sleep 3
   fi
 
-  ${MP}/igel_awsws_postinst.sh configure
+  ${MP}/awsws_igel_postinst.sh configure
 
 ;;
 stop)

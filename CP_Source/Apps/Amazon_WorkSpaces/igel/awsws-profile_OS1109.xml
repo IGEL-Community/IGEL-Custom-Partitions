@@ -16,6 +16,42 @@
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">cat &amp;lt&amp;lt 'EOF' &amp;gt /tmp/rsync-awsws-config.sh
+#!/bin/sh
+#set -x
+#trap read debug
+
+# Assumption - This command is ONLY run at boot time!!!
+
+AWSws="/userhome/.local/share"
+AWSws_CONNECTION="${AWSws}/workspacesclient/hsts-storage.sqlite"
+AWSws_BACKUP="/custom/awsws/userhome/.local/AWSwsClient-backup"
+AWSws_BACKUP_CONNECTION="${AWSws_BACKUP}/workspacesclient/hsts-storage.sqlite"
+
+# On boot up - copy if it exists
+if &amp;lb -e ${AWSws_BACKUP_CONNECTION} &amp;rb; then
+  mkdir -p ${AWSws}
+  rsync -Pav ${AWSws_BACKUP}/ ${AWSws}
+  chown -R user:users ${AWSws}
+fi
+
+if &amp;lb ! -d ${AWSws_BACKUP} &amp;rb; then
+  mkdir -p ${AWSws_BACKUP}
+fi
+
+while true
+do
+  sleep 5
+  if &amp;lb -e ${AWSws_CONNECTION} &amp;rb; then
+    rsync --delete -Pav ${AWSws}/ ${AWSws_BACKUP}
+  fi
+done
+EOF
+chmod 700 /tmp/rsync-awsws-config.sh
+/tmp/rsync-awsws-config.sh &amp;amp</pvalue>
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
             <pclass name="custom_partition.size">
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">400M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
