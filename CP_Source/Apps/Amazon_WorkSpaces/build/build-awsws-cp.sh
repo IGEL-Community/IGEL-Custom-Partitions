@@ -101,15 +101,15 @@ tar xf control.tar.*
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 # move postinst into CP and edit arch
-mv postinst ../igel_awsws_postinst.sh
-sed -i "/arch=/c\arch=x86_64" ../igel_awsws_postinst.sh
+mv postinst ../awsws_igel_postinst.sh
+sed -i "/arch=/c\arch=x86_64" ../awsws_igel_postinst.sh
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
 #cat target/${CP}.inf
 
 # new build process into zip file
-tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh ${CP}/igel_awsws_postinst.sh
+tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh awsws_igel_postinst.sh
 zip -g ../${ZIP_FILE}.zip target/${CP}.tar.bz2 target/${CP}.inf
 zip -d ../${ZIP_FILE}.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID}_igel01.zip
