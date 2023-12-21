@@ -109,7 +109,7 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #cat target/${CP}.inf
 
 # new build process into zip file
-tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh
+tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh ${CP}/igel_awsws_postinst.sh
 zip -g ../${ZIP_FILE}.zip target/${CP}.tar.bz2 target/${CP}.inf
 zip -d ../${ZIP_FILE}.zip "target/build/*" "target/igel/*" "target/target/*"
 mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID}_igel01.zip
