@@ -10,4 +10,8 @@
 
 -----
 
-**Note:** IGEL OS 11 has Amazon WorkSpaces client built-in. Use this CP builder to test the latest version. Check the release notes for the IGEL OS version -- [LINK](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Microsoft-Teams-Optimization)
+**NOTES:** 
+
+- A reboot is required after CP deployed.
+
+- IGEL OS 11 has Amazon WorkSpaces client built-in. Use this CP builder to test the latest version. Check the release notes for the IGEL OS version -- [LINK](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Microsoft-Teams-Optimization)
