@@ -20,6 +20,10 @@ echo "Starting" | $LOGGER
 
 case "$1" in
 init)
+  if [ ! -d /userhome/.local/share ]; then
+    mkdir -p /userhome/.local/share
+    chown -R user:users /userhome/.local/share
+  fi
   # Initial permissions
   chown -R root:root "${CP}" | $LOGGER
   # Linking files and folders on proper path
