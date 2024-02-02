@@ -5,7 +5,7 @@
         <profilename>Zoom CP no persistency</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.07.140.01</version>
+            <version>11.08.440.01</version>
         </firmware>
         <description>delete /userhome/.zoom</description>
         <overwritesessions>false</overwritesessions>

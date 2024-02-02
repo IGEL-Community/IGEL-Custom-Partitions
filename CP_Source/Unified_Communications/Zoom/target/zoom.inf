@@ -2,6 +2,6 @@
 [PART]
 file="zoom.tar.bz2"
 version="X.X.X"
-size="600M"
+size="800M"
 name="zoom"
-minfw="11.07.140"
+minfw="11.08.440"
