@@ -9,25 +9,35 @@ ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_
 ZIP_FILE="Google_Chrome"
 FIX_MIME="TRUE"
 CLEAN="FALSE"
-OS11_CLEAN="11.07.100"
-OS12_CLEAN="12.01.100"
+OS11_CLEAN1108="11.08.440"
+OS11_CLEAN1109="11.09.260"
+OS12_CLEAN="12.3.2"
 USERHOME_FOLDERS="TRUE"
-USERHOME_FOLDERS_DIRS="custom/chrome/userhome/.config/google-chrome"
+USERHOME_FOLDERS_DIRS=("custom/chrome/userhome/.config/google-chrome")
 APPARMOR="TRUE"
 GETVERSION_FILE="../../google*"
-MISSING_LIBS_OS11="google-chrome-stable endpoint-verification"
+MISSING_LIBS_OS1108="google-chrome-stable endpoint-verification"
+MISSING_LIBS_OS1109="google-chrome-stable endpoint-verification"
 MISSING_LIBS_OS12="google-chrome-stable endpoint-verification"
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
 if [ "${VERSION_ID}" = "18.04" ]; then
-  MISSING_LIBS="${MISSING_LIBS_OS11}"
+  MISSING_LIBS="${MISSING_LIBS_OS1108}"
   IGELOS_ID="OS11"
+  IGELOS_ID_VER="OS1108"
+  OS11_CLEAN="${OS11_CLEAN1108}"
+elif [ "${VERSION_ID}" = "22.04" ]; then
+  MISSING_LIBS="${MISSING_LIBS_OS1109}"
+  IGELOS_ID="OS11"
+  IGELOS_ID_VER="OS1109"
+  OS11_CLEAN="${OS11_CLEAN1109}"
 elif [ "${VERSION_ID}" = "20.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS12}"
   IGELOS_ID="OS12"
+  IGELOS_ID_VER="OS12"
 else
-  echo "Not a valid Ubuntu OS release. OS11 needs 18.04 (bionic) and OS12 needs 20.04 (focal)."
+  echo "Not a valid Ubuntu OS release. pre OS11.09 needs 18.04 (bionic), OS11.09+ needed 22.04 (jammy), and OS12 needs 20.04 (focal)."
   exit 1
 fi
 
@@ -52,13 +62,13 @@ do
   dpkg -x "${LINE}" custom/${CP}
 done
 
-if [ "${FIX_MIME}" = "TRUE" ]; then
+if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
   mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
 fi
 
 if [ "${USERHOME_FOLDERS}" = "TRUE" ]; then
-  for folder in $USERHOME_FOLDERS_DIRS; do
-    mkdir -p $folder
+  for folder in "${USERHOME_FOLDERS_DIRS[@]}"; do
+    mkdir -p "$folder"
   done
 fi
 
@@ -108,7 +118,7 @@ sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 tar cvjf target/${CP}.tar.bz2 ${CP} ${CP}-cp-init-script.sh
 zip -g ../${ZIP_FILE}.zip target/${CP}.tar.bz2 target/${CP}.inf
 zip -d ../${ZIP_FILE}.zip "target/build/*" "target/igel/*" "target/target/*"
-mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID}_igel01.zip
+mv ../${ZIP_FILE}.zip ../../${ZIP_FILE}-${VERSION}_${IGELOS_ID_VER}_igel01.zip
 
 cd ../..
 rm -rf build_tar
