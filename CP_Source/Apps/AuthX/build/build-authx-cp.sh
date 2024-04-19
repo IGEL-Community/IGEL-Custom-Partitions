@@ -8,27 +8,27 @@ CP="authx"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
 ZIP_FILE="AuthX"
 FIX_MIME="TRUE"
-CLEAN="FALSE"
-OS11_CLEAN="11.08.330"
-OS12_CLEAN="12.01.100"
+CLEAN="TRUE"
+OS11_CLEAN="11.09.260"
+OS12_CLEAN="12.3.2"
 USERHOME_FOLDERS="FALSE"
 USERHOME_FOLDERS_DIRS=("")
 APPARMOR="FALSE"
 #authx-authenticator.deb
 GETVERSION_FILE="$HOME/Downloads/authx-authenticator*.deb"
-MISSING_LIBS_OS11=""
+MISSING_LIBS_OS11="libdouble-conversion3 libmd4c0 libpcre2-16-0 libqt5core5a libqt5dbus5 libqt5gui5 libqt5multimedia5 libqt5multimedia5-plugins libqt5multimediagsttools5 libqt5multimediaquick5 libqt5multimediawidgets5 libqt5network5 libqt5qml5 libqt5qmlmodels5 libqt5qmlworkerscript5 libqt5quick5 libqt5svg5 libqt5widgets5 libxcb-xinerama0 libxcb-xinput0 qml-module-qtmultimedia qml-module-qtquick2 qt5-gtk-platformtheme qttranslations5-l10n"
 MISSING_LIBS_OS12=""
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
-if [ "${VERSION_ID}" = "18.04" ]; then
+if [ "${VERSION_ID}" = "22.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS11}"
   IGELOS_ID="OS11"
 elif [ "${VERSION_ID}" = "20.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS12}"
   IGELOS_ID="OS12"
 else
-  echo "Not a valid Ubuntu OS release. OS11 needs 18.04 (bionic) and OS12 needs 20.04 (focal)."
+  echo "Not a valid Ubuntu OS release. OS11.09.xxx needs 22.04 (jammy) and OS12 needs 20.04 (focal)."
   exit 1
 fi
 
