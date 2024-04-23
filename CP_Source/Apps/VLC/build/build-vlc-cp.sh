@@ -23,12 +23,12 @@ MISSING_LIBS_OS12="i965-va-driver intel-media-va-driver liba52-0.7.4 libaacs0 li
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
 if [ "${VERSION_ID}" = "18.04" ]; then
-  MISSING_LIBS="${MISSING_LIBS_OS11}"
+  MISSING_LIBS="${MISSING_LIBS_OS1108}"
   IGELOS_ID="OS11"
   IGELOS_ID_VER="OS1108"
   OS11_CLEAN="${OS11_CLEAN1108}"
 elif [ "${VERSION_ID}" = "22.04" ]; then
-  MISSING_LIBS="${MISSING_LIBS_OS11}"
+  MISSING_LIBS="${MISSING_LIBS_OS1109}"
   IGELOS_ID="OS11"
   IGELOS_ID_VER="OS1109"
   OS11_CLEAN="${OS11_CLEAN1109}"
