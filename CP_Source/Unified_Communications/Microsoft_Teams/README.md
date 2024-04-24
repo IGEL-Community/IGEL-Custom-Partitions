@@ -1,9 +1,11 @@
-# Microsoft Teams (10 November)
+# Microsoft Teams (24 April 2024)
 
 **NOTE:** Microsoft dropped support for native Linux client and moved to PWA for Teams.
 
-[Microsoft Teams progressive web app (PWA) via Edge](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Microsoft-Teams-Optimization/)
+[HOWTO Microsoft Teams](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Microsoft-Teams-Optimization/)
 
+<!---
+This is a comment section
 ---------
 
 |  CP Information |            |
@@ -52,3 +54,5 @@ sudo apt-get update
 ## Microsoft Teams Notes
 
 [Microsoft Teams for Linux - Versions](https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/)
+
+-->
