@@ -23,7 +23,7 @@
 |------|-------------|
 | 1. |Setup lab environment|
 | 2. |Download Linux package (\<package.deb>)|
-| 3. |Unpack the package on a Linux Ubuntu (Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12= 20.04)  system (dpkg -x \<package.deb> \<directory>)|
+| 3. |Unpack the package on a Linux Ubuntu (Pre OS11.09 = 18.04; OS11.09+/10+ = 22.04; OS12= 20.04)  system (dpkg -x \<package.deb> \<directory>)|
 | 4. |Create the initialization script|
 | 5. |Compress the custom partition contents (tar cvjf \<package.tar.bz2> \<directory> \<init_script.sh>)|
 | 6. |Write the \*.inf Metadata file|
@@ -101,16 +101,16 @@ IGEL custom partitions are delivered as a zip archive. The archive has the follo
 |6. |In some cases it is required to restart the TC after deployment of the CP.|
 
 ***
-## Build Ubuntu (Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12 = 20.04) Virtual Machine and Snapshots to roll back to baseline
+## Build Ubuntu (Pre OS11.09 = 18.04; OS11.09+/10+ = 22.04; OS12 = 20.04) Virtual Machine and Snapshots to roll back to baseline
 
 | Step | Description |
 |------|-------------|
-| 1. |Install and configure Ubuntu (Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12 = 20.04) desktop|
+| 1. |Install and configure Ubuntu (Pre OS11.09 = 18.04; OS11.09+/10+ = 22.04; OS12 = 20.04) desktop|
 | 2. |Take snapshot of the base VM|
 | 3. |Setup and package application|
 | 4. |Roll back to base VM snapshot|
 
-Configure Ubuntu (Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12 = 20.04) OS:
+Configure Ubuntu (Pre OS11.09 = 18.04; OS11.09+/10+ = 22.04; OS12 = 20.04) OS:
 ```{Configure Ubuntu 18.04}
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -146,6 +146,7 @@ Your IGEL Support/PreSales Team April 2012
 
 | Element Version | Date | Change Owner | Description |
 | ---- | ---- | ---- | ---- |
+| 0.7 | 05-May-2024 | Ron Neher | Pre OS11.09 = 18.04; OS11.09+/10+ = 22.04; OS12 = 20.04 |
 | 0.6 | 04-December-2023 | Ron Neher | Pre OS11.09 = 18.04; OS11.09+ = 22.04; OS12 = 20.04 |
 | 0.5 | 17-March-2023 | Ron Neher | Adding OS11 vs OS12 build logic |
 | 0.4 | 29-December-2021 | Ron Neher | Updated CP build automation workflow |
