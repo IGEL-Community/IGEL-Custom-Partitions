@@ -1,7 +1,0 @@
-[INFO]
-[PART]
-file="cato.tar.bz2"
-version="X.X.X"
-size="800M"
-name="cato"
-minfw="11.09.310"
