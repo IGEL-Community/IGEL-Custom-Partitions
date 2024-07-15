@@ -5,16 +5,16 @@
 # Creating an silent install ISO image
 ## Development machine (Ubuntu 18.04)
 # Obtain latest IGEL OS ISO Image
-#https://www.igel.com/software-downloads/workspace-edition/
-if ! compgen -G "$HOME/Downloads/OSC_*.zip" > /dev/null; then
+#https://www.igel.com/software-downloads/
+if ! compgen -G "$HOME/Downloads/[oO][sS][cC][-_]*.zip" > /dev/null; then
   echo "***********"
   echo "Obtain latest IGEL OS OSC zip file, save into $HOME/Downloads and re-run this script "
-  echo "#https://www.igel.com/software-downloads/workspace-edition/"
+  echo "# https://www.igel.com/software-downloads/"
   echo "***********"
   exit 1
 fi
 
-ISO_VER=`basename ~/Downloads/OSC_*.zip | cut -b 5-13`
+ISO_VER=`basename ~/Downloads/[oO][sS][cC][-_]*.zip | cut -b 5-13`
 ISO_IMAGE_NAME="OSC_${ISO_VER}.unattended.iso"
 
 sudo apt install unzip -y
@@ -26,7 +26,7 @@ cd build_tar
 
 mkdir custom
 cd custom
-unzip $HOME/Downloads/OSC_*.zip
+unzip $HOME/Downloads/[oO][sS][cC][-_]*.zip
 
 mkdir osciso
 sudo mount -oloop preparestick/osc*.iso osciso
