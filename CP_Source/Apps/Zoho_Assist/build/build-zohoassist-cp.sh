@@ -1,6 +1,6 @@
 #!/bin/bash
-#set -x
-#trap read debug
+set -x
+trap read debug
 
 # Creating an IGELOS CP
 ## Development machine Ubuntu (OS11.09+ = 22.04; OS12 = 20.04)
@@ -51,7 +51,7 @@ done
 mkdir -p custom/${CP}
 
 # start extract
-dpkg -x "${GETVERSION_FILE}" custom/${CP}
+dpkg -x ${GETVERSION_FILE} custom/${CP}
 # end extract
 
 find . -name "*.deb" | while read LINE
@@ -102,11 +102,11 @@ cd custom
 # edit inf file for version number
 mkdir getversion
 cd getversion
-ar -x "${GETVERSION_FILE}"
-tar xf control.tar* ./control ./postinst
+ar -x ${GETVERSION_FILE}
+tar xf control.tar* 
 VERSION=$(grep Version control | cut -d " " -f 2)
 # copy postinst to CP
-mv postinst ../${CP}/usr/local/ZohoAssist/igel_postinst.sh
+cp postinst ../${CP}/usr/local/ZohoAssist/igel_postinst.sh
 #echo "Version is: " ${VERSION}
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
