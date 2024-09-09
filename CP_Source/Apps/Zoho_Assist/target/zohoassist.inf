@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="zohoassist.tar.bz2"
+version="X.X.X"
+size="100M"
+name="zohoassist"
+minfw="11.09.150"
