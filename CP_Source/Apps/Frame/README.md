@@ -252,7 +252,7 @@ import 'igel/frame-app-basic-profile-ums11.xml'
 
 This Custom Profiles simply enables a Frame App icon on the IGEL Desktop. To launch Frame App with certain command line arguments, edit IGEL profile and append your command line argument(s) to the end of the command line.
 
-Command line arguments for Frame app are defined here: [Linux command-line arguments](https://docs.fra.me/platform/session/frame-app/config/?operating-systems=linux#frapp-args).
+Command line arguments for Frame app are defined here: [Linux command-line arguments](https://docs.dizzion.com/platform/session/frame-app/config#command-line-arguments).
 
 ### Frame SAML2 Kiosk Mode Profile
 
