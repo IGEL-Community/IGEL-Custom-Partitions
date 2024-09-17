@@ -96,6 +96,7 @@ if [ "${APPARMOR}" = "TRUE" ]; then
   mv custom/target/build/igel-${CP}-cp-apparmor-reload.service custom/${CP}/lib/systemd/system/
 fi
 mv custom/target/build/${CP}-cp-init-script.sh custom
+mv custom/target/build/igel_postinst.sh custom/${CP}/usr/local/ZohoAssist
 
 cd custom
 
@@ -106,7 +107,7 @@ ar -x ${GETVERSION_FILE}
 tar xf control.tar* 
 VERSION=$(grep Version control | cut -d " " -f 2)
 # copy postinst to CP
-cp postinst ../${CP}/usr/local/ZohoAssist/igel_postinst.sh
+#cp postinst ../${CP}/usr/local/ZohoAssist/igel_postinst.sh
 #echo "Version is: " ${VERSION}
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
