@@ -31,35 +31,50 @@
 # FRAME_LOGOUT_URL - Optional but recommended. Any accessible URL that you'd like your users to be redirected to if they log out for any reason.
 # SESSION_RETRY_DURATION_MINUTES - Optional. Default os 10 minutes. If a session cannot be started within this timeframe, this script will start over and try again.
 #
-# Visit Frame's documentation at https://docs.fra.me
-
-# Updated June 22nd, 2023
+# The following command line arguments must be set:
+# Frame application version, valid values are: 'v6' and 'v7'
+# Example 1: frame-sat-kiosk-launcher.sh v6
+# Example 2: frame-sat-kiosk-launcher.sh v7
 #
-
-# Check if all the required variables are set correctly
-if [ -z "${FRAME_CLIENT_ID}" ] || [ -z "${FRAME_CLIENT_SECRET}" ] || [ -z "${FRAME_SAT_URL}" ] || [ -z "${FRAME_ACCOUNT_ID}" ] || [ -z "${FRAME_EMAIL_DOMAIN}" ] || [ -z "${FRAME_LAUNCH_URL}" ] || [ -z "${FRAME_TERMINAL_CONFIG_ID}" ]; then
-    echo "Please fill FRAME_CLIENT_ID, FRAME_CLIENT_SECRET, FRAME_SAT_URL, FRAME_ACCOUNT_ID, FRAME_EMAIL_DOMAIN, FRAME_LAUNCH_URL, and FRAME_TERMINAL_CONFIG_ID environment variables"
-    exit 1
-fi
-
-# Script Variables
-FRAME_GRAPHQL_URL="https://api.console.nutanix.com/api/graphql"
-FRAME_API_URL="https://api.console.nutanix.com/v1/"
-OPEN_SESSION_STATES=("init" "reserved" "open")
-FRAME_POLLING_INTERVAL_SECONDS=10
-FRAME_SESSION_ID=""
-
-### Frame Functions
+#
+# Visit Frame's documentation at https://docs.fra.me
+#
+# Updated June 20nd, 2024
+#
 
 # Setup Logging directory
 if [ ! -e /userhome/.frame ]; then
     mkdir /userhome/.frame/
 fi
 
+# Logging methods
 logMessage() {
     local TODAY=$(date +"%F")
     echo "[Frame][$(date)]: $1" >>"/userhome/.frame/log-$TODAY.log"
+    echo "[Frame][$(date)]: $1"
 }
+
+# Check if all the required environment variables are set correctly
+if [ -z "${FRAME_CLIENT_ID}" ] || [ -z "${FRAME_CLIENT_SECRET}" ] || [ -z "${FRAME_SAT_URL}" ] || [ -z "${FRAME_ACCOUNT_ID}" ] || [ -z "${FRAME_EMAIL_DOMAIN}" ] || [ -z "${FRAME_LAUNCH_URL}" ] || [ -z "${FRAME_TERMINAL_CONFIG_ID}" ]; then
+    logMessage "Please fill FRAME_CLIENT_ID, FRAME_CLIENT_SECRET, FRAME_SAT_URL, FRAME_ACCOUNT_ID, FRAME_EMAIL_DOMAIN, FRAME_LAUNCH_URL, and FRAME_TERMINAL_CONFIG_ID environment variables"
+    exit 1
+fi
+
+# Check if all required command line arguments are set correctly
+if [ $# -eq 0 ]; then
+    logMessage "Script is started with 0 arguments! Argument arg1 should have application version set. Please check Frame documentation!"
+    exit 1
+fi
+
+# Script Variables
+FRAME_APP_VERSION="${1,,}" #Read first argument and convert it to lowercase!
+FRAME_GRAPHQL_URL="https://api.console.nutanix.com/api/graphql"
+FRAME_API_URL="https://api.console.nutanix.com/v1/"
+OPEN_SESSION_STATES=("init" "reserved" "open")
+FRAME_POLLING_INTERVAL_SECONDS=60
+FRAME_SESSION_ID=""
+
+### Frame Functions
 
 handleWgetStatus() {
     case $1 in
@@ -102,6 +117,17 @@ if [[ $(pgrep -f $0) != "$$" ]]; then
     logMessage "Process already running. Exiting."
     exit 1
 fi
+
+# Check Frame App version
+case $FRAME_APP_VERSION in
+    "v6" | "v7")
+        logMessage "Script is working with Frame App version: $FRAME_APP_VERSION"
+        ;;
+    *)
+        logMessage "Script is working with version: '$FRAME_APP_VERSION' that's invalid or unknown! Script will exit now."
+        exit 1
+        ;;
+esac
 
 # Cache path based on Frame App version
 LEGACY_FRAME_CACHE_PATH="/custom/frame/userhome/.Nutanix/Frame/cache"
@@ -220,6 +246,11 @@ pollSessionId() {
     local retryDurationMinutes=${SESSION_RETRY_DURATION_MINUTES:-10} # retry for 10 minutes by default
     local maxElapsedSeconds=$((retryDurationMinutes * 60))           # Convert minutes to seconds
 
+    local retryCount=0
+    local maxQuickRetries=10  # Maximum number of quick retries
+    local retryIntervalQuickSeconds=5  # Interval between quick retries in seconds
+    local retryIntervalSlowSeconds=60  # Interval between slow retries in seconds
+
     while [ -z "$FRAME_SESSION_ID" ]; do
         logMessage "Checking for active session... $FRAME_SESSION_ID"
         queryActiveSession
@@ -233,8 +264,14 @@ pollSessionId() {
             FRAME_SESSION_ID="$sessionId"
         fi
 
-        sleep 2
-        elapsedSeconds=$((elapsedSeconds + 2)) # Increment the elapsed seconds by the sleep duration
+        if [ $retryCount -lt $maxQuickRetries ]; then
+            sleep $retryIntervalQuickSeconds
+            elapsedSeconds=$((elapsedSeconds + $retryIntervalQuickSeconds))
+            retryCount=$((retryCount + 1))
+        else
+            sleep $retryIntervalSlowSeconds
+            elapsedSeconds=$((elapsedSeconds + $retryIntervalSlowSeconds))
+        fi
 
         # Check if the elapsed time has reached the maximum allowed based on the retry duration.
         if [ $elapsedSeconds -ge $maxElapsedSeconds ]; then
@@ -252,9 +289,9 @@ querySessionStatus() {
 
     # Make request
     sessionStateResponse="$(wget -q -O - $FRAME_API_URL/accounts/$FRAME_ACCOUNT_ID/sessions/$FRAME_SESSION_ID \
-        --header="X-Frame-ClientId:$FRAME_CLIENT_ID" \
-        --header="X-Frame-Timestamp:$timestamp" \
-        --header="X-Frame-Signature:$signature")"
+        --header="Authorization: Bearer $token" \
+    )"
+
     handleWgetStatus $?
 
     logMessage "Session State response: $sessionStateResponse"
@@ -271,11 +308,10 @@ pollSessionStatus() {
     logMessage "Sesssion state: [$sessionStatus] $sessionState"
 
     while [ "$sessionStatus" -eq 0 ]; do
+        sleep $FRAME_POLLING_INTERVAL_SECONDS
         # Make more requests...
         querySessionStatus
         logMessage "Sesssion state: [$sessionStatus] $sessionState"
-
-        sleep $FRAME_POLLING_INTERVAL_SECONDS
     done
 
     # Session closed or otherwise? Time to restart!
@@ -359,10 +395,11 @@ launchFrame() {
     rm -Rf "$cache_path"
 
     # Run Frame App in kiosk mode, auto-arrange displays if more than one monitor attached, using FRAME_LAUNCH_URL with Secure Anonymous Token
-    if [ -n "$LEGACY_FRAMEAPP" ]; then
-        "$FRAME_APP_PATH" "$FRAME_APP_CLI_SEPARATOR" --kiosk-mode --displays-auto-arrange --startup-url="$FRAME_LAUNCH_URL#token=$token" &
-    else
+    # For legacy apps
+    if [ "$FRAME_APP_VERSION" = "v6" ]; then
         "$FRAME_APP_PATH" --kiosk --displays-auto-arrange --url="$FRAME_LAUNCH_URL#token=$token" &
+    else 
+        "$FRAME_APP_PATH" -- --full-screen=on --start-session-in-full-screen=on --startup-url="$FRAME_LAUNCH_URL#token=$token" &
     fi
 }
 
@@ -391,7 +428,7 @@ if [ -z "$token" ]; then
 
     # Graceful wait before exiting; IGEL OS will restart this
     # script immediately; this timeout is a small buffer between
-    # token requests.
+    # token requests. 
     sleep 5
     exit 1
 else

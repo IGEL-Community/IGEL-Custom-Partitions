@@ -1,4 +1,4 @@
-# Frame (22 June)
+# Frame (22 Aug 2024)
 
 -----
 
@@ -52,6 +52,128 @@ set up *Firmware Customization -> Custom Partition -> Download* with your UMS se
 -----
 
 ## Frame App Releases
+
+### Frame App 7.5.0 (GA)
+
+Published on July 23, 2024
+
+**Added:**
+
+Command line arguments:
+
+| Action    | Argument/Example |
+| --------  | ------- |
+| Show Help Menu  | Frame.exe -- --help |
+| Show Version | Frame.exe -- --version |
+| Hide Menu Bar  | Frame.exe --hide-menu-bar=ON  |
+| Hide fullscreen toggle | Frame.exe -- --hide-toggle-fullscreen=ON |
+| Enable Hardware Acceleration | Frame.exe -- --use-experimental-gpu-flags=ON |
+
+(IGEL) Command line arguments are now configurable via settings in the IGEL UI.
+
+**Fixed:**
+
+- Issue where the generic USB driver may not uninstall properly from peripheral device when using Generic USB Redirection.
+- (IGEL) Issue with kiosk mode script not working properly.
+
+### Frame App 7.4.0 (GA)
+
+Published on March 18, 2024
+
+**Added:**
+
+- Upgraded to Electron version 28.2.7.
+- Integrated with Chromium version 120.
+- Users may now navigate to View > Show GPU Internals to see an in-depth GPU hardware acceleration report.
+- Frame App can now be configured to start both the application and sessions in full screen mode (a.k.a. "kiosk mode").
+- Hardware acceleration can now be disabled via toggle in the Frame > Preferences menu.
+
+**Fixed:**
+
+- (Windows, Linux) Issue where keyboard input was not correctly refocusing on the Frame App window after switching between local desktops using CTRL + Windows Key + Arrow or Ctrl + Alt + Arrow (Linux).
+- Additional reliability and optimization fixes.
+
+**Known Limitations:**
+
+- USB mass storage devices are not supported with Generic USB Redirection. Please use the Upload / Download feature.
+- USB devices that require isochronous data transfers are not supported with Generic USB Redirection.
+- (Linux) Auto-update feature is disabled by design for Linux endpoints.
+
+### Frame App 7.3.0 (Early access)
+
+Published on January 25, 2024
+
+**Added:**
+
+- (macOS) USB device redirection is now supported. Users wishing to take advantage of this feature must grant permissions to the Frame USB Helper upon the first launch of the application.
+- The underlying Chromium engine has been upgraded to version 118, ensuring a more robust and secure experience.
+
+**Fixed:**
+
+(Windows) Resolved an issue where keyboard redirection for certain shortcuts using special keys would not work when microphone functionality was enabled.
+
+### Frame App 7.2.0 (Tech preview)
+
+Published on November 30, 2023
+
+**Added:**
+
+- USB device names are more descriptive, displaying the vendor name and USB device class/subclass.
+- The Frame App menu bar is now hidden when entering full screen mode.
+- Users can now exit full screen mode by long-pressing Esc key.
+- Full-screen toggling is now synchronized across all displays in a multi-monitor setup.
+- (Windows) New log for the Frame App Service (used for Generic USB Redirection support) can be found here: C:\Windows\_System32_\config\systemprofile\AppData\Roaming\Frame\Logs
+- (macOS) Automatic updates for Frame App are now enabled.
+-(Linux) Keyboard redirection in Frame App for Linux now interprets the following key combinations:
+  - Alt + Tab
+  - Shift + Alt + Tab
+  - Meta + Tab
+  - Shift + Meta + Tab
+  - Meta
+
+**Fixed:**
+
+- Issue where device driver switching (as part of Generic USB Redirection feature) could not be canceled once initiated when exiting Frame App.
+- (Windows) Issue when Frame App is forcefully stopped (e.g. terminating the Frame App Service through Task Manager) any USB devices that were switched by Frame App to leverage WinUSB instead of its native driver (due to compatibility issues) would not automatically rollback to using its native driver.
+- (Windows) Issue where pressing the Windows key would, on occasion, open the local Windows Start Menu on the endpoint OS instead of passing it through to the Frame session.
+- (Windows) Frame App installer now skips the Visual C++ (x64) Redistributable installation if it is already present.
+- (macOS) Issue where gray bars would appear on the window edges when Frame App entered full-screen mode with the hideStatusBarOnFullscreen Advanced Terminal Argument set.
+Additional reliability and optimization fixes.
+
+**Known Limitations:**
+
+- USB mass storage devices are not supported with Generic USB Redirection. Please use the Upload / Download feature.
+- USB devices that require isochronous data transfers are not supported with Generic USB Redirection.
+- Frame App’s kiosk mode feature is no longer available with Frame App 7.x. This was removed due to security concerns as kiosk-type experiences should be configured at the OS.
+- (Windows) Keyboard redirection for certain shortcuts using special keys will not work when microphone functionality is enabled. Will be fixed in future release.
+- (macOS) FIDO2/WebAuthn hardware authentication tokens are not supported with this release. Will be available in future release.
+- (Linux) Auto-update feature is disabled by design for Linux endpoints.
+
+### Frame App 7.1.0  (Early access)
+
+Published on September 7, 2023
+
+**Added:**
+(Windows) Changed installation directory from C:\Program Files (x86)\Frame to C:\Program Files\Frame.
+(Linux) Generic USB Redirection support (including support for FIDO2/WebAuthn hardware authentication tokens).
+
+**Fixed:**
+- Issue where USB device cannot be reconnected after it is detached from the session.
+- Issue where users can launch second instance of Frame App. Attempts to start a second instance simply brings existing Frame App instance window to the front.
+- (Windows) Issue where the FrameAppService may fail to start on when installing Frame App on Windows 10 or 11.
+- (Windows) Issue where resizing Frame App window using mouse cursor was not possible.
+- (Windows) Issue where pressing the Windows key on endpoint device results in the Windows Start Menu opening on both the local device and within the Frame session. Now Windows Start Menu only opens within the Frame session when Frame App window is in focus.
+- (macOS) Issue where Frame App may crash on first launch.
+- (macOS, Linux) Issue where modifier keys (e.g. Alt + Tab) are not properly passed into session when accessing a Windows workload VM.
+
+**Known Limitations:**
+
+- USB mass storage devices are not supported with Generic USB Redirection. Please use the Upload / Download feature.
+- USB devices that require isochronous data transfers are not supported with Generic USB Redirection.
+- (macOS) Auto-update from Frame App 7.0.x to 7.1.0 will not work. Customers should uninstall the previous version and then install the new version. Auto-update from Frame App 7.1.0 to future versions will work as expected.
+- (macOS) Kiosk mode is not supported with this release. Will be available in future release.
+- (macOS) FIDO2/WebAuthn hardware authentication tokens are not supported with this release. Will be available in future release.
+- (Linux) Auto-update feature is disabled by design for Linux endpoints.
 
 ### Frame App 7.0.21 (Tech Preview)
 
@@ -109,28 +231,34 @@ General
 
 To get started, read each of the following profiles to see which sounds like the right fit for you and then import it into the IGEL UMS following the instructions below.
 
+### Important notice
+
+IGEL UMS-11 profiles has ***-ums11.xml** in their name.  
+IGEL UMS-12 profiles has ***-ums12.ipm** in their name
+
+IGEL UMS-11 profiles by default will provide support for Frame App v7 only! If support for frame app v6 is required, before importing profiles user will need to modify following line in XML file:
+
+```
+<ivalue classname="sessions.custom_application%.cmdline" variableExpression="" variableSubstitutionActive="false">/custom/frame/frame-saml2-kiosk-launcher.sh v7</ivalue>
+```
+by replacing "v7" with "v6", so that script will know which version of app to start and other configurations.
+
+
 ### Basic Frame App Profile
+**IGEL UMS-11 command:**
 ```js
-import 'igel/frame-app-basic-profile.xml'
+import 'igel/frame-app-basic-profile-ums11.xml'
 ```
 
 This Custom Profiles simply enables a Frame App icon on the IGEL Desktop. To launch Frame App with certain command line arguments, edit IGEL profile and append your command line argument(s) to the end of the command line.
 
-Below is a table of [Linux command-line arguments for Frame App](https://docs.fra.me/platform/session/frame-app/config/?operating-systems=linux#frapp-args):
+Command line arguments for Frame app are defined here: [Linux command-line arguments](https://docs.dizzion.com/platform/session/frame-app/config#command-line-arguments).
 
-| Command Line Argument   | Description                                                                                                                                                                                                                                                    | Syntax                              |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `disable-mouse-lock`    | By default, Frame App will ignore mouse forward/back button events. If this argument is used, Frame App will respond to mouse forward/back button events. When a user is in session, these mouse events can cause the user to exit their session accidentally. | `./Frame --disable-mouse-lock`      |
-| `displays-auto-arrange` | Frame App will launch with virtual displays configured to match your local environment.                                                                                                                                                                        | `./Frame --displays-auto-arrange`   |
-| `kiosk`                 | Instructs Frame App to launch in full screen, a.k.a. “Kiosk mode.”                                                                                                                                                                                             | `./Frame --kiosk`                   |
-| `url`                   | Designates the startup URL.                                                                                                                                                                                                                                    | `./Frame --url=console.nutanix.com` |
-| `x11-window`            | Switch from GTK (default) to X11 Windows. This argument should be used with HP ThinPro OS clients.                                                                                                                                                             | `./Frame --x11-window`              |
-
----
 ### Frame SAML2 Kiosk Mode Profile
 
+**IGEL UMS-11 command:**
 ```js
-import 'igel/frame-saml2-kiosk-profile.xml'
+import 'igel/frame-saml2-kiosk-profile-ums11.xml'
 ```
 
 This profile is designed to support a specific end user workflow and assumes a particular Frame configuration.
@@ -162,8 +290,9 @@ This profile is designed to support a specific end user workflow and assumes a p
 ---
 
 ### Frame SAT Kiosk Mode Profile
+**IGEL UMS-11 command:**
 ```js
-import 'igel/frame-sat-kiosk-profile.xml'
+import 'igel/frame-sat-kiosk-profile-ums11.xml'
 ```
 
 The Frame SAT Kiosk Custom Profile is designed to support a specific end user workflow relying on Frame's SATs or [Secure Anonymous Tokens](https://docs.fra.me/platform/identity-and-access/secure-anonymous-tokens/) for identity; this flow also assumes a particular Frame configuration to support the kiosk experience as defined below.

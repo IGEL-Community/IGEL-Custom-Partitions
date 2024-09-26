@@ -24,78 +24,92 @@
 #
 # FRAME_LAUNCH_URL - obtained from Dashboard > Launchpad > Advanced Integrations for the Launch Link. The FRAME_LAUNCH_URL could be a Launchpad URL.
 #
+# The following command line arguments must be set:
+# Frame application version, valid values are: 'v6' and 'v7'
+# Example 1: frame-sat-kiosk-launcher.sh v6
+# Example 2: frame-sat-kiosk-launcher.sh v7
+#
 # Visit Frame's documentation at https://docs.frame.nutanix.com
 #
-# Updated August 10, 2022
+# Updated August 13, 2024
 #
-
-# Check if all the required variables are set correctly
-if [ -z "${FRAME_LAUNCH_URL}" ] ; then
-    echo "Please fill the FRAME_LAUNCH_URL environment variable."
-    exit 1
-fi
-
-### Frame Functions
-
-# Setup Logging directory
-if [ ! -e /userhome/.frame ]; then
-    mkdir /userhome/.frame/
-fi
 
 logMessage() {
     local TODAY=$(date +"%F")
     echo "[Frame][$(date)]: $1" >> "/userhome/.frame/log-$TODAY.log"
 }
 
-# Check for another instance is running.
-if [[ `pgrep -f $0` != "$$" ]]; then
+# Check if all the required variables are set correctly
+if [ -z "${FRAME_LAUNCH_URL}" ]; then
+    echo "Please fill the FRAME_LAUNCH_URL environment variable."
+    exit 1
+fi
+
+# Check if all required command line arguments are set correctly
+if [ $# -eq 0 ]; then
+    logMessage "Script is started with 0 arguments! Argument arg1 should have application version set. Please check Frame documentation!"
+    exit 1
+fi
+
+# Setup Logging directory
+if [ ! -e /userhome/.frame ]; then
+    mkdir -p /userhome/.frame/
+fi
+
+# Check for another instance is running
+if [[ $(pgrep -f "$0") != "$$" ]]; then
     logMessage "Process already running. Exiting."
     exit 1
 fi
 
-# Cache path based on Frame App version
-LEGACY_FRAME_CACHE_PATH="/custom/frame/userhome/.Nutanix/Frame/cache"
-FRAME_CACHE_PATH="/custom/frame/userhome/.config/Frame/Cache /custom/frame/userhome/.config/Frame/Cookies /custom/frame/userhome/.config/Frame/Local Storage"
-
-# Frame App path and CLI separator
+# Variables 
+FRAME_APP_VERSION="${1,,}" # Read first argument and convert it to lowercase
+FRAME_CACHE_PATHS=("/custom/frame/userhome/.config/Frame/Cache" "/custom/frame/userhome/.config/Frame/Cookies" "/custom/frame/userhome/.config/Frame/Local Storage")
 FRAME_APP_PATH="/custom/frame/usr/bin/frame"
-LEGACY_FRAMEAPP=false
+
+# Check Frame App version
+case $FRAME_APP_VERSION in
+    "v6" | "v7")
+        logMessage "Script is working with Frame App version: $FRAME_APP_VERSION"
+        ;;
+    *)
+        logMessage "Script is working with version: '$FRAME_APP_VERSION' that's invalid or unknown! Script will exit now."
+        exit 1
+        ;;
+esac
 
 # Check if the legacy Frame App version is installed
-if [ -x "/custom/frame/usr/bin/nutanix-frame/Frame" ]; then
+if [ "$FRAME_APP_VERSION" = "v6" ]; then
     logMessage "Legacy Frame App installed."
     FRAME_APP_PATH="/custom/frame/usr/bin/nutanix-frame/Frame"
-    LEGACY_FRAMEAPP=true
+    FRAME_CACHE_PATHS=("/custom/frame/userhome/.Nutanix/Frame/cache")
 fi
 
 launchFrame() {
-    # Clear cache from previous session based on the Frame App version
-    cache_path="$FRAME_CACHE_PATH"
-    if [ "$FRAME_APP_PATH" = "/custom/frame/usr/bin/nutanix-frame/Frame" ]; then
-        cache_path="$LEGACY_FRAME_CACHE_PATH"
-    fi
-    rm -Rf "$cache_path"
+    # Clear cache from previous session
+    for path in "${FRAME_CACHE_PATHS[@]}"; do
+        rm -Rf "$path"
+    done
 
-    # Run Frame App in kiosk mode, auto-arrange displays if more than one monitor attached, using FRAME_LAUNCH_URL with Secure Anonymous Token
-    if [ -n "$LEGACY_FRAMEAPP" ]; then
-        "$FRAME_APP_PATH" -- --kiosk-mode --displays-auto-arrange --startup-url="$FRAME_LAUNCH_URL#token=$token" &
+    # Run Frame App in kiosk mode, auto-arrange displays if more than one monitor attached, using FRAME_LAUNCH_URL
+    if [ "$FRAME_APP_VERSION" = "v7" ]; then
+        "$FRAME_APP_PATH" -- --full-screen --start-session-in-full-screen=on --startup-url="$FRAME_LAUNCH_URL" &
+        logMessage "App is launched. Result: $?"
     else
-        "$FRAME_APP_PATH" --kiosk --displays-auto-arrange --url="$FRAME_LAUNCH_URL#token=$token" &
+        "$FRAME_APP_PATH" --kiosk --displays-auto-arrange --url="$FRAME_LAUNCH_URL" &
+        logMessage "App is launched. Result: $?"
     fi
 }
 
 monitorFrameApp() {
-
     echo "Monitoring Frame App..."
-    while true 
-    do
-        if [[ $(ps -ef | grep -c "/custom/frame/usr/bin/nutanix-frame/Frame") -ne 1 ]]; then
+    while true; do
+        if [[ $(ps -ef | grep "$FRAME_APP_PATH" | grep -v grep | wc -l) -ne 0 ]]; then
             echo "App is running."
         else
-            echo "App isn't running! :)"
+            echo "App isn't running!"
             launchFrame
         fi
-
         sleep 3
     done
 }
