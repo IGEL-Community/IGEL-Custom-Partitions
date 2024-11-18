@@ -3,7 +3,7 @@
 #trap read debug
 
 # Creating an IGELOS CP
-## Development machine Ubuntu (OS11 = 18.04; OS12 = 20.04)
+## Development machine Ubuntu (OS11 = 22.04; OS12 = 20.04)
 CP="libreoffice"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Office"
 ZIP_FILE="LibreOffice"
@@ -20,14 +20,14 @@ MISSING_LIBS_OS12=""
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
-if [ "${VERSION_ID}" = "18.04" ]; then
+if [ "${VERSION_ID}" = "22.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS11}"
   IGELOS_ID="OS11"
 elif [ "${VERSION_ID}" = "20.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS12}"
   IGELOS_ID="OS12"
 else
-  echo "Not a valid Ubuntu OS release. OS11 needs 18.04 (bionic) and OS12 needs 20.04 (focal)."
+  echo "Not a valid Ubuntu OS release. OS11 needs 22.04 (jammy) and OS12 needs 20.04 (focal)."
   exit 1
 fi
 
