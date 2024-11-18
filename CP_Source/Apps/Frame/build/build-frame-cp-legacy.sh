@@ -12,7 +12,7 @@ sudo apt install unzip -y
 if ! compgen -G "$HOME/Downloads/Frame-*.deb" > /dev/null; then
   echo "***********"
   echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
-  echo "https://docs.fra.me/downloads/"
+  echo "https://docs.dizzion.com/downloads"
   exit 1
 fi
 
