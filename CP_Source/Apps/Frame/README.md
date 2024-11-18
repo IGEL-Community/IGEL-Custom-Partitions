@@ -1,8 +1,10 @@
-# Frame (22 Aug 2024)
+# Frame (18 Nov 2024)
 
 -----
 
-**📢 Announcement:**
+**📢 Announcements:**
+> [Official Dizzion IGEL Documentation](https://docs.dizzion.com/platform/session/frame-app/igel)
+
 > [Dizzion Acquires Frame from Nutanix to Accelerate Growth in DaaS Market](https://www.nutanix.com/products/frame/faq)
 
 > [IGEL Community Docs - Frame](https://igel-community.github.io/IGEL-Docs-v02/Docs/HOWTO-Frame-Setup/)
@@ -16,7 +18,7 @@
 | CP Mount Path         | /custom/frame                                                                                                 |
 | CP Size               | 500M                                                                                                          |
 | IGEL OS Version (min) | 11.08.230                                                                                                     |
-| Download package      | Download Latest Frame App for Linux (Debian) <br /> https://docs.fra.me/downloads                             |
+| Download package      | Download Latest Frame App for Linux (Debian) <br /> https://docs.dizzion.com/downloads                        |
 | Packaging Notes       | See build script for details                                                                                  |
 | Package automation    | [build-frame-cp.sh](build/build-frame-cp.sh)                                                                  |
 
@@ -52,6 +54,24 @@ set up *Firmware Customization -> Custom Partition -> Download* with your UMS se
 -----
 
 ## Frame App Releases
+
+### Frame App 7.6.1 (GA)
+
+**Added:** 
+
+- Support for third-party authentication pop-up dialog windows. 
+- Logging when Frame URL cannot be reached. 
+- Logging all page failures. 
+- Electron updated to version 31.3.1.
+
+**Fixed:** 
+
+- Issue where secondary displays do not match windowed/full-screen state of primary display. 
+- Issue with installer signings. 
+- Disabled Electron Fuses. 
+- **[Windows]** Issue where USB device may not properly attach to/detach from the Frame session when using Generic USB redirection (which requires switching from using native device driver to winusb.sys). Frame App will now prompt the user to reboot their local Windows OS in these situations. This is due to Windows not being able to unload certain device interfaces while Window is running. 
+- **[macOS]** Issue where last window size is not retained on startup. 
+
 
 ### Frame App 7.5.0 (GA)
 
@@ -201,29 +221,9 @@ Published on June 2, 2023
 
 -----
 
-### Frame App 6.16
+### Frame App 6
 
-Published on 2022-12-08
-
-Added:
-
-General
-
-- Ability for users to automatically enable sound, microphone, and webcam via Preferences.
-
-- Ability to hide the [Frame Status Bar](https://docs.fra.me/enduser/enduser-navaccount.html#status-bar) when in full-screen mode with Frame App. This feature can be enabled by setting the following Advanced Terminal Argument (either within Dashboard > Settings > Session > Advanced Options or Dashboard > Launchpads > Session Settings > Advanced Options).
-
-- Advanced Terminal Argument: `hideStatusBarOnFullscreen`
-
-Fixed:
-
-General
-
-- Issue where Frame App would automatically exit full-screen mode when session closed while in [kiosk mode](https://docs.fra.me/platform/session/frame-app/config/#frapp-args).
-
-- Issue where users were able to exit full-screen mode while in [kiosk mode](https://docs.fra.me/platform/session/frame-app/config/#frapp-args).
-
-- Additional reliability fixes.
+For all release notes pertaining to Frame App 6, please see Dizzion's [official release notes](https://docs.dizzion.com/releases/tags/frame-app).
 
 -----
 
