@@ -1,8 +1,4 @@
-# SAP GUI for Java (21 June)
-
------
-
-**NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic) and **pending** OS12 (build with Ubuntu 20.04 - focal)
+# SAP GUI for Java (26 November)
 
 -----
 
@@ -12,5 +8,6 @@
 | Script Name | [sapgui-cp-init-script.sh](build/sapgui-cp-init-script.sh) |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-sapgui-cp.sh](build/build-sapgui-cp.sh) |
+| Package automation OS 11.10.190+ / 12.5.1+ | [build-sapgui-cp-v2.sh](build/build-sapgui-cp-v2.sh) |
 
 -----
