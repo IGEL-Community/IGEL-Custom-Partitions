@@ -37,7 +37,7 @@ Update the values for these environment variables based on the settings in your 
 
 ## UMS Structure Tag holds WireGuard client public key
 
-```bash
+```bash linenums="1"
 setparam system.remotemanager.ums_structure_tag CLIENT_PUBLIC_KEY
 write_rmsettings
 get system.remotemanager.ums_structure_tag
@@ -48,7 +48,7 @@ In the UMS, a view can be created to show the mapping of client machines to thei
 UMS View
 ![alt text](images/umsview.png "UMS View")
 
-```bash
+```bash linenums="1"
 Name: WireGuard
 Description: Wireguard
 Rule: Structure tag is like (?i).*.*=
@@ -63,13 +63,23 @@ Query: umsStructuralTag ~ '(?i).*.*='
 
 Edit the profile (**System > Firmware Customization > Custom Commands > Network > Final Network Command**) to contain the mapping of clients (name of client) to WireGuard IPs. IPv4 or IPv6 can be used, insert IPv6 instead of predefined IPv4.
 
-```bash
+```bash linenums="1"
 cat << 'EOF' > /wfs/wireguard/wg_clients.csv
 ITC6845F1391E31,10.66.66.4/32
 ITC0800270F8F75,10.66.66.5/32
 ITC000C29A1EAF6,10.66.66.6/32
 ITC000C29E8B942,10.66.66.7/32
 EOF
+```
+
+-----
+
+## Resolvconf not found
+
+If using specific DNS servers, then enable `resolved.service` and `/usr/bin/resolvconf`.
+
+```bash linenums="1"
+systemctl enable systemd-resolved.service && ln -s /usr/bin/resolvectl /usr/bin/resolvconf
 ```
 
 -----
