@@ -14,7 +14,7 @@ OS12_CLEAN="12.5.1"
 USERHOME_FOLDERS="FALSE"
 USERHOME_FOLDERS_DIRS=""
 APPARMOR="TRUE"
-GETVERSION_FILE="../magnus*.deb"
+GETVERSION_FILE="../../magnus*.deb"
 MISSING_LIBS_OS11="gir1.2-keybinder-3.0 libkeybinder-3.0-0 magnus python3-setproctitle"
 MISSING_LIBS_OS12="gir1.2-keybinder-3.0 libkeybinder-3.0-0 magnus python3-setproctitle"
 
