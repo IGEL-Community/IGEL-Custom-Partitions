@@ -15,8 +15,8 @@ USERHOME_FOLDERS="TRUE"
 USERHOME_FOLDERS_DIRS="custom/zoom/userhome/.zoom custom/zoom/userhome/.config"
 APPARMOR="TRUE"
 GETVERSION_FILE="../../zoom_amd64.deb"
-MISSING_LIBS_OS11="libxcb-xtest0"
-MISSING_LIBS_OS12="libxcb-xtest0"
+MISSING_LIBS_OS11="libxcb-cursor0 libxcb-xtest0"
+MISSING_LIBS_OS12="libxcb-cursor0 libxcb-xtest0"
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
