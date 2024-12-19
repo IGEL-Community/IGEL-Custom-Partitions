@@ -1,8 +1,8 @@
-# Remmina (2 June)
+# Remmina (18 December 2024)
 
 -----
 
-**NOTE:** Builder works for OS11 (build with Ubuntu 18.04 - bionic) and OS12 (build with Ubuntu 20.04 - focal)
+**NOTE:** Builder works for OS11.10+ (build with Ubuntu 22.04 - bionic) and OS12 (build with Ubuntu 20.04 - focal)
 
 -----
 

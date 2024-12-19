@@ -3,31 +3,31 @@
 #trap read debug
 
 # Creating an IGELOS CP
-## Development machine Ubuntu (OS11 = 18.04; OS12 = 20.04)
+## Development machine Ubuntu (OS11.10+ = 22.04; OS12 = 20.04)
 CP="remmina"
 ZIP_LOC="https://github.com/IGEL-Community/IGEL-Custom-Partitions/raw/master/CP_Packages/Apps"
 ZIP_FILE="Remmina"
 FIX_MIME="TRUE"
 CLEAN="TRUE"
-OS11_CLEAN="11.07.100"
-OS12_CLEAN="12.01.110"
+OS11_CLEAN="11.10.210"
+OS12_CLEAN="12.5.1"
 USERHOME_FOLDERS="TRUE"
 USERHOME_FOLDERS_DIRS="custom/remmina/userhome/.config/remmina custom/remmina/userhome/.local/share/remmina"
 APPARMOR="TRUE"
 GETVERSION_FILE="../../remmina_*.deb"
-MISSING_LIBS_OS11="firmware-crystalhd freerdp2-x11 i965-va-driver i965-va-driver-shaders libavahi-ui-gtk3-0 libavcodec57 libavutil55 libayatana-appindicator3-1 libayatana-indicator3-7 libcrystalhd3 libdbusmenu-glib4 libdbusmenu-gtk3-4 libfreerdp2-2 libfreerdp-client2-2 libgsm1 libopenjp2-7 libshine3 libsnappy1v5 libsoxr0 libssh-4 libswresample2 libva2 libva-drm2 libva-x11-2 libvdpau1 libvdpau-va-gl1 libvncclient1 libwinpr2-2 libx264-152 libx265-146 libxvidcore4 libzvbi0 libzvbi-common mesa-va-drivers mesa-vdpau-drivers nvidia-legacy-340xx-vdpau-driver nvidia-vdpau-driver remmina remmina-common remmina-plugin-exec remmina-plugin-kwallet remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc remmina-plugin-www remmina-plugin-x2go va-driver-all vdpau-driver-all"
-MISSING_LIBS_OS12="i965-va-driver intel-media-va-driver libaom0 libavahi-ui-gtk3-0 libavcodec58 libavutil56 libayatana-appindicator3-1 libayatana-indicator3-7 libcodec2-0.9 libdbusmenu-gtk3-4 libfreerdp-client2-2 libfreerdp2-2 libgsm1 libigdgmm11 libshine3 libsnappy1v5 libssh-4 libswresample3 libva-drm2 libva-x11-2 libva2 libvdpau1 libvncclient1 libwinpr2-2 libx264-155 libx265-179 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1 remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc va-driver-all vdpau-driver-all"
+MISSING_LIBS_OS11="libavahi-ui-gtk3-0 libvncclient1 remmina remmina-common remmina-plugin-exec remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc remmina-plugin-www remmina-plugin-x2go libfreerdp-client2-2 libfreerdp2-2 libwinpr2-2"
+MISSING_LIBS_OS12="i965-va-driver intel-media-va-driver libaom0 libavahi-ui-gtk3-0 libavcodec58 libavutil56 libayatana-appindicator3-1 libayatana-indicator3-7 libcodec2-0.9 libfreerdp-client2-2 libfreerdp2-2 libgsm1 libigdgmm11 libshine3 libsnappy1v5 libswresample3 libva-drm2 libva-x11-2 libva2 libvdpau1 libvncclient1 libwinpr2-2 libx264-155 libx265-179 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1 remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc va-driver-all vdpau-driver-all libssh-4 libicu66 libvpx6"
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
-if [ "${VERSION_ID}" = "18.04" ]; then
+if [ "${VERSION_ID}" = "22.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS11}"
   IGELOS_ID="OS11"
 elif [ "${VERSION_ID}" = "20.04" ]; then
   MISSING_LIBS="${MISSING_LIBS_OS12}"
   IGELOS_ID="OS12"
 else
-  echo "Not a valid Ubuntu OS release. OS11 needs 18.04 (bionic) and OS12 needs 20.04 (focal)."
+  echo "Not a valid Ubuntu OS release. OS11.10+ needs 22.04 (bionic) and OS12 needs 20.04 (focal)."
   exit 1
 fi
 
