@@ -11,6 +11,7 @@ MP=$(get custom_partition.mountpoint)
 CP="${MP}/vscode"
 
 # Code directory
+VSCODE_USERHOME="/userhome"
 VSCODE_CONFIG="/userhome/.config/Code"
 VSCODE="/userhome/.vscode"
 VSCODE_DIR="/userhome/Code"
@@ -38,6 +39,7 @@ init)
   done
 
   # basic persistency
+  chown -R user:users "${CP}${VSCODE_USERHOME}"
   chown -R user:users "${CP}${VSCODE_CONFIG}"
   chown -R user:users "${CP}${VSCODE}"
   chown -R user:users "${CP}${VSCODE_DIR}"
