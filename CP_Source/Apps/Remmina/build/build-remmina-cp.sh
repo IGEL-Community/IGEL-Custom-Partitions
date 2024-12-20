@@ -16,7 +16,7 @@ USERHOME_FOLDERS_DIRS="custom/remmina/userhome/.config/remmina custom/remmina/us
 APPARMOR="TRUE"
 GETVERSION_FILE="../../remmina_*.deb"
 MISSING_LIBS_OS11="libavahi-ui-gtk3-0 libvncclient1 remmina remmina-common remmina-plugin-exec remmina-plugin-rdp remmina-plugin-secret remmina-plugin-spice remmina-plugin-vnc remmina-plugin-www remmina-plugin-x2go libfreerdp-client2-2 libfreerdp2-2 libwinpr2-2"
-MISSING_LIBS_OS12="i965-va-driver intel-media-va-driver libaom0 libavahi-ui-gtk3-0 libavcodec58 libavutil56 libayatana-appindicator3-1 libayatana-indicator3-7 libcodec2-0.9 libfreerdp-client2-2 libfreerdp2-2 libgsm1 libigdgmm11 libshine3 libsnappy1v5 libswresample3 libva-drm2 libva-x11-2 libva2 libvdpau1 libvncclient1 libwinpr2-2 libx264-155 libx265-179 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1 remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc va-driver-all vdpau-driver-all libssh-4 libicu66 libvpx6"
+MISSING_LIBS_OS12="i965-va-driver intel-media-va-driver libaom0 libavahi-ui-gtk3-0 libavcodec58 libavutil56 libayatana-appindicator3-1 libayatana-indicator3-7 libcodec2-0.9 libfreerdp-client2-2 libfreerdp2-2 libgsm1 libigdgmm11 libshine3 libsnappy1v5 libswresample3 libva-drm2 libva-x11-2 libva2 libvdpau1 libvncclient1 libwebp6 libwinpr2-2 libx264-155 libx265-179 libxvidcore4 libzvbi-common libzvbi0 mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1 remmina remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc va-driver-all vdpau-driver-all libssh-4 libicu66 libvpx6"
 
 VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d "\"" -f 2)
 
