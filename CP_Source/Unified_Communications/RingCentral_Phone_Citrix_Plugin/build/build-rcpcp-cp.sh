@@ -12,7 +12,7 @@ CLEAN="FALSE"
 OS11_CLEAN="11.10.210"
 OS12_CLEAN="12.5.2"
 USERHOME_FOLDERS="FALSE"
-USERHOME_FOLDERS_DIRS="custom/${CP}/userhome/.local/share/workspacesclient"
+USERHOME_FOLDERS_DIRS=""
 APPARMOR="FALSE"
 #https://downloads.ringcentral.com/sp/RingCentralCitrixPluginForLinux
 GETVERSION_FILE_OS11="RingCentral-Phone-CitrixPlugin.deb"
@@ -39,7 +39,7 @@ fi
 mkdir build_tar
 cd build_tar
 
-wget -O ${GETVERSION_FILE} ${GETVERSION_FILE}
+wget -O ${GETVERSION_FILE} ${WGET_URL}
 
 for lib in $MISSING_LIBS; do
   apt-get download $lib
@@ -103,7 +103,7 @@ VERSION=$(grep Version control | cut -d " " -f 2)
 # . rcpcp_citrix and call citrix_reinstall
 mv variables ../rcpcp_variables.sh
 mv citrix ../rcpcp_citrix.sh
-sed -i "/variables/c rcpcp_variables.sh"
+sed -i "s/variables/rcpcp_variables.sh/" ../rcpcp_citrix.sh
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
