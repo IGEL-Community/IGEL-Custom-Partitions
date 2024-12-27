@@ -32,9 +32,9 @@ init)
     fi
   done
 
-  export INSTALL_PREFIX=${MP}
-  . ${MP}/rcpcp_citrix.sh
-  citrix_reinstall
+  #export INSTALL_PREFIX=${MP}
+  #. ${MP}/rcpcp_citrix.sh
+  #citrix_reinstall
 
 ;;
 stop)

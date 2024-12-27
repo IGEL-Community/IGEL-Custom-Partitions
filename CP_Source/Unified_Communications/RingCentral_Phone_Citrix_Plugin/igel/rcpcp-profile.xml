@@ -16,6 +16,11 @@
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">true</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
+            <pclass name="userinterface.rccustom.custom_cmd_x11_final">
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">export INSTALL_PREFIX=/custom; . /custom/rcpcp_citrix.sh; citrix_reinstall</pvalue>
+#!/bin/sh
+                <variableSubstitutionActive>false</variableSubstitutionActive>
+            </pclass>
             <pclass name="custom_partition.size">
                 <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">100M</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>

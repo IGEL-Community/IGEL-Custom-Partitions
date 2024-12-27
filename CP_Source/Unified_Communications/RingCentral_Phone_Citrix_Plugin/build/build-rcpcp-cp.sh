@@ -103,7 +103,7 @@ VERSION=$(grep Version control | cut -d " " -f 2)
 # . rcpcp_citrix and call citrix_reinstall
 mv variables ../rcpcp_variables.sh
 mv citrix ../rcpcp_citrix.sh
-sed -i "s/variables/rcpcp_variables.sh/" ../rcpcp_citrix.sh
+sed -i "s/variables/\/rcpcp_variables.sh/" ../rcpcp_citrix.sh
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
