@@ -6,3 +6,9 @@
 | Script Name | [rcpcp-cp-init-script.sh](rcpcp-cp-init-script.sh) |
 | Packing Notes | See build script for details |
 | Package automation | [build-rcpcp-cp.sh](build/build-rcpcp-cp.sh) |
+
+-----
+
+**NOTES:** 
+
+- A reboot is required after CP deployed.
