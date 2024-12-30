@@ -1,7 +1,0 @@
-[INFO]
-[PART]
-file="magnus.tar.bz2"
-version="1.0.2-1"
-size="10M"
-name="magnus"
-minfw="11.03.110"
