@@ -50,6 +50,10 @@ do
   dpkg -x "${LINE}" custom/${CP}
 done
 
+# ***** REMOVE setproctitle from /usr/bin/magnus *****
+sed -i "/setproctitle/d" custom/${CP}/usr/bin/magnus
+# ***** REMOVE setproctitle from /usr/bin/magnus *****
+
 if [ "${FIX_MIME}" = "TRUE" ] && [ "${IGELOS_ID}" = "OS11" ]; then
   mv custom/${CP}/usr/share/applications/ custom/${CP}/usr/share/applications.mime
 fi
