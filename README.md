@@ -44,7 +44,7 @@ Find the missing libraries on the IGEL OS.
 On IGEL OS:
 ```bash
 cd /custom/<folder>
-find . -executable -type f -exec ldd ‘{}’ \; | grep ‘not found’ >> /custom/ldd.txt
+find . -executable -type f -exec ldd {} \; | grep "not found" >> /custom/ldd.txt
 ```
 
 On Linux Ubuntu:
