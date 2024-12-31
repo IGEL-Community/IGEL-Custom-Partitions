@@ -5,7 +5,7 @@
 # Creating an IGELOS CP for SNMP
 ## Development machine (Ubuntu 22.04 for OS 11.09+)
 
-MISSING_LIBS="smistrip snmp snmp-mibs-downloader snmpd"
+MISSING_LIBS="smistrip snmp snmp-mibs-downloader snmpd patch"
 
 sudo apt install unzip -y
 #sudo apt install smistrip snmp snmp-mibs-downloader snmpd -y
