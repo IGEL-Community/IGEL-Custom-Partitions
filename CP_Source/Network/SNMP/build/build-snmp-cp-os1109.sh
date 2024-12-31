@@ -1,6 +1,6 @@
 #!/bin/bash
-set -x
-trap read debug
+#set -x
+#trap read debug
 
 # Creating an IGELOS CP for SNMP
 ## Development machine (Ubuntu 22.04 for OS 11.09+)
