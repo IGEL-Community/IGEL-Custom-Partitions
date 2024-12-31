@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+#set -x
 #trap read debug
 
 # Creating an IGELOS CP for SNMP
