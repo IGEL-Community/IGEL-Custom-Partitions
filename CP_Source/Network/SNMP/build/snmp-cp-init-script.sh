@@ -32,6 +32,10 @@ init)
     fi
   done
 
+  # needed for OS12
+  download-mibs | $LOGGER
+  # needed for OS12
+
 ;;
 stop)
   # unlink linked files

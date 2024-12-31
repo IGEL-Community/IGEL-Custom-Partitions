@@ -5,7 +5,7 @@
         <profilename>SNMP CP</profilename>
         <firmware>
             <model>IGEL OS 11</model>
-            <version>11.05.133.01</version>
+            <version>11.09.310.01</version>
         </firmware>
         <description>SNMP</description>
         <overwritesessions>false</overwritesessions>
@@ -17,7 +17,7 @@
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="userinterface.rccustom.custom_cmd_x11_final">
-                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable custom/snmp/lib/systemd/system/snmpd.service; systemctl start snmpd.service</pvalue>
+                <pvalue instancenr="-1" variableExpression="" variableSubstitutionActive="false">systemctl enable /custom/snmp/lib/systemd/system/snmpd.service; systemctl start snmpd.service</pvalue>
                 <variableSubstitutionActive>false</variableSubstitutionActive>
             </pclass>
             <pclass name="custom_partition.size">
