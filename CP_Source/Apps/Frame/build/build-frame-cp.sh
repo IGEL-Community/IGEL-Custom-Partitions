@@ -10,11 +10,23 @@ sudo apt install unzip -y
 # Download Latest Frame App for Linux (Debian)
 # OLD: https://portal.nutanix.com/page/downloads?product=xiframe
 # NEW: https://docs.fra.me/downloads
-framePackage=$(compgen -G "$HOME/Downloads/Frame-*.deb"; compgen -G "$HOME/Downloads/frame_*.deb" | head -n 1)
+
+# Set the directory to the first command line argument or default to $HOME/Downloads
+directory="${1:-$HOME/Downloads}"
+
+if [ -n "$directory" ]; then
+  if [ ! -d "$directory" ]; then
+    echo "Provided item "$directory" is not a valid directory."
+    exit 1
+  fi
+fi
+
+# Search for the .deb package in the specified directory
+framePackage=$(compgen -G "$directory/Frame-*.deb"; compgen -G "$directory/frame_*.deb" | head -n 1)
 
 if [ -z "$framePackage" ]; then
   echo "***********"
-  echo "Obtain latest .deb package, save into $HOME/Downloads and re-run this script "
+  echo "Obtain latest .deb package, save into $directory and re-run this script "
   echo "https://docs.dizzion.com/downloads"
   exit 1
 fi
