@@ -4,7 +4,8 @@
 
 # Creating an IGELOS CP for Frame
 ## Development machine (Ubuntu 18.04)
-sudo apt install unzip -y
+## Pre-requisites:
+# sudo apt install unzip -y
 
 # Obtain latest package and save into Downloads
 # Download Latest Frame App for Linux (Debian)
