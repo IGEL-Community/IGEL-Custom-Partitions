@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="bracan5.tar.bz2"
+version="x.x.x"
+size="50M"
+name="bracan5"
+minfw="11.10.210"
