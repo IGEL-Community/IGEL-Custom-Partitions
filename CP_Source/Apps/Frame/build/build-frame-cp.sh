@@ -82,3 +82,4 @@ mv ../Frame.zip ../../FrameApp-${VERSION}_igel01.zip
 
 cd ../..
 rm -rf build_tar
+
