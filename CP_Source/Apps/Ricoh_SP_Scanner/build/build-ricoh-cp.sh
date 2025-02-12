@@ -107,7 +107,6 @@ tar xf control.tar.* ./control
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 mv postinst ../ricoh_igel_postinst.sh
-
 cd ..
 sed -i "/^version=/c version=\"${VERSION}\"" target/${CP}.inf
 #echo "${CP}.inf file is:"
