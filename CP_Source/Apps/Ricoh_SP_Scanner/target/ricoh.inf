@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="ricoh.tar.bz2"
+version="X.X.X"
+size="50M"
+name="ricoh"
+minfw="11.10.210"
