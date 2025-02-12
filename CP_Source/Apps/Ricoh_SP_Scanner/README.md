@@ -12,5 +12,3 @@
 | Script Name | [ricoh-cp-init-script.sh](build/ricoh-cp-init-script.sh) |
 | Packaging Notes | Details can be found in the build script |
 | Package automation | [build-ricoh-cp.sh](build/build-ricoh-cp.sh) |
-
------
