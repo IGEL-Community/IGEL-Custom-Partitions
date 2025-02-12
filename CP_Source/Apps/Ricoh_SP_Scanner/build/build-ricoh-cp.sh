@@ -16,7 +16,8 @@ USERHOME_FOLDERS="FALSE"
 USERHOME_FOLDERS_DIRS=("")
 APPARMOR="FALSE"
 #plk-sane_2.1.35.22241plk_amd64.deb
-GETVERSION_FILE="$HOME/Downloads/plk-sane*.deb"
+GETVERSION_FILE="$HOME/Downloads/pfusp-ubuntu_*_amd64.deb"
+
 MISSING_LIBS_OS11=""
 MISSING_LIBS_OS12=""
 
