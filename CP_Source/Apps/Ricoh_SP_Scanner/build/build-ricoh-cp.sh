@@ -103,7 +103,7 @@ cd custom
 mkdir getversion
 cd getversion
 ar -x ${GETVERSION_FILE}
-tar xf control.tar.* ./control
+tar xf control.tar.*
 VERSION=$(grep Version control | cut -d " " -f 2)
 #echo "Version is: " ${VERSION}
 mv postinst ../ricoh_igel_postinst.sh
