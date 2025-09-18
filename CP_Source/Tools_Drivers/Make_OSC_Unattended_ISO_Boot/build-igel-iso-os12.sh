@@ -2,6 +2,8 @@
 
 # Fetch and display IGEL OS versions, download, unpack, patch ISO, write to USB
 
+sudo apt install curl -y
+
 RELEASE_URL="https://igel-community.github.io/IGEL-Docs-v02/Docs/ReleaseNotes/04-OS12/"
 DOWNLOAD_BASE_URL="https://igeldownloadprod-bydsc8hmbsaegvdy.a01.azurefd.net/files/IGEL_OS_12/OSC"
 
