@@ -1,0 +1,7 @@
+[INFO]
+[PART]
+file="fujitsu.tar.bz2"
+version="X.X.X"
+size="50M"
+name="fujitsu"
+minfw="11.10.430"
