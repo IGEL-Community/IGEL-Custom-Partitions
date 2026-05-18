@@ -11,3 +11,5 @@
 | Package automation OS 11.10.190+ / 12.5.1+ | [build-sapgui-cp-v2.sh](build/build-sapgui-cp-v2.sh) |
 
 -----
+
+- [SAP GUI - OS 12 - App Recipe](https://github.com/IGEL-Community/IGEL-OS-APP-RECIPES/tree/main/APP_Source/Apps/sapgui)
